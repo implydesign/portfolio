@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <title>locatour - exported project</title>
+    <meta property="og:title" content="locatour - exported project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./locatour.css" rel="stylesheet" />
+
+      <main class="locatour-container">
+        <div class="locatour-desknav">
+          <div class="locatour-logotype">
+            <div class="locatour-logo">
+              <img
+                alt="Imply Logo"
+                src="public/moblogo.svg"
+                loading="eager"
+                class="locatour-m"
+              />
+            </div>
+          </div>
+          <div class="locatour-nav">
+            <div class="locatour-navitem">
+              <span class="locatour-text">Get to Know Me</span>
+            </div>
+            <div class="locatour-navitem1">
+              <span class="locatour-text01">Browse Works</span>
+            </div>
+            <div class="locatour-navitem2">
+              <span class="locatour-text02">View Archive</span>
+            </div>
+            <div class="locatour-navitem3">
+              <img
+                alt="open in new window (arrow symbol)"
+                src="public/external/arrowop1001-h8e9.svg"
+                loading="eager"
+                class="locatour-arrowop"
+              />
+              <span class="locatour-text03">Open CV</span>
+            </div>
+          </div>
+        </div>
+        <div class="locatour-mobnav">
+          <div class="locatour-logotype1">
+            <div class="locatour-logo1">
+              <img
+                alt="Imply Logo"
+                src="public/moblogo.svg"
+                loading="eager"
+                class="locatour-m1"
+              />
+            </div>
+          </div>
+          <div class="locatour-nav1">
+            <div class="locatour-navitem4">
+              <img
+                alt="open in new window (arrow symbol)"
+                src="public/external/arrowop1001-h8e9.svg"
+                loading="eager"
+                class="locatour-arrowop1"
+              />
+              <span class="locatour-text04">Open CV</span>
+            </div>
+          </div>
+        </div>
+        <div class="locatour-frame67">
+          <div class="locatour-top">
+            <span class="locatour-text05">product design</span>
+            <span class="locatour-text06">Locatour — traveling mobile app</span>
+            <span class="locatour-text07">
+              <span>
+                Locatour is a mobile application that provides personalised
+                traveling recommendations in the form of user-generated "fast
+                content". This social network enables travelers to join
+                communities and exchange useful information.
+              </span>
+              <br />
+            </span>
+            <div class="locatour-row">
+              <div class="locatour-frame62">
+                <span class="locatour-text10">January 2023 · 2 min read</span>
+              </div>
+              <div class="locatour-control">
+                <img
+                  alt="Iosshare1633"
+                  src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
+                  class="locatour-iosshare"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="locatour-paragraph">
+            <span class="locatour-text11">Background</span>
+            <div class="locatour-container1">
+              <span class="locatour-text12">
+                What if a social media platform can turn into a personalised
+                search engine making your traveling experience authentic?
+              </span>
+              <span class="locatour-text13">
+                Available on iOS and Android, the app is an audiovisual
+                recommendation system for travelers providing them with
+                real-time updates based on Azure Stream Analytics technology.
+              </span>
+              <span class="locatour-text14">
+                The target audience includes travelers who need help when
+                visiting new places, users looking to change their place of
+                residence, and influencers keen on sharing interesting places.
+              </span>
+            </div>
+          </div>
+          <img
+            alt="sign up card"
+            src="public/desktv-1500w.png"
+            class="locatour-imagedesk"
+          />
+          <img
+            alt="sign up card"
+            src="public/mobtv-1500w.png"
+            class="locatour-imagemob"
+          />
+          <div class="locatour-paragraph1">
+            <span class="locatour-text15">Recommendation System</span>
+            <div class="locatour-container2">
+              <span class="locatour-text16">
+                <span>
+                  The onboarding process in the app prompts users to pick a few
+                  categories of interest, for which they provide reaction-based
+                  feedback by liking or skipping cards (also known as swiping).
+                  That allows the system to show personalised results from the
+                  very beginning.
+                </span>
+                <br />
+                <span></span>
+              </span>
+              <span class="locatour-text20">
+                <span>
+                  The content-based filtering continuously recommends results
+                  with similar content to the one the user liked.
+                </span>
+                <br />
+              </span>
+              <span class="locatour-text23">
+                <span>
+                  Next, the collaborative filtering begins when we get to know
+                  the user better and connect this information with user
+                  ratings. Leveraging the user-to-user approach, the system
+                  looks for dependencies between users, so the recommended
+                  results (e.g. places) for a traveler are based on what other
+                  similar users liked. With the item-to-item approach, we also
+                  find similarities between user-generated content (e.g. shared
+                  tourist attractions), then because the user likes one place
+                  the other most similar will be recommended.
+                </span>
+                <br />
+              </span>
+            </div>
+          </div>
+          <div class="locatour-paragraph2">
+            <span class="locatour-text26">User Needs</span>
+            <div class="locatour-container3">
+              <span class="locatour-text27">
+                Locatour connects people in travelling experience and helps them
+                to find friends in new places.
+              </span>
+              <span class="locatour-text28">
+                The platform’s map is always up-to-date and shows open places
+                where the traveller can get necessities, exchange currency, etc.
+                It also helps to find places where the staff speaks a specific
+                language (e.g. English-speaking) for those who don’t know the
+                foreign language.
+              </span>
+              <span class="locatour-text29">
+                <span>
+                  The app empowers the development and growth of local
+                  communities and embraces sharing authentic content.
+                </span>
+                <br />
+              </span>
+            </div>
+          </div>
+          <div class="locatour-paragraph3">
+            <span class="locatour-text32">Safety</span>
+            <div class="locatour-container4">
+              <span class="locatour-text33">
+                <span>
+                  All users are verified and comply with community guidelines.
+                  The full name is required for the Sign Up, but the user can
+                  hide it and display their nickname instead. Also, they can
+                  choose who sees their avatar. The platform’s guidelines
+                  include recommendations like posting the story from the
+                  visited place only after you left it, posting sensitive
+                  information like departure dates is not allowed, one should
+                  not disclose if they travel alone, etc.
+                </span>
+                <br />
+              </span>
+            </div>
+          </div>
+          <img
+            alt="sign up card"
+            src="public/desktv-1500w.png"
+            class="locatour-imagedesk1"
+          />
+          <img
+            alt="sign up card"
+            src="public/mobtv-1500w.png"
+            class="locatour-imagemob1"
+          />
+          <div class="locatour-paragraph4">
+            <span class="locatour-text36">Community</span>
+            <div class="locatour-container5">
+              <span class="locatour-text37">
+                Thriving communities are essential in Locatour. Users create
+                groups by places or activities of interest, where they can share
+                insights and make plans to visit, say for example, exhibitions
+                together.
+              </span>
+              <span class="locatour-text38">
+                We saw the evident need for that as people already were building
+                local networks across social media accounts on Instagram and in
+                group chats of messengers like Telegram.
+              </span>
+              <span class="locatour-text39">
+                <span>
+                  Users update the map, discuss topics related to the place,
+                  provide advices like where to buy food or rent, share
+                  authentic photos.&nbsp;The group can be of a restricted
+                  access, administrated. You can keep a group public, like a
+                  channel, for example to update everyone on the events in your
+                  community cafe.
+                </span>
+                <br />
+              </span>
+            </div>
+          </div>
+          <div class="locatour-container6">
+            <div class="locatour-container7">
+              <div style="display: flex;">
+                <iframe
+                  style="border: 1px solid rgba(0, 0, 0, 0.1); align-self:center; width:100%; height:90vh;"
+                  src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fht4gANa2td35LgC5z6CYGA%2FLocatour%3Ftype%3Ddesign%26node-id%3D1623-796%26t%3DvHltB3nu1HXrk9pZ-1%26scaling%3Dcontain%26page-id%3D1602%253A575%26mode%3Ddesign"
+                  allowfullscreen=""
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>

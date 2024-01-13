@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <title>exported project</title>
+    <meta property="og:title" content="exported project" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+
+    <style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: inherit;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: Inter;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./index.css" rel="stylesheet" />
+
+      <main class="portfolio-container">
+        <div class="portfolio-container1">
+          <div class="portfolio-container2">
+            <link
+              rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+            />
+            <style>
+              @keyframes jumbo {
+                  from {
+                      background-position: 50% 50%, 50% 50%;
+                  }
+                  to {
+                      background-position: 350% 50%, 350% 50%;
+                  }
+              }
+
+              .jumbo {
+                  --stripes: repeating-linear-gradient(
+                      100deg,
+                      #fff 0%,
+                      #fff 7%,
+                      transparent 10%,
+                      transparent 12%,
+                      #fff 16%
+                  );
+                  --stripesDark: repeating-linear-gradient(
+                      100deg,
+                      #000 0%,
+                      #000 7%,
+                      transparent 10%,
+                      transparent 12%,
+                      #000 16%
+                  );
+                  --rainbow: repeating-linear-gradient(
+                      100deg,
+                      #60a5fa 10%,
+                      #e879f9 15%,
+                      #60a5fa 20%,
+                      #5eead4 25%,
+                      #60a5fa 30%
+                  );
+                  background-image: var(--stripes), var(--rainbow);
+                  background-size: 300%, 200%;
+                  background-position: 50% 50%, 50% 50%;
+
+                  filter: blur(10px) invert(100%);
+
+                  mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
+
+                  pointer-events: none;
+              }
+
+              .jumbo::after {
+                  content: '';
+                  position: absolute;
+                  inset: 0;
+                  background-image: var(--stripes), var(--rainbow);
+                  background-size: 200%, 100%;
+                  animation: jumbo 110s linear infinite;
+                  background-attachment: fixed;
+                  mix-blend-mode: difference;
+              }
+
+              .dark .jumbo {
+                  background-image: var(--stripesDark), var(--rainbow);
+                  filter: blur(10px) opacity(40%) saturate(250%);
+              }
+
+              .dark .jumbo::after {
+                  background-image: var(--stripesDark), var(--rainbow);
+              }
+            </style>
+
+            <section>
+              <div
+                class="dark relative flex flex-col h-screen items-center justify-center bg-black transition-bg"
+              >
+                <div class="dark absolute inset-0 overflow-hidden">
+                  <div class="dark jumbo absolute -inset-10 opacity-50"></div>
+                </div>
+              </div>
+            </section>
+
+            <script src="https://cdn.tailwindcss.com"></script>
+          </div>
+        </div>
+        <div class="portfolio-desknav">
+          <div class="portfolio-logotype">
+            <div class="portfolio-logo">
+              <img
+                alt="Imply Logo"
+                src="public/moblogo.svg"
+                loading="eager"
+                class="portfolio-m"
+              />
+            </div>
+          </div>
+          <div class="portfolio-nav">
+            <div class="portfolio-navitem">
+              <span class="portfolio-text">Get to Know Me</span>
+            </div>
+            <div class="portfolio-navitem1">
+              <span class="portfolio-text01">Browse Works</span>
+            </div>
+            <div class="portfolio-navitem2">
+              <span class="portfolio-text02">View Archive</span>
+            </div>
+            <div class="portfolio-navitem3">
+              <img
+                alt="open in new window (arrow symbol)"
+                src="public/external/arrowop1001-h8e9.svg"
+                loading="eager"
+                class="portfolio-arrowop"
+              />
+              <span class="portfolio-text03">Open CV</span>
+            </div>
+          </div>
+        </div>
+        <div class="portfolio-mobnav">
+          <div class="portfolio-logotype1">
+            <div class="portfolio-logo1">
+              <img
+                alt="Imply Logo"
+                src="public/moblogo.svg"
+                loading="eager"
+                class="portfolio-m1"
+              />
+            </div>
+          </div>
+          <div class="portfolio-nav1">
+            <div class="portfolio-navitem4">
+              <img
+                alt="open in new window (arrow symbol)"
+                src="public/external/arrowop1001-h8e9.svg"
+                loading="eager"
+                class="portfolio-arrowop1"
+              />
+              <span class="portfolio-text04">Open CV</span>
+            </div>
+          </div>
+        </div>
+        <section class="portfolio-hero">
+          <div class="portfolio-quotedesk">
+            <div class="portfolio-row">
+              <img
+                alt="for all (logic symbol)"
+                src="public/a.svg"
+                loading="eager"
+                class="portfolio-a"
+              />
+              <span class="portfolio-text05"><span>design</span></span>
+              <img
+                alt="is an element of (math symbol)"
+                src="public/e.svg"
+                loading="eager"
+                class="portfolio-e"
+              />
+              <span class="portfolio-text07"><span>true</span></span>
+              <img
+                alt="if and only if (logic symbol)"
+                src="public/arr.svg"
+                loading="eager"
+                class="portfolio-arr"
+              />
+              <span class="portfolio-text09"><span>meaning</span></span>
+            </div>
+            <div class="portfolio-row1">
+              <img
+                alt="and (logic symbol)"
+                src="public/tr.svg"
+                loading="eager"
+                class="portfolio-tr"
+              />
+              <span class="portfolio-text11"><span>(function</span></span>
+              <img
+                alt="implies (logic symbol)"
+                src="public/impl.svg"
+                loading="eager"
+                class="portfolio-impl"
+              />
+              <span class="portfolio-text13"><span>form)</span></span>
+            </div>
+          </div>
+          <div class="portfolio-quotemob">
+            <div class="portfolio-row2">
+              <img
+                alt="for all (logic symbol)"
+                src="public/a.svg"
+                loading="eager"
+                class="portfolio-a1"
+              />
+              <span class="portfolio-text15"><span>design</span></span>
+              <img
+                alt="is an element of (math symbol)"
+                src="public/e.svg"
+                loading="eager"
+                class="portfolio-e1"
+              />
+              <span class="portfolio-text17"><span>true</span></span>
+            </div>
+            <div class="portfolio-row3">
+              <img
+                alt="if and only if (logic symbol)"
+                src="public/arr.svg"
+                loading="eager"
+                class="portfolio-arr1"
+              />
+              <span class="portfolio-text19"><span>meaning</span></span>
+            </div>
+            <div class="portfolio-row4">
+              <img
+                alt="and (logic symbol)"
+                src="public/tr.svg"
+                loading="eager"
+                class="portfolio-tr1"
+              />
+              <span class="portfolio-text21"><span>(function</span></span>
+              <img
+                alt="implies (logic symbol)"
+                src="public/impl.svg"
+                loading="eager"
+                class="portfolio-impl1"
+              />
+              <span class="portfolio-text23"><span>form)</span></span>
+            </div>
+          </div>
+          <div class="portfolio-textcont">
+            <span class="portfolio-text25">
+              As a designer of function and form, I turn complex systems into
+              simple experiences.
+            </span>
+            <span class="portfolio-text26">
+              I create solutions for digital transformations.
+            </span>
+          </div>
+          <div class="portfolio-mainbutton">
+            <img
+              alt="buttonbg"
+              src="public/elipse%20(1).svg"
+              class="portfolio-ellipse5"
+            />
+            <span class="portfolio-text27"><span>Get In Touch</span></span>
+            <img alt="Send icon" src="public/send.svg" class="portfolio-send" />
+          </div>
+        </section>
+        <section class="portfolio-introcontentsmob">
+          <div class="portfolio-intromob">
+            <div class="portfolio-top">
+              <div class="portfolio-fg">
+                <img
+                  alt="line divider"
+                  src="public/divider.svg"
+                  class="portfolio-rectangle16"
+                />
+                <span class="portfolio-text29">
+                  Let's innovate products together!
+                </span>
+              </div>
+              <img
+                alt="Olha Polishchuk"
+                src="public/avatarnew-2-1500w.png"
+                class="portfolio-avatarnew21"
+              />
+            </div>
+            <div class="portfolio-intromobtext">
+              <img
+                alt="line divider"
+                src="public/divider.svg"
+                class="portfolio-rectangle161"
+              />
+              <div class="portfolio-text30">
+                <span class="portfolio-text31">
+                  <span>
+                    I specialise in UX/UI and have 3+ years of commercial
+                    experience in the design field.
+                  </span>
+                </span>
+                <span class="portfolio-text33">
+                  Passionate about Health &amp; Wellness Tech industries, I'm
+                  particularly interested in SaMD.
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-mobwrapper">
+            <div class="portfolio-statscontainermob">
+              <div class="portfolio-stats">
+                <div class="portfolio-item">
+                  <span class="portfolio-text34">
+                    Хататон 4.0: Ukraine Heritage Edition
+                  </span>
+                  <img
+                    alt="line divider"
+                    src="public/divider.svg"
+                    class="portfolio-rectangle162"
+                  />
+                  <span class="portfolio-text35">
+                    Team Lead of the web project in the top 15 hackathon
+                    finalists
+                  </span>
+                  <span class="portfolio-text36">2023</span>
+                </div>
+                <div class="portfolio-item1">
+                  <span class="portfolio-text37">DEV Challenge&nbsp;XVII</span>
+                  <img
+                    alt="line divider"
+                    src="public/divider.svg"
+                    class="portfolio-rectangle163"
+                  />
+                  <span class="portfolio-text38">
+                    <span>2nd place in</span>
+                    <span>in the nomination App Design (UI) Lite</span>
+                  </span>
+                  <span class="portfolio-text41">2020</span>
+                </div>
+              </div>
+            </div>
+            <div class="portfolio-card">
+              <div class="portfolio-cardheader">
+                <div class="portfolio-title">
+                  <div class="portfolio-contents">
+                    <div class="portfolio-subheader">
+                      <span class="portfolio-text42 OtherOverlineMobile">
+                        <span>Health tech</span>
+                      </span>
+                    </div>
+                    <span class="portfolio-text44 HeadlineH6mobile">
+                      Food delivery app because 2 rows title
+                    </span>
+                  </div>
+                  <span class="portfolio-text45 OtherCaptionMobile">
+                    <span>July 2021</span>
+                  </span>
+                </div>
+                <span class="portfolio-text47 TextSecondaryMobile">
+                  <span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    accumsan ligula id justo ultricies, vel luctus libero
+                    volutpat.
+                  </span>
+                </span>
+                <button class="portfolio-buttonicon">
+                  <span class="portfolio-text49 ActionTertiary">
+                    <span>View Project</span>
+                  </span>
+                  <img
+                    alt="arrowI421"
+                    src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
+                    class="portfolio-arrow"
+                  />
+                </button>
+              </div>
+              <img
+                alt="Vego24210"
+                src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
+                class="portfolio-vego2"
+              />
+            </div>
+            <div class="portfolio-card1">
+              <div class="portfolio-cardheader1">
+                <div class="portfolio-title1">
+                  <div class="portfolio-contents1">
+                    <div class="portfolio-subheader1">
+                      <span class="portfolio-text51 OtherOverlineMobile">
+                        <span>Health tech</span>
+                      </span>
+                    </div>
+                    <span class="portfolio-text53 HeadlineH6mobile">
+                      Food delivery app because 2 rows title
+                    </span>
+                  </div>
+                  <span class="portfolio-text54 OtherCaptionMobile">
+                    <span>July 2021</span>
+                  </span>
+                </div>
+                <span class="portfolio-text56 TextSecondaryMobile">
+                  <span>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                    accumsan ligula id justo ultricies, vel luctus libero
+                    volutpat.
+                  </span>
+                </span>
+                <button class="portfolio-buttonicon1">
+                  <img
+                    alt="arrowI421"
+                    src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
+                    class="portfolio-arrow1"
+                  />
+                  <span class="portfolio-text58 ActionTertiary">
+                    <span>View Project</span>
+                  </span>
+                </button>
+              </div>
+              <img
+                alt="Vego24210"
+                src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
+                class="portfolio-vego21"
+              />
+            </div>
+          </div>
+        </section>
+        <section class="portfolio-introdesk">
+          <div class="portfolio-top1">
+            <img
+              alt="Olha Polishchuk"
+              src="public/avatarnew-2-1500w.png"
+              class="portfolio-avatarnew211"
+            />
+            <div class="portfolio-fg1">
+              <img
+                alt="line divider"
+                src="public/divider.svg"
+                class="portfolio-rectangle164"
+              />
+              <span class="portfolio-text60">
+                Let's innovate products together!
+              </span>
+            </div>
+          </div>
+          <div class="portfolio-introtext">
+            <img
+              alt="line divider"
+              src="public/divider.svg"
+              class="portfolio-rectangle165"
+            />
+            <div class="portfolio-text61">
+              <span class="portfolio-text62">
+                <span>
+                  I specialise in UX/UI and have 3+ years of commercial
+                  experience in the design field.
+                </span>
+              </span>
+              <span class="portfolio-text64">
+                Passionate about Health &amp; Wellness Tech industries, I'm
+                particularly interested in SaMD.
+              </span>
+            </div>
+            <div class="portfolio-mainbutton1">
+              <img
+                alt="buttonbg"
+                src="public/elipse.svg"
+                class="portfolio-ellipse51"
+              />
+              <div class="portfolio-cta">
+                <span class="portfolio-text65"><span>Get In Touch</span></span>
+                <img
+                  alt="Send1372"
+                  src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
+                  class="portfolio-send1"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="portfolio-deskwrapper">
+          <div class="portfolio-statscontainer">
+            <div class="portfolio-stats1">
+              <div class="portfolio-item2">
+                <span class="portfolio-text67">
+                  Хататон 4.0: Ukraine Heritage Edition
+                </span>
+                <img
+                  alt="line divider"
+                  src="public/divider.svg"
+                  class="portfolio-rectangle166"
+                />
+                <span class="portfolio-text68">
+                  Team Lead of the web project in the top 15 hackathon finalists
+                </span>
+                <span class="portfolio-text69">2023</span>
+              </div>
+              <div class="portfolio-item3">
+                <span class="portfolio-text70">DEV Challenge&nbsp;XVII</span>
+                <img
+                  alt="line divider"
+                  src="public/divider.svg"
+                  class="portfolio-rectangle167"
+                />
+                <span class="portfolio-text71">
+                  <span>2nd place in</span>
+                  <span>in the nomination App Design (UI) Lite</span>
+                </span>
+                <span class="portfolio-text74">2020</span>
+              </div>
+            </div>
+          </div>
+          <div class="portfolio-cards">
+            <div class="portfolio-carddesktop">
+              <div class="portfolio-headercard">
+                <div class="portfolio-title2">
+                  <div class="portfolio-subheader2">
+                    <span class="portfolio-text75 OtherOverline">
+                      <span>Published on</span>
+                    </span>
+                  </div>
+                  <span class="portfolio-text77 HeadlineH6">
+                    Food delivery app because 2 rows title
+                  </span>
+                </div>
+                <span class="portfolio-text78 OtherCaption">
+                  <span>July 2021</span>
+                </span>
+              </div>
+              <span class="portfolio-text80 TextSecondary">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                accumsan ligula id justo ultricies, vel luctus libero volutpat.
+              </span>
+              <button class="portfolio-buttonicon2">
+                <span class="portfolio-text81 ActionTertiary">
+                  <span>View Project</span>
+                </span>
+                <img
+                  alt="arrowI206"
+                  src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
+                  class="portfolio-arrow2"
+                />
+              </button>
+              <img
+                alt="Vego22064"
+                src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
+                class="portfolio-vego22"
+              />
+            </div>
+            <div class="portfolio-carddesktop1">
+              <div class="portfolio-headercard1">
+                <div class="portfolio-title3">
+                  <div class="portfolio-subheader3">
+                    <span class="portfolio-text83 OtherOverline">
+                      <span>Published on</span>
+                    </span>
+                  </div>
+                  <span class="portfolio-text85 HeadlineH6">
+                    <span>Food delivery app because 2 rows title</span>
+                  </span>
+                </div>
+                <span class="portfolio-text87 OtherCaption">
+                  <span>July 2021</span>
+                </span>
+              </div>
+              <span class="portfolio-text89 TextSecondary">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                accumsan ligula id justo ultricies, vel luctus libero volutpat.
+              </span>
+              <button class="portfolio-buttonicon3">
+                <img
+                  alt="arrowI206"
+                  src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
+                  class="portfolio-arrow3"
+                />
+                <span class="portfolio-text90 ActionTertiary">
+                  <span>View Project</span>
+                </span>
+              </button>
+              <img
+                alt="Vego22064"
+                src="https://play.teleporthq.io/static/svg/placeholders/no-image.svg"
+                class="portfolio-vego23"
+              />
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

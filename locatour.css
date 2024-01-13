@@ -1,0 +1,1080 @@
+.locatour-container {
+  gap: 8vh;
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  background-color: #f5f5f5;
+}
+.locatour-desknav {
+  gap: auto;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  display: flex;
+  z-index: 100;
+  position: fixed;
+  box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1);
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 1.5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 1.5%;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 1);
+}
+.locatour-logotype {
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+.locatour-logo {
+  width: 20vw;
+  height: 5vh;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.locatour-m {
+  height: 100%;
+  position: absolute;
+  box-sizing: content-box;
+}
+.locatour-nav {
+  gap: 4vw;
+  display: flex;
+  align-self: center;
+}
+.locatour-navitem {
+  height: auto;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.locatour-text {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.locatour-navitem1 {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.locatour-text01 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.locatour-navitem2 {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.locatour-text02 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.locatour-navitem3 {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.locatour-arrowop {
+  width: 1.8rem;
+  height: auto;
+}
+.locatour-text03 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.locatour-mobnav {
+  gap: auto;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  height: auto;
+  display: none;
+  positon: fixed;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 1);
+}
+.locatour-logotype1 {
+  height: 3.5vh;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+.locatour-logo1 {
+  width: 32vw;
+  height: 3vh;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.locatour-m1 {
+  height: 100%;
+  position: absolute;
+  box-sizing: content-box;
+}
+.locatour-nav1 {
+  gap: 8px;
+  height: 3.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.locatour-navitem4 {
+  height: 3vh;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.locatour-arrowop1 {
+  width: 1.8rem;
+  height: auto;
+}
+.locatour-text04 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.locatour-frame67 {
+  gap: 6vh;
+  width: 100%;
+  height: auto;
+  display: flex;
+  margin-top: 20vh;
+  align-items: center;
+  flex-shrink: 0;
+  padding-left: 20%;
+  padding-right: 20%;
+  flex-direction: column;
+  padding-bottom: 10%;
+}
+.locatour-top {
+  gap: 4vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  flex-shrink: 0;
+  border-color: rgba(228, 228, 228, 1);
+  border-style: solid;
+  border-width: 0 0 1px;
+  flex-direction: column;
+  padding-bottom: 2vh;
+}
+.locatour-text05 {
+  color: var(--dl-color-default-black);
+  height: auto;
+  font-size: 1.3em;
+  font-style: Light;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-transform: uppercase;
+}
+.locatour-text06 {
+  color: var(--dl-color-default-black);
+  height: auto;
+  font-size: 3.5em;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: "Raleway";
+  font-weight: 600;
+  line-height: normal;
+  font-stretch: normal;
+}
+.locatour-text07 {
+  color: var(--dl-color-default-black);
+  height: auto;
+  font-size: 1.7em;
+  align-self: stretch;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 400;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-row {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: center;
+}
+.locatour-frame62 {
+  gap: 4vw;
+  display: flex;
+  flex-grow: 1;
+  align-items: center;
+}
+.locatour-text10 {
+  color: var(--dl-color-default-black);
+  height: auto;
+  font-size: 1.3em;
+  font-style: Light;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.locatour-control {
+  gap: 4vw;
+  display: flex;
+  padding: 0.8vw;
+  align-items: center;
+  border-color: rgba(0, 0, 0, 1);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 100px;
+  justify-content: center;
+}
+.locatour-iosshare {
+  width: 2em;
+  height: auto;
+}
+.locatour-paragraph {
+  gap: 3vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.locatour-text11 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 2.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Raleway";
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.locatour-container1 {
+  gap: 1.5vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.locatour-text12 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-text13 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-text14 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-imagedesk {
+  width: 100%;
+  object-fit: cover;
+}
+.locatour-imagemob {
+  width: 100%;
+  display: none;
+  object-fit: cover;
+}
+.locatour-paragraph1 {
+  gap: 3vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.locatour-text15 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 2.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Raleway";
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.locatour-container2 {
+  gap: 1.5vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.locatour-text16 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-text20 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-text23 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-paragraph2 {
+  gap: 3vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.locatour-text26 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 2.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Raleway";
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.locatour-container3 {
+  gap: 1.5vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.locatour-text27 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-text28 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-text29 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-paragraph3 {
+  gap: 3vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.locatour-text32 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 2.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Raleway";
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.locatour-container4 {
+  gap: 1.5vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.locatour-text33 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-imagedesk1 {
+  width: 100%;
+  object-fit: cover;
+}
+.locatour-imagemob1 {
+  width: 100%;
+  display: none;
+  object-fit: cover;
+}
+.locatour-paragraph4 {
+  gap: 3vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.locatour-text36 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 2.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Raleway";
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.locatour-container5 {
+  gap: 1.5vh;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.locatour-text37 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-text38 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-text39 {
+  color: rgb(0, 0, 0);
+  width: 100%;
+  height: auto;
+  font-size: 1.5em;
+  font-style: normal;
+  text-align: left;
+  font-family: "Open Sans";
+  font-weight: 300;
+  line-height: auto;
+  font-stretch: normal;
+}
+.locatour-container6 {
+  width: 100%;
+}
+.locatour-container7 {
+  display: contents;
+}
+@media(max-width: 1600px) {
+  .locatour-desknav {
+    display: flex;
+    position: fixed;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  .locatour-logo {
+    height: 5vh;
+  }
+  .locatour-frame67 {
+    gap: 4vh;
+    padding-left: 16%;
+    padding-right: 16%;
+    justify-content: flex-start;
+  }
+  .locatour-top {
+    gap: 2vh;
+  }
+  .locatour-text05 {
+    font-size: 1em;
+  }
+  .locatour-text06 {
+    color: var(--dl-color-default-black);
+    font-size: 3em;
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 600;
+    line-height: normal;
+  }
+  .locatour-text07 {
+    font-size: 1.3em;
+  }
+  .locatour-text10 {
+    font-size: 1em;
+  }
+  .locatour-iosshare {
+    width: 1.5em;
+  }
+  .locatour-text11 {
+    font-size: 2em;
+  }
+  .locatour-text12 {
+    font-size: 1.2em;
+  }
+  .locatour-text13 {
+    font-size: 1.2em;
+  }
+  .locatour-text14 {
+    font-size: 1.2em;
+  }
+  .locatour-text15 {
+    font-size: 2em;
+  }
+  .locatour-text16 {
+    font-size: 1.2em;
+  }
+  .locatour-text20 {
+    font-size: 1.2em;
+  }
+  .locatour-text23 {
+    font-size: 1.2em;
+  }
+  .locatour-text26 {
+    font-size: 2em;
+  }
+  .locatour-text27 {
+    font-size: 1.2em;
+  }
+  .locatour-text28 {
+    font-size: 1.2em;
+  }
+  .locatour-text29 {
+    font-size: 1.2em;
+  }
+  .locatour-text32 {
+    font-size: 2em;
+  }
+  .locatour-text33 {
+    font-size: 1.2em;
+  }
+  .locatour-text36 {
+    font-size: 2em;
+  }
+  .locatour-text37 {
+    font-size: 1.2em;
+  }
+  .locatour-text38 {
+    font-size: 1.2em;
+  }
+  .locatour-text39 {
+    font-size: 1.2em;
+  }
+}
+@media(max-width: 1200px) {
+  .locatour-desknav {
+    display: flex;
+    position: fixed;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+  .locatour-logo {
+    height: 5vh;
+  }
+  .locatour-frame67 {
+    gap: 3vh;
+    padding-left: 12%;
+    padding-right: 12%;
+  }
+  .locatour-text05 {
+    font-size: 0.8em;
+  }
+  .locatour-text06 {
+    font-size: 2.5em;
+  }
+  .locatour-text07 {
+    font-size: 1.1em;
+  }
+  .locatour-text10 {
+    font-size: 0.8em;
+  }
+  .locatour-iosshare {
+    width: 1.3em;
+  }
+  .locatour-text11 {
+    font-size: 1.5em;
+  }
+  .locatour-text12 {
+    font-size: 0.9em;
+  }
+  .locatour-text13 {
+    font-size: 0.9em;
+  }
+  .locatour-text14 {
+    font-size: 0.9em;
+  }
+  .locatour-text15 {
+    font-size: 1.5em;
+  }
+  .locatour-text16 {
+    font-size: 0.9em;
+  }
+  .locatour-text20 {
+    font-size: 0.9em;
+  }
+  .locatour-text23 {
+    font-size: 0.9em;
+  }
+  .locatour-text26 {
+    font-size: 1.5em;
+  }
+  .locatour-text27 {
+    font-size: 0.9em;
+  }
+  .locatour-text28 {
+    font-size: 0.9em;
+  }
+  .locatour-text29 {
+    font-size: 0.9em;
+  }
+  .locatour-text32 {
+    font-size: 1.5em;
+  }
+  .locatour-text33 {
+    font-size: 0.9em;
+  }
+  .locatour-text36 {
+    font-size: 1.5em;
+  }
+  .locatour-text37 {
+    font-size: 0.9em;
+  }
+  .locatour-text38 {
+    font-size: 0.9em;
+  }
+  .locatour-text39 {
+    font-size: 0.9em;
+  }
+}
+@media(max-width: 900px) {
+  .locatour-desknav {
+    gap: 0;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .locatour-logo {
+    width: 32vw;
+    height: 4vh;
+  }
+  .locatour-nav {
+    width: auto;
+    align-self: center;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .locatour-navitem {
+    width: auto;
+    height: 3vh;
+    display: none;
+    flex-direction: column;
+  }
+  .locatour-text {
+    color: rgb(0, 0, 0);
+    width: 100%;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .locatour-navitem1 {
+    height: 3vh;
+    align-self: flex-start;
+    flex-direction: column;
+  }
+  .locatour-text01 {
+    color: rgb(0, 0, 0);
+    width: 100%;
+    height: auto;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .locatour-navitem2 {
+    width: auto;
+    height: 3vh;
+    align-self: flex-start;
+    flex-direction: column;
+  }
+  .locatour-text02 {
+    color: rgb(0, 0, 0);
+    width: 100%;
+    display: none;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .locatour-navitem3 {
+    height: 3vh;
+    align-self: flex-start;
+  }
+  .locatour-mobnav {
+    display: none;
+  }
+  .locatour-frame67 {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+  .locatour-text06 {
+    font-size: 2em;
+  }
+  .locatour-text07 {
+    font-size: 1em;
+  }
+  .locatour-row {
+    padding-top: 1vh;
+  }
+  .locatour-iosshare {
+    width: 1.2em;
+  }
+  .locatour-text11 {
+    font-size: 1.3em;
+  }
+  .locatour-imagedesk {
+    display: none;
+  }
+  .locatour-imagemob {
+    display: flex;
+  }
+  .locatour-text15 {
+    font-size: 1.3em;
+  }
+  .locatour-text26 {
+    font-size: 1.3em;
+  }
+  .locatour-text32 {
+    font-size: 1.3em;
+  }
+  .locatour-imagedesk1 {
+    display: none;
+  }
+  .locatour-imagemob1 {
+    display: flex;
+  }
+  .locatour-text36 {
+    font-size: 1.3em;
+  }
+}
+@media(max-width: 375px) {
+  .locatour-desknav {
+    width: 100%;
+    display: none;
+    z-index: 100;
+    position: fixed;
+    box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1);
+    align-items: flex-start;
+    padding-top: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 4%;
+  }
+  .locatour-logo {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .locatour-mobnav {
+    width: 100%;
+    display: flex;
+    z-index: 100;
+    position: fixed;
+    box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1);
+    padding-top: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 4%;
+  }
+  .locatour-logo1 {
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .locatour-frame67 {
+    margin-top: 10vh;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+  .locatour-text06 {
+    font-size: 1.8em;
+  }
+  .locatour-control {
+    padding: 2vw;
+  }
+  .locatour-iosshare {
+    width: 1.1em;
+  }
+  .locatour-text12 {
+    font-size: 1em;
+  }
+  .locatour-text13 {
+    font-size: 1em;
+  }
+  .locatour-text14 {
+    font-size: 1em;
+  }
+  .locatour-text16 {
+    font-size: 1em;
+  }
+  .locatour-text20 {
+    font-size: 1em;
+  }
+  .locatour-text23 {
+    font-size: 1em;
+  }
+  .locatour-text27 {
+    font-size: 1em;
+  }
+  .locatour-text28 {
+    font-size: 1em;
+  }
+  .locatour-text29 {
+    font-size: 1em;
+  }
+  .locatour-text33 {
+    font-size: 1em;
+  }
+  .locatour-text37 {
+    font-size: 1em;
+  }
+  .locatour-text38 {
+    font-size: 1em;
+  }
+  .locatour-text39 {
+    font-size: 1em;
+  }
+}
+@media(max-width: 320px) {
+  .locatour-desknav {
+    width: 100%;
+    display: none;
+    z-index: 100;
+    position: fixed;
+    box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1);
+    align-items: stretch;
+    padding-top: 3.5%;
+  }
+  .locatour-logotype {
+    align-items: center;
+  }
+  .locatour-logo {
+    width: 32vw;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .locatour-m {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    bottom: 0px;
+    margin: auto;
+  }
+  .locatour-text {
+    color: rgb(0, 0, 0);
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .locatour-text01 {
+    color: rgb(0, 0, 0);
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .locatour-text02 {
+    color: rgb(0, 0, 0);
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .locatour-text03 {
+    color: rgb(0, 0, 0);
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .locatour-mobnav {
+    width: 100%;
+    display: flex;
+    z-index: 100;
+    position: fixed;
+    box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1);
+    padding-top: 3.5%;
+  }
+  .locatour-logotype1 {
+    align-items: center;
+  }
+  .locatour-logo1 {
+    width: 32vw;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .locatour-m1 {
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    bottom: 0px;
+    margin: auto;
+  }
+  .locatour-text04 {
+    color: rgb(0, 0, 0);
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .locatour-frame67 {
+    margin-top: 9vh;
+  }
+  .locatour-text06 {
+    font-size: 1.6em;
+  }
+  .locatour-iosshare {
+    width: 1em;
+  }
+}
