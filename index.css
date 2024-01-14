@@ -1014,8 +1014,8 @@
   margin-top: -8vh;
   align-items: center;
   padding-top: 5%;
-  padding-left: 16%;
-  padding-right: 16%;
+  padding-left: 8%;
+  padding-right: 8%;
   flex-direction: column;
   padding-bottom: 16%;
   background-color: #ffffff;
@@ -1138,7 +1138,7 @@
   justify-content: space-between;
 }
 .portfolio-carddesktop {
-  gap: 32px;
+  gap: 4vh;
   width: 48%;
   display: flex;
   align-items: flex-start;
@@ -1224,7 +1224,7 @@
   align-self: stretch;
 }
 .portfolio-carddesktop1 {
-  gap: 32px;
+  gap: 4vh;
   width: 48%;
   display: flex;
   align-items: flex-start;
@@ -1360,10 +1360,6 @@
   }
   .portfolio-send1 {
     width: 1.4rem;
-  }
-  .portfolio-deskwrapper {
-    padding-left: 12%;
-    padding-rught: 12%;
   }
   .portfolio-stats1 {
     gap: 4vw;
@@ -1509,10 +1505,6 @@
   }
   .portfolio-send1 {
     width: 1.rem;
-  }
-  .portfolio-deskwrapper {
-    padding-left: 10%;
-    padding-right: 10%;
   }
   .portfolio-cards {
     width: 100%;
