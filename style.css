@@ -40,6 +40,9 @@
   --dl-color-default-ligthgray: rgba(228, 228, 228, 1);
   --dl-space-space-oneandhalfunits: 24px;
 }
+body {
+font-family: sans-serif;
+}
 .button {
   color: var(--dl-color-gray-black);
   display: inline-block;
