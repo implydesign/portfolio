@@ -2,6 +2,50 @@ body {
 font-family: sans-serif;
 }
 
+.cta {
+  position: relative;
+  align-items: center;
+  margin: auto;
+  padding: 0.8rem 1rem 1.5rem 1.5rem;
+  transition: all 0.2s ease;
+}
+.cta:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 3em;
+  background: rgba(118, 154, 255, 0.7);
+  width: 3em;
+  height: 3em;
+  transition: all 0.3s ease;
+}
+.cta span {
+  position: relative;
+  font-size: 1.5rem;
+  line-height: auto;
+  font-weight: 500;
+  vertical-align: bottom;
+}
+.cta .portfolio-send1 {
+  position: relative;
+  top: 0;
+  margin-left: 1rem;
+  transform: translateX(-0.5rem);
+  transition: all 0.3s ease;
+}
+.cta:hover:before {
+  width: 100%;
+  background: #769aff;
+}
+.cta:hover .portfolio-send1 {
+  transform: translateX(0);
+}
+.cta:active {
+  transform: scale(1.1);
+}
+
 .portfolio-container {
   gap: 8vh;
   width: 100%;
