@@ -1574,6 +1574,10 @@ font-family: sans-serif;
   .portfolio-mainbutton {
     display: none;
   }
+  .ctam{
+    display:none;
+  }
+
   .portfolio-text27 {
     font-size: 1.5rem;
   }
@@ -1673,6 +1677,11 @@ font-family: sans-serif;
   .portfolio-mainbutton {
     display: flex;
   }
+  .ctam{
+display:flex;
+  }
+
+
   .portfolio-ellipse5 {
     top: 0px;
     width: 4em;
