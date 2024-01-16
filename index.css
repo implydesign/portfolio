@@ -6,7 +6,7 @@ font-family: sans-serif;
   position: relative;
   align-items: center;
   margin: auto;
-  padding: 0.8rem 1rem 1.5rem 1.5rem;
+  padding: 0.3rem 1rem 1.5rem 1.5rem;
   transition: all 0.2s ease;
 }
 .cta:before {
@@ -1015,10 +1015,8 @@ font-family: sans-serif;
 }
 .portfolio-mainbutton1 {
   width: auto;
-  height: 5vh;
   display: flex;
   position: relative;
-  margin-top: 2vh;
   align-items: center;
   flex-shrink: 1;
   align-content: center;
