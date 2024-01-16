@@ -32,6 +32,8 @@ font-family: sans-serif;
   top: 0;
   margin-left: 1rem;
   transform: translateX(-0.5rem);
+  -webkit-transform: translateX(-0.5rem);
+  -moz-transform: translateX(-0.5rem);
   transition: all 0.3s ease;
 }
 .cta:hover:before {
@@ -79,6 +81,8 @@ font-family: sans-serif;
   top: 0;
   margin-left: 0.5vw;
   transform: translateX(-1vw);
+  -webkit-transform: translateX(-1vw);
+  -moz-transform: translateX(-1vw);
   transition: all 0.3s ease;
 }
 .ctam:hover:before {
