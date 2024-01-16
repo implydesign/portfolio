@@ -45,6 +45,52 @@ font-family: sans-serif;
   transform: scale(0.99);
 }
 
+
+.ctam {
+  position: relative;
+  align-items: center;
+  padding: 0.3rem 1rem 1.5rem 1.5rem;
+  transition: all 0.2s ease;
+}
+.ctam:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  border-radius: 3em;
+  background: rgba(118, 154, 255, 0.7);
+  width: 3em;
+  height: 3em;
+  transition: all 0.3s ease;
+}
+.ctam span {
+  position: relative;
+  font-size: 1.5rem;
+  line-height: auto;
+  font-weight: 500;
+  vertical-align: bottom;
+}
+.ctam .portfolio-send {
+  position: relative;
+  top: 0;
+  margin-left: 1rem;
+  transform: translateX(-0.5rem);
+  transition: all 0.3s ease;
+}
+.ctam:hover:before {
+  width: 100%;
+  background: #5628F5;
+}
+.ctam:hover .portfolio-send {
+  transform: translateX(0);
+}
+.ctam:active {
+  transform: scale(0.99);
+}
+
+
+
 .portfolio-container {
   gap: 8vh;
   width: 100%;
