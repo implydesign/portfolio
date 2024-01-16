@@ -3,6 +3,10 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
+.btn{
+  border-radius: 100px;
+}
+
 .btn:before {
   background: #f5f5f5;
   content: "";
