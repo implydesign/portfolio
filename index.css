@@ -1660,7 +1660,7 @@ font-family: sans-serif;
     justify-content: flex-start;
   }
   .portfolio-hero {
-    
+    top:20%;
     padding-left: 8%;
     padding-right: 8%;
   }
@@ -1850,7 +1850,7 @@ display:flex;
     line-height: normal;
   }
   .portfolio-hero {
-    top: 0px;
+   
     left: 0px;
     right: 0px;
     bottom: 0px;
