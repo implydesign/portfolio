@@ -42,7 +42,7 @@ font-family: sans-serif;
   transform: translateX(0);
 }
 .cta:active {
-  transform: scale(0.99);
+  transform: scale(1.1);
 }
 
 
@@ -58,17 +58,18 @@ font-family: sans-serif;
   top: 0;
   left: 0;
   display: block;
-  border-radius: 3em;
-  background: rgba(118, 154, 255, 0.7);
-  width: 3em;
-  height: 3em;
+  border-radius: 4em;
+  background: rgba(86, 40, 245, 0.9);
+  width: 4em;
+  height: 4em;
   transition: all 0.3s ease;
 }
 .ctam span {
   position: relative;
   font-size: 1.5rem;
   line-height: auto;
-  font-weight: 500;
+  font-weight: 600;
+  text-color: #ffffff;
   vertical-align: bottom;
 }
 .ctam .portfolio-send {
@@ -86,7 +87,7 @@ font-family: sans-serif;
   transform: translateX(0);
 }
 .ctam:active {
-  transform: scale(0.99);
+  transform: scale(1.2);
 }
 
 
