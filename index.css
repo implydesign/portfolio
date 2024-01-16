@@ -58,10 +58,10 @@ font-family: sans-serif;
   top: 0;
   left: 0;
   display: block;
-  border-radius: 4em;
+  border-radius: 3.5em;
   background: rgba(86, 40, 245, 0.9);
-  width: 4em;
-  height: 4em;
+  width: 3.5em;
+  height: 3.5em;
   transition: all 0.3s ease;
 }
 .ctam span {
@@ -1937,7 +1937,7 @@ display:flex;
     color: #ffffff;
   }
   .portfolio-mainbutton {
-    height: 5vh;
+    
     justify-content: flex-start;
   }
   .portfolio-ellipse5 {
