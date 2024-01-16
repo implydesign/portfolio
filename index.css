@@ -4,56 +4,6 @@ font-family: sans-serif;
 }
 
 
-:root {
-  --footertext: #ffffff;
-  --footerline: #769AFF;
-  --footerline-active: #5628F5;
-}
-
-footer {
-  width: 100%;
-  padding: 8%;
-  margin: 0;
-  height: auto;
-  font-family: sans-serif, Open Sans;
-  background-color: transparent;
-}
-
-footer p {
-  font-size: 1rem;
-  margin: 0;
-  color: var(--footertext);
-}
-footer p a {
-  display: inline-block;
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-  margin: 0 var(--spacing, 0px);
-  transition: margin 0.25s;
-}
-footer p a svg {
-  width: 6rem;
-  height: 2.5rem;
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  transform: translate(-50%, 0.5rem) translateZ(0);
-  fill: none;
-  stroke: var(--stroke, var(--footerline));
-  stroke-linecap: round;
-  stroke-width: 0.1rem;
-  stroke-dasharray: var(--offset, 69px) 278px;
-  stroke-dashoffset: 361px;
-  transition: stroke 0.29s ease var(--stroke-delay, 0s), stroke-dasharray 0.39s;
-}
-footer p a:hover {
-  --spacing: 0.4rem;
-  --stroke: var(--footerline-active);
-  --stroke-delay: .1s;
-  --offset: 180px;
-}
-
 
 .cta {
   position: relative;
