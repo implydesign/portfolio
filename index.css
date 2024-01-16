@@ -56,7 +56,6 @@ font-family: sans-serif;
 .ctam:before {
   content: "";
   position: absolute;
-  top: 0;
   left: 0;
   display: block;
   border-radius: 3.5em;
