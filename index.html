@@ -1049,6 +1049,79 @@
 
       
     </div>
+<footer>
+    <style>
+        :root {
+  --footertext: #ffffff;
+  --footerline: #769AFF;
+  --footerline-active: #5628F5;
+}
+
+footer {
+  width: 100%;
+  padding: 8%;
+  margin: 0;
+  height: auto;
+  font-family: sans-serif, Open Sans;
+  background-color: #000000;
+}
+
+footer p {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--footertext);
+}
+footer p a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  margin: 0 var(--spacing, 0px);
+  transition: margin 0.25s;
+}
+footer p a svg {
+  width: 6rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0.5rem) translateZ(0);
+  fill: none;
+  stroke: var(--stroke, var(--footerline));
+  stroke-linecap: round;
+  stroke-width: 0.1rem;
+  stroke-dasharray: var(--offset, 69px) 278px;
+  stroke-dashoffset: 361px;
+  transition: stroke 0.29s ease var(--stroke-delay, 0s), stroke-dasharray 0.39s;
+}
+footer p a:hover {
+  --spacing: 0.4rem;
+  --stroke: var(--footerline-active);
+  --stroke-delay: .1s;
+  --offset: 180px;
+}
+    </style>
+    <img
+                alt="Imply Logo icon"
+                src="https://imply.design/public/iconw.svg"
+                loading="eager"
+                style="width:2.2rem;height:auto;"
+              />
+        <br><br>
+        <p>Some text &copy text Longer to Test the Text</p> <br>
+        
+<div> <p>
+    Let's connect:
+    <a href="#">
+        LinkedIn
+        <svg viewBox="0 0 70 36">
+            <path d="M6.9739 30.8153H63.0244C65.5269 30.8152 75.5358 -3.68471 35.4998 2.81531C-16.1598 11.2025 0.894099 33.9766 26.9922 34.3153C104.062 35.3153 54.5169 -6.68469 23.489 9.31527" />
+        </svg>
+    </a>
+</p>
+        </div>
+        
+    </footer>
 
      </body>
 </html>
