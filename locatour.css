@@ -3,11 +3,11 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
-a:hover {
+navh:hover {
   color: #000000;
 }
 
-a::before {
+navh::before {
   content: "";
   position: absolute;
   top: calc(-50%);
@@ -20,7 +20,7 @@ a::before {
   z-index: -100;
 }
 
-a:hover::before {
+navh:hover::before {
   transform: scale(1);
   transition: transform 0.3s ease;
 }
