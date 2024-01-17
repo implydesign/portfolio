@@ -11,7 +11,7 @@ a {
 }
 
 a:hover {
-  color: #000000;
+  color: inherit;
 }
 
 a::before {
