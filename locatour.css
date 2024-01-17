@@ -3,6 +3,13 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
+a {
+  position: relative;
+  text-decoration: none;
+  color: #949494;
+  transition: color 0.3s ease;
+}
+
 a:hover {
   color: #000000;
 }
