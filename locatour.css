@@ -6,7 +6,7 @@ font-family: sans-serif;
 a {
   position: relative;
   text-decoration: none;
-  color: #949494;
+  color: #000000;
   transition: color 0.3s ease;
 }
 
@@ -17,8 +17,8 @@ a:hover {
 a::before {
   content: "";
   position: absolute;
-  top: calc(15%);
-  
+  top: calc(-40%);
+  left: calc(50% - 1.5em);
   width: 3em;
   height: 3em;
   border-radius: 50%;
