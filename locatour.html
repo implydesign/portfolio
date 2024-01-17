@@ -535,5 +535,57 @@
         </div>
       </main>
     </div>
+
+<script>
+(function () {
+  var domReady = function (callback) {
+    document.readyState === 'interactive' || document.readyState === 'complete' ? callback() : document.addEventListener('DOMContentLoaded', callback);
+  };
+  domReady(function () {
+    dotMenu();
+  });
+})();
+
+const dotMenu = () => {
+  const headerNav = document.querySelector('.header__menu');
+
+  if (headerNav) {
+    const headerMenuDot = headerNav.querySelector('.header__menu-dot');
+    const headerMenuLinks = headerNav.querySelectorAll('.header__menu-link');
+    const headerNavRects = headerNav.getBoundingClientRect();
+    let headerMenuLinkActiveRects = headerNav.querySelector('.header__menu-link--active').getBoundingClientRect();
+
+    setTimeout(() => {
+      headerMenuDot.style.transform = `translateX(${headerMenuLinkActiveRects.left + headerMenuLinkActiveRects.width / 2 - headerNavRects.left}px)`;
+      headerMenuDot.style.display = 'inline-block';
+    }, 10);
+
+    headerMenuLinks.forEach(link => {
+      const linkRects = link.getBoundingClientRect();
+
+      link.addEventListener('click', e => {
+        for (links of headerMenuLinks) {
+          links.classList.remove('header__menu-link--active');
+        }
+        e.target.classList.add('header__menu-link--active');
+
+        headerMenuLinkActiveRects = e.target.getBoundingClientRect();
+        headerMenuDot.style.transform = `translateX(${headerMenuLinkActiveRects.left + headerMenuLinkActiveRects.width / 2 - headerNavRects.left}px !important)`;
+      });
+
+      link.addEventListener('mouseenter', () => {
+        headerMenuDot.style.transform = `translateX(${linkRects.left + linkRects.width / 2 - headerNavRects.left}px)`;
+      });
+
+      link.addEventListener('mouseleave', () => {
+        headerMenuDot.style.transform = `translateX(${headerMenuLinkActiveRects.left + headerMenuLinkActiveRects.width / 2 - headerNavRects.left}px)`;
+      });
+    });
+  }
+};
+  
+</script>
+
+
   </body>
 </html>
