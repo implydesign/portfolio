@@ -3,6 +3,126 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
+.portfolio-desknav {
+  gap: auto;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  display: flex;
+  z-index: 100;
+position: fixed;
+  box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1);
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 1.5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 1.5%;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 1);
+}
+.portfolio-logotype {
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+.portfolio-logo {
+  width: 20vw;
+  height: 5vh;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.portfolio-m {
+  height: 100%;
+  position: absolute;
+  box-sizing: content-box;
+}
+.portfolio-nav {
+  gap: 4vw;
+  display: flex;
+  align-self: center;
+}
+.portfolio-navitem {
+  height: auto;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-text {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.portfolio-navitem1 {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-text01 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.portfolio-navitem2 {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-text02 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+.portfolio-navitem3 {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-arrowop {
+  width: 1.8rem;
+  height: auto;
+}
+.portfolio-text03 {
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
+
+
 
 :root {
   --header-menu-link-inactive: rgba(25, 25, 27, 0.7);
