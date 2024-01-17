@@ -3,6 +3,67 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
+
+:root {
+  --header-menu-link-inactive: rgba(25, 25, 27, 0.7);
+  --header-menu-link-active: rgba(25, 25, 27, 1);
+  --color-primary: #000000;
+  --color-secondary: #5628F5;
+  --color-tertiary: #2196f3;
+  --color-quaternary: #769AFF;
+  --transition-speed: 0.3s;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem 0;
+  box-shadow: 0rem 0.01rem 0.02rem rgba(50, 50, 50, 0.1), 0rem 0.02rem 0.4rem rgba(60, 60, 60, 0.1);
+}
+
+.header__menu {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header__menu-dot {
+  position: absolute;
+  bottom: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  display: inline-block;
+  transition: transform var(--transition-speed) ease-in-out;
+  display: none;
+}
+
+.header__menu-link {
+  padding: 1rem 2rem;
+  text-decoration: none;
+  color: var(--header-menu-link-inactive);
+  letter-spacing: 0.05rem;
+  font-size: 0.75rem;
+  transition: color var(--transition-speed) ease-in-out;
+}
+.header__menu-link--active, .header__menu-link:hover, .header__menu-link:active {
+  color: var(--header-menu-link-active);
+}
+.header__menu-link--active[data-color=primary] ~ .header__menu-dot, .header__menu-link:hover[data-color=primary] ~ .header__menu-dot, .header__menu-link:active[data-color=primary] ~ .header__menu-dot {
+  background-color: var(--color-primary);
+}
+.header__menu-link--active[data-color=secondary] ~ .header__menu-dot, .header__menu-link:hover[data-color=secondary] ~ .header__menu-dot, .header__menu-link:active[data-color=secondary] ~ .header__menu-dot {
+  background-color: var(--color-secondary);
+}
+.header__menu-link--active[data-color=tertiary] ~ .header__menu-dot, .header__menu-link:hover[data-color=tertiary] ~ .header__menu-dot, .header__menu-link:active[data-color=tertiary] ~ .header__menu-dot {
+  background-color: var(--color-tertiary);
+}
+.header__menu-link--active[data-color=quaternary] ~ .header__menu-dot, .header__menu-link:hover[data-color=quaternary] ~ .header__menu-dot, .header__menu-link:active[data-color=quaternary] ~ .header__menu-dot {
+  background-color: var(--color-quaternary);
+}
+
+
 .locatour-container {
   gap: 8vh;
   width: 100%;
