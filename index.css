@@ -29,18 +29,18 @@ font-family: sans-serif;
 
 
 
-a {
+.portfolio-nav a {
   position: relative;
   text-decoration: none;
   color: #000000;
   transition: color 0.3s ease;
 }
 
-a:hover {
+.portfolio-nav a:hover {
   color: inherit;
 }
 
-a::before {
+.portfolio-nav a::before {
   content: "";
   position: absolute;
   top: calc(-40%);
@@ -53,7 +53,7 @@ a::before {
   z-index: -100;
 }
 
-a:hover::before {
+.portfolio-nav a:hover::before {
   transform: scale(1);
   transition: transform 0.3s ease;
 }
