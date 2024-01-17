@@ -1620,6 +1620,18 @@ footer p a:hover {
   }
 }
 @media(max-width: 900px) {
+      a::before {
+  content: "";
+  position: absolute;
+  top: calc(-40%);
+  left: calc(50% - 1em);
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background-color: rgba(118, 154, 255, 0.4);
+  transform: scale(0);
+  z-index: -100;
+}
   .portfolio-desknav {
     gap: 0;
     width: 100%;
