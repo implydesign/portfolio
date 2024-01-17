@@ -3,24 +3,24 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
-navh:hover {
+a:hover {
   color: #000000;
 }
 
-navh::before {
+a::before {
   content: "";
   position: absolute;
-  top: calc(-50%);
-  left: calc(50% - 30px);
-  width: 60px;
-  height: 60px;
+  top: calc(15%);
+  
+  width: 3em;
+  height: 3em;
   border-radius: 50%;
-  background-color: rgba(115, 94, 255, 0.4);
+  background-color: rgba(118, 154, 255, 0.4);
   transform: scale(0);
   z-index: -100;
 }
 
-navh:hover::before {
+a:hover::before {
   transform: scale(1);
   transition: transform 0.3s ease;
 }
