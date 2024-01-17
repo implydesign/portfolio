@@ -371,6 +371,7 @@ footer p a:hover {
   align-self: stretch;
   align-items: center;
   justify-content: center;
+   height: 3vh;
 }
 .portfolio-arrowop {
   width: 1.8rem;
