@@ -1620,7 +1620,7 @@ footer p a:hover {
   }
 }
 @media(max-width: 900px) {
-      a::before {
+     .portfolio-nav a::before {
   content: "";
   position: absolute;
   top: calc(-40%);
