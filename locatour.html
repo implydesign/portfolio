@@ -412,7 +412,7 @@
           />
           <img
             alt="sign up card"
-            src="public/moblocatour.png"
+            src="public/moblocatourart.png"
             class="locatour-imagemob"
           />
           <div class="locatour-paragraph1">
@@ -533,11 +533,29 @@
           <div class="locatour-container6">
             <div class="locatour-container7">
               <div style="display: flex;">
-                <iframe
-                  style="border: 1px solid rgba(0, 0, 0, 0.1); align-self:center; width:100%; height:90vh;"
-                  src="https://www.figma.com/embed?embed_host=share&amp;url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fht4gANa2td35LgC5z6CYGA%2FLocatour%3Ftype%3Ddesign%26node-id%3D1623-796%26t%3DvHltB3nu1HXrk9pZ-1%26scaling%3Dcontain%26page-id%3D1602%253A575%26mode%3Ddesign"
-                  allowfullscreen=""
-                ></iframe>
+
+
+                 <video
+                src="public/mobloc.mp4"
+                poster=""
+                controls=""
+                loop=""
+                muted=""
+                preload="auto"
+                class="portfolio-video locatour-imagemob"
+              ></video>
+
+                 <video
+                src="deskloc.mp4"
+                poster=""
+                controls=""
+                loop=""
+                muted=""
+                preload="auto"
+                class="portfolio-video locatour-imagedesk"
+              ></video>
+
+                
               </div>
             </div>
           </div>
@@ -545,55 +563,7 @@
       </main>
     </div>
 
-<script>
-(function () {
-  var domReady = function (callback) {
-    document.readyState === 'interactive' || document.readyState === 'complete' ? callback() : document.addEventListener('DOMContentLoaded', callback);
-  };
-  domReady(function () {
-    dotMenu();
-  });
-})();
 
-const dotMenu = () => {
-  const headerNav = document.querySelector('.header__menu');
-
-  if (headerNav) {
-    const headerMenuDot = headerNav.querySelector('.header__menu-dot');
-    const headerMenuLinks = headerNav.querySelectorAll('.header__menu-link');
-    const headerNavRects = headerNav.getBoundingClientRect();
-    let headerMenuLinkActiveRects = headerNav.querySelector('.header__menu-link--active').getBoundingClientRect();
-
-    setTimeout(() => {
-      headerMenuDot.style.transform = `translateX(${headerMenuLinkActiveRects.left + headerMenuLinkActiveRects.width / 2 - headerNavRects.left}px)`;
-      headerMenuDot.style.display = 'inline-block';
-    }, 10);
-
-    headerMenuLinks.forEach(link => {
-      const linkRects = link.getBoundingClientRect();
-
-      link.addEventListener('click', e => {
-        for (links of headerMenuLinks) {
-          links.classList.remove('header__menu-link--active');
-        }
-        e.target.classList.add('header__menu-link--active');
-
-        headerMenuLinkActiveRects = e.target.getBoundingClientRect();
-        headerMenuDot.style.transform = `translateX(${headerMenuLinkActiveRects.left + headerMenuLinkActiveRects.width / 2 - headerNavRects.left}px !important)`;
-      });
-
-      link.addEventListener('mouseenter', () => {
-        headerMenuDot.style.transform = `translateX(${linkRects.left + linkRects.width / 2 - headerNavRects.left}px)`;
-      });
-
-      link.addEventListener('mouseleave', () => {
-        headerMenuDot.style.transform = `translateX(${headerMenuLinkActiveRects.left + headerMenuLinkActiveRects.width / 2 - headerNavRects.left}px)`;
-      });
-    });
-  }
-};
-  
-</script>
 
 <footer>
 
