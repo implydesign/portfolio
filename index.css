@@ -5,6 +5,7 @@ font-family: sans-serif;
 
 .btn{
   border-radius: 100px;
+   font-weight: 500;
 }
 
 .btn:before {
@@ -33,9 +34,13 @@ font-family: sans-serif;
 .btn:focus {
    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #F5F5F5;
 }
+.btn:focus-within {
+   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #F5F5F5;
+}
 
 .btn:target{
    font-weight: 600;
+   background-color: ##E0E0E0;
 }
 
 .portfolio-nav a {
@@ -68,7 +73,13 @@ font-family: sans-serif;
 }
 
 
+.portfolio-nav a:target{
+   font-weight: 600;
+}
 
+.portfolio-nav a:active{
+   font-weight: 600;
+}
 
 
 :root {
