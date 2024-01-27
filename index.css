@@ -27,7 +27,16 @@ font-family: sans-serif;
   -moz-transform: scale(1.1);
 }
 
+.btn:focus-visible {
+   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #CFCFCF;
+}
+.btn:focus {
+   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #F5F5F5;
+}
 
+.btn:target{
+   font-weight: 600;
+}
 
 .portfolio-nav a {
   position: relative;
