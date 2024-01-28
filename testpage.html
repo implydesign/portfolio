@@ -1118,7 +1118,7 @@ font-damily: sans-serif;
       // Check each section to see if it is in the viewport
       $('main section').each(function() {
         var sectionId = $(this).attr('id');
-        var sectionTop = $(this).offset().top - 50; // Adjusted for better visibility, you may need to fine-tune this value
+        var sectionTop = $(this).offset().top - 100; // Adjusted for better visibility, you may need to fine-tune this value
         var sectionBottom = sectionTop + $(this).outerHeight();
 
         if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
