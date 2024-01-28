@@ -43,6 +43,12 @@ font-family: sans-serif;
    background-color: #E0E0E0;
 }
 
+nav {
+   display:flex;
+   flex-direction: row;
+   gap: 4vw;
+}
+
 nav a {
   position: relative;
   text-decoration: none;
@@ -391,7 +397,7 @@ footer p a:hover {
   align-self: stretch;
   align-items: center;
   justify-content: center;
-   height: 3vh;
+
 }
 .portfolio-arrowop {
   width: 1.8rem;
@@ -1716,10 +1722,11 @@ footer p a:hover {
     font-weight: 400;
     line-height: normal;
   }
-  .portfolio-navitem3 {
-    height: 3vh;
-    align-self: flex-start;
-  }
+
+
+
+
+   
   .portfolio-mobnav {
     display: none;
   }
