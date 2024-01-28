@@ -43,18 +43,18 @@ font-family: sans-serif;
    background-color: #E0E0E0;
 }
 
-.portfolio-nav a {
+nav a {
   position: relative;
   text-decoration: none;
   color: #000000;
   transition: color 0.3s ease;
 }
 
-.portfolio-nav a:hover {
+nav a:hover {
   color: inherit;
 }
 
-.portfolio-nav a::before {
+nav a::before {
   content: "";
   position: absolute;
   top: calc(-40%);
@@ -67,17 +67,17 @@ font-family: sans-serif;
   z-index: -100;
 }
 
-.portfolio-nav a:hover::before {
+nav a:hover::before {
   transform: scale(1);
   transition: transform 0.3s ease;
 }
 
 
-.portfolio-nav a:target{
+nav a:target{
    font-weight: 600;
 }
 
-.portfolio-nav a:active{
+nav a:active{
    font-weight: 600;
 }
 
