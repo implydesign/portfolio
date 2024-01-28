@@ -6,18 +6,35 @@ font-family: sans-serif;
 .btn{
   border-radius: 100px;
    font-weight: 500;
+     position: relative; /* Add relative positioning to the container */
+    border-radius: 100px;
+    font-weight: 500;
+    overflow: hidden; /* Hide overflow to contain the circular fill */
 }
 
-.btn:before {
-  background: #f5f5f5;
-  content: "";
-  position: absolute;
-  z-index: -1;
-}
-.btn:hover {
-  color: #000000;
-  background-color: #f5f5f5;
-}
+
+
+
+  .btn:before {
+    background: #f5f5f5;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    border-radius: 50%; /* Make it a circle */
+    transform: scale(0); /* Initial scale to 0 */
+    transform-origin: center; /* Set transform origin to center */
+    transition: transform 0.3s ease-out; /* Add transition for smooth scaling */
+  }
+
+  .btn:hover:before {
+    transform: scale(3); /* Scale it up on hover */
+  }
+
+  .btn:hover {
+    color: #000000;
+    background-color: #f5f5f5;
+  }
+
 
 
 .btn:active {
