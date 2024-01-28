@@ -1108,7 +1108,6 @@ font-damily: sans-serif;
   <!-- Include jQuery library (if not already included) -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
-
 <script>
   $(document).ready(function() {
     // Function to update active state based on current section in viewport
@@ -1120,8 +1119,9 @@ font-damily: sans-serif;
       $('main section').each(function() {
         var sectionId = $(this).attr('id');
         var sectionTop = $(this).offset().top - 50; // Adjusted for better visibility, you may need to fine-tune this value
+        var sectionBottom = sectionTop + $(this).outerHeight();
 
-        if (scrollPosition >= sectionTop) {
+        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
           // Update the active state in the navigation
           $('.portfolio-navitem').removeClass('active');
           $('[href="#' + sectionId + '"]').addClass('active');
@@ -1138,6 +1138,7 @@ font-damily: sans-serif;
     });
   });
 </script>
+
 
 
     
