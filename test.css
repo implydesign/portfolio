@@ -87,8 +87,9 @@ nav a:active{
    font-weight: 600;
 }
 
-nav a .active{
+.active{
    font-weight: 600;
+   color: #5628F5;
 }
 
 :root {
