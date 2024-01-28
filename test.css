@@ -3,42 +3,32 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
-.btn {
-  position: relative; /* Add relative positioning to the parent */
-  overflow: hidden; /* Hide the overflow of the pseudo-element */
+
+.btn{
   border-radius: 100px;
-  font-weight: 500;
-  transition: background-size 0.3s; /* Add transition for smooth effect */
+   font-weight: 500;
 }
 
-.btn:before {
+
+
+
+.btn a::before {
   content: "";
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 0;
-  height: 0;
-  background: green;
-  border-radius: 100%;
-  z-index: -1;
-  transition: width 0.3s, height 0.3s; /* Add transition for smooth effect */
+  top: calc(-40%);
+  left: calc(50% - 1.5em);
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  background-color: rgba(118, 154, 255, 0.4);
+  transform: scale(0);
+  z-index: -100;
 }
 
-.btn:hover:before {
-  width: 120%; /* Adjust the width to control the fill effect */
-  height: 120%; /* Adjust the height to control the fill effect */
+.btn a:hover::before {
+  transform: scale(1);
+  transition: transform 0.3s ease;
 }
-
-.btn:hover {
-  color: #000000;
-  background-color: red;
-}
-
-
-
-
-
 
 
 .btn:active {
@@ -61,8 +51,13 @@ font-family: sans-serif;
 
 .btn:target{
    font-weight: 600;
-   background-color: #E0E0E0;
+   background-color: #F5F5F5;
 }
+
+
+
+
+
 
 nav {
    display:flex;
