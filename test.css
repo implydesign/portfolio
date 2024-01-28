@@ -87,6 +87,9 @@ nav a:active{
    font-weight: 600;
 }
 
+nav a .active{
+   font-weight: 600;
+}
 
 :root {
   --footertext: #ffffff;
