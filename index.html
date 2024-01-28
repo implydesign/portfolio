@@ -301,7 +301,7 @@ font-damily: sans-serif;
     <link rel="stylesheet" href="./style.css" />
     <div>
       
-      <link href="./index.css" rel="stylesheet" />
+      <link href="./test.css" rel="stylesheet" />
 
       <main class="portfolio-container">
       
@@ -392,71 +392,74 @@ font-damily: sans-serif;
           </div>
         </div>
         
-      <div class="portfolio-desknav">
-          <div class="portfolio-logotype">
-            <div class="portfolio-logo">
-              <img
-                alt="Imply Logo"
-                src="public/moblogo.svg"
-                loading="eager"
-                class="portfolio-m"
-              />
-            </div>
-          </div>
+     
+<header>
+  <div class="portfolio-desknav">
+    <div class="portfolio-logotype">
+      <div class="portfolio-logo">
+        <img
+          alt="Imply Logo"
+          src="public/moblogo.svg"
+          loading="eager"
+          class="portfolio-m"
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+
+    <nav>
+      <a href="#know" class="portfolio-navitem" tabindex="0">
+        <span class="portfolio-text">Get to Know Me</span>
+      </a>
+
+      <a href="#works" class="portfolio-navitem" tabindex="0">
+        <span class="portfolio-text01">Browse Works</span>
+      </a>
+
+      <a href="/Olha_CV.pdf" class="portfolio-navitem" tabindex="0" aria-label="Open CV - Opens CV in default PDF viewer">
+        <img
+          alt="open in new window (arrow symbol)"
+          src="public/external/arrowop1001-h8e9.svg"
+          loading="eager"
+          class="portfolio-arrowop"
+          aria-hidden="true"
+        />
+        <span class="portfolio-text03">Open CV</span>
+      </a>
+    </nav>
+  </div>
+
+  <div class="portfolio-mobnav">
+    <div class="portfolio-logotype1">
+      <div class="portfolio-logo1">
+        <img
+          alt="Imply Logo"
+          src="public/moblogo.svg"
+          loading="eager"
+          class="portfolio-m1"
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+
+    <nav>
+      <a href="/Olha_CV.pdf" class="portfolio-navitem" tabindex="0" aria-label="Open CV - Opens CV in default PDF viewer">
+        <img
+          alt="open in new window (arrow symbol)"
+          src="public/external/arrowop1001-h8e9.svg"
+          loading="eager"
+          class="portfolio-arrowop1"
+          aria-hidden="true"
+        />
+        <span class="portfolio-text04">Open CV</span>
+      </a>
+    </nav>
+  </div>
+</header>
 
 
-          <div class="portfolio-nav">
-
-<a href="#know">
-            <div class="portfolio-navitem">
-              <span class="portfolio-text">Get to Know Me</span>
-            </div>
-</a>
-            
-            <a href="#works"><div class="portfolio-navitem1">
-              <span class="portfolio-text01">Browse Works</span>
-            </div>
-            </a>
-
-            
-          <a href="/Olha_CV.pdf">
-            <div class="portfolio-navitem3">              <img
-                alt="open in new window (arrow symbol)"
-                src="public/external/arrowop1001-h8e9.svg"
-                loading="eager"
-                class="portfolio-arrowop"
-              />
-              <span class="portfolio-text03">Open CV</span>
-            </div>
-              </a>
-          </div>
-        </div>
 
 
-        
-        <div class="portfolio-mobnav">
-          <div class="portfolio-logotype1">
-            <div class="portfolio-logo1">
-              <img
-                alt="Imply Logo"
-                src="public/moblogo.svg"
-                loading="eager"
-                class="portfolio-m1"
-              />
-            </div>
-          </div>
-          <div class="portfolio-nav1">
-            <a href="/Olha_CV.pdf"><div class="portfolio-navitem4">
-              <img
-                alt="open in new window (arrow symbol)"
-                src="public/external/arrowop1001-h8e9.svg"
-                loading="eager"
-                class="portfolio-arrowop1"
-              />
-              <span class="portfolio-text04">Open CV</span>
-            </div></a>
-          </div>
-        </div>
         <section class="portfolio-hero">
           <div class="portfolio-quotedesk">
             <div class="portfolio-row">
@@ -906,7 +909,8 @@ font-damily: sans-serif;
               </div>
             </div>
           </div>
-          <div class="portfolio-cards" id="works">
+          <section id="works">
+            <div class="portfolio-cards">
             <div class="portfolio-carddesktop">
               <div class="portfolio-headercard">
                 <div class="portfolio-title2">
@@ -985,7 +989,7 @@ font-damily: sans-serif;
               </button>
             
             </div>
-          </div>
+            </div>
 
 <div class="portfolio-cards">
             <div class="portfolio-carddesktop">
@@ -1068,6 +1072,8 @@ font-damily: sans-serif;
             </div>
   
           </div>
+ </section>
+
           
         </section>
       </main>
@@ -1102,7 +1108,43 @@ font-damily: sans-serif;
         
     </footer>
 
-  
+<!-- Include jQuery library (if not already included) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    // Function to update active state based on current section in viewport
+    function updateActiveState() {
+      // Get the current scroll position
+      var scrollPosition = $(window).scrollTop();
+
+      // Check each section to see if it is in the viewport
+      $('main section').each(function() {
+        var sectionId = $(this).attr('id');
+        var sectionTop = $(this).offset().top - 50; // Adjusted for better visibility, you may need to fine-tune this value
+        var sectionBottom = sectionTop + $(this).outerHeight();
+
+        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+          // Update the active state in the navigation
+          $('.portfolio-navitem').removeClass('active');
+          $('[href="#' + sectionId + '"]').addClass('active');
+        }
+      });
+    }
+
+    // Update the active state on page load
+    updateActiveState();
+
+    // Update the active state on scroll
+    $(window).scroll(function() {
+      updateActiveState();
+    });
+  });
+</script>
+
+
+
+
     
      </body>
 </html>
