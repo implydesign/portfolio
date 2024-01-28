@@ -1108,6 +1108,7 @@ font-damily: sans-serif;
   <!-- Include jQuery library (if not already included) -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
+
 <script>
   $(document).ready(function() {
     // Function to update active state based on current section in viewport
@@ -1116,7 +1117,7 @@ font-damily: sans-serif;
       var scrollPosition = $(window).scrollTop();
 
       // Check each section to see if it is in the viewport
-      $('section').each(function() {
+      $('main section').each(function() {
         var sectionId = $(this).attr('id');
         var sectionTop = $(this).offset().top - 50; // Adjusted for better visibility, you may need to fine-tune this value
 
@@ -1137,6 +1138,7 @@ font-damily: sans-serif;
     });
   });
 </script>
+
 
     
      </body>
