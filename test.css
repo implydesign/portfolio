@@ -24,6 +24,8 @@ font-family: sans-serif;
     transform: scale(0); /* Initial scale to 0 */
     transform-origin: center; /* Set transform origin to center */
     transition: transform 0.3s ease-out; /* Add transition for smooth scaling */
+      width: 100%;
+    height: 100%;
   }
 
   .btn:hover:before {
