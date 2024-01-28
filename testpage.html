@@ -1136,8 +1136,27 @@ font-damily: sans-serif;
     $(window).scroll(function() {
       updateActiveState();
     });
+
+    // Smooth scroll when clicking on a navigation link
+    $('.portfolio-navitem').on('click', function(e) {
+      e.preventDefault();
+
+      var targetSectionId = $(this).attr('href').substring(1);
+      var targetSection = document.getElementById(targetSectionId);
+
+      if (targetSection) {
+        // Scroll to the section with an offset
+        targetSection.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+          inline: 'start',
+          offsetTop: -50 // Adjust this value based on your needs
+        });
+      }
+    });
   });
 </script>
+
 
 
 
