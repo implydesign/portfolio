@@ -1684,7 +1684,7 @@ footer p a:hover {
     align-items: flex-start;
     justify-content: space-between;
   }
-  .portfolio-navitem {
+  .hide {
     width: auto;
     height: 3vh;
     display: none;
@@ -1699,11 +1699,7 @@ footer p a:hover {
     font-weight: 400;
     line-height: normal;
   }
-  .portfolio-navitem1 {
-    height: 3vh;
-    align-self: flex-start;
-    flex-direction: column;
-  }
+ 
   .portfolio-text01 {
     color: rgb(0, 0, 0);
     width: 100%;
@@ -1714,12 +1710,7 @@ footer p a:hover {
     font-weight: 400;
     line-height: normal;
   }
-  .portfolio-navitem2 {
-    width: auto;
-    height: 3vh;
-    align-self: flex-start;
-    flex-direction: column;
-  }
+
   .portfolio-text02 {
     color: rgb(0, 0, 0);
     width: 100%;
