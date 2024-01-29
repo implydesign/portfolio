@@ -126,6 +126,7 @@ font-family: sans-serif;
   font-family: Raleway;
   font-weight: 500px;
   font-stretch: normal;
+  gap: 4px;
 }
 .OtherOverline {
   font-size: 16px;
