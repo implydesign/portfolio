@@ -1590,6 +1590,9 @@ footer p a:hover {
   height: auto;
   text-align: left;
   line-height: 28px;
+   display: flex;
+
+align-items: center;
 }
 .portfolio-vego23 {
   align-self: stretch;
