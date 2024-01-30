@@ -3,6 +3,13 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
+h1 {
+font-size: 6rem;
+font-weight: 200;
+font-family: raleway;
+letter-spacing: -0.2rem;
+}
+
 .btn{
   border-radius: 100px;
    font-weight: 500;
