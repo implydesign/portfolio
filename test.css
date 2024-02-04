@@ -534,12 +534,12 @@ footer p a:hover {
 .portfolio-row {
   width: 100%;
   display: flex;
-  font-size: 3rem;
+  font-size: 4rem;
   align-items: center;
   justify-content: flex-start;
 }
 .portfolio-a {
-  width: 3.5rem;
+  width: 4.5rem;
   height: auto;
 }
 .portfolio-text05 {
@@ -553,7 +553,7 @@ footer p a:hover {
   text-decoration: none;
 }
 .portfolio-e {
-  width: 3.5rem;
+  width: 4.5rem;
   height: auto;
 }
 .portfolio-text07 {
@@ -567,7 +567,7 @@ footer p a:hover {
   text-decoration: none;
 }
 .portfolio-arr {
-  width: 3.5rem;
+  width: 4.5rem;
   height: auto;
 }
 .portfolio-text09 {
@@ -583,12 +583,12 @@ footer p a:hover {
 .portfolio-row1 {
   width: 100%;
   display: flex;
-  font-size: 3rem;
+  font-size: 4rem;
   align-items: center;
   justify-content: flex-start;
 }
 .portfolio-tr {
-  width: 3.5rem;
+  width: 4.5rem;
   height: auto;
 }
 .portfolio-text11 {
@@ -602,7 +602,7 @@ footer p a:hover {
   text-decoration: none;
 }
 .portfolio-impl {
-  width: 3.5rem;
+  width: 4.5rem;
   height: auto;
 }
 .portfolio-text13 {
@@ -717,7 +717,7 @@ footer p a:hover {
 }
 .portfolio-textcont {
   gap: 1.5vh;
-  width: 55%;
+  width: 65%;
   display: flex;
   align-self: flex-start;
   align-items: flex-start;
