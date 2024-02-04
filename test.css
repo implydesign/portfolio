@@ -3,10 +3,17 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
-.header{font-size: 6rem;
+.headline{font-size: 6rem;
 font-weight: 200;
 font-family: raleway;
 letter-spacing: -0.2rem;}
+
+   @media(max-width: 900px) {
+       .headline{
+          font-seize:4 rem;        }
+      }
+
+
 
 h1 {
 font-size: 6rem;
