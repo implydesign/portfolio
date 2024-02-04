@@ -717,7 +717,7 @@ footer p a:hover {
 }
 .portfolio-textcont {
   gap: 1.5vh;
-  width: 65%;
+  width: 60%;
   display: flex;
   align-self: flex-start;
   align-items: flex-start;
@@ -1633,7 +1633,7 @@ align-items: center;
     display: none;
   }
   .portfolio-textcont {
-    width: 60%;
+    width: 65%;
   }
   .portfolio-fg1 {
     font-size: 1.8rem;
