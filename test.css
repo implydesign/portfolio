@@ -244,6 +244,7 @@ footer p a:hover {
   transition: all 0.2s ease;
   display: none;
   align-self: flex-start;
+   font-family: Raleway;
 }
 .ctam:before {
   content: "";
