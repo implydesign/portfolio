@@ -466,7 +466,7 @@ footer p a:hover {
   background-color: rgba(255, 255, 255, 1);
 }
 .portfolio-logotype1 {
-  height: 3.5vh;
+  height: 3rem;
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -474,8 +474,8 @@ footer p a:hover {
   justify-content: center;
 }
 .portfolio-logo1 {
-  width: 32vw;
-  height: 3vh;
+  width: 7rem;
+  height: 100%;
   display: flex;
   overflow: hidden;
   position: relative;
@@ -2063,8 +2063,7 @@ display:flex;
     align-items: center;
   }
   .portfolio-logo1 {
-    width: 32vw;
-    height: 100%;
+    
     align-items: flex-start;
     justify-content: flex-start;
   }
