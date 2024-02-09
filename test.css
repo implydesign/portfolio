@@ -633,7 +633,7 @@ footer p a:hover {
   align-items: flex-start;
   font-weight: 600;
   flex-direction: column;
-   padding-top:2rem;
+   padding-top:25%;
 }
 .portfolio-row2 {
   width: 100%;
