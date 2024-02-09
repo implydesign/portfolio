@@ -642,7 +642,7 @@ footer p a:hover {
   justify-content: flex-start;
 }
 .portfolio-a1 {
-  width: 2.5rem;
+  width: 3.5rem;
   height: auto;
 }
 .portfolio-text15 {
@@ -672,7 +672,7 @@ footer p a:hover {
 .portfolio-row3 {
   width: 100%;
   display: flex;
-  font-size: 2rem;
+  font-size: 3rem;
   align-items: center;
   justify-content: flex-start;
 }
@@ -2135,7 +2135,7 @@ display:flex;
     font-size: 1.5rem;
   }
   .portfolio-a1 {
-    width: 1.8rem;
+    width: 3rem;
   }
   .portfolio-text15 {
     color: #ffffff;
@@ -2147,7 +2147,7 @@ display:flex;
     color: #ffffff;
   }
   .portfolio-row3 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
   }
   .portfolio-arr1 {
     width: 1.8rem;
