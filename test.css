@@ -313,7 +313,9 @@ footer p a:hover {
   -moz-transform: scale(1.2);
 }
 
-
+@media (max-width: 320px){
+padding: 0.1rem 0.5rem 1rem 1rem;
+}
 
 
 .portfolio-container {
