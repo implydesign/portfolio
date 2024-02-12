@@ -89,18 +89,13 @@ letter-spacing: -0.2rem;
     </style> 
 
  <!-- Stylesheets -->
- <!--    <link rel="stylesheet" href="https://unpkg.com/animate.css@4.1.1/animate.css"> -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" data-tag="font">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" data-tag="font">
-<!--     <link rel="stylesheet" href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"> -->
 
 <link rel="stylesheet" href="./style.css" /> 
 <link href="./test.css" rel="stylesheet" /> 
     
-<!--   <link
-              rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-            /> -->
+
 </head>
   
   <body>
@@ -113,91 +108,6 @@ letter-spacing: -0.2rem;
 
       <main class="portfolio-container">
       
-        <div class="portfolio-container1">
-          <div class="portfolio-container2">
-           
-            <style>
-              @keyframes jumbo {
-                  from {
-                      background-position: 50% 50%, 50% 50%;
-                  }
-                  to {
-                      background-position: 350% 50%, 350% 50%;
-                  }
-              }
-
-              .jumbo {
-                  --stripes: repeating-linear-gradient(
-                      100deg,
-                      #fff 0%,
-                      #fff 7%,
-                      transparent 10%,
-                      transparent 12%,
-                      #fff 16%
-                  );
-                  --stripesDark: repeating-linear-gradient(
-                      100deg,
-                      #000 0%,
-                      #000 7%,
-                      transparent 10%,
-                      transparent 12%,
-                      #000 16%
-                  );
-                  --rainbow: repeating-linear-gradient(
-                      100deg,
-                      #60a5fa 10%,
-                      #e879f9 15%,
-                      #60a5fa 20%,
-                      #5eead4 25%,
-                      #60a5fa 30%
-                  );
-                  background-image: var(--stripes), var(--rainbow);
-                  background-size: 300%, 200%;
-                  background-position: 50% 50%, 50% 50%;
-
-                  filter: blur(10px) invert(100%);
-
-                  mask-image: radial-gradient(ellipse at 100% 0%, black 40%, transparent 70%);
-
-                  pointer-events: none;
-              }
-
-              .jumbo::after {
-                  content: '';
-                  position: absolute;
-                  inset: 0;
-                  background-image: var(--stripes), var(--rainbow);
-                  background-size: 200%, 100%;
-                  animation: jumbo 110s linear infinite;
-                  background-attachment: fixed;
-                  mix-blend-mode: difference;
-              }
-
-              .dark .jumbo {
-                  background-image: var(--stripesDark), var(--rainbow);
-                  filter: blur(10px) opacity(40%) saturate(250%);
-              }
-
-              .dark .jumbo::after {
-                  background-image: var(--stripesDark), var(--rainbow);
-              }
-            </style>
-
-            <section>
-              <div
-                class="dark relative flex flex-col h-screen items-center justify-center bg-black transition-bg"
-              >
-                <div class="dark absolute inset-0 overflow-hidden">
-                  <div class="dark jumbo absolute -inset-10 opacity-50"></div>
-                </div>
-              </div>
-            </section>
-
-            <script src="https://cdn.tailwindcss.com"></script> 
-          </div>
-        </div>
-        
-     
 <header>
   <div class="portfolio-desknav">
     <div class="portfolio-logotype">
