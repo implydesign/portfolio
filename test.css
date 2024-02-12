@@ -11,7 +11,9 @@ letter-spacing: -0.2rem;}
    @media(max-width: 900px) {
        .headline{
           font-size: 4rem; 
-line-height: 1;       }
+line-height: 1;      
+       padding-left: 6%;
+padding-right: 6%;}
       }
 
 #works {
