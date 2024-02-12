@@ -62,9 +62,9 @@ height:100vh;
 gap: 1.5rem;
 padding-left: 8%;
 padding-rigth: 8%;
-padding-top: 20%;
+padding-top: 16%;
   padding-bottom:16%;
-  height: auto;
+  height: 100vh;
 }
 }
 
