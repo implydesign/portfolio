@@ -1020,10 +1020,8 @@ background-color:hsla(183,0%,0%,1);
   font-variant-numeric: lining-nums proportional-nums;
 }
 .portfolio-card {
-  gap: 24px;
-  top: 105px;
-  left: 32.1844367980957px;
-  width: 50%;
+  gap: 1rem;
+ 
   display: none;
   position: absolute;
   align-items: flex-start;
@@ -1960,10 +1958,6 @@ display:flex;
     display: flex;
   }
   .portfolio-card {
-    top: 0px;
-    left: 0px;
-    right: 0px;
-    width: 100%;
     display: flex;
     position: static;
   }
