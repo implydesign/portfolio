@@ -317,7 +317,7 @@ footer p a:hover {
 
 
 .portfolio-container {
-  gap: 8vh;
+ 
   width: 100%;
   display: flex;
   overflow: auto;
