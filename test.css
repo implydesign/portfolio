@@ -265,7 +265,7 @@ footer p a:hover {
   left: 0;
   display: block;
   border-radius: 3.5em;
-  background: rgba(86, 40, 245, 0.9);
+  background: rgba(118, 154, 255, 0.7);
   width: 3.5em;
   height: 3.5em;
   transition: all 0.3s ease;
@@ -275,7 +275,7 @@ footer p a:hover {
   font-size: 1.5rem;
   line-height: auto;
   font-weight: 600;
-  color: #ffffff;
+  color: #000000;
   vertical-align: bottom;
 }
 .ctam .portfolio-send {
