@@ -525,14 +525,15 @@ footer p a:hover {
   bottom: 0px;
   margin: auto;
   display: flex;
-  position: absolute;
+  position: relative;
   align-self: center;
   align-items: center;
-  padding-top: 16%;
-  padding-left: 16%;
-  padding-right: 16%;
+  padding: 16%;
   flex-direction: column;
   justify-content: center;
+   height: 100vh;
+background-color: #000;
+
 }
 .portfolio-quotedesk {
   width: 100%;
@@ -1771,7 +1772,7 @@ align-items: center;
     right: 0px;
     bottom: 0px;
     margin: auto;
-    position: absolute;
+  
   }
   .portfolio-row {
     font-size: 2.2rem;
@@ -2087,7 +2088,7 @@ display:flex;
     right: 0px;
     bottom: 0px;
     margin: auto;
-    position: absolute;
+
   }
   .portfolio-quotedesk {
     display: none;
