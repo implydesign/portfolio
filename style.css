@@ -89,6 +89,9 @@ font-family: raleway;
 letter-spacing: -0.2rem;
 }
 
+.overlay {
+background-color: rgba(0,0,0,0.5);
+}
 
 .button {
   color: var(--dl-color-gray-black);
