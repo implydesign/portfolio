@@ -147,6 +147,8 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 2vh;
+margin-top: 4rem;
+
 }
 
 footer p {
@@ -1022,7 +1024,7 @@ gap: 4rem;
   font-variant-numeric: lining-nums proportional-nums;
 }
 .portfolio-card {
-  gap: 1rem;
+  gap: 2rem;
  
   display: none;
   position: absolute;
@@ -1036,8 +1038,8 @@ gap: 4rem;
   align-self: stretch;
   align-items: flex-start;
   flex-direction: column;
-   padding-left: 6%;
-   padding-right: 6%;
+   padding-left: 8%;
+   padding-right: 8%;
 }
 .portfolio-title {
   gap: 16px;
