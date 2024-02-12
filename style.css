@@ -1,300 +1,160 @@
-
-body {
-font-family: sans-serif;
-margin:0;
-
-}
-
-html { line-height: 1.15; font-family: sans-serif; } 
- 
-    * { box-sizing: border-box; border-width: 0; border-style: solid; } 
-    p, li, ul, pre, div, h1, h2, h3, h4, h5, h6, figure, blockquote, figcaption { margin: 0; padding: 0; } 
-    button { background-color: transparent; } 
-    button, input, optgroup, select, textarea { font-family: sans-serif; font-size: 100%; line-height: 1.15; margin: 0; } 
-    button, select { text-transform: none; } 
-    button, [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; } 
-    button::-moz-focus-inner, [type="button"]::-moz-focus-inner, [type="reset"]::-moz-focus-inner, [type="submit"]::-moz-focus-inner { border-style: none; padding: 0; } 
-    button:-moz-focus, [type="button"]:-moz-focus, [type="reset"]:-moz-focus, [type="submit"]:-moz-focus { outline: 1px dotted ButtonText; } 
-    a { color: inherit; text-decoration: inherit; } 
-    input { padding: 2px 4px; } 
-    img { display: block; } 
-    html { scroll-behavior: smooth; }
-       h1 {
-font-size: 6rem;
-font-weight: 200;
-font-family: raleway;
-letter-spacing: -0.2rem;
+/* Global reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-        font-family: sans-serif, Raleway, Open Sans;
-        font-size: 16px;
-      }
-      body {
-        font-weight: 400;
-        font-style:normal;
-        text-decoration: none;
-        text-transform: none;
-        letter-spacing: normal;
-        line-height: 1.15;
-        color: var(--dl-color-gray-black);
-        background-color: var(--dl-color-gray-white);
-        font-damily: sans-serif;
-      }
-       h1 {
-font-size: 6rem;
-font-weight: 200;
-font-family: raleway;
-letter-spacing: -0.2rem;
+  line-height: 1.15;
+  font-family: sans-serif;
+  scroll-behavior: smooth;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-* {
-  margin: 0;
-}
 body {
+  font-family: sans-serif, Raleway, Open Sans;
+  font-size: 1rem;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: none;
+  text-transform: none;
+  letter-spacing: normal;
   line-height: 1.5;
+  color: #333333;
+  background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
 }
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-input, button, textarea, select {
-  font: inherit;
-}
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-}
-#root, #__next {
-  isolation: isolate;
+
+h1 {
+  font-size: 3.75rem;
+  font-weight: 200;
+  font-family: raleway;
+  letter-spacing: -0.2rem;
 }
 
-
+/* Utility classes */
 .overlay {
-background-color: rgba(0,0,0,0.5);
-gap:3rem;
-display:flex;
-flex-direction:column;
- padding: 16%;
-padding-top: 20%;
-height:100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem;
+  padding-top: 2rem;
+  height: 100vh;
 }
 
-@media (max-width: 375px)
-.overlay {
-gap: 1.5rem;
-padding-left: 8%;
-padding-rigth: 8%;
-padding-top: 20%;
-  padding-bottom:16%;
-  height: auto;
+@media (max-width: 375px) {
+  .overlay {
+    gap: 1.5rem;
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    padding-top: 2rem;
+    padding-bottom: 1.6rem;
+    height: auto;
+  }
 }
 
-
-
-
-.button {
-  color: var(--dl-color-gray-black);
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border-color: var(--dl-color-gray-black);
-  border-width: 1px;
-  border-radius: 4px;
-  background-color: var(--dl-color-gray-white);
-}
-.input {
-  color: var(--dl-color-gray-black);
-  cursor: auto;
-  padding: 0.5rem 1rem;
-  border-color: var(--dl-color-gray-black);
-  border-width: 1px;
-  border-radius: 4px;
-  background-color: var(--dl-color-gray-white);
-}
+.button,
+.input,
 .textarea {
-  color: var(--dl-color-gray-black);
+  color: #333333;
   cursor: auto;
-  padding: 0.5rem;
-  border-color: var(--dl-color-gray-black);
-  border-width: 1px;
-  border-radius: 4px;
-  background-color: var(--dl-color-gray-white);
+  padding: 0.5rem 1rem;
+  border-color: #333333;
+  border-width: 0.0625rem;
+  border-radius: 0.25rem;
+  background-color: #ffffff;
 }
+
 .list {
   width: 100%;
-  margin: 1em 0px 1em 0px;
+  margin: 1rem 0;
   display: block;
-  padding: 0px 0px 0px 1.5rem;
+  padding-left: 0;
   list-style-type: none;
   list-style-position: outside;
 }
+
 .list-item {
   display: list-item;
 }
+
 .teleport-show {
   display: flex !important;
   transform: none !important;
 }
-.OtherOverlineMobile {
-  font-size: 14px;
-  font-family: Open Sans;
+
+/* Typography */
+.OtherOverlineMobile,
+.OtherOverline,
+.navinactive,
+.navactive {
+  font-size: 1rem;
+  font-family: Open Sans, sans-serif;
   font-weight: 300;
   text-transform: uppercase;
 }
-.HeadlineH1 {
-  font-size: 96px;
-  font-style: normal;
-  font-family: Raleway;
-  font-weight: 700px;
-  font-stretch: normal;
-}
-.TextSecondary {
-  font-size: 24px;
-  font-style: normal;
-  font-family: Open Sans;
-  font-weight: 300;
 
-  font-stretch: normal;
-}
-.OtherCaptionMobile {
-  font-size: 14px;
-  font-style: normal;
-  font-family: Open Sans;
-  font-weight: 400px;
-  font-stretch: normal;
-}
+.HeadlineH1,
+.HeadlineH2,
+.HeadlineH3,
+.HeadlineH4,
+.HeadlineH5,
+.HeadlineH6,
+.HeadlineH6mobile,
+.ActionPrimary,
+.ActionSecondary,
+.ActionTertiary,
+.Content,
+.Heading,
+.TextHero,
+.TextMain,
+.TextSecondary,
+.TextSecondaryMobile,
+.OtherCaption,
+.OtherCaptionMobile,
 .Body0 {
-  font-size: 23px;
   font-style: normal;
-  font-family: Inter;
-  font-weight: 400px;
-  font-stretch: normal;
 }
-.ActionTertiary {
-  font-size: 16px;
-  font-style: normal;
-  font-family: Raleway;
-  font-weight: 500px;
-  font-stretch: normal;
-  gap: 4px;
-}
-.OtherOverline {
-  font-size: 16px;
-  font-family: Open Sans;
-  font-weight: 300;
-  text-transform: uppercase;
-}
-.ActionPrimary {
-  font-size: 24px;
-  font-style: normal;
-  font-family: Raleway;
-  font-weight: 600px;
-  font-stretch: normal;
-}
-.navinactive {
-  font-size: 16px;
-  font-style: normal;
-  font-family: Raleway;
-  font-weight: 400px;
-  font-stretch: normal;
-}
-.OtherCaption {
-  font-size: 16px;
-  font-style: normal;
-  font-family: Open Sans;
-  font-weight: 400px;
-  font-stretch: normal;
-}
-.HeadlineH2 {
-  font-size: 80px;
-  font-style: normal;
-  font-family: Raleway;
-  font-weight: 700px;
-  font-stretch: normal;
-}
-.ActionSecondary {
-  font-size: 16px;
-  font-style: normal;
-  font-family: Raleway;
-  font-weight: 600px;
-  font-stretch: normal;
-}
-.HeadlineH5 {
-  font-size: 48px;
-  font-style: normal;
-  font-family: Raleway;
-  font-weight: 400px;
-  font-stretch: normal;
-}
-.HeadlineH3 {
-  font-size: 72px;
-  font-style: normal;
-  font-family: Raleway;
-  font-weight: 500px;
-  font-stretch: normal;
-}
-.TextSecondaryMobile {
-  font-size: 16px;
-  font-style: normal;
-  font-family: Open Sans;
-  font-weight: 300;
 
-  font-stretch: normal;
+.HeadlineH1,
+.HeadlineH2,
+.HeadlineH3,
+.HeadlineH4,
+.HeadlineH5,
+.HeadlineH6 {
+  font-family: Raleway, sans-serif;
 }
-.Content {
-  font-size: 16px;
-  font-family: Inter;
-  font-weight: 400;
-  line-height: 1.15;
-  text-transform: none;
-  text-decoration: none;
-}
-.Heading {
-  font-size: 32px;
-  font-family: Inter;
+
+.HeadlineH1 {
+  font-size: 6rem;
   font-weight: 700;
-  line-height: 1.15;
-  text-transform: none;
-  text-decoration: none;
 }
-.TextHero {
-  font-size: 40px;
-  font-style: normal;
-  font-family: Open Sans;
-  font-weight: 400px;
-  font-stretch: normal;
+
+.HeadlineH2 {
+  font-size: 5rem;
+  font-weight: 700;
 }
-.TextMain {
-  font-size: 32px;
-  font-style: normal;
-  font-family: Open Sans;
-  font-weight: 400px;
-  font-stretch: normal;
+
+.HeadlineH3 {
+  font-size: 4.5rem;
+  font-weight: 500;
 }
+
+.HeadlineH4 {
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.HeadlineH5 {
+  font-size: 3rem;
+  font-weight: 400;
+}
+
+.HeadlineH6,
 .HeadlineH6mobile {
   font-size: 1.5rem;
-  font-family: Raleway;
   font-weight: 500;
-}
-.HeadlineH4 {
-  font-size: 56px;
-  font-style: normal;
-  font-family: Raleway;
-  font-weight: 700px;
-  font-stretch: normal;
-}
-.HeadlineH6 {
-
-  font-family: Raleway;
-
-}
-.navactive {
-  font-size: 16px;
-  font-style: normal;
-  font-family: Raleway;
-  font-weight: 500;
-  font-stretch: normal;
 }
