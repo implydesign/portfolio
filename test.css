@@ -96,7 +96,7 @@ nav a:hover {
 nav a::before {
   content: "";
   position: absolute;
-  top: calc(-40%);
+  top: calc(-20%);
   left: calc(50% - 1.5em);
   width: 3em;
   height: 3em;
