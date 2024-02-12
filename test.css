@@ -812,6 +812,8 @@ background-color:hsla(183,0%,0%,1);
   align-items: center;
   flex-direction: column;
   background-color: #ffffff;
+gap: 4rem;
+
 }
 .portfolio-intromob {
   gap: 5vh;
