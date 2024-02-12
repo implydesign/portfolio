@@ -532,7 +532,8 @@ footer p a:hover {
   flex-direction: column;
   justify-content: center;
    height: 100vh;
-background-color: #000;
+background-color:hsla(183,0%,0%,1);
+            background-image: radial-gradient(at 29% 30%, hsla(183,100%,34%,1) 0px, transparent 50%), radial-gradient(at 74% 11%, hsla(253,100%,55%,1) 0px, transparent 50%), radial-gradient(at 18% 43%, hsla(183,100%,34%,1) 0px, transparent 50%), radial-gradient(at 82% 53%, hsla(29,100%,54%,1) 0px, transparent 50%), radial-gradient(at 13% 80%, hsla(300,100%,13%,1) 0px, transparent 50%), radial-gradient(at 19% 20%, hsla(252,100%,55%,1) 0px, transparent 50%);
 
 }
 .portfolio-quotedesk {
