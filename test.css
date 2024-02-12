@@ -1903,7 +1903,7 @@ align-items: center;
   }
   .portfolio-hero {
 
-   height: auto;
+   height: 100vh;
 
   }
   .portfolio-quotedesk {
