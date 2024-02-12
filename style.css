@@ -94,6 +94,9 @@ background-color: rgba(0,0,0,0.5);
 gap:3rem;
 display:flex;
 flex-direction:column;
+ padding: 16%;
+padding-top: 20%;
+
 }
 
 .button {
