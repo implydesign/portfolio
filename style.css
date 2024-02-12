@@ -99,6 +99,15 @@ padding-top: 20%;
 height:100vh;
 }
 
+@media (max-width: 375px)
+.overlay {
+gap: 1.5rem;
+padding: 8%;
+}
+
+
+
+
 .button {
   color: var(--dl-color-gray-black);
   display: inline-block;
