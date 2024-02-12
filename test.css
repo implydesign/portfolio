@@ -52,9 +52,13 @@ letter-spacing: -0.2rem;
 }
 
 
+.mobb{
+   display:none;
+}
+
  @media(max-width: 375px) {
        .mobb{
-         display: none;}
+         display: flex;}
       }
 
 
