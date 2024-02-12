@@ -291,7 +291,7 @@ footer p a:hover {
 }
 .ctam:hover:before {
   width: 100%;
-  background: #5628F5;
+  background: #769aff;
 }
 .ctam:hover .portfolio-send {
   transform: translateX(0);
