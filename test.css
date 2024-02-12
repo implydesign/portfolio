@@ -529,6 +529,8 @@ footer p a:hover {
   align-self: center;
   align-items: center;
   padding: 16%;
+padding-top: 20%;
+
   flex-direction: column;
   justify-content: center;
    height: 100vh;
