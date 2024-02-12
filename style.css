@@ -10,6 +10,7 @@
 html {
   line-height: 1.15;
   font-family: sans-serif;
+  -webkit-scroll-behavior: smooth;
   scroll-behavior: smooth;
 }
 
@@ -25,6 +26,7 @@ body {
   color: #333333;
   background-color: #ffffff;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {
@@ -38,8 +40,13 @@ h1 {
 .overlay {
   background-color: rgba(0, 0, 0, 0.5);
   gap: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   padding: 1.6rem;
   padding-top: 2rem;
   height: 100vh;
@@ -82,8 +89,11 @@ h1 {
 }
 
 .teleport-show {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
   display: flex !important;
-  transform: none !important;
+  -webkit-transform: none !important;
+          transform: none !important;
 }
 
 /* Typography */
