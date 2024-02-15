@@ -96,11 +96,11 @@ width: 100%;
   background-position: center;
   transition: background 0.8s;
 }
-.ripple:hover{
-  background: #000000 radial-gradient(circle, transparent 1%, #ffffff 1%) center/15000%;
+.ripple:before {
+  background: #757575 radial-gradient(circle, transparent 1%, #757575 1%) center/15000%;
 }
-.ripple:active {
-  background-color: #000000;
+.ripple:hover {
+  background-color: #757575;
   background-size: 100%;
   transition: background 0s;
 }
