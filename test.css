@@ -100,7 +100,7 @@ width: 100%;
 }
 .ripple:hover {
   background-position: center;
-  transition: background 0.8s;
+  transition: background 0.5s;
    background: #C8D7FF radial-gradient(circle, transparent 1%, #ffffff 1%) center/4000%;
 }
 .ripple:active {
