@@ -94,18 +94,16 @@ width: 100%;
 
 .ripple {
   background-position: center;
-  transition: background 0.8s;
-}
-.ripple:hover {
-  background: #757575 radial-gradient(circle, transparent 1%, #000000 1%) center/15000%;
-   transition: background 0.5s;
-}
-
-/*.ripple:hover {
-  background-color: #757575;
+  background-color: #fff;
   background-size: 100%;
   transition: background 0s;
-}*/
+}
+.ripple:hover {
+  background-position: center;
+  transition: background 0.8s;
+   background: #757575 radial-gradient(circle, transparent 1%, #f5f5f5 1%) center/9000%;
+}
+
 
 
 nav {
