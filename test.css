@@ -835,7 +835,7 @@ background-color:hsla(183,0%,0%,1);
   text-decoration: none;
 }
 .portfolio-send {
-  width: 1.5rem;
+ 
   height: auto;
   position: relative;
 }
@@ -2234,7 +2234,7 @@ display:flex;
     font-size: 1.3rem;
   }
   .portfolio-send {
-    width: 1.2rem;
+  
     height: auto;
   }
   .portfolio-intromob {
