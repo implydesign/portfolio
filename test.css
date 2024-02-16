@@ -292,12 +292,12 @@ footer p a:hover {
   align-self: flex-start;
    font-family: Raleway;
 width: 100%;
-background-color: rgba(118, 154, 255, 1);
+background-color: #C8D7FF;
 border-radius: 3rem;
 
 }
 .ctam:before {
-  content: "";
+  
   position: absolute;
   top: initial;
   left: 0;
