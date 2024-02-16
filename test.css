@@ -297,7 +297,7 @@ border-radius: 3rem;
 
 }
 .ctam:before {
-  
+  content:"";
   position: absolute;
   top: initial;
   left: 0;
