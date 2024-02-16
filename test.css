@@ -1901,6 +1901,18 @@ align-items: center;
     height: auto;
   }
 }
+
+
+
+@media(max-width: 540px) {
+       .portfolio-quotemob{
+         display: flex;}
+   .portfolio-quotedesk{
+      diplay:none;
+   }
+      }
+
+
 @media(max-width: 375px) {
   .portfolio-container1 {
     width: 100%;
