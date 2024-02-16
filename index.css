@@ -71,10 +71,10 @@ letter-spacing: -0.2rem;
 }
 
 .btn:focus-visible {
-   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #CFCFCF;
+   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #C8D7FF;
 }
 .btn:focus {
-   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #F5F5F5;
+   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #C8D7FF;
 }
 .btn:focus-within {
    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #F5F5F5;
@@ -82,9 +82,31 @@ letter-spacing: -0.2rem;
 
 .btn:target{
    font-weight: 600;
-   background-color: #f5f5f5;
+   background-color: #ffffff;
 }
 
+
+@media (max-width: 455px){
+.btn {
+width: 100%;
+}
+}
+
+.ripple {
+  background-position: center;
+  background-color: #fff;
+  background-size: 100%;
+  transition: background 0s;
+}
+.ripple:hover {
+  background-position: center;
+  transition: background 0.5s;
+   background: #C8D7FF radial-gradient(circle, transparent 1%, #ffffff 1%) center/4000%;
+}
+.ripple:active {
+  background-position: center;
+   background: #C8D7FF radial-gradient(circle, transparent 1%, #ffffff 1%) center/4000%;
+}
 
 
 
@@ -208,7 +230,7 @@ footer p a:hover {
 .cta {
   position: relative;
   align-items: center;
-  padding: 0.6rem 1rem 1.5rem 1.5rem;
+  padding: 0.5rem 1rem 0.5rem 1.5rem;
   transition: all 0.2s ease;
 }
 .cta:before {
@@ -227,7 +249,7 @@ footer p a:hover {
   position: relative;
   font-size: 1.5rem;
   line-height: auto;
-  font-weight: 600;
+  font-weight: 500;
   vertical-align: bottom;
 }
 .cta .portfolio-send1 {
@@ -264,14 +286,18 @@ footer p a:hover {
 .ctam {
   position: relative;
   align-items: center;
-  padding: 0.3rem 1rem 1.5rem 1.5rem;
+  padding: 0.5rem 1rem 0.5rem 1.5rem;
   transition: all 0.2s ease;
   display: none;
   align-self: flex-start;
    font-family: Raleway;
+width: 100%;
+background-color: #C8D7FF;
+border-radius: 3rem;
+
 }
 .ctam:before {
-  content: "";
+  
   position: absolute;
   top: initial;
   left: 0;
@@ -286,7 +312,7 @@ footer p a:hover {
   position: relative;
   font-size: 1.5rem;
   line-height: auto;
-  font-weight: 600;
+  font-weight: 500;
   color: #000000;
   vertical-align: bottom;
 }
@@ -329,7 +355,7 @@ footer p a:hover {
 
 @media (max-width: 325px){
    .ctam {
-padding: 0.1rem 0.5rem 1rem 1rem;
+padding: 0.5rem 1rem 0.5rem 1rem;
    }
 }
 
@@ -790,7 +816,7 @@ background-color:hsla(183,0%,0%,1);
   
   align-items: center;
   flex-shrink: 1;
-  justify-content: flex-start;
+  justify-content: center;
 }
 .portfolio-ellipse5 {
   top: 0px;
@@ -813,7 +839,7 @@ background-color:hsla(183,0%,0%,1);
   text-decoration: none;
 }
 .portfolio-send {
-  width: 1.5rem;
+ 
   height: auto;
   position: relative;
 }
@@ -1879,6 +1905,18 @@ align-items: center;
     height: auto;
   }
 }
+
+
+
+@media(max-width: 540px) {
+       .portfolio-quotemob{
+         display: flex;}
+   .portfolio-quotedesk{
+      display:none;
+   }
+      }
+
+
 @media(max-width: 375px) {
   .portfolio-container1 {
     width: 100%;
@@ -2200,7 +2238,7 @@ display:flex;
     font-size: 1.3rem;
   }
   .portfolio-send {
-    width: 1.2rem;
+  
     height: auto;
   }
   .portfolio-intromob {
