@@ -303,9 +303,9 @@ border-radius: 3rem;
   left: 0;
   display: block;
   border-radius: 3.5em;
-  background: rgba(118, 154, 255, 0.7);
-  width: 3.5em;
-  height: 3.5em;
+  background: #769aff;
+  
+  height: 3rem;
   transition: all 0.3s ease;
 }
 .ctam span {
