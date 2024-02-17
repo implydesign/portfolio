@@ -1046,8 +1046,13 @@ font-family: sans-serif;
 <script>
 $(document).ready(function(){
   $(window).scroll(function(){
-    if($(this).scrollTop() > 0) {
-      $('.portfolio-desknav').addClass('scroll');
+    var position = $(window).scrollTop();
+    var target = $('.portfolio-quotedesk').offset().top; // Top position of the target div
+    
+    if(position > target) {
+      setTimeout(function() {
+        $('.portfolio-desknav').addClass('scroll');
+      }, 1000); // Delay in milliseconds (1000ms = 1 second)
     } else {
       $('.portfolio-desknav').removeClass('scroll');
     }
