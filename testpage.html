@@ -1040,6 +1040,24 @@ font-family: sans-serif;
         
     </footer>
 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+$(document).ready(function(){
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 0) {
+      $('.portfolio-desknav').addClass('scroll');
+    } else {
+      $('.portfolio-desknav').removeClass('scroll');
+    }
+  });
+});
+
+
+</script>
+
+
 <!-- Include jQuery library (if not already included) -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
