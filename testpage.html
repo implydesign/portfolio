@@ -1044,26 +1044,38 @@ font-family: sans-serif;
 
 
 <script>
-    $(document).ready(function(){
-  $(window).scroll(function(){
-    var position = $(window).scrollTop();
-    var target = $('.portfolio-quotedesk').offset().top; // Top position of the target div
-    
-    // Offset the target position by a fixed amount (e.g., 50 pixels) for the trigger point
-    var offset = 100;
-    
-    if(position > target - offset) { // Modify this line
-      $('.portfolio-desknav').addClass('scroll');
-      $('img[alt="Imply Logo"]').attr('src', 'public/moblogo.svg');
-      $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9.svg');
-    } else {
-      $('.portfolio-desknav').removeClass('scroll');
-      $('img[alt="Imply Logo"]').attr('src', 'public/moblogow.svg');
-      $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9w.svg');
-    }
-  });
-});
+$(document).ready(function () {
+    $(window).scroll(function () {
+        var position = $(window).scrollTop();
+        var targetDesk = $('.portfolio-quotedesk').offset().top; // Top position of the target desk div
+        var targetMob = $('.portfolio-quotemob').offset().top; // Top position of the target mob div
 
+        var offset = 75;
+
+        var logoImg = $('img[alt="Imply Logo"]');
+        var arrowImg = $('img[alt="open in new window (arrow symbol)"]');
+
+        if (position > targetDesk - offset) {
+            $('.portfolio-desknav').addClass('scroll');
+            logoImg.attr('src', 'public/moblogo.svg');
+            arrowImg.attr('src', 'public/external/arrowop1001-h8e9.svg');
+        } else {
+            $('.portfolio-desknav').removeClass('scroll');
+            logoImg.attr('src', 'public/moblogow.svg');
+            arrowImg.attr('src', 'public/external/arrowop1001-h8e9w.svg');
+        }
+
+        if (position > targetMob - offset) {
+            $('.portfolio-mobnav').addClass('scroll');
+            logoImg.attr('src', 'public/moblogo.svg');
+            arrowImg.attr('src', 'public/external/arrowop1001-h8e9.svg');
+        } else {
+            $('.portfolio-mobnav').removeClass('scroll');
+            logoImg.attr('src', 'public/moblogow.svg');
+            arrowImg.attr('src', 'public/external/arrowop1001-h8e9w.svg');
+        }
+    });
+});
 
 </script>
 
