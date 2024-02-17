@@ -393,8 +393,16 @@ padding: 0.5rem 1rem 0.5rem 1rem;
   padding-right: 10%;
   padding-bottom: 1.5%;
   justify-content: space-between;
-  background-color: rgba(255, 255, 255, 1);
+ background-color: transparent; /* Initial background color */
+  transition: background-color 0.3s; /* Smooth transition */
 }
+
+.portfolio-desknav.scroll {
+  background-color: #fff; /* Change background color on scroll */
+  color: #000; /* Black text color */
+}
+
+
 .portfolio-logotype {
   height: auto;
   display: flex;
