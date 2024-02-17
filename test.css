@@ -394,12 +394,17 @@ padding: 0.5rem 1rem 0.5rem 1rem;
   padding-bottom: 1.5%;
   justify-content: space-between;
  background-color: transparent; /* Initial background color */
-  transition: background-color 0.3s; /* Smooth transition */
+color: #fff;
+ box-shadow: none; /* Initial box shadow */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+
 }
 
 .portfolio-desknav.scroll {
   background-color: #fff; /* Change background color on scroll */
   color: #000; /* Black text color */
+ box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1); /* Add box shadow */
+
 }
 
 
