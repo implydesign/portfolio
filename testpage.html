@@ -1056,13 +1056,23 @@ $(document).ready(function(){
       $('.portfolio-desknav').addClass('scroll');
       $('img[alt="Imply Logo"]').attr('src', 'public/moblogo.svg');
       $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9.svg');
+      
+      // Change background color on scroll
+      $('.portfolio-desknav').css('background-color', '#ffffff'); // Change the color to the desired one
+      $('.portfolio-desknav').css('color', '#000'); // Change the color to the desired one
+      $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)'); // Change the box-shadow to the desired one
     } else {
       $('.portfolio-desknav').removeClass('scroll');
       $('img[alt="Imply Logo"]').attr('src', 'public/moblogow.svg');
       $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9w.svg');
+      
+      // Change background color on scroll
+      $('.portfolio-desknav').css('background-color', 'transparent'); // Change the color to the desired one
+      $('.portfolio-desknav').css('color', '#fff'); // Change the color to the desired one
+      $('.portfolio-desknav').css('box-shadow', 'none'); // Change the box-shadow to the desired one
     }
   });
-
+  
   // Immediately check the scroll position when the document is ready
   var position = $(window).scrollTop();
   var target = $('.portfolio-quotedesk').offset().top;
@@ -1072,16 +1082,17 @@ $(document).ready(function(){
     // If position is greater than the target position, set background to white
     $('.portfolio-desknav').addClass('scroll');
     $('.portfolio-desknav').css('background-color', '#ffffff');
-    $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)');
     $('.portfolio-desknav').css('color', '#000');
+    $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)');
   } else {
     // If position is less than the target position, set background to transparent
     $('.portfolio-desknav').removeClass('scroll');
     $('.portfolio-desknav').css('background-color', 'transparent');
-    $('.portfolio-desknav').css('box-shadow', 'none');
     $('.portfolio-desknav').css('color', '#fff');
+    $('.portfolio-desknav').css('box-shadow', 'none');
   }
 });
+
 
 
 </script>
