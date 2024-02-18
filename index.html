@@ -44,7 +44,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" data-tag="font">
 
 
-<link href="./index.css" rel="stylesheet" /> 
+<link href="./test.css" rel="stylesheet" /> 
 <link rel="stylesheet" href="./style.css" />  
 
  <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"> -->
@@ -88,7 +88,7 @@ font-family: sans-serif;
       <div class="portfolio-logo">
         <img
           alt="Imply Logo"
-          src="public/moblogo.svg"
+          src="public/moblogow.svg"
           loading="eager"
           class="portfolio-m"
           aria-hidden="true"
@@ -108,7 +108,7 @@ font-family: sans-serif;
       <a href="/Olha_CV.pdf" class="portfolio-navitem" tabindex="0" aria-label="Open CV - Opens CV in default PDF viewer">
         <img
           alt="open in new window (arrow symbol)"
-          src="public/external/arrowop1001-h8e9.svg"
+          src="public/external/arrowop1001-h8e9w.svg"
           loading="eager"
           class="portfolio-arrowop"
           aria-hidden="true"
@@ -1039,6 +1039,68 @@ font-family: sans-serif;
 
         
     </footer>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+
+$(document).ready(function(){
+  $(window).scroll(function(){
+    var position = $(window).scrollTop();
+    var target = $('.portfolio-quotedesk').offset().top; // Top position of the target div
+    
+    // Offset the target position by a fixed amount (e.g., 50 pixels) for the trigger point
+    var offset = 75;
+    
+    if(position > target - offset) {
+      $('.portfolio-desknav').addClass('scroll');
+      $('img[alt="Imply Logo"]').attr('src', 'public/moblogo.svg');
+      $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9.svg');
+      
+      // Change background color on scroll
+      $('.portfolio-desknav').css('background-color', '#ffffff'); // Change the color to the desired one
+      $('.portfolio-desknav').css('color', '#000'); // Change the color to the desired one
+      $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)'); // Change the box-shadow to the desired one
+    } else {
+      $('.portfolio-desknav').removeClass('scroll');
+      $('img[alt="Imply Logo"]').attr('src', 'public/moblogow.svg');
+      $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9w.svg');
+      
+      // Change background color on scroll
+      $('.portfolio-desknav').css('background-color', 'transparent'); // Change the color to the desired one
+      $('.portfolio-desknav').css('color', '#fff'); // Change the color to the desired one
+      $('.portfolio-desknav').css('box-shadow', 'none'); // Change the box-shadow to the desired one
+    }
+  });
+  
+  // Immediately check the scroll position when the document is ready
+  var position = $(window).scrollTop();
+  var target = $('.portfolio-quotedesk').offset().top;
+  var offset = 75;
+  
+  if (position > target - offset) {
+    // If position is greater than the target position, set background to white
+    $('.portfolio-desknav').addClass('scroll');
+    $('.portfolio-desknav').css('background-color', '#ffffff');
+    $('.portfolio-desknav').css('color', '#000');
+    $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)');
+    $('img[alt="Imply Logo"]').attr('src', 'public/moblogo.svg');
+    $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9.svg');
+  } else {
+    // If position is less than the target position, set background to transparent
+    $('.portfolio-desknav').removeClass('scroll');
+    $('.portfolio-desknav').css('background-color', 'transparent');
+    $('.portfolio-desknav').css('color', '#fff');
+    $('.portfolio-desknav').css('box-shadow', 'none');
+    $('img[alt="Imply Logo"]').attr('src', 'public/moblogow.svg');
+    $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9w.svg');
+  }
+});
+
+
+</script>
+
 
 <!-- Include jQuery library (if not already included) -->
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
