@@ -1044,6 +1044,7 @@ font-family: sans-serif;
 
 
 <script>
+
 $(document).ready(function(){
   $(window).scroll(function(){
     var position = $(window).scrollTop();
@@ -1084,15 +1085,18 @@ $(document).ready(function(){
     $('.portfolio-desknav').css('background-color', '#ffffff');
     $('.portfolio-desknav').css('color', '#000');
     $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)');
+    $('img[alt="Imply Logo"]').attr('src', 'public/moblogo.svg');
+    $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9.svg');
   } else {
     // If position is less than the target position, set background to transparent
     $('.portfolio-desknav').removeClass('scroll');
     $('.portfolio-desknav').css('background-color', 'transparent');
     $('.portfolio-desknav').css('color', '#fff');
     $('.portfolio-desknav').css('box-shadow', 'none');
+    $('img[alt="Imply Logo"]').attr('src', 'public/moblogow.svg');
+    $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9w.svg');
   }
 });
-
 
 
 </script>
