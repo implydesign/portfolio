@@ -3,6 +3,12 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
+body::selection {
+  color: #5628F5;
+  background-color: #C8D7FF;
+}
+
+
 .headline{font-size: 6rem;
 font-weight: 200;
 font-family: raleway;
