@@ -3,7 +3,7 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
-body::selection {
+span::selection {
   color: #5628F5;
   background-color: #C8D7FF;
 }
