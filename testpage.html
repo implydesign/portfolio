@@ -1106,34 +1106,35 @@ $(document).ready(function(){
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
-  $(document).ready(function() {
-    // Function to update active state based on current div in viewport
-    function updateActiveState() {
-      // Get the current scroll position
-      var scrollPosition = $(window).scrollTop();
+ $(document).ready(function() {
+  // Function to update active state based on current div in viewport
+  function updateActiveState() {
+    // Get the current scroll position
+    var scrollPosition = $(window).scrollTop();
 
-      // Check each div to see if it is in the viewport
-      $('main div').each(function() {
-        var divId = $(this).attr('id');
-        var divTop = $(this).offset().top - 50; // Adjusted for better visibility, you may need to fine-tune this value
-        var divBottom = divTop + $(this).outerHeight();
+    // Check each div to see if it is in the viewport
+    $('main div').each(function() {
+      var divId = $(this).attr('id');
+      var divTop = $(this).offset().top - 50; // Adjusted for better visibility, you may need to fine-tune this value
+      var divBottom = divTop + $(this).outerHeight();
 
-        if (scrollPosition >= divTop && scrollPosition <= divBottom) {
-          // Update the active state in the navigation
-          $('.portfolio-navitem').removeClass('active');
-          $('[href="#' + divId + '"]').addClass('active');
-        }
-      });
-    }
-
-    // Update the active state on page load
-    updateActiveState();
-
-    // Update the active state on scroll
-    $(window).scroll(function() {
-      updateActiveState();
+      if (scrollPosition >= divTop && scrollPosition <= divBottom) {
+        // Update the active state in the navigation
+        $('.portfolio-navitem').removeClass('active');
+        $('[href="#' + divId + '"]').addClass('active');
+      }
     });
+  }
+
+  // Update the active state on page load
+  updateActiveState();
+
+  // Update the active state on scroll
+  $(window).scroll(function() {
+    updateActiveState();
   });
+});
+
 </script>
 
 
