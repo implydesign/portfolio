@@ -32,6 +32,79 @@ a:hover::before {
   transition: transform 0.3s ease;
 }
 
+.btn{
+  border-radius: 100px;
+   font-weight: 500;
+}
+
+.btn:before {
+  background: #f5f5f5;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+.btn:hover {
+  color: #000000;
+  background-color: #f5f5f5;
+}
+
+
+.mobb{
+   display:none;
+}
+
+ @media(max-width: 375px) {
+       .mobb{
+         display: flex;}
+      }
+
+
+.btn:active {
+  transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+}
+
+.btn:focus-visible {
+   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #C8D7FF;
+}
+.btn:focus {
+   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #C8D7FF;
+}
+.btn:focus-within {
+   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #F5F5F5;
+}
+
+.btn:target{
+   font-weight: 600;
+   background-color: #ffffff;
+}
+
+
+@media (max-width: 455px){
+.btn {
+width: 100%;
+}
+}
+
+.ripple {
+  background-position: center;
+  background-color: #fff;
+  background-size: 100%;
+  transition: background 0s;
+}
+.ripple:hover {
+  background-position: center;
+  transition: background 0.5s;
+   background: #C8D7FF radial-gradient(circle, transparent 1%, #ffffff 1%) center/4000%;
+}
+.ripple:active {
+  background-position: center;
+   background: #C8D7FF radial-gradient(circle, transparent 1%, #ffffff 1%) center/4000%;
+}
+
 
 .portfolio-desknav {
   gap: auto;
