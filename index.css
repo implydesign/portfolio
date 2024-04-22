@@ -181,6 +181,7 @@ footer {
   gap: 2vh;
 margin-top: 4rem;
 margin-bottom: 2rem;
+   border-radius: 1em;
 }
 
 footer p {
