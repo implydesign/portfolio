@@ -417,7 +417,7 @@ footer p a:hover {
 
 
 
-.locatour-container {
+.container {
   gap: 8vh;
   width: 100%;
   display: flex;
@@ -428,7 +428,7 @@ footer p a:hover {
   flex-direction: column;
   background-color: #f5f5f5;
 }
-.locatour-desknav {
+.desknav {
   gap: auto;
   top: 0;
   left: 0px;
@@ -446,7 +446,7 @@ footer p a:hover {
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 1);
 }
-.locatour-logotype {
+.logotype {
   height: auto;
   display: flex;
   align-items: center;
@@ -454,7 +454,7 @@ footer p a:hover {
   flex-direction: column;
   justify-content: center;
 }
-.locatour-logo {
+.logo {
   width: 20vw;
   height: 5vh;
   display: flex;
@@ -463,24 +463,24 @@ footer p a:hover {
   align-items: flex-start;
   flex-shrink: 0;
 }
-.locatour-m {
+.m {
   height: 100%;
   position: absolute;
   box-sizing: content-box;
 }
-.locatour-nav {
+.nav {
   gap: 4vw;
   display: flex;
   align-self: center;
 }
-.locatour-navitem {
+.navitem {
   height: auto;
   display: flex;
   align-self: stretch;
   align-items: center;
   justify-content: center;
 }
-.locatour-text {
+.text {
   color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 1.2rem;
@@ -491,13 +491,13 @@ footer p a:hover {
   line-height: normal;
   font-stretch: normal;
 }
-.locatour-navitem1 {
+.navitem1 {
   display: flex;
   align-self: stretch;
   align-items: center;
   justify-content: center;
 }
-.locatour-text01 {
+.text01 {
   color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 1.2rem;
@@ -508,13 +508,13 @@ footer p a:hover {
   line-height: normal;
   font-stretch: normal;
 }
-.locatour-navitem2 {
+.navitem2 {
   display: flex;
   align-self: stretch;
   align-items: center;
   justify-content: center;
 }
-.locatour-text02 {
+.text02 {
   color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 1.2rem;
@@ -525,17 +525,17 @@ footer p a:hover {
   line-height: normal;
   font-stretch: normal;
 }
-.locatour-navitem3 {
+.navitem3 {
   display: flex;
   align-self: stretch;
   align-items: center;
   justify-content: center;
 }
-.locatour-arrowop {
+.arrowop {
   width: 1.8rem;
   height: auto;
 }
-.locatour-text03 {
+.text03 {
   color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 1.2rem;
@@ -546,7 +546,7 @@ footer p a:hover {
   line-height: normal;
   font-stretch: normal;
 }
-.locatour-mobnav {
+.mobnav {
   gap: auto;
   top: 0;
   left: 0px;
@@ -559,7 +559,7 @@ footer p a:hover {
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 1);
 }
-.locatour-logotype1 {
+.logotype1 {
   height: 3.5vh;
   display: flex;
   align-items: center;
@@ -567,7 +567,7 @@ footer p a:hover {
   flex-direction: column;
   justify-content: center;
 }
-.locatour-logo1 {
+.logo1 {
   width: 32vw;
   height: 3vh;
   display: flex;
@@ -576,30 +576,30 @@ footer p a:hover {
   align-items: flex-start;
   flex-shrink: 0;
 }
-.locatour-m1 {
+.m1 {
   height: 100%;
   position: absolute;
   box-sizing: content-box;
 }
-.locatour-nav1 {
+.nav1 {
   gap: 8px;
   height: 3.5vh;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.locatour-navitem4 {
+.navitem4 {
   height: 3vh;
   display: flex;
   align-self: center;
   align-items: center;
   justify-content: center;
 }
-.locatour-arrowop1 {
+.arrowop1 {
   width: 1.8rem;
   height: auto;
 }
-.locatour-text04 {
+.text04 {
   color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 1.2rem;
@@ -610,7 +610,7 @@ footer p a:hover {
   line-height: normal;
   font-stretch: normal;
 }
-.locatour-frame67 {
+.frame67 {
   gap: 6vh;
   width: 100%;
   height: auto;
@@ -623,7 +623,7 @@ footer p a:hover {
   flex-direction: column;
   padding-bottom: 10%;
 }
-.locatour-top {
+.top {
   gap: 4vh;
   width: 100%;
   display: flex;
@@ -676,20 +676,20 @@ footer p a:hover {
      font-size: 1em;
    }
 
-.locatour-row {
+.row {
   display: flex;
   align-self: stretch;
   align-items: center;
   flex-shrink: 0;
   justify-content: center;
 }
-.locatour-frame62 {
+.frame62 {
   gap: 4vw;
   display: flex;
   flex-grow: 1;
   align-items: center;
 }
-.locatour-text10 {
+.text10 {
   color: var(--dl-color-default-black);
   height: auto;
   font-size: 1.3em;
@@ -701,7 +701,7 @@ footer p a:hover {
   font-stretch: normal;
   text-decoration: none;
 }
-.locatour-control {
+.control {
   gap: 4vw;
   display: flex;
   padding: 0.8vw;
@@ -712,11 +712,11 @@ footer p a:hover {
   border-radius: 100px;
   justify-content: center;
 }
-.locatour-iosshare {
+.iosshare {
   width: 2em;
   height: auto;
 }
-.locatour-paragraph {
+.paragraph {
   gap: 3vh;
   width: 100%;
   display: flex;
@@ -735,7 +735,7 @@ footer p a:hover {
   line-height: normal;
   font-stretch: normal;
 }
-.locatour-container1 {
+.container1 {
   gap: 1.5vh;
   width: 100%;
   display: flex;
@@ -755,16 +755,16 @@ footer p a:hover {
   font-stretch: normal;
 }
 
-.locatour-imagedesk {
+.imagedesk {
   width: 100%;
   object-fit: cover;
 }
-.locatour-imagemob {
+.imagemob {
   width: 100%;
   display: none;
   object-fit: cover;
 }
-.locatour-paragraph1 {
+.paragraph1 {
   gap: 3vh;
   width: 100%;
   display: flex;
@@ -772,7 +772,7 @@ footer p a:hover {
   flex-direction: column;
 }
 
-.locatour-container2 {
+.container2 {
   gap: 1.5vh;
   width: 100%;
   display: flex;
@@ -781,7 +781,7 @@ footer p a:hover {
 }
 
 
-.locatour-paragraph2 {
+.paragraph2 {
   gap: 3vh;
   width: 100%;
   display: flex;
@@ -789,7 +789,7 @@ footer p a:hover {
   flex-direction: column;
 }
 
-.locatour-container3 {
+.container3 {
   gap: 1.5vh;
   width: 100%;
   display: flex;
@@ -798,7 +798,7 @@ footer p a:hover {
 }
 
 
-.locatour-paragraph3 {
+.paragraph3 {
   gap: 3vh;
   width: 100%;
   display: flex;
@@ -806,7 +806,7 @@ footer p a:hover {
   flex-direction: column;
 }
 
-.locatour-container4 {
+.container4 {
   gap: 1.5vh;
   width: 100%;
   display: flex;
@@ -814,16 +814,16 @@ footer p a:hover {
   flex-direction: column;
 }
 
-.locatour-imagedesk1 {
+.imagedesk1 {
   width: 100%;
   object-fit: cover;
 }
-.locatour-imagemob1 {
+.imagemob1 {
   width: 100%;
   display: none;
   object-fit: cover;
 }
-.locatour-paragraph4 {
+.paragraph4 {
   gap: 3vh;
   width: 100%;
   display: flex;
@@ -831,7 +831,7 @@ footer p a:hover {
   flex-direction: column;
 }
 
-.locatour-container5 {
+.container5 {
   gap: 1.5vh;
   width: 100%;
   display: flex;
@@ -840,29 +840,29 @@ footer p a:hover {
 }
 
 
-.locatour-container6 {
+.container6 {
   width: 100%;
 }
-.locatour-container7 {
+.container7 {
   display: contents;
 }
 @media(max-width: 1600px) {
-  .locatour-desknav {
+  .desknav {
     display: flex;
     position: fixed;
     padding-left: 8%;
     padding-right: 8%;
   }
-  .locatour-logo {
+  .logo {
     height: 5vh;
   }
-  .locatour-frame67 {
+  .frame67 {
     gap: 4vh;
     padding-left: 16%;
     padding-right: 16%;
     justify-content: flex-start;
   }
-  .locatour-top {
+  .top {
     gap: 4vh;
   }
   .overline {
@@ -880,7 +880,7 @@ footer p a:hover {
     font-size: 1.3em;
   }
 
-  .locatour-iosshare {
+  .iosshare {
     width: 1.5em;
   }
   .headlines {
@@ -892,16 +892,16 @@ footer p a:hover {
   .
 }
 @media(max-width: 1200px) {
-  .locatour-desknav {
+  .desknav {
     display: flex;
     position: fixed;
     padding-left: 6%;
     padding-right: 6%;
   }
-  .locatour-logo {
+  .logo {
     height: 5vh;
   }
-  .locatour-frame67 {
+  .frame67 {
     gap: 3vh;
     padding-left: 12%;
     padding-right: 12%;
@@ -916,7 +916,7 @@ footer p a:hover {
     font-size: 1.1em;
   }
   
-  .locatour-iosshare {
+  .iosshare {
     width: 1.3em;
   }
   .headlines {
@@ -930,7 +930,7 @@ footer p a:hover {
    }
 }
 @media(max-width: 900px) {
-  .locatour-desknav {
+  .desknav {
     gap: 0;
     width: 100%;
     display: flex;
@@ -938,44 +938,44 @@ footer p a:hover {
     align-items: center;
     justify-content: space-between;
   }
-  .locatour-logo {
+  .logo {
     width: 32vw;
     height: 4vh;
   }
-  .locatour-nav {
+  .nav {
     width: auto;
     align-self: center;
     align-items: flex-start;
     justify-content: space-between;
   }
-  .locatour-navitem {
+  .navitem {
     width: auto;
     height: 3vh;
     display: none;
     flex-direction: column;
   }
   
-  .locatour-navitem1 {
+  .navitem1 {
     height: 3vh;
     align-self: flex-start;
     flex-direction: column;
   }
   
-  .locatour-navitem2 {
+  .navitem2 {
     width: auto;
     height: 3vh;
     align-self: flex-start;
     flex-direction: column;
   }
   
-  .locatour-navitem3 {
+  .navitem3 {
     height: 3vh;
     align-self: flex-start;
   }
-  .locatour-mobnav {
+  .mobnav {
     display: none;
   }
-  .locatour-frame67 {
+  .frame67 {
     padding-left: 10%;
     padding-right: 10%;
   }
@@ -985,25 +985,25 @@ footer p a:hover {
   .description {
     font-size: 1em;
   }
-  .locatour-row {
+  .row {
     padding-top: 1vh;
   }
-  .locatour-iosshare {
+  .iosshare {
     width: 1.2em;
   }
   .headlines {
     font-size: 1.3em;
   }
-  .locatour-imagedesk {
+  .imagedesk {
     display: none;
   }
-  .locatour-imagemob {
+  .imagemob {
     display: flex;
   }
   .
 }
 @media(max-width: 375px) {
-  .locatour-desknav {
+  .desknav {
     width: 100%;
     display: none;
     z-index: 100;
@@ -1015,11 +1015,11 @@ footer p a:hover {
     padding-right: 5%;
     padding-bottom: 4%;
   }
-  .locatour-logo {
+  .logo {
     align-items: flex-start;
     justify-content: flex-start;
   }
-  .locatour-mobnav {
+  .mobnav {
     width: 100%;
     display: flex;
     z-index: 100;
@@ -1030,11 +1030,11 @@ footer p a:hover {
     padding-right: 5%;
     padding-bottom: 4%;
   }
-  .locatour-logo1 {
+  .logo1 {
     align-items: flex-start;
     justify-content: flex-start;
   }
-  .locatour-frame67 {
+  .frame67 {
     margin-top: 10vh;
     padding-left: 6%;
     padding-right: 6%;
@@ -1042,10 +1042,10 @@ footer p a:hover {
   .headline {
     font-size: 1.8em;
   }
-  .locatour-control {
+  .control {
     padding: 2vw;
   }
-  .locatour-iosshare {
+  .iosshare {
     width: 1.1em;
   }
   .body {
@@ -1054,7 +1054,7 @@ footer p a:hover {
  
 }
 @media(max-width: 320px) {
-  .locatour-desknav {
+  .desknav {
     width: 100%;
     display: none;
     z-index: 100;
@@ -1063,16 +1063,16 @@ footer p a:hover {
     align-items: stretch;
     padding-top: 3.5%;
   }
-  .locatour-logotype {
+  .logotype {
     align-items: center;
   }
-  .locatour-logo {
+  .logo {
     width: 32vw;
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
   }
-  .locatour-m {
+  .m {
     top: 0px;
     left: 0px;
     width: 100%;
@@ -1080,7 +1080,7 @@ footer p a:hover {
     margin: auto;
   }
  
-  .locatour-mobnav {
+  .mobnav {
     width: 100%;
     display: flex;
     z-index: 100;
@@ -1088,16 +1088,16 @@ footer p a:hover {
     box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1);
     padding-top: 3.5%;
   }
-  .locatour-logotype1 {
+  .logotype1 {
     align-items: center;
   }
-  .locatour-logo1 {
+  .logo1 {
     width: 32vw;
     height: 100%;
     align-items: flex-start;
     justify-content: flex-start;
   }
-  .locatour-m1 {
+  .m1 {
     top: 0px;
     left: 0px;
     width: 100%;
@@ -1105,13 +1105,13 @@ footer p a:hover {
     margin: auto;
   }
   
-  .locatour-frame67 {
+  .frame67 {
     margin-top: 9vh;
   }
   .headline {
     font-size: 1.6em;
   }
-  .locatour-iosshare {
+  .iosshare {
     width: 1em;
   }
 }
