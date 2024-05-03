@@ -114,23 +114,6 @@ footer p a:hover {
         }
       }
 
-.portfolio-container {
- 
-  width: 100%;
-  display: flex;
-  overflow: hidden;
-  flex-wrap: wrap;
-  min-height: 100vh;
-  align-items: center;
-  flex-direction: column;
-  background-color: #000000;
-}
-.portfolio-container1 {
-  width: 100%;
-}
-.portfolio-container2 {
-  display: contents;
-}
 .portfolio-desknav {
   gap: auto;
   top: 0;
@@ -138,7 +121,7 @@ footer p a:hover {
   width: 100%;
   display: flex;
   z-index: 100;
-  position: fixed;
+position: fixed;
   box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1);
   align-items: center;
   flex-shrink: 0;
@@ -147,21 +130,8 @@ footer p a:hover {
   padding-right: 10%;
   padding-bottom: 1.5%;
   justify-content: space-between;
- background-color: transparent; /* Initial background color */
-color: #fff;
- box-shadow: none; /* Initial box shadow */
-  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
-
+  background-color: rgba(255, 255, 255, 1);
 }
-
-.portfolio-desknav.scroll {
-  background-color: #fff; /* Change background color on scroll */
-  color: #000; /* Black text color */
- box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1); /* Add box shadow */
-
-}
-
-
 .portfolio-logotype {
   height: auto;
   display: flex;
@@ -172,7 +142,7 @@ color: #fff;
 }
 .portfolio-logo {
   width: 20vw;
-  height: 3rem;
+  height: 5vh;
   display: flex;
   overflow: hidden;
   position: relative;
@@ -190,20 +160,20 @@ color: #fff;
   align-self: center;
 }
 .portfolio-navitem {
-  height: 2.35rem;
+  height: auto;
   display: flex;
   align-self: stretch;
   align-items: center;
   justify-content: center;
 }
 .portfolio-text {
- 
+  color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
   font-family: Raleway;
-  
+  font-weight: 400;
   line-height: normal;
   font-stretch: normal;
 }
@@ -214,13 +184,13 @@ color: #fff;
   justify-content: center;
 }
 .portfolio-text01 {
-  
+  color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
   font-family: Raleway;
-  
+  font-weight: 400;
   line-height: normal;
   font-stretch: normal;
 }
@@ -231,13 +201,13 @@ color: #fff;
   justify-content: center;
 }
 .portfolio-text02 {
- 
+  color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
   font-family: Raleway;
-
+  font-weight: 400;
   line-height: normal;
   font-stretch: normal;
 }
@@ -246,84 +216,140 @@ color: #fff;
   align-self: stretch;
   align-items: center;
   justify-content: center;
-
+    height: 3vh;
 }
 .portfolio-arrowop {
   width: 1.8rem;
   height: auto;
 }
 .portfolio-text03 {
-  
+  color: rgba(0, 0, 0, 1);
   height: auto;
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
   font-family: Raleway;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+}
 
-  line-height: normal;
-  font-stretch: normal;
+
+@media(max-width: 1600px) {
+  .portfolio-desknav {
+    display: flex;
+    position: fixed;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  .portfolio-logo {
+    height: 5vh;
+  }
 }
-.portfolio-mobnav {
-  gap: auto;
-  top: 0;
-  left: 0px;
-  width: 100%;
-  height: auto;
-  display: none;
-  positon: fixed;
-  align-items: center;
-  flex-shrink: 0;
-  justify-content: space-between;
-  background-color: rgba(255, 255, 255, 1);
+@media(max-width: 1200px) {
+  .portfolio-desknav {
+    display: flex;
+    position: fixed;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+  .portfolio-logo {
+    height: 5vh;
+  }
 }
-.portfolio-logotype1 {
-  height: 2.35rem;
-  display: flex;
-  align-items: center;
-  flex-shrink: 0;
-  flex-direction: column;
-  justify-content: center;
-}
-.portfolio-logo1 {
-  width: 10rem;
-  height: 100%;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  align-items: flex-start;
-  flex-shrink: 0;
-}
-.portfolio-m1 {
-  height: 100%;
+@media(max-width: 900px) {
+  .portfolio-desknav {
+    gap: 0;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .portfolio-logo {
+    width: 32vw;
+    height: 4vh;
+  }
+  .portfolio-nav {
+    width: auto;
+    align-self: center;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .portfolio-navitem {
+    width: auto;
+    height: 3vh;
+    display: none;
+    flex-direction: column;
+  }
+  .portfolio-text {
+    color: rgb(0, 0, 0);
+    width: 100%;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .portfolio-navitem1 {
+    height: 3vh;
+    align-self: flex-start;
+    flex-direction: column;
+  }
+  .portfolio-text01 {
+    color: rgb(0, 0, 0);
+    width: 100%;
+    height: auto;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .portfolio-navitem2 {
+    width: auto;
+    height: 3vh;
+    align-self: flex-start;
+    flex-direction: column;
+  }
+  .portfolio-text02 {
+    color: rgb(0, 0, 0);
+    width: 100%;
+    display: none;
+    font-size: 1.2rem;
+    font-style: normal;
+    font-family: Raleway;
+    font-weight: 400;
+    line-height: normal;
+  }
+  .portfolio-navitem3 {
+    height: 3vh;
+    align-self: flex-start;
+  }
+   a::before {
+  content: "";
   position: absolute;
-  box-sizing: content-box;
+  top: calc(-40%);
+  left: calc(50% - 1em);
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  background-color: rgba(118, 154, 255, 0.4);
+  transform: scale(0);
+  z-index: -100;
 }
-.portfolio-nav1 {
-  gap: 8px;
-  height: 3.5vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
-.portfolio-navitem4 {
-  height: 3vh;
-  display: flex;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
-}
-.portfolio-arrowop1 {
-  width: 1.8rem;
-  height: auto;
-}
-.portfolio-text04 {
- 
-  height: auto;
-  font-size: 1.2rem;
-  font-style: normal;
-  text-align: left;
-  font-family: Raleway;
-  
-  line-height: normal;
-  font-stretch: normal;
+@media(max-width: 375px) {
+  .portfolio-desknav {
+    width: 100%;
+    display: none;
+    z-index: 100;
+    position: fixed;
+    box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1);
+    align-items: flex-start;
+    padding-top: 3%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 4%;
+  }
 }
