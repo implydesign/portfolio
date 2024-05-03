@@ -1,0 +1,329 @@
+nav {
+   display:flex;
+   flex-direction: row;
+   gap: 4vw;
+}
+
+nav a {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: inherit;
+}
+
+nav a::before {
+  content: "";
+  position: absolute;
+  top: calc(-20%);
+  left: calc(50% - 1.5em);
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
+  background-color: rgba(118, 154, 255, 0.4);
+  transform: scale(0);
+  z-index: -100;
+}
+
+nav a:hover::before {
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+
+
+nav a:target{
+   font-weight: 600;
+}
+
+nav a:active{
+   font-weight: 600;
+}
+
+.active{
+   font-weight: 600;
+   color: #000000;
+}
+
+:root {
+  --footertext: #ffffff;
+  --footerline: #769AFF;
+  --footerline-active: #5628F5;
+}
+
+footer {
+  width: 95%;
+  padding-left: 8%;
+  padding-right:8%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+  margin: auto;
+  height: auto;
+  font-family: Raleway;
+  font-variant-numeric: lining-nums proportional-nums;
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+margin-top: 4rem;
+margin-bottom: 2rem;
+   border-radius: 1em;
+}
+
+footer p {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--footertext);
+}
+footer p a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+  margin: 0 var(--spacing, 0px);
+  transition: margin 0.25s;
+}
+footer p a svg {
+  width: 6rem;
+  height: 2.5rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0.5rem) translateZ(0);
+  fill: none;
+  stroke: var(--stroke, var(--footerline));
+  stroke-linecap: round;
+  stroke-width: 0.1rem;
+  stroke-dasharray: var(--offset, 69px) 278px;
+  stroke-dashoffset: 361px;
+  transition: stroke 0.29s ease var(--stroke-delay, 0s), stroke-dasharray 0.39s;
+}
+footer p a:hover {
+  --spacing: 0.4rem;
+  --stroke: var(--footerline-active);
+  --stroke-delay: .1s;
+  --offset: 180px;
+}
+      @media(max-width: 900px) {
+        footer{
+           padding-top: 8%;
+  padding-bottom: 8%;
+           width:85%;
+        }
+      }
+
+.portfolio-container {
+ 
+  width: 100%;
+  display: flex;
+  overflow: hidden;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+  background-color: #000000;
+}
+.portfolio-container1 {
+  width: 100%;
+}
+.portfolio-container2 {
+  display: contents;
+}
+.portfolio-desknav {
+  gap: auto;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  display: flex;
+  z-index: 100;
+  position: fixed;
+  box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1);
+  align-items: center;
+  flex-shrink: 0;
+  padding-top: 1.5%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 1.5%;
+  justify-content: space-between;
+ background-color: transparent; /* Initial background color */
+color: #fff;
+ box-shadow: none; /* Initial box shadow */
+  transition: background-color 0.3s, box-shadow 0.3s; /* Smooth transitions */
+
+}
+
+.portfolio-desknav.scroll {
+  background-color: #fff; /* Change background color on scroll */
+  color: #000; /* Black text color */
+ box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1); /* Add box shadow */
+
+}
+
+
+.portfolio-logotype {
+  height: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+.portfolio-logo {
+  width: 20vw;
+  height: 3rem;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.portfolio-m {
+  height: 100%;
+  position: absolute;
+  box-sizing: content-box;
+}
+.portfolio-nav {
+  gap: 4vw;
+  display: flex;
+  align-self: center;
+}
+.portfolio-navitem {
+  height: 2.35rem;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-text {
+ 
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  
+  line-height: normal;
+  font-stretch: normal;
+}
+.portfolio-navitem1 {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-text01 {
+  
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  
+  line-height: normal;
+  font-stretch: normal;
+}
+.portfolio-navitem2 {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-text02 {
+ 
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+
+  line-height: normal;
+  font-stretch: normal;
+}
+.portfolio-navitem3 {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: center;
+
+}
+.portfolio-arrowop {
+  width: 1.8rem;
+  height: auto;
+}
+.portfolio-text03 {
+  
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+
+  line-height: normal;
+  font-stretch: normal;
+}
+.portfolio-mobnav {
+  gap: auto;
+  top: 0;
+  left: 0px;
+  width: 100%;
+  height: auto;
+  display: none;
+  positon: fixed;
+  align-items: center;
+  flex-shrink: 0;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 1);
+}
+.portfolio-logotype1 {
+  height: 2.35rem;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+.portfolio-logo1 {
+  width: 10rem;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.portfolio-m1 {
+  height: 100%;
+  position: absolute;
+  box-sizing: content-box;
+}
+.portfolio-nav1 {
+  gap: 8px;
+  height: 3.5vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-navitem4 {
+  height: 3vh;
+  display: flex;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+}
+.portfolio-arrowop1 {
+  width: 1.8rem;
+  height: auto;
+}
+.portfolio-text04 {
+ 
+  height: auto;
+  font-size: 1.2rem;
+  font-style: normal;
+  text-align: left;
+  font-family: Raleway;
+  
+  line-height: normal;
+  font-stretch: normal;
+}
