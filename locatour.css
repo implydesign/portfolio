@@ -671,6 +671,11 @@ footer p a:hover {
   line-height: auto;
   font-stretch: normal;
 }
+
+.caption {
+     font-size: 1em;
+   }
+
 .locatour-row {
   display: flex;
   align-self: stretch;
@@ -920,7 +925,9 @@ footer p a:hover {
   .body {
     font-size: 0.9em;
   }
-  
+  .caption {
+     font-size: 0.8em;
+   }
 }
 @media(max-width: 900px) {
   .locatour-desknav {
