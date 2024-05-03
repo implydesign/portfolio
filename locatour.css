@@ -354,12 +354,12 @@ position: fixed;
 }
 
 footer {
-  width: 100%;
+  width: 95%;
   padding-left: 8%;
   padding-right:8%;
   padding-top: 4%;
   padding-bottom: 4%;
-  margin: 0;
+  margin: auto;
   height: auto;
   font-family: Raleway;
   font-variant-numeric: lining-nums proportional-nums;
@@ -367,6 +367,9 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 2vh;
+margin-top: 4rem;
+margin-bottom: 2rem;
+   border-radius: 1em;
 }
 
 footer p {
