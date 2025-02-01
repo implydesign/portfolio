@@ -781,6 +781,8 @@ footer p a:hover {
 
 .container6 {
   width: 100%;
+   padding-top: 3vh;
+    padding-bottom: 3vh;
 }
 .container7 {
   display: contents;
