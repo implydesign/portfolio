@@ -5,7 +5,7 @@ font-family: sans-serif;
 
  @media(max-width: 900px) {
 body {
-   font-size: 120%;
+   font-size: 140%;
 }
  }
 
@@ -915,8 +915,9 @@ footer p a:hover {
     display: none;
   }
   .frame67 {
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+        padding-right: 5%;
+        margin-top: 10vh;
   }
   .headline {
     font-size: 2em;
