@@ -764,80 +764,13 @@ footer p a:hover {
   display: none;
   object-fit: cover;
 }
-.paragraph1 {
-  gap: 3vh;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
-
-.container2 {
-  gap: 1.5vh;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
 
 
-.paragraph2 {
-  gap: 3vh;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
-
-.container3 {
-  gap: 1.5vh;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
 
 
-.paragraph3 {
-  gap: 3vh;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
 
-.container4 {
-  gap: 1.5vh;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
 
-.imagedesk1 {
-  width: 100%;
-  object-fit: cover;
-}
-.imagemob1 {
-  width: 100%;
-  display: none;
-  object-fit: cover;
-}
-.paragraph4 {
-  gap: 3vh;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
 
-.container5 {
-  gap: 1.5vh;
-  width: 100%;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
 
 
 .container6 {
