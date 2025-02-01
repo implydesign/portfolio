@@ -3,6 +3,12 @@ font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
 }
 
+ @media(max-width: 900px) {
+body {
+   font-size: 120%;
+}
+ }
+
 a {
   position: relative;
   text-decoration: none;
