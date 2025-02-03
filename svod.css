@@ -272,6 +272,7 @@ a:hover::before {
   border-width: 0 0 1px;
   flex-direction: column;
   padding-bottom: 2vh;
+  margin-bottom: 4vh;
 }
 .overline {
   color: var(--dl-color-default-black);
