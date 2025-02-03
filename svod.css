@@ -190,7 +190,7 @@ a:hover::before {
   min-height: 100vh;
   align-items: center;
   flex-direction: column;
-  background-color: #E3E3E8;
+  background-color: #DCE1E5;
   margin-top: 10vh;
 }
 .text {
