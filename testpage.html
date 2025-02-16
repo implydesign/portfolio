@@ -70,6 +70,27 @@
 font-family: sans-serif;
       }
     </style>
+    <style>
+        /* Apply shimmer effect to all images before they load */
+        img {
+            background-color: #f3f3f3;
+            background-image: linear-gradient(
+                90deg,
+                transparent 25%,
+                rgba(0, 0, 0, 0.1) 37%,
+                transparent 63%
+            );
+            background-size: 400% 100%;
+            background-position: 100% 50%;
+            animation: shimmer 1.4s ease infinite;
+            display: block;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 100% 50%; }
+            100% { background-position: 0 50%; }
+        }
+    </style>
 </head>
   
   <body>
@@ -1148,7 +1169,24 @@ $(document).ready(function(){
 </script>
 
 
+ <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll("img").forEach((img) => {
+                if (img.complete) {
+                    img.style.background = "none"; // Remove shimmer immediately if image is loaded
+                } else {
+                    img.addEventListener("load", function () {
+                        img.style.background = "none"; // Remove shimmer when the image loads
+                    });
 
+                    img.addEventListener("error", function () {
+                        img.style.background = "#ddd";
+                        img.style.backgroundImage = "none"; // Handle broken images
+                    });
+                }
+            });
+        });
+    </script>
 
     
      </body>
