@@ -1,77 +1,1155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
     <title>Imply Design</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Experience and User Interface Designer. Solutions in mobile and web for Health Tech, B2B2C, and much more.">
     
-    <link href="./index.css" rel="stylesheet" /> 
-    <link rel="stylesheet" href="./style.css" />  
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Imply Design">
+    <meta property="og:description" content="User Experience and User Interface Designer. Solutions in mobile and web for Health Tech, B2B2C, and much more.">
+    <meta property="og:image" content="public/display.png">
+    <meta property="og:image:secure_url" content="public/display.png">
 
-    <style>
-        /* Apply shimmer effect to all images before they load */
-        img {
-            background-color: #f3f3f3;
-            background-image: linear-gradient(
-                90deg,
-                transparent 25%,
-                rgba(0, 0, 0, 0.1) 37%,
-                transparent 63%
-            );
-            background-size: 400% 100%;
-            background-position: 100% 50%;
-            animation: shimmer 1.4s ease infinite;
-            display: block;
-        }
+    <!-- Favicon and Apple Touch Icons -->
+    <link rel="icon" type="image/png" sizes="192x192" href="/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
 
-        @keyframes shimmer {
-            0% { background-position: 100% 50%; }
-            100% { background-position: 0 50%; }
-        }
+    <!-- Microsoft Tiles -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    
+    <!-- Theme Color for Mobile Browsers -->
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Shortcut Icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="public/favicon.ico">
+
+   
+ <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" data-tag="font">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" data-tag="font">
+
+
+<link href="./index.css" rel="stylesheet" /> 
+<link rel="stylesheet" href="./style.css" />  
+
+ <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"> -->
+  
+<style data-tag="reset-style-sheet">
+      html {  line-height: 1.15;}body {  margin: 0;}* {  box-sizing: border-box;  border-width: 0;  border-style: solid; overflow-wrap: anywhere;}p,li,ul,pre,div,h1,h2,h3,h4,h5,h6,figure,blockquote,figcaption {  margin: 0;  padding: 0;}button {  background-color: transparent;}button,input,optgroup,select,textarea {  font-family: sans-serif;  font-size: 100%;  line-height: 1.15;  margin: 0;}button,select {  text-transform: none;}button,[type="button"],[type="reset"],[type="submit"] {  -webkit-appearance: button;}button::-moz-focus-inner,[type="button"]::-moz-focus-inner,[type="reset"]::-moz-focus-inner,[type="submit"]::-moz-focus-inner {  border-style: none;  padding: 0;}button:-moz-focus,[type="button"]:-moz-focus,[type="reset"]:-moz-focus,[type="submit"]:-moz-focus {  outline: 1px dotted ButtonText;}a {  color: inherit;  text-decoration: inherit;}input {  padding: 2px 4px;}img {  display: block;border-radius: 3%;}html { scroll-behavior: smooth  }
+    </style>
+    <style data-tag="default-style-sheet">
+      html {
+        font-family: sans-serif, Raleway, Open Sans;
+        font-size: 16px;
+      }
+
+      body {
+        font-weight: 400;
+        font-style:normal;
+        text-decoration: none;
+        text-transform: none;
+        letter-spacing: normal;
+        line-height: 1.15;
+        color: var(--dl-color-gray-black);
+        background-color: var(--dl-color-gray-white);
+font-family: sans-serif;
+      }
     </style>
 </head>
-<body>
-    
-    <header>
-        <div class="portfolio-desknav">
-            <div class="portfolio-logotype">
-                <div class="portfolio-logo">
-                    <img
-                        alt="Imply Logo"
-                        src="public/moblogow.svg"
-                        loading="eager"
-                        class="portfolio-m"
-                        aria-hidden="true"
-                    />
-                </div>
+  
+  <body>
+      
+        
+   
+
+      
+     
+
+      
+      
+<header>
+  <div class="portfolio-desknav">
+    <div class="portfolio-logotype">
+      <div class="portfolio-logo">
+        <img
+          alt="Imply Logo"
+          src="public/moblogow.svg"
+          loading="eager"
+          class="portfolio-m"
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+
+    <nav>
+      <a href="#know" class="hide portfolio-navitem" tabindex="0">
+        <span class="portfolio-text">Get to Know Me</span>
+      </a>
+
+      <a href="#works" class="portfolio-navitem" tabindex="0">
+        <span class="portfolio-text01">Browse Works</span>
+      </a>
+
+      <a href="/Olha_CV.pdf" class="portfolio-navitem" tabindex="0" aria-label="Open CV - Opens CV in default PDF viewer">
+        <img
+          alt="open in new window (arrow symbol)"
+          src="public/external/arrowop1001-h8e9w.svg"
+          loading="eager"
+          class="portfolio-arrowop"
+          aria-hidden="true"
+        />
+        <span class="portfolio-text03">Open CV</span>
+      </a>
+    </nav>
+  </div>
+
+  <div class="portfolio-mobnav">
+    <div class="portfolio-logotype1">
+      <div class="portfolio-logo1">
+        <img
+          alt="Imply Logo"
+          src="public/moblogo.svg"
+          loading="eager"
+          class="portfolio-m1"
+          aria-hidden="true"
+        />
+      </div>
+    </div>
+
+    <nav>
+      <a href="/Olha_CV.pdf" class="portfolio-navitem4" tabindex="0" aria-label="Open CV - Opens CV in default PDF viewer">
+        <img
+          alt="open in new window (arrow symbol)"
+          src="public/external/arrowop1001-h8e9.svg"
+          loading="eager"
+          class="portfolio-arrowop1"
+          aria-hidden="true"
+        />
+        <span class="portfolio-text04">Open CV</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+  <main class="portfolio-container">
+
+        <section class="portfolio-hero">
+
+<div class="overlay">
+
+
+          <div class="portfolio-quotedesk">
+            <div class="portfolio-row">
+              <img
+                alt="for all (logic symbol)"
+                src="public/a.svg"
+                loading="eager"
+                class="portfolio-a"
+              />
+              <span class="portfolio-text05"><span>design</span></span>
+              <img
+                alt="is an element of (math symbol)"
+                src="public/e.svg"
+                loading="eager"
+                class="portfolio-e"
+              />
+              <span class="portfolio-text07"><span>true</span></span>
+              <img
+                alt="if and only if (logic symbol)"
+                src="public/arr.svg"
+                loading="eager"
+                class="portfolio-arr"
+              />
+              <span class="portfolio-text09"><span>meaning</span></span>
             </div>
+            <div class="portfolio-row1">
+              <img
+                alt="and (logic symbol)"
+                src="public/tr.svg"
+                loading="eager"
+                class="portfolio-tr"
+              />
+              <span class="portfolio-text11"><span>(function</span></span>
+              <img
+                alt="implies (logic symbol)"
+                src="public/impl.svg"
+                loading="eager"
+                class="portfolio-impl"
+              />
+              <span class="portfolio-text13"><span>form)</span></span>
+            </div>
+          </div>
+
+
+          <div class="portfolio-quotemob">
+            <div class="portfolio-row3">
+              <img
+                alt="for all (logic symbol)"
+                src="public/a.svg"
+                loading="eager"
+                class="portfolio-a1"
+              />
+              <span class="portfolio-text15"><span>design</span></span>
+              
+            </div>
+
+
+  <div class="portfolio-row3">
+              <img
+                alt="is an element of (math symbol)"
+                src="public/e.svg"
+                loading="eager"
+                class="portfolio-a1"
+              />
+              <span class="portfolio-text17"><span>true</span></span>
+            </div>
+
+
+
+            <div class="portfolio-row3">
+              <img
+                alt="if and only if (logic symbol)"
+                src="public/arr.svg"
+                loading="eager"
+                class="portfolio-a1"
+              />
+              <span class="portfolio-text19"><span>meaning</span></span>
+            </div>
+
+
+  <div class="portfolio-row3">
+             <img
+                alt="and (logic symbol)"
+                src="public/tr.svg"
+                loading="eager"
+                class="portfolio-a1"
+              />
+              <span class="portfolio-text21"><span>(function</span>  
+            </div>
+
+            <div class="portfolio-row3">
+            
+              <img
+                alt="implies (logic symbol)"
+                src="public/impl.svg"
+                loading="eager"
+                class="portfolio-a1"
+              />
+              <span class="portfolio-text23">form)</span>
+            </div>
+
+
+          </div>
+
+
+          <div class="portfolio-textcont">
+            <span class="portfolio-text25">
+              As a designer of function and form, I turn complex systems into
+              simple experiences.
+            </span>
+            <span class="portfolio-text26">
+              I create solutions for digital transformations.
+            </span>
+          </div>
+          
+         
+
+
+
         </div>
-    </header>
-
-    <main>
-        <img src="public/mobphysio.png" alt="Physio mobile app" class="portfolio-vego2" loading="eager" />
-        <img src="public/svodmob.png" alt="SVOD UI Design" class="portfolio-vego2" loading="eager" />
-        <img src="public/moblocatour.png" alt="Locatour app" class="portfolio-vego2" loading="eager" />
-    </main>
     
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll("img").forEach((img) => {
-                if (img.complete) {
-                    img.style.background = "none"; // Remove shimmer immediately if image is loaded
-                } else {
-                    img.addEventListener("load", function () {
-                        img.style.background = "none"; // Remove shimmer when the image loads
-                    });
+        </section>
 
-                    img.addEventListener("error", function () {
-                        img.style.background = "#ddd";
-                        img.style.backgroundImage = "none"; // Handle broken images
-                    });
-                }
-            });
-        });
-    </script>
+
+        <section class="portfolio-introcontentsmob">
+          <div class="portfolio-intromob">
+            <div class="portfolio-top">
+              <div class="portfolio-fg">
+                <img
+                  alt="line divider"
+                  src="public/divider.svg"
+                  class="portfolio-rectangle16"
+                />
+                <span class="portfolio-text29">
+                  Let's innovate products together!
+                </span>
+              </div>
+              <img
+                alt="Olha Polishchuk"
+                src="public/avatarnew-2-1500w.png"
+                class="portfolio-avatarnew21"
+              />
+            </div>
+            <div class="portfolio-intromobtext">
+              <img
+                alt="line divider"
+                src="public/divider.svg"
+                class="portfolio-rectangle161"
+              />
+              <div class="portfolio-text30">
+                <span class="portfolio-text31">
+                  <span>
+                    I specialise in UX/UI and have +5 years of commercial
+                    experience in the design field.
+                  </span>
+                </span>
+                <span class="portfolio-text33">
+                  Passionate about Health &amp; Wellness Tech industries, I'm
+                  particularly interested in Digital Therapeutics.
+                </span>
+              </div>
+            </div>
+
+<a href="https://linktr.ee/implydesign" class="ctam" style="display:none;">
+  <div class="portfolio-mainbutton">
+  <span>Get In Touch</span>
+   <img
+                  alt="Send icon"
+                  src="https://imply.design/public/Sendb.svg"
+                  class="portfolio-send"
+        aria-hidden="true"
+                />
+  </svg>
+  </div>
+</a>
+
+          </div>
+            
+           
+         <!-- Mobile wrap -->
+
+
+        
+            <div class="portfolio-statscontainermob">
+              <div class="portfolio-stats">
+                  
+                  <div class="portfolio-item">
+                  <span class="portfolio-text34">
+                    UX Challenge
+                  </span>
+                  <img
+                    alt="line divider"
+                    src="public/divider.svg"
+                    class="portfolio-rectangle162"
+                  />
+                  <span class="portfolio-text35">
+                   1st place award-winning UX case study
+                  </span>
+                  <span class="portfolio-text36">2024</span>
+                </div>
+                  
+                <div class="portfolio-item">
+                  <span class="portfolio-text34">
+                    Хататон 4.0: Ukraine Heritage Edition
+                  </span>
+                  <img
+                    alt="line divider"
+                    src="public/divider.svg"
+                    class="portfolio-rectangle162"
+                  />
+                  <span class="portfolio-text35">
+                    Team Lead of the web project in the top 15 hackathon
+                    finalists
+                  </span>
+                  <span class="portfolio-text36">2023</span>
+                </div>
+                <div class="portfolio-item1">
+                  <span class="portfolio-text37">DEV Challenge&nbsp;XVII</span>
+                  <img
+                    alt="line divider"
+                    src="public/divider.svg"
+                    class="portfolio-rectangle163"
+                  />
+                  <span class="portfolio-text38">
+                    <span>2nd place in</span>
+                    <span>in the nomination App Design (UI) Lite</span>
+                  </span>
+                  <span class="portfolio-text41">2020</span>
+                </div>
+              </div>
+            </div>
+            <!-- Mobile cards -->
+
+   <span class="headline mobb"><h1>Selected Projects</h1></span>
+ 
+             
+<!-- Physio -->
+ <article class="portfolio-card">
+              <div class="portfolio-cardheader">
+                <div class="portfolio-title" style="border-width: 0 0 1px 0;">
+                  <div class="portfolio-contents">
+                    <div class="portfolio-subheader">
+                      <span class="portfolio-text42 OtherOverlineMobile">
+                        <span>Ideation & Prototyping</span>
+                      </span>
+                    </div>
+                    <span class="portfolio-text44 HeadlineH6mobile">
+                     <h2>Chronic care and health interventions mobile app</h2>
+                    </span>
+                  </div>
+                  <span class="portfolio-text45 OtherCaptionMobile">
+                    <span>February 2025</span>
+                  </span>
+                </div>
+                <span class="portfolio-text47 TextSecondaryMobile">
+                  <span>
+                The mobile app combines mental well-being strategies, physiotherapy, connected health records access, and progress tracking to help prevent complications of the patient's chronic condition. </span>
+                </span>
+                            
+              <a href="/svod.html" class="btn ripple" style="display:none;" >
+  <div role="button" class="portfolio-buttonicon" tabindex="0">
+    <span class="portfolio-text49 ActionTertiary">
+      <span>View Project</span>
+    </span>
+    <img
+      alt="Arrow Icon"
+      src="public/arrow.svg"
+      class="portfolio-arrow"
+      aria-hidden="true"
+    />
+  </div>
+</a> 
+  
+              </div>
+              <img
+                alt="Physio mobile app"
+                src="public/mobphysio.png"
+                class="portfolio-vego2"
+                loading="eager"
+                  style="border-radius:0;"
+              />
+  
+
+            </article>
+
+             <!-- SVOD -->
+
+
+            <article class="portfolio-card">
+              <div class="portfolio-cardheader">
+                <div class="portfolio-title" style="border-width: 0 0 1px 0;">
+                  <div class="portfolio-contents">
+                    <div class="portfolio-subheader">
+                      <span class="portfolio-text42 OtherOverlineMobile">
+                        <span>UX case study</span>
+                      </span>
+                    </div>
+                    <span class="portfolio-text44 HeadlineH6mobile">
+                     <h2>Role of UX Research in improving conversion</h2>
+                    </span>
+                  </div>
+                  <span class="portfolio-text45 OtherCaptionMobile">
+                    <span>February 2024</span>
+                  </span>
+                </div>
+                <span class="portfolio-text47 TextSecondaryMobile">
+                  <span>
+                 Hypothesis generation for Subscription Video on Demand platform based on secondary quantitative data in the Polish market. UX/UI design of the payment page, subscription plans, and registration form. 
+                  </span>
+                </span>
+                            
+              <a href="/svod.html" class="btn ripple" >
+  <div role="button" class="portfolio-buttonicon" tabindex="0">
+    <span class="portfolio-text49 ActionTertiary">
+      <span>View Project</span>
+    </span>
+    <img
+      alt="Arrow Icon"
+      src="public/arrow.svg"
+      class="portfolio-arrow"
+      aria-hidden="true"
+    />
+  </div>
+</a> 
+  
+              </div>
+              <img
+                alt="Subscription Video on Demand platform payment and plans UX/UI design"
+                src="public/svodmob.png"
+                class="portfolio-vego2"
+                loading="eager"
+                  style="border-radius:0;"
+              />
+  
+
+            </article>
+
+ 
+  <!-- Landing -->
+
+<article class="portfolio-card">
+              <div class="portfolio-cardheader">
+                <div class="portfolio-title1">
+                  <div class="portfolio-contents1">
+                    <div class="portfolio-subheader1">
+                      <span class="portfolio-text51 OtherOverlineMobile">
+                        <span>Website Design</span>
+                      </span>
+                    </div>
+                    <span class="portfolio-text53 HeadlineH6mobile">
+                      <h2>Elevated wellness with personal trainer subscription service</h2>
+                    </span>
+                  </div>
+                  <span class="portfolio-text54 OtherCaptionMobile">
+                    <span>November 2023</span>
+                  </span>
+                </div>
+                <span class="portfolio-text56 TextSecondaryMobile">
+                  <span>
+                  Designed to strengthen the personal brand of a fitness & wellness service provider, the project included UI kit creation and compelling microcopy UX writing.
+                  </span>
+                </span>
+                <!-- button place here -->
+              </div>
+              <img
+                alt="Website for personal fitness trainer services"
+                src="public/landingmobfn.png"
+                class="portfolio-vego21"
+                loading="eager"
+                    style="border-radius:0;"
+              />
+            </article>
+
+             <!-- pet project -->
+
+           <article class="portfolio-card">
+              <div class="portfolio-cardheader">
+                <div class="portfolio-title">
+                  <div class="portfolio-contents">
+                    <div class="portfolio-subheader">
+                      <span class="portfolio-text42 OtherOverlineMobile">
+                        <span>Pet Project</span>
+                      </span>
+                    </div>
+                    <span class="portfolio-text44 HeadlineH6mobile">
+                    <h2>Information-seeking behavior and user patterns</h2>
+                    </span>
+                  </div>
+                  <span class="portfolio-text45 OtherCaptionMobile">
+                    <span>July 2023</span>
+                  </span>
+                </div>
+                <span class="portfolio-text47 TextSecondaryMobile">
+                  <span>
+                Exploration of encouraging intrinsic user motivation by applying data-informed strategies in designing an educational web project. </span>
+                </span>
+                    <!-- button place here -->
+              </div>
+           
+             <img
+                alt="pet project"
+                src="public/ptprojectmob.png"
+                class="portfolio-vego21"
+                loading="eager"
+                   style="border-radius:0;"
+              />
+            </article>
+
+ 
+
+              <!-- Pangea -->
+
+
+<article class="portfolio-card">
+              <div class="portfolio-cardheader">
+                <div class="portfolio-title1">
+                  <div class="portfolio-contents1">
+                    <div class="portfolio-subheader1">
+                      <span class="portfolio-text51 OtherOverlineMobile">
+                        <span>Product Discovery</span>
+                      </span>
+                    </div>
+                    <span class="portfolio-text53 HeadlineH6mobile">
+                      <h2>Addressing video safety gap with assistive technology design</h2>
+                    </span>
+                  </div>
+                  <span class="portfolio-text54 OtherCaptionMobile">
+                    <span>June 2023</span>
+                  </span>
+                </div>
+                <span class="portfolio-text56 TextSecondaryMobile">
+                  <span>
+                    The Pangea platform is designed to enhance video safety for people with pertinent health conditions through computer vision technology. By detecting and minimising stroboscopic effects, it ensures a safe and enjoyable viewing experience while reducing associated health risks.   </span>
+                </span>
+                <!-- button place here -->
+              </div>
+              <img
+                alt="Video-processing platform for people with light sensitivity"
+                src="public/mobpangea.png"
+                class="portfolio-vego21"
+                loading="eager"
+                    style="border-radius:0;"
+              />
+            </article>
+
+         <!-- Locatour -->       
+            <article class="portfolio-card">
+              <div class="portfolio-cardheader">
+                <div class="portfolio-title" style="border-width: 0 0 1px 0;">
+                  <div class="portfolio-contents">
+                    <div class="portfolio-subheader">
+                      <span class="portfolio-text42 OtherOverlineMobile">
+                        <span>Product Story</span>
+                      </span>
+                    </div>
+                    <span class="portfolio-text44 HeadlineH6mobile">
+                     <h2> Community-led travel recommendation system</h2>
+                    </span>
+                  </div>
+                  <span class="portfolio-text45 OtherCaptionMobile">
+                    <span>January 2023</span>
+                  </span>
+                </div>
+                <span class="portfolio-text47 TextSecondaryMobile">
+                  <span>
+                   Locatour is a mobile application that provides personalised traveling recommendations in the form of user-generated "fast content". This social network enables travelers to join communities and exchange useful information.
+                  </span>
+                </span>
+                               <a href="/locatour.html" class="btn ripple">
+  <div role="button" class="portfolio-buttonicon" tabindex="0">
+    <span class="portfolio-text49 ActionTertiary">
+      <span>View Project</span>
+    </span>
+    <img
+      alt="Arrow Icon"
+      src="public/arrow.svg"
+      class="portfolio-arrow"
+      aria-hidden="true"
+    />
+  </div>
+</a>
+
+              </div>
+              <img
+                alt="Social network mobile app with personalised feed"
+                src="public/moblocatour.png"
+                class="portfolio-vego2"
+                loading="eager"
+                    style="border-radius:0;"
+              />
+
+                
+
+            </article>
+            
+            
+           
+         
+        </section>
+
+        
+        <section class="portfolio-introdesk" id="know">
+          <div class="portfolio-top1">
+            <img
+              alt="Olha Polishchuk"
+              src="public/avatarnew-2-1500w.png"
+              class="portfolio-avatarnew211"
+              loading="eager"
+            />
+            <div class="portfolio-fg1">
+              <img
+                alt="line divider"
+                src="public/divider.svg"
+                class="portfolio-rectangle164"
+              />
+              <span class="portfolio-text60">
+                Let's innovate products together!
+              </span>
+            </div>
+          </div>
+          <div class="portfolio-introtext">
+            <img
+              alt="line divider"
+              src="public/divider.svg"
+              class="portfolio-rectangle165"
+            />
+            <div class="portfolio-text61">
+              <span class="portfolio-text62">
+                <span>
+                  I specialise in UX/UI and have +5 years of commercial
+                  experience in the design field.
+                </span>
+              </span>
+              <span class="portfolio-text64">
+                Passionate about Health &amp; Wellness Tech industries, I'm
+                particularly interested in Digital Therapeutics.
+              </span>
+            </div>
+
+            
+            
+
+<a href="https://linktr.ee/implydesign" class="cta" style="display:none;">
+  <div class="portfolio-mainbutton1">
+  <span>Get In Touch</span>
+   <img
+                  alt="Send icon"
+                  src="https://imply.design/public/Sendb.svg"
+                  class="portfolio-send1"
+        style="width:2rem;"
+                />
+  </svg>
+  </div>
+</a>
+            
+          </div>
+        </section>
+        <section class="portfolio-deskwrapper">
+          <div class="portfolio-statscontainer">
+            <div class="portfolio-stats1">
+                
+ <div class="portfolio-item2">
+                <span class="portfolio-text67">
+                 UX Challenge
+                </span>
+                <img
+                  alt="line divider"
+                  src="public/divider.svg"
+                  class="portfolio-rectangle166"
+                />
+                <span class="portfolio-text68">
+                  1st place award-winning UX case study
+                </span>
+                <span class="portfolio-text69">2024</span>
+              </div>
+                
+              <div class="portfolio-item2">
+                <span class="portfolio-text67">
+                  Хататон 4.0: Ukraine Heritage Edition
+                </span>
+                <img
+                  alt="line divider"
+                  src="public/divider.svg"
+                  class="portfolio-rectangle166"
+                />
+                <span class="portfolio-text68">
+                  Team Lead of the web project in the top 15<br>hackathon finalists
+                </span>
+                <span class="portfolio-text69">2023</span>
+              </div>
+              <div class="portfolio-item3">
+                <span class="portfolio-text70">DEV Challenge&nbsp;XVII</span>
+                <img
+                  alt="line divider"
+                  src="public/divider.svg"
+                  class="portfolio-rectangle167"
+                />
+                <span class="portfolio-text71">
+                  <span>2nd place in</span>
+                  <span>in the nomination<br>App Design (UI) Lite</span>
+                </span>
+                <span class="portfolio-text74">2020</span>
+              </div>
+            </div>
+          </div>
+
+
+          <section id="works">
+
+            <span class="headline"><h1>Selected Projects</h1></span>
+ <!-- Desktop cards -->
+
+              <!-- care and svod-->
+            <div class="portfolio-cards">
+
+                 <!-- Physio desk -->
+
+ <article class="portfolio-carddesktop">
+              <div class="portfolio-headercard">
+                <div class="portfolio-title2">
+                  <div class="portfolio-subheader2">
+                    <span class="portfolio-text75 OtherOverline">
+                      <span>Ideation & Prototyping</span>
+                    </span>
+                  </div>
+                  <span class="portfolio-text77 HeadlineH6">
+                   <h2>Chronic care and health interventions mobile app</h2> 
+                  </span>
+                </div>
+                <span class="portfolio-text78 OtherCaption">
+                  <span>February 2025</span>
+                </span>
+              </div>
+               <img
+                alt="Physio mobile app"
+                src="public/mobphysio.png"
+                class="portfolio-vego22"
+                 loading="eager"
+              />
+              <span class="portfolio-text80 TextSecondary">
+          The mobile app combines mental well-being strategies, physiotherapy, connected health records access, and progress tracking to help prevent complications of the patient's chronic condition. </span>
+                 </span>
+           
+
+   
+          <a href="/svod.html" class="btn ripple" style="display:none;">
+  <div role="button" class="portfolio-buttonicon2" tabindex="0">
+    <span class="portfolio-text81 ActionTertiary">
+      <span>View Project</span>
+    </span>
+    <img
+      alt="Arrow Icon"
+      src="public/arrow.svg"
+      class="portfolio-arrow2"
+      aria-hidden="true"
+    />
+  </div>
+</a>
+            </article>
+                 <!-- SVOD desk -->
+
+ <article class="portfolio-carddesktop">
+              <div class="portfolio-headercard">
+                <div class="portfolio-title2">
+                  <div class="portfolio-subheader2">
+                    <span class="portfolio-text75 OtherOverline">
+                      <span>UX case study</span>
+                    </span>
+                  </div>
+                  <span class="portfolio-text77 HeadlineH6">
+                   <h2>Role of UX Research in improving conversion</h2> 
+                  </span>
+                </div>
+                <span class="portfolio-text78 OtherCaption">
+                  <span>February 2024</span>
+                </span>
+              </div>
+               <img
+                alt="Subscription Video on Demand platform payment and plans UX/UI design"
+                src="public/svodmob.png"
+                class="portfolio-vego22"
+                 loading="eager"
+              />
+              <span class="portfolio-text80 TextSecondary">
+          Hypothesis generation for Subscription Video on Demand platform based on secondary quantitative data in the Polish market. UX/UI design of the payment page, subscription plans, and registration form. 
+  </span>
+           
+
+   
+          <a href="/svod.html" class="btn ripple">
+  <div role="button" class="portfolio-buttonicon2" tabindex="0">
+    <span class="portfolio-text81 ActionTertiary">
+      <span>View Project</span>
+    </span>
+    <img
+      alt="Arrow Icon"
+      src="public/arrow.svg"
+      class="portfolio-arrow2"
+      aria-hidden="true"
+    />
+  </div>
+</a>
+            </article>
+
+            </div>
+
+              <!-- website and patterns-->
+<div class="portfolio-cards">
+ 
+ <!-- Landing desk -->
+
+ <article class="portfolio-carddesktop">
+              <div class="portfolio-headercard">
+                <div class="portfolio-title3">
+                  <div class="portfolio-subheader3">
+                    <span class="portfolio-text83 OtherOverline">
+                      <span>Website Design</span>
+                    </span>
+                  </div>
+                  <span class="portfolio-text85 HeadlineH6">
+                    <span><h2>Elevated wellness with personal trainer subscription service</h2></span>
+                  </span>
+                </div>
+                <span class="portfolio-text87 OtherCaption">
+                  <span>November 2023</span>
+                </span>
+              </div>
+              <img
+                alt="Vego22064"
+                src="public/landingmobfn.png"
+                class="portfolio-vego22"
+                loading="eager"
+              />
+              <span class="portfolio-text89 TextSecondary">
+            Designed to strengthen the personal brand of a fitness & wellness service provider, the project included UI kit creation and compelling microcopy UX writing.
+                  <!-- button place here -->
+            </article>
+
+ <!-- Pet Project desk -->
+<article class="portfolio-carddesktop">
+              <div class="portfolio-headercard">
+                <div class="portfolio-title2">
+                  <div class="portfolio-subheader2">
+                    <span class="portfolio-text75 OtherOverline">
+                      <span>Pet Project</span>
+                    </span>
+                  </div>
+                  <span class="portfolio-text77 HeadlineH6">
+                   <h2>Information-seeking behavior and user patterns</h2>
+                  </span>
+                </div>
+                <span class="portfolio-text78 OtherCaption">
+                  <span>July 2023</span>
+                </span>
+              </div>
+                 <img
+                alt="pet project"
+                src="public/ptprojectmob.png"
+                class="portfolio-vego21"
+                loading="eager"
+              />
+              <span class="portfolio-text80 TextSecondary">
+               Exploration of encouraging intrinsic user motivation by applying data-informed strategies in designing an educational web project.
+                  <!-- button place here -->
+            </article>
+
     
-</body>
+</div>
+
+<!-- pangea and locatour-->
+                
+    <div class="portfolio-cards">
+
+        <!-- Pangea desk -->
+
+            <article class="portfolio-carddesktop">
+              <div class="portfolio-headercard">
+                <div class="portfolio-title3">
+                  <div class="portfolio-subheader3">
+                    <span class="portfolio-text83 OtherOverline">
+                      <span>Product Discovery</span>
+                    </span>
+                  </div>
+                  <span class="portfolio-text85 HeadlineH6">
+                    <span><h2>Addressing video safety gap with assistive technology design</h2></span>
+                  </span>
+                </div>
+                <span class="portfolio-text87 OtherCaption">
+                  <span>June 2023</span>
+                </span>
+              </div>
+              <img
+                alt="Vego22064"
+                src="public/mobpangea.png"
+                class="portfolio-vego22"
+                loading="eager"
+              />
+              <span class="portfolio-text89 TextSecondary">
+             The Pangea platform is designed to enhance video safety for people with pertinent health conditions through computer vision technology. By detecting and minimising stroboscopic effects, it ensures a safe and enjoyable viewing experience while reducing associated health risks.  <!-- button place here -->
+            </article>
+          
+
+
+ <!-- Locatour -->
+
+ <article class="portfolio-carddesktop">
+              <div class="portfolio-headercard">
+                <div class="portfolio-title2">
+                  <div class="portfolio-subheader2">
+                    <span class="portfolio-text75 OtherOverline">
+                      <span>Product Story</span>
+                    </span>
+                  </div>
+                  <span class="portfolio-text77 HeadlineH6">
+                   <h2>Community-led travel recommendation system</h2> 
+                  </span>
+                </div>
+                <span class="portfolio-text78 OtherCaption">
+                  <span>January 2023</span>
+                </span>
+              </div>
+               <img
+                alt="Vego22064"
+                src="public/moblocatour.png"
+                class="portfolio-vego22"
+                 loading="eager"
+              />
+              <span class="portfolio-text80 TextSecondary">
+                 Locatour is a mobile application that provides personalised traveling recommendations in the form of user-generated "fast content". This social network enables travelers to join communities and exchange useful information. 
+          </span>
+           
+
+   <a href="/locatour.html" class="btn ripple">
+  <div role="button" class="portfolio-buttonicon2" tabindex="0">
+    <span class="portfolio-text81 ActionTertiary">
+      <span>View Project</span>
+    </span>
+    <img
+      alt="Arrow Icon"
+      src="public/arrow.svg"
+      class="portfolio-arrow2"
+      aria-hidden="true"
+    />
+  </div>
+</a>
+         
+            </article>
+
+            
+       
+
+
+
+
+
+          </div>
+
+ </section>
+
+          
+        </section>
+      
+
+
+
+      
+    </div>
+
+
+  </main>
+
+
+<footer>
+
+    <img
+                alt="Imply Logo icon"
+                src="https://imply.design/public/iconw.svg"
+                loading="eager"
+                style="width:2.2rem;height:auto;"
+              />
+      
+        <p>Designed and developed by Olha Polishchuk &copy all rights reserved 2024</p> 
+        
+<div> <p>
+    Let's connect:
+    <a href="https://www.linkedin.com/in/implydesign/">
+        LinkedIn
+        <svg viewBox="0 0 70 36">
+            <path d="M6.9739 30.8153H63.0244C65.5269 30.8152 75.5358 -3.68471 35.4998 2.81531C-16.1598 11.2025 0.894099 33.9766 26.9922 34.3153C104.062 35.3153 54.5169 -6.68469 23.489 9.31527" />
+        </svg>
+    </a>
+</p>
+        </div>
+
+
+        
+    </footer>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+<script>
+
+$(document).ready(function(){
+  $(window).scroll(function(){
+    var position = $(window).scrollTop();
+    var target = $('.portfolio-quotedesk').offset().top; // Top position of the target div
+    
+    // Offset the target position by a fixed amount (e.g., 50 pixels) for the trigger point
+    var offset = 75;
+    
+    if(position > target - offset) {
+      $('.portfolio-desknav').addClass('scroll');
+      $('img[alt="Imply Logo"]').attr('src', 'public/moblogo.svg');
+      $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9.svg');
+      
+      // Change background color on scroll
+      $('.portfolio-desknav').css('background-color', '#ffffff'); // Change the color to the desired one
+      $('.portfolio-desknav').css('color', '#000'); // Change the color to the desired one
+      $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)'); // Change the box-shadow to the desired one
+    } else {
+      $('.portfolio-desknav').removeClass('scroll');
+      $('img[alt="Imply Logo"]').attr('src', 'public/moblogow.svg');
+      $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9w.svg');
+      
+      // Change background color on scroll
+      $('.portfolio-desknav').css('background-color', 'transparent'); // Change the color to the desired one
+      $('.portfolio-desknav').css('color', '#fff'); // Change the color to the desired one
+      $('.portfolio-desknav').css('box-shadow', 'none'); // Change the box-shadow to the desired one
+    }
+  });
+  
+  // Immediately check the scroll position when the document is ready
+  var position = $(window).scrollTop();
+  var target = $('.portfolio-quotedesk').offset().top;
+  var offset = 75;
+  
+  if (position > target - offset) {
+    // If position is greater than the target position, set background to white
+    $('.portfolio-desknav').addClass('scroll');
+    $('.portfolio-desknav').css('background-color', '#ffffff');
+    $('.portfolio-desknav').css('color', '#000');
+    $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)');
+    $('img[alt="Imply Logo"]').attr('src', 'public/moblogo.svg');
+    $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9.svg');
+  } else {
+    // If position is less than the target position, set background to transparent
+    $('.portfolio-desknav').removeClass('scroll');
+    $('.portfolio-desknav').css('background-color', 'transparent');
+    $('.portfolio-desknav').css('color', '#fff');
+    $('.portfolio-desknav').css('box-shadow', 'none');
+    $('img[alt="Imply Logo"]').attr('src', 'public/moblogow.svg');
+    $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9w.svg');
+  }
+});
+
+
+</script>
+
+
+<!-- Include jQuery library (if not already included) -->
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+    // Function to update active state based on current section in viewport
+    function updateActiveState() {
+      // Get the current scroll position
+      var scrollPosition = $(window).scrollTop();
+
+      // Check each section to see if it is in the viewport
+      $('main section').each(function() {
+        var sectionId = $(this).attr('id');
+        var sectionTop = $(this).offset().top - 50; // Adjusted for better visibility, you may need to fine-tune this value
+        var sectionBottom = sectionTop + $(this).outerHeight();
+
+        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
+          // Update the active state in the navigation
+          $('.portfolio-navitem').removeClass('active');
+          $('[href="#' + sectionId + '"]').addClass('active');
+        }
+      });
+    }
+
+    // Update the active state on page load
+    updateActiveState();
+
+    // Update the active state on scroll
+    $(window).scroll(function() {
+      updateActiveState();
+    });
+  });
+</script>
+
+
+
+
+    
+     </body>
 </html>
