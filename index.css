@@ -21,11 +21,12 @@ padding-right: 6%;}
 margin-top:-8em;
 }
 
-#know {
-   padding-top:8em;
-margin-top:-4em;
-}
 
+#know {
+    padding-top: 8em;
+    /* margin-top: -4em; */
+    border-radius: 3rem 3rem 0 0;
+}
 
 
 h1 {
