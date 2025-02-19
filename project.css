@@ -267,7 +267,7 @@ a:hover::before {
   display: flex;
   align-items: flex-start;
   flex-shrink: 0;
-  border-color: #C4CDD4;
+  border-color: #CCCAB3;
   border-style: solid;
   border-width: 0 0 1px;
   flex-direction: column;
