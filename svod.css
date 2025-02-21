@@ -74,19 +74,19 @@ a:hover::before {
 }
 .ripple {
   background-position: center;
-  background-color: #fff;
+  background-color: #DCE1E5;
   background-size: 100%;
   transition: background 0s;
 }
 .ripple:hover {
   background-position: center;
   transition: background 0.5s;
-  background: #C6D2E9 radial-gradient(circle, transparent 1%, #fff 1%)
+  background: #FFF radial-gradient(circle, transparent 1%, #C4CDD4 1%)
     center/6000%;
 }
 .ripple:active {
   background-position: center;
-  background: #C6D2E9 radial-gradient(circle, transparent 1%, #fff 1%)
+  background: #FFF radial-gradient(circle, transparent 1%, #C4CDD4 1%)
     center/60000%;
 }
 .portfolio-text {
