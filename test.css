@@ -430,7 +430,7 @@ color: #fff;
 }
 .portfolio-m {
   height: 100%;
-  position: absolute;
+  
   box-sizing: content-box;
 }
 .portfolio-nav {
@@ -528,7 +528,7 @@ color: #fff;
 .portfolio-logotype1 {
   height: 2.35rem;
   display: flex;
-  align-items: center;
+
   flex-shrink: 0;
   flex-direction: column;
   justify-content: center;
