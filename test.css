@@ -21,11 +21,12 @@ padding-right: 6%;}
 margin-top:-8em;
 }
 
-#know {
-   padding-top:8em;
-margin-top:-4em;
-}
 
+#know {
+    padding-top: 8em;
+    /* margin-top: -4em; */
+    border-radius: 3rem 3rem 0 0;
+}
 
 
 h1 {
@@ -56,7 +57,7 @@ letter-spacing: -0.2rem;
    display:none;
 }
 
- @media(max-width: 375px) {
+ @media(max-width: 530px) {
        .mobb{
          display: flex;}
       }
@@ -166,12 +167,12 @@ nav a:active{
 }
 
 footer {
-  width: 100%;
+  width: 95%;
   padding-left: 8%;
   padding-right:8%;
   padding-top: 4%;
   padding-bottom: 4%;
-  margin: 0;
+  margin: auto;
   height: auto;
   font-family: Raleway;
   font-variant-numeric: lining-nums proportional-nums;
@@ -180,7 +181,8 @@ footer {
   flex-direction: column;
   gap: 2vh;
 margin-top: 4rem;
-
+margin-bottom: 2rem;
+   border-radius: 1em;
 }
 
 footer p {
@@ -221,6 +223,7 @@ footer p a:hover {
         footer{
            padding-top: 8%;
   padding-bottom: 8%;
+           width:85%;
         }
       }
 
@@ -864,8 +867,18 @@ background-color:hsla(183,0%,0%,1);
   flex-direction: column;
   background-color: #ffffff;
 gap: 4rem;
+   padding-top: 2em;
+    border-radius: 1.5rem 1.5rem 0 0;
 
 }
+
+@media (min-width: 531px) {
+ .portfolio-introcontentsmob {
+    display:none;
+ }
+}
+
+
 .portfolio-intromob {
   gap: 5vh;
   width: 100%;
@@ -1799,7 +1812,7 @@ align-items: center;
   }
  
   .portfolio-text01 {
-    color: rgb(0, 0, 0);
+    color: inherit;
     width: 100%;
     height: auto;
     font-size: 1.2rem;
@@ -1930,7 +1943,7 @@ align-items: center;
       }
 
 
-@media(max-width: 375px) {
+@media(max-width: 530px) {
   .portfolio-container1 {
     width: 100%;
     height: auto;
@@ -2066,7 +2079,7 @@ display:flex;
     display: none;
   }
 }
-@media(max-width: 320px) {
+@media(max-width: 340px) {
   .portfolio-desknav {
     width: 100%;
     display: none;
