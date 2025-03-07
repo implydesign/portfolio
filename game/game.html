@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1-Bit Frogger</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://fonts.googleapis.com/css?family=Micro 5' rel='stylesheet'>
+</head>
+<body>
+  <div class="game-container">
+    <div class="game-header">
+      <div class="score-container">
+        <span>Score: </span>
+        <span id="score">0</span>
+      </div>
+      <div class="lives-container">
+        <span>Lives: </span>
+        <span id="lives">3</span>
+      </div>
+    </div>
+    
+    <div id="game-area">
+      <div id="frog"></div>
+      <div id="game-over" class="hidden">
+        <h2>Game Over</h2>
+        <p>Press Space or tap to restart</p>
+      </div>
+      <div id="level-complete" class="hidden">
+        <h2>Mission Accomplished!</h2>
+        <p>All frogs home safe.</p>
+        <p class="instructions">Press Space or tap to continue</p>
+      </div>
+      <div id="start-screen">
+        <h1>1-Bit Frogger</h1>
+        <p>Use arrow keys or swipe to move</p>
+        <p class="instructions">Cross the road and river to reach the top!</p>
+        <p class="instructions">Press Space or tap to start</p>
+      </div>
+    </div>
+  </div>
+  
+  <script src="game.js"></script>
+</body>
+</html>
