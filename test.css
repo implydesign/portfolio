@@ -2514,13 +2514,7 @@ display:flex;
     align-items: flex-start;
     justify-content: flex-start;
   }
-  .portfolio-m1 {
-    top: 0px;
-    left: 0px;
-   
-    bottom: 0px;
-    margin: auto;
-  }
+  
   .portfolio-text04 {
     color: rgb(0, 0, 0);
     font-style: normal;
