@@ -2261,6 +2261,9 @@ align-items: center;
    .portfolio-quotedesk{
       display:none;
    }
+.portfolio-quotetab{
+      display:none;
+   }
       }
 
 @media(min-width: 1024px) {
