@@ -2266,6 +2266,40 @@ align-items: center;
    }
       }
 
+/* Mobile: Show only mobile image */
+@media (max-width: 540px) {
+   .portfolio-quotemob {
+      display: flex;
+   }
+   .portfolio-quotetab, 
+   .portfolio-quotedesk {
+      display: none;
+   }
+}
+
+/* Tablet: Show only tablet image */
+@media (min-width: 541px) and (max-width: 1024px) {
+   .portfolio-quotetab {
+      display: flex;
+   }
+   .portfolio-quotemob, 
+   .portfolio-quotedesk {
+      display: none;
+   }
+}
+
+/* Desktop: Show only desktop image */
+@media (min-width: 1025px) {
+   .portfolio-quotedesk {
+      display: flex;
+   }
+   .portfolio-quotemob, 
+   .portfolio-quotetab {
+      display: none;
+   }
+}
+
+
 @media(min-width: 1024px) {
        .portfolio-quotedesk{
          display: flex;}
