@@ -917,6 +917,13 @@ background-color:hsla(183,0%,0%,1);
   font-weight: 600;
   flex-direction: column;
 }
+.portfolio-quotetab {
+  width: 100%;
+  height: auto;
+  align-items: flex-start;
+  font-weight: 600;
+  flex-direction: column;
+}
 .portfolio-row {
   width: 100%;
   display: flex;
@@ -2252,6 +2259,14 @@ align-items: center;
        .portfolio-quotemob{
          display: flex;}
    .portfolio-quotedesk{
+      display:none;
+   }
+      }
+
+@media(max-width: 1024px) {
+       .portfolio-quotedesk{
+         display: flex;}
+   .portfolio-quotetab{
       display:none;
    }
       }
