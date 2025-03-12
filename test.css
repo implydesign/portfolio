@@ -53,11 +53,11 @@ background-color: rgba(0,0,0,0.5);
 gap:3rem;
 display:flex;
 flex-direction:column;
- padding-left: 16%;
-  padding-right: 16%;
+ padding-left: 8%;
+  padding-right: 8%;
 padding-top: 20%;
-  padding-bottom: 16%;
-height:100vh;
+  padding-bottom: 8%;
+
   width: 100%;
 }
 
@@ -68,11 +68,11 @@ background-color: rgba(0,0,0,0.5);
     gap: 3rem;
     display: flex;
     flex-direction: column;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 6%;
+    padding-right: 6%;
     padding-top: 20%;
-    padding-bottom: 10%;
-    height: 100vh;
+    padding-bottom: 6%;
+
     width: 100%;
 }
 }
@@ -83,11 +83,10 @@ background-color: rgba(0,0,0,0.5);
     gap: 3rem;
     display: flex;
     flex-direction: column;
-    padding-left: 9%;
-    padding-right: 9%;
+ 
     padding-top: 20%;
-    padding-bottom: 9%;
-    height: 100vh;
+  
+  
     width: 100%;
 }
 }
