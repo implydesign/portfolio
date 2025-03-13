@@ -329,7 +329,8 @@ letter-spacing: -0.2rem;}
    @media(max-width: 900px) {
        .headline{
           font-size: 4rem; 
-line-height: 1;      
+line-height: 1;     
+                 align-self: flex-start;
        padding-left: 6%;
 padding-right: 6%;}
       }
