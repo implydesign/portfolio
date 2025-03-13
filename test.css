@@ -49,7 +49,7 @@ margin:0;
 
 
 .overlay {
-background-color: rgba(0,0,0,0.5);
+
 gap:3rem;
 display:flex;
 flex-direction:column;
@@ -907,7 +907,7 @@ color: #fff;
   justify-content: center;
    height: 100%;
 background-color:hsla(183,0%,0%,1);
-            background-image: radial-gradient(at 29% 30%, hsla(183,100%,34%,1) 0px, transparent 50%), radial-gradient(at 74% 11%, hsla(253,100%,55%,1) 0px, transparent 50%), radial-gradient(at 19% 20%, hsla(252,100%,55%,1) 0px, transparent 50%); 
+background-image: radial-gradient(at 50% 50%, hsla(183,100%,34%,0.5) 0px, transparent 70%), radial-gradient(at 50% 10%, hsla(253,100%,55%,0.5) 0px, transparent 55%), radial-gradient(at 20% 40%, hsla(252,100%,55%,0.7) 0px, transparent 70%);            
 }
 .portfolio-quotedesk {
   width: 100%;
