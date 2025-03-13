@@ -685,7 +685,7 @@ padding: 0.5rem 1rem 0.5rem 1rem;
   min-height: 100vh;
   align-items: center;
   flex-direction: column;
-  background-color: #14171A;
+  background-color: #21170E;
 }
 .portfolio-container1 {
   width: 100%;
@@ -906,9 +906,9 @@ color: #fff;
   flex-direction: column;
   justify-content: center;
    height: 100%;
-background-color: #14171A;
-background-image: radial-gradient(at 50% 50%, hsla(183,100%,34%,0.5) 0px, transparent 70%), radial-gradient(at 50% 10%, hsla(253,100%,55%,0.5) 0px, transparent 55%), radial-gradient(at 20% 40%, hsla(252,100%,55%,0.7) 0px, transparent 70%);            
-}
+background-color: #21170E;
+background-image: radial-gradient(at 30% 45%, hsla(168, 100%, 42%, 0.5) 0px, transparent 38%), radial-gradient(at 58% 50%, hsla(183, 96%, 24%, 0.5) 0px, transparent 70%), radial-gradient(at 48% 45%, hsla(253, 100%, 55%, 0.9) 0px, transparent 55%),radial-gradient(at 25% 55%, hsla(222,100%,35%,0.7) 0px, transparent 45%);
+  }
 .portfolio-quotedesk {
   width: 100%;
   height: auto;
