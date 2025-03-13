@@ -61,26 +61,7 @@ padding-top: 20%;
   width: 100%;
 }
 
-@keyframes gradientShift {
-  0% {
-    background-image: radial-gradient(at 30% 45%, hsla(168, 100%, 42%, 0.5) 0px, transparent 38%),
-                      radial-gradient(at 58% 50%, hsla(183, 96%, 24%, 0.5) 0px, transparent 70%),
-                      radial-gradient(at 48% 45%, hsla(253, 100%, 55%, 0.9) 0px, transparent 55%),
-                      radial-gradient(at 25% 55%, hsla(222,100%,35%,0.7) 0px, transparent 45%);
-  }
-  50% {
-    background-image: radial-gradient(at 32% 47%, hsla(168, 100%, 42%, 0.5) 0px, transparent 38%),
-                      radial-gradient(at 60% 52%, hsla(183, 96%, 24%, 0.5) 0px, transparent 70%),
-                      radial-gradient(at 50% 47%, hsla(253, 100%, 55%, 0.9) 0px, transparent 55%),
-                      radial-gradient(at 27% 57%, hsla(222,100%,35%,0.7) 0px, transparent 45%);
-  }
-  100% {
-    background-image: radial-gradient(at 30% 45%, hsla(168, 100%, 42%, 0.5) 0px, transparent 38%),
-                      radial-gradient(at 58% 50%, hsla(183, 96%, 24%, 0.5) 0px, transparent 70%),
-                      radial-gradient(at 48% 45%, hsla(253, 100%, 55%, 0.9) 0px, transparent 55%),
-                      radial-gradient(at 25% 55%, hsla(222,100%,35%,0.7) 0px, transparent 45%);
-  }
-}
+
 
 @media (max-width: 1192px){
 .overlay {
