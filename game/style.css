@@ -64,7 +64,7 @@ body {
   height: 40%;
   background-color: #252525;
   background-image: url("https://imply.design/public/wtrseamless-2.png");
-  background-size: contain;
+  background-size: cover;
 }
 
 .safe-zone {
