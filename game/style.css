@@ -13,7 +13,7 @@ body {
   align-items: center;
   min-height: 100vh;
   color: #fff;
-  text-transform: uppercase;
+ 
 }
 
 .game-container {
@@ -212,7 +212,7 @@ body {
   margin-top: 10px;
   font-size: 14px;
   color: #fff;
- /* text-transform: uppercase;*/
+ text-transform: uppercase;
   letter-spacing: 1px;
 }
 
