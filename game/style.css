@@ -29,6 +29,9 @@ body {
 .score-container {
   font-family: 'Micro 5';
 }
+.lives-container {
+  font-family: 'Micro 5';
+}
 
 .game-header {
   display: flex;
