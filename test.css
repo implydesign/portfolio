@@ -330,7 +330,7 @@ font-weight: 200;
 font-family: 'Bai Jamjuree';
 letter-spacing: -0.2rem;}
 
-   @media(max-width: 900px) {
+   @media(max-width: 540px) {
        .headline{
           font-size: 4rem; 
 line-height: 1;     
