@@ -1059,7 +1059,7 @@ $(document).ready(function(){
   // Immediately check the scroll position when the document is ready
   var position = $(window).scrollTop();
   var target = $('.portfolio-quotedesk').offset().top;
-  var offset = 75;
+  var offset = 5;
   
   if (position > target - offset) {
     // If position is greater than the target position, set background to white
@@ -1097,7 +1097,7 @@ $(document).ready(function(){
       // Check each section to see if it is in the viewport
       $('main section').each(function() {
         var sectionId = $(this).attr('id');
-        var sectionTop = $(this).offset().top - 50; // Adjusted for better visibility, you may need to fine-tune this value
+        var sectionTop = $(this).offset().top - 5; // Adjusted for better visibility, you may need to fine-tune this value
         var sectionBottom = sectionTop + $(this).outerHeight();
 
         if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
