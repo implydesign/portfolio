@@ -26,6 +26,10 @@ body {
   box-shadow: 0 0 0 4px #000, 0 0 0 8px #fff;
 }
 
+.score-container {
+  font-family: 'Micro 5';
+}
+
 .game-header {
   display: flex;
   justify-content: space-between;
