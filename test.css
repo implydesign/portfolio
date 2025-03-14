@@ -61,7 +61,10 @@ padding-top: 20%;
   width: 100%;
 }
 
-
+.about {
+  display: flex;
+    flex-direction: column;
+}
 
 @media (max-width: 1192px){
 .overlay {
