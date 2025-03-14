@@ -1033,11 +1033,11 @@ $(document).ready(function(){
     var target = $('.portfolio-quotedesk').offset().top; // Top position of the target div
     
     // Offset the target position by a fixed amount (e.g., 50 pixels) for the trigger point
-    var offset = 5;
+    var offset = 75;
     
     if(position > target - offset) {
       $('.portfolio-desknav').addClass('scroll');
-      $('img[alt="Imply Logo"]').attr('src', 'public/tw.svg');
+      $('img[alt="Imply Logo"]').attr('src', 'public/moblogo.svg');
       $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9.svg');
       
       // Change background color on scroll
@@ -1046,7 +1046,7 @@ $(document).ready(function(){
       $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)'); // Change the box-shadow to the desired one
     } else {
       $('.portfolio-desknav').removeClass('scroll');
-      $('img[alt="Imply Logo"]').attr('src', 'public/tww.svg');
+      $('img[alt="Imply Logo"]').attr('src', 'public/moblogow.svg');
       $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9w.svg');
       
       // Change background color on scroll
@@ -1059,7 +1059,7 @@ $(document).ready(function(){
   // Immediately check the scroll position when the document is ready
   var position = $(window).scrollTop();
   var target = $('.portfolio-quotedesk').offset().top;
-  var offset = 5;
+  var offset = 75;
   
   if (position > target - offset) {
     // If position is greater than the target position, set background to white
@@ -1067,7 +1067,7 @@ $(document).ready(function(){
     $('.portfolio-desknav').css('background-color', '#ffffff');
     $('.portfolio-desknav').css('color', '#000');
     $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)');
-    $('img[alt="Imply Logo"]').attr('src', 'public/tw.svg');
+    $('img[alt="Imply Logo"]').attr('src', 'public/moblogo.svg');
     $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9.svg');
   } else {
     // If position is less than the target position, set background to transparent
@@ -1075,7 +1075,7 @@ $(document).ready(function(){
     $('.portfolio-desknav').css('background-color', 'transparent');
     $('.portfolio-desknav').css('color', '#fff');
     $('.portfolio-desknav').css('box-shadow', 'none');
-    $('img[alt="Imply Logo"]').attr('src', 'public/tww.svg');
+    $('img[alt="Imply Logo"]').attr('src', 'public/moblogow.svg');
     $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/external/arrowop1001-h8e9w.svg');
   }
 });
@@ -1097,7 +1097,7 @@ $(document).ready(function(){
       // Check each section to see if it is in the viewport
       $('main section').each(function() {
         var sectionId = $(this).attr('id');
-        var sectionTop = $(this).offset().top - 5; // Adjusted for better visibility, you may need to fine-tune this value
+        var sectionTop = $(this).offset().top - 50; // Adjusted for better visibility, you may need to fine-tune this value
         var sectionBottom = sectionTop + $(this).outerHeight();
 
         if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
@@ -1117,8 +1117,6 @@ $(document).ready(function(){
     });
   });
 </script>
-
-
 
 
     
