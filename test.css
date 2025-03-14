@@ -1599,11 +1599,13 @@ padding-top: 1rem;
   align-items: flex-start;
   flex-shrink: 0;
 
-  padding-left: 6%;
-  padding-right: 6%;
-  flex-direction: row;
-  justify-content: center;
-  background-color: white;
+/*padding-left: 6%; */
+    /* padding-right: 6%; */
+    flex-direction: row;
+    /* justify-content: center; */
+    background-color: white;
+    /* margin: 0; */
+}
 }
 .portfolio-top1 {
   gap: 4vh;
