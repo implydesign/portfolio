@@ -1,5 +1,5 @@
 body {
-  font-family: sans-serif;
+  font-family: 'Bai Jamjuree', sans-serif;
   -webkit-font-smoothing: antialiased;
   font-size: 120%;
 }
@@ -95,7 +95,7 @@ a:hover::before {
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: normal;
   font-stretch: normal;
@@ -106,7 +106,7 @@ a:hover::before {
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: normal;
   font-stretch: normal;
@@ -117,7 +117,7 @@ a:hover::before {
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: normal;
   font-stretch: normal;
@@ -128,7 +128,7 @@ a:hover::before {
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: normal;
   font-stretch: normal;
@@ -139,7 +139,7 @@ a:hover::before {
     width: 100%;
     font-size: 1.2rem;
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 400;
     line-height: normal;
   }
@@ -149,7 +149,7 @@ a:hover::before {
     height: auto;
     font-size: 1.2rem;
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 400;
     line-height: normal;
   }
@@ -159,7 +159,7 @@ a:hover::before {
     display: none;
     font-size: 1.2rem;
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 400;
     line-height: normal;
   }
@@ -199,7 +199,7 @@ a:hover::before {
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: normal;
   font-stretch: normal;
@@ -210,7 +210,7 @@ a:hover::before {
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: normal;
   font-stretch: normal;
@@ -221,7 +221,7 @@ a:hover::before {
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: normal;
   font-stretch: normal;
@@ -232,7 +232,7 @@ a:hover::before {
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: normal;
   font-stretch: normal;
@@ -243,7 +243,7 @@ a:hover::before {
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: normal;
   font-stretch: normal;
@@ -280,7 +280,7 @@ a:hover::before {
   font-size: 1.3em;
   font-style: Light;
   text-align: left;
-  font-family: "Open Sans";
+  font-family: 'Bai Jamjuree';
   font-weight: 300;
   line-height: normal;
   font-stretch: normal;
@@ -293,7 +293,7 @@ a:hover::before {
   align-self: stretch;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-weight: 600;
   line-height: normal;
   font-stretch: normal;
@@ -305,14 +305,14 @@ a:hover::before {
   align-self: stretch;
   font-style: normal;
   text-align: left;
-  font-family: "Open Sans";
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: auto;
   font-stretch: normal;
 }
 .caption {
   font-size: 1em;
-  font-family: "Open Sans";
+  font-family: 'Bai Jamjuree';
 }
 .row {
   display: flex;
@@ -333,7 +333,7 @@ a:hover::before {
   font-size: 1.3em;
   font-style: Light;
   text-align: left;
-  font-family: "Open Sans";
+  font-family: 'Bai Jamjuree';
   font-weight: 300;
   line-height: auto;
   font-stretch: normal;
@@ -365,7 +365,7 @@ a:hover::before {
   font-size: 2.5em;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-weight: 500;
   line-height: normal;
   font-stretch: normal;
@@ -384,7 +384,7 @@ a:hover::before {
   font-size: 1.5em;
   font-style: normal;
   text-align: left;
-  font-family: "Open Sans";
+  font-family: 'Bai Jamjuree';
   font-weight: 300;
   line-height: auto;
   font-stretch: normal;
@@ -423,7 +423,7 @@ a:hover::before {
     color: var(--dl-color-default-black);
     font-size: 3em;
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 600;
     line-height: normal;
   }
