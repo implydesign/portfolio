@@ -59,7 +59,7 @@ body {
   left: 0;
   width: 100%;
   height: 10%;
-  background-color: #3A3A3B;
+  background-color: transparent;
   border-bottom: 2px solid #fff;
 }
 
@@ -80,7 +80,7 @@ body {
   left: 0;
   width: 100%;
   height: 10%;
-  background-color: #101010;
+  background-color: transparent;
   border-top: 2px solid #fff;
   border-bottom: 2px solid #fff;
 }
