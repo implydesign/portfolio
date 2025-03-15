@@ -1,3 +1,326 @@
+
+:root {
+  --dl-color-gray-500: #595959;
+  --dl-color-gray-700: #999999;
+  --dl-color-gray-900: #D9D9D9;
+  --dl-size-size-large: 144px;
+  --dl-size-size-small: 48px;
+  --dl-color-danger-300: #A22020;
+  --dl-color-danger-500: #BF2626;
+  --dl-color-danger-700: #E14747;
+  --dl-color-gray-black: #000000;
+  --dl-color-gray-white: #FFFFFF;
+  --dl-color-text-plain: rgba(34, 35, 37, 1);
+  --dl-size-size-medium: 96px;
+  --dl-size-size-xlarge: 192px;
+  --dl-size-size-xsmall: 16px;
+  --dl-space-space-unit: 16px;
+  --dl-color-primary-100: #003EB3;
+  --dl-color-primary-300: #0074F0;
+  --dl-color-primary-500: #14A9FF;
+  --dl-color-primary-700: #85DCFF;
+  --dl-color-success-300: #199033;
+  --dl-color-success-500: #32A94C;
+  --dl-color-success-700: #4CC366;
+  --dl-size-size-xxlarge: 288px;
+  --dl-size-size-maxwidth: 1400px;
+  --dl-color-default-black: rgba(32, 32, 32, 1);
+  --dl-color-default-white: rgba(255, 255, 255, 1);
+  --dl-radius-radius-round: 50%;
+  --dl-space-space-halfunit: 8px;
+  --dl-space-space-sixunits: 96px;
+  --dl-space-space-twounits: 32px;
+  --dl-color-default-primary: rgba(51, 111, 215, 1);
+  --dl-radius-radius-radius2: 2px;
+  --dl-radius-radius-radius4: 4px;
+  --dl-radius-radius-radius8: 8px;
+  --dl-space-space-fiveunits: 80px;
+  --dl-space-space-fourunits: 64px;
+  --dl-color-default-darkgray: rgba(208, 213, 220, 1);
+  --dl-space-space-threeunits: 48px;
+  --dl-color-default-ligthgray: rgba(228, 228, 228, 1);
+  --dl-space-space-oneandhalfunits: 24px;
+}
+body {
+font-family: sans-serif;
+margin:0;
+
+}
+
+
+.overlay {
+
+gap:3rem;
+display:flex;
+flex-direction:column;
+ padding-left: 8%;
+  padding-right: 8%;
+padding-top: 20%;
+  padding-bottom: 8%;
+
+  width: 100%;
+}
+
+.about {
+  display: flex;
+    flex-direction: column;
+  gap:3rem;
+    padding-top: 8em;
+}
+
+@media (max-width: 1192px){
+.overlay {
+
+    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    padding-left: 6%;
+    padding-right: 6%;
+    padding-top: 20%;
+    padding-bottom: 6%;
+
+    width: 100%;
+}
+}
+
+@media (max-width: 1012px){
+.overlay {
+
+    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+ 
+    padding-top: 20%;
+  
+  
+    width: 100%;
+}
+}
+
+
+@media (max-width: 375px){
+.overlay {
+gap: 1.5rem;
+padding-left: 8%;
+padding-rigth: 8%;
+padding-top: 16%;
+  padding-bottom:16%;
+margin-bottom: 3rem;
+}
+}
+
+
+
+.button {
+  color: var(--dl-color-gray-black);
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.input {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem 1rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.textarea {
+  color: var(--dl-color-gray-black);
+  cursor: auto;
+  padding: 0.5rem;
+  border-color: var(--dl-color-gray-black);
+  border-width: 1px;
+  border-radius: 4px;
+  background-color: var(--dl-color-gray-white);
+}
+.list {
+  width: 100%;
+  margin: 1em 0px 1em 0px;
+  display: block;
+  padding: 0px 0px 0px 1.5rem;
+  list-style-type: none;
+  list-style-position: outside;
+}
+.list-item {
+  display: list-item;
+}
+.teleport-show {
+  display: flex !important;
+  transform: none !important;
+}
+.OtherOverlineMobile {
+  font-size: 14px;
+  font-family: 'Bai Jamjuree';
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.HeadlineH1 {
+  font-size: 96px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.TextSecondary {
+  font-size: 24px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 300;
+
+  font-stretch: normal;
+}
+.OtherCaptionMobile {
+  font-size: 14px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.Body0 {
+  font-size: 23px;
+  font-style: normal;
+  font-family: Inter;
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.ActionTertiary {
+  font-size: 16px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 500px;
+  font-stretch: normal;
+  gap: 4px;
+}
+.OtherOverline {
+  font-size: 16px;
+  font-family: 'Bai Jamjuree';
+  font-weight: 300;
+  text-transform: uppercase;
+}
+.ActionPrimary {
+  font-size: 24px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.navinactive {
+  font-size: 16px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.OtherCaption {
+  font-size: 16px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH2 {
+  font-size: 80px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.ActionSecondary {
+  font-size: 16px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 600px;
+  font-stretch: normal;
+}
+.HeadlineH5 {
+  font-size: 48px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH3 {
+  font-size: 72px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 500px;
+  font-stretch: normal;
+}
+.TextSecondaryMobile {
+  font-size: 16px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 300;
+
+  font-stretch: normal;
+}
+.Content {
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+.Heading {
+  font-size: 32px;
+  font-family: Inter;
+  font-weight: 700;
+  line-height: 1.15;
+  text-transform: none;
+  text-decoration: none;
+}
+.TextHero {
+  font-size: 40px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.TextMain {
+  font-size: 32px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 400px;
+  font-stretch: normal;
+}
+.HeadlineH6mobile {
+  font-size: 1rem;
+  font-family: 'Bai Jamjuree';
+  font-weight: 500;
+}
+.HeadlineH4 {
+  font-size: 56px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 700px;
+  font-stretch: normal;
+}
+.HeadlineH6 {
+font-weight: 500;
+  font-family: 'Bai Jamjuree';
+font-size: 1.5rem;
+}
+h2{
+font-weight: 500;
+  font-family: 'Bai Jamjuree';
+font-size: 2rem;
+}
+.navactive {
+  font-size: 16px;
+  font-style: normal;
+  font-family: 'Bai Jamjuree';
+  font-weight: 500;
+  font-stretch: normal;
+}
+
+
+
 body {
 font-family: sans-serif;
    -webkit-font-smoothing: antialiased;
@@ -5,13 +328,14 @@ font-family: sans-serif;
 
 .headline{font-size: 6rem;
 font-weight: 200;
-font-family: raleway;
+font-family: 'Bai Jamjuree';
 letter-spacing: -0.2rem;}
 
-   @media(max-width: 900px) {
+   @media(max-width: 540px) {
        .headline{
           font-size: 4rem; 
-line-height: 1;      
+line-height: 1;     
+                 align-self: flex-start;
        padding-left: 6%;
 padding-right: 6%;}
       }
@@ -22,17 +346,13 @@ margin-top:-8em;
 }
 
 
-#know {
-    padding-top: 8em;
-    /* margin-top: -4em; */
-    border-radius: 3rem 3rem 0 0;
-}
+
 
 
 h1 {
 font-size: 4.5rem;
 font-weight: 200;
-font-family: raleway;
+font-family: 'Bai Jamjuree';
 letter-spacing: -0.2rem;
 }
 
@@ -174,7 +494,7 @@ footer {
   padding-bottom: 4%;
   margin: auto;
   height: auto;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   font-variant-numeric: lining-nums proportional-nums;
   background-color: #000000;
   display: flex;
@@ -293,7 +613,7 @@ footer p a:hover {
   transition: all 0.2s ease;
   display: none;
   align-self: flex-start;
-   font-family: Raleway;
+   font-family: 'Bai Jamjuree';
 width: 100%;
 background-color: #C8D7FF;
 border-radius: 3rem;
@@ -372,7 +692,7 @@ padding: 0.5rem 1rem 0.5rem 1rem;
   min-height: 100vh;
   align-items: center;
   flex-direction: column;
-  background-color: #000000;
+  background-color: #21170E;
 }
 .portfolio-container1 {
   width: 100%;
@@ -430,7 +750,7 @@ color: #fff;
 }
 .portfolio-m {
   height: 100%;
-  position: absolute;
+  
   box-sizing: content-box;
 }
 .portfolio-nav {
@@ -451,7 +771,7 @@ color: #fff;
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   
   line-height: normal;
   font-stretch: normal;
@@ -468,7 +788,7 @@ color: #fff;
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   
   line-height: normal;
   font-stretch: normal;
@@ -485,7 +805,7 @@ color: #fff;
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
 
   line-height: normal;
   font-stretch: normal;
@@ -507,7 +827,7 @@ color: #fff;
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
 
   line-height: normal;
   font-stretch: normal;
@@ -520,7 +840,7 @@ color: #fff;
   height: auto;
   display: none;
   positon: fixed;
-  align-items: center;
+  
   flex-shrink: 0;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 1);
@@ -528,7 +848,7 @@ color: #fff;
 .portfolio-logotype1 {
   height: 2.35rem;
   display: flex;
-  align-items: center;
+
   flex-shrink: 0;
   flex-direction: column;
   justify-content: center;
@@ -571,7 +891,7 @@ color: #fff;
   font-size: 1.2rem;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   
   line-height: normal;
   font-stretch: normal;
@@ -592,12 +912,18 @@ color: #fff;
 
   flex-direction: column;
   justify-content: center;
-   height: 100vh;
-background-color:hsla(183,0%,0%,1);
-            background-image: radial-gradient(at 29% 30%, hsla(183,100%,34%,1) 0px, transparent 50%), radial-gradient(at 74% 11%, hsla(253,100%,55%,1) 0px, transparent 50%), radial-gradient(at 18% 43%, hsla(183,100%,34%,1) 0px, transparent 50%), radial-gradient(at 82% 53%, hsla(29,100%,54%,1) 0px, transparent 50%), radial-gradient(at 13% 80%, hsla(300,100%,13%,1) 0px, transparent 50%), radial-gradient(at 19% 20%, hsla(252,100%,55%,1) 0px, transparent 50%);
-
-}
+   height: 100%;
+background-color: #21170E;
+background-image: radial-gradient(at 30% 45%, hsla(168, 100%, 42%, 0.5) 0px, transparent 38%), radial-gradient(at 58% 50%, hsla(183, 96%, 24%, 0.5) 0px, transparent 70%), radial-gradient(at 48% 45%, hsla(253, 100%, 55%, 0.9) 0px, transparent 55%),radial-gradient(at 25% 55%, hsla(222,100%,35%,0.7) 0px, transparent 45%);
+  }
 .portfolio-quotedesk {
+  width: 100%;
+  height: auto;
+  align-items: flex-start;
+  font-weight: 600;
+  flex-direction: column;
+}
+.portfolio-quotetab {
   width: 100%;
   height: auto;
   align-items: flex-start;
@@ -612,7 +938,7 @@ background-color:hsla(183,0%,0%,1);
   justify-content: flex-start;
 }
 .portfolio-a {
-  width: 4.5rem;
+  width: 100%;
   height: auto;
 }
 .portfolio-text05 {
@@ -620,7 +946,7 @@ background-color:hsla(183,0%,0%,1);
   height: auto;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
@@ -634,7 +960,7 @@ background-color:hsla(183,0%,0%,1);
   height: auto;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
@@ -648,7 +974,7 @@ background-color:hsla(183,0%,0%,1);
   height: auto;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
@@ -669,7 +995,7 @@ background-color:hsla(183,0%,0%,1);
   height: auto;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
@@ -683,7 +1009,7 @@ background-color:hsla(183,0%,0%,1);
   height: auto;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
@@ -706,7 +1032,7 @@ background-color:hsla(183,0%,0%,1);
   justify-content: flex-start;
 }
 .portfolio-a1 {
-  width: 3.5rem;
+  width: 100%;
   height: auto;
 }
 .portfolio-text15 {
@@ -714,7 +1040,7 @@ background-color:hsla(183,0%,0%,1);
   height: auto;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
@@ -728,7 +1054,7 @@ background-color:hsla(183,0%,0%,1);
   height: auto;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
@@ -749,7 +1075,7 @@ background-color:hsla(183,0%,0%,1);
   height: auto;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
@@ -770,7 +1096,7 @@ background-color:hsla(183,0%,0%,1);
   height: auto;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
@@ -784,7 +1110,7 @@ background-color:hsla(183,0%,0%,1);
   height: auto;
   font-style: normal;
   text-align: left;
-  font-family: Raleway;
+  font-family: 'Bai Jamjuree';
   line-height: normal;
   font-stretch: normal;
   text-decoration: none;
@@ -805,7 +1131,7 @@ background-color:hsla(183,0%,0%,1);
   align-self: flex-start;
   font-style: normal;
   text-align: left;
-  font-family: "Raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 300;
   line-height: auto;
   font-stretch: normal;
@@ -818,7 +1144,7 @@ background-color:hsla(183,0%,0%,1);
   align-self: flex-start;
   font-style: normal;
   text-align: left;
-  font-family: "Raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 300;
   line-height: auto;
   font-stretch: normal;
@@ -848,7 +1174,7 @@ background-color:hsla(183,0%,0%,1);
   position: relative;
   font-size: 1.7rem;
   text-align: left;
-  font-family: "Raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 600;
   line-height: auto;
   margin-left: 1em;
@@ -889,7 +1215,7 @@ gap: 4rem;
   padding-top: 5vh;
   padding-left: 6%;
   padding-right: 6%;
-  flex-direction: column;
+  flex-direction: column-reverse;
   background-color: white;
 }
 .portfolio-top {
@@ -897,15 +1223,16 @@ gap: 4rem;
   display: flex;
   align-self: stretch;
   align-items: flex-end;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 .portfolio-fg {
   gap: 1vh;
-  width: 80%;
+  width: 100%;
   display: flex;
   font-size: 1.8rem;
   align-items: flex-start;
   flex-direction: column;
+padding-top: 1rem;
 }
 .portfolio-rectangle16 {
   width: auto;
@@ -916,7 +1243,7 @@ gap: 4rem;
   height: auto;
   font-style: Regular;
   text-align: left;
-  font-family: "Raleway";
+  font-family: 'Chakra Petch';
   font-weight: 600;
   line-height: auto;
   font-stretch: normal;
@@ -943,7 +1270,7 @@ gap: 4rem;
   align-self: stretch;
   font-style: regular;
   align-items: flex-start;
-  font-family: "Open Sans";
+  font-family: 'Bai Jamjuree';
   font-weight: 300;
   line-height: auto;
   flex-direction: column;
@@ -954,7 +1281,7 @@ gap: 4rem;
   align-self: stretch;
   font-style: Regular;
   text-align: left;
-  font-family: Open Sans;
+  font-family: 'Bai Jamjuree';
   font-stretch: normal;
   text-decoration: none;
 }
@@ -1009,7 +1336,7 @@ gap: 4rem;
   height: auto;
   font-size: 1.1rem;
   text-align: left;
-  font-family: "raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 500;
   line-height: auto;
   font-variant-numeric: lining-nums proportional-nums;
@@ -1025,7 +1352,7 @@ gap: 4rem;
   align-self: stretch;
   font-style: normal;
   text-align: left;
-  font-family: Open Sans;
+  font-family: 'Bai Jamjuree';
   font-weight: 300;
   line-height: auto;
   font-stretch: normal;
@@ -1035,7 +1362,7 @@ gap: 4rem;
   height: auto;
   font-size: 0.8rem;
   text-align: left;
-  font-family: "raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: auto;
   font-variant-numeric: lining-nums proportional-nums;
@@ -1054,7 +1381,7 @@ gap: 4rem;
   height: auto;
   font-size: 1.1rem;
   text-align: left;
-  font-family: "raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 500;
   line-height: auto;
   font-variant-numeric: lining-nums proportional-nums;
@@ -1070,7 +1397,7 @@ gap: 4rem;
   align-self: stretch;
   font-style: normal;
   text-align: left;
-  font-family: Open Sans;
+  font-family: 'Bai Jamjuree';
   font-weight: 300;
   line-height: auto;
   font-stretch: normal;
@@ -1080,7 +1407,7 @@ gap: 4rem;
   height: auto;
   font-size: 0.8rem;
   text-align: left;
-  font-family: "raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: auto;
   font-variant-numeric: lining-nums proportional-nums;
@@ -1276,13 +1603,15 @@ gap: 4rem;
   display: flex;
   align-items: flex-start;
   flex-shrink: 0;
-  padding-top: 8vh;
-  padding-left: 6%;
-  padding-right: 6%;
-  flex-direction: row;
-  justify-content: center;
-  background-color: white;
+
+/*padding-left: 6%; */
+    /* padding-right: 6%; */
+    flex-direction: row;
+    /* justify-content: center; */
+    background-color: white;
+    /* margin: 0; */
 }
+
 .portfolio-top1 {
   gap: 4vh;
   width: 30%;
@@ -1297,7 +1626,7 @@ gap: 4rem;
 }
 .portfolio-fg1 {
   gap: 1vh;
-  width: 80%;
+  width: 100%;
   display: flex;
   font-size: 2.2rem;
   align-items: flex-start;
@@ -1312,7 +1641,7 @@ gap: 4rem;
   height: auto;
   font-style: Regular;
   text-align: left;
-  font-family: "Raleway";
+  font-family: 'Chakra Petch';
   font-weight: 600;
   line-height: auto;
   font-stretch: normal;
@@ -1337,7 +1666,7 @@ gap: 4rem;
   align-self: stretch;
   font-style: regular;
   align-items: flex-start;
-  font-family: "Open Sans";
+  font-family: 'Bai Jamjuree';
   font-weight: 300;
   line-height: auto;
   flex-direction: column;
@@ -1348,7 +1677,7 @@ gap: 4rem;
   align-self: stretch;
   font-style: Regular;
   text-align: left;
-  font-family: Open Sans;
+  font-family: 'Bai Jamjuree';
   font-stretch: normal;
   text-decoration: none;
 }
@@ -1367,7 +1696,7 @@ gap: 4rem;
   align-items: center;
   flex-shrink: 1;
   align-content: center;
-   font-family: Raleway;
+   font-family: 'Bai Jamjuree';
 }
 .portfolio-ellipse51 {
   top: 0px;
@@ -1388,7 +1717,7 @@ gap: 4rem;
   position: relative;
   font-size: 1.5rem;
   text-align: left;
-  font-family: "Raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 600;
   line-height: auto;
   margin-left: 1vw;
@@ -1402,12 +1731,12 @@ gap: 4rem;
   margin-left: 1vw;
 }
 .portfolio-deskwrapper {
-  gap: 10vh;
+  
   width: 100%;
   display: flex;
-  
+  border-radius: 3rem 3rem 0 0;
   align-items: center;
-  padding-top: 5%;
+  padding-top: 8%;
   padding-left: 8%;
   padding-right: 8%;
   flex-direction: column;
@@ -1446,7 +1775,7 @@ gap: 4rem;
   height: auto;
   font-size: 1.1rem;
   text-align: left;
-  font-family: "raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 500;
   line-height: auto;
   font-variant-numeric: lining-nums proportional-nums;
@@ -1462,7 +1791,7 @@ gap: 4rem;
   align-self: stretch;
   font-style: normal;
   text-align: left;
-  font-family: Open Sans;
+  font-family: 'Bai Jamjuree';
   font-weight: 300;
   line-height: auto;
   font-stretch: normal;
@@ -1472,7 +1801,7 @@ gap: 4rem;
   height: auto;
   font-size: 0.8rem;
   text-align: left;
-  font-family: "raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: auto;
   font-variant-numeric: lining-nums proportional-nums;
@@ -1490,7 +1819,7 @@ gap: 4rem;
   height: auto;
   font-size: 1.1rem;
   text-align: left;
-  font-family: "raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 500;
   line-height: auto;
   font-variant-numeric: lining-nums proportional-nums;
@@ -1506,7 +1835,7 @@ gap: 4rem;
   align-self: stretch;
   font-style: normal;
   text-align: left;
-  font-family: Open Sans;
+  font-family: 'Bai Jamjuree';
   font-weight: 300;
   line-height: auto;
   font-stretch: normal;
@@ -1516,7 +1845,7 @@ gap: 4rem;
   height: auto;
   font-size: 0.8rem;
   text-align: left;
-  font-family: "raleway";
+  font-family: 'Bai Jamjuree';
   font-weight: 400;
   line-height: auto;
   font-variant-numeric: lining-nums proportional-nums;
@@ -1530,7 +1859,8 @@ gap: 4rem;
   flex-shrink: 0;
   flex-direction: row;
   justify-content: space-between;
-   padding-top: 4rem;
+padding-top: 3rem;
+    padding-bottom: 2rem;
 }
 .portfolio-carddesktop {
   gap: 4vh;
@@ -1806,7 +2136,7 @@ align-items: center;
     width: 100%;
     font-size: 1.2rem;
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 400;
     line-height: normal;
   }
@@ -1817,7 +2147,7 @@ align-items: center;
     height: auto;
     font-size: 1.2rem;
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 400;
     line-height: normal;
   }
@@ -1828,7 +2158,7 @@ align-items: center;
     display: none;
     font-size: 1.2rem;
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 400;
     line-height: normal;
   }
@@ -1852,7 +2182,7 @@ align-items: center;
     font-size: 2.2rem;
   }
   .portfolio-a {
-    width: 3rem;
+    width: 100%;
   }
   .portfolio-e {
     width: 3rem;
@@ -1874,6 +2204,7 @@ align-items: center;
   }
   .portfolio-textcont {
     width: 100%;
+padding-bottom: 16%;
   }
   .portfolio-text25 {
     font-weight: 200;
@@ -1940,6 +2271,51 @@ align-items: center;
    .portfolio-quotedesk{
       display:none;
    }
+.portfolio-quotetab{
+      display:none;
+   }
+      }
+
+/* Mobile: Show only mobile image */
+@media (max-width: 540px) {
+   .portfolio-quotemob {
+      display: flex;
+   }
+   .portfolio-quotetab, 
+   .portfolio-quotedesk {
+      display: none;
+   }
+}
+
+/* Tablet: Show only tablet image */
+@media (min-width: 541px) and (max-width: 1024px) {
+   .portfolio-quotetab {
+      display: flex;
+   }
+   .portfolio-quotemob, 
+   .portfolio-quotedesk {
+      display: none;
+   }
+}
+
+/* Desktop: Show only desktop image */
+@media (min-width: 1025px) {
+   .portfolio-quotedesk {
+      display: flex;
+   }
+   .portfolio-quotemob, 
+   .portfolio-quotetab {
+      display: none;
+   }
+}
+
+
+@media(min-width: 1024px) {
+       .portfolio-quotedesk{
+         display: flex;}
+   .portfolio-quotetab{
+      display:none;
+   }
       }
 
 
@@ -1981,7 +2357,7 @@ align-items: center;
   }
   .portfolio-hero {
 
-   height: 100vh;
+   height: 100%;
 
   }
   .portfolio-quotedesk {
@@ -2108,28 +2484,28 @@ display:flex;
   .portfolio-text {
     color: rgb(0, 0, 0);
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 400;
     line-height: normal;
   }
   .portfolio-text01 {
     color: rgb(0, 0, 0);
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 400;
     line-height: normal;
   }
   .portfolio-text02 {
     color: rgb(0, 0, 0);
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 400;
     line-height: normal;
   }
   .portfolio-text03 {
     color: rgb(0, 0, 0);
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 400;
     line-height: normal;
   }
@@ -2149,17 +2525,11 @@ display:flex;
     align-items: flex-start;
     justify-content: flex-start;
   }
-  .portfolio-m1 {
-    top: 0px;
-    left: 0px;
-   
-    bottom: 0px;
-    margin: auto;
-  }
+  
   .portfolio-text04 {
     color: rgb(0, 0, 0);
     font-style: normal;
-    font-family: Raleway;
+    font-family: 'Bai Jamjuree';
     font-weight: 400;
     line-height: normal;
   }
@@ -2217,7 +2587,7 @@ display:flex;
     font-size: 1.5rem;
   }
   .portfolio-a1 {
-    width: 3rem;
+    width: 100%;
   }
   .portfolio-text15 {
     color: #ffffff;
@@ -2294,7 +2664,7 @@ display:flex;
     color: var(--dl-color-default-black);
     font-size: 0.95rem;
     font-style: normal;
-    font-family: Open Sans;
+    font-family: 'Bai Jamjuree';
     font-weight: 300;
   }
   .portfolio-text36 {
@@ -2311,7 +2681,7 @@ display:flex;
     color: var(--dl-color-default-black);
     font-size: 0.95rem;
     font-style: normal;
-    font-family: Open Sans;
+    font-family: 'Bai Jamjuree';
     font-weight: 300;
   }
   .portfolio-card {
@@ -2359,7 +2729,7 @@ display:flex;
     color: var(--dl-color-default-black);
     font-size: 0.95rem;
     font-style: normal;
-    font-family: Open Sans;
+    font-family: 'Bai Jamjuree';
     font-weight: 300;
   }
   .portfolio-text69 {
@@ -2376,7 +2746,7 @@ display:flex;
     color: var(--dl-color-default-black);
     font-size: 0.95rem;
     font-style: normal;
-    font-family: Open Sans;
+    font-family: 'Bai Jamjuree';
     font-weight: 300;
   }
 }
