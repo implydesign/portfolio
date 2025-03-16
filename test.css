@@ -423,7 +423,7 @@ letter-spacing: -0.2rem;
   
   background-color: #21170E;
 }
-.btn:active {
+.btnw:active {
   transform: scale(1.1);
   -ms-transform: scale(1.1);
   -o-transform: scale(1.1);
@@ -432,13 +432,13 @@ letter-spacing: -0.2rem;
 }
 
 .btnw:focus-visible {
-   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #C8D7FF;
+   box-shadow: 0 0 0 2px #21170E, 0 0 0 4px #494B50;
 }
 .btnw:focus {
-   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #C8D7FF;
+   box-shadow: 0 0 0 2px #21170E, 0 0 0 4px #494B50;
 }
 .btnw:focus-within {
-   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #F5F5F5;
+   box-shadow: 0 0 0 2px #21170E, 0 0 0 4px #494B50;
 }
 
 
