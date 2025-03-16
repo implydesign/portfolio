@@ -359,6 +359,7 @@ letter-spacing: -0.2rem;
 .btn{
   border-radius: 100px;
    font-weight: 500;
+ width: fit-content;
 }
 
 .btn:before {
@@ -2013,12 +2014,13 @@ padding-top: 3rem;
   display: flex;
   padding: 8px 24px;
   align-items: flex-start;
-  border-color: rgba(32, 32, 32, 1);
+  border-color: #fff;
   border-style: solid;
   border-width: 1px;
   border-radius: 100px;
   justify-content: center;
 }
+
 .portfolio-arrow3 {
   width: 28px;
   height: 28px;
