@@ -469,6 +469,26 @@ width: 100%;
 
 
 
+.ripple3 {
+  background-position: center;
+  background-color: #fff;
+  background-size: 100%;
+  transition: background 0s;
+}
+.ripple3:hover {
+  background-position: center;
+  transition: background 0.5s;
+   background: #C8D7FF radial-gradient(circle, transparent 1%, #ffffff 1%) center/4000%;
+}
+.ripple3:active {
+  background-position: center;
+   background: #C8D7FF radial-gradient(circle, transparent 1%, #ffffff 1%) center/4000%;
+}
+
+
+
+
+
 nav {
    display:flex;
    flex-direction: row;
