@@ -402,14 +402,51 @@ letter-spacing: -0.2rem;
    box-shadow: 0 0 0 2px #fff, 0 0 0 4px #F5F5F5;
 }
 
-.btn:target{
+.btnw:target{
    font-weight: 600;
    background-color: #ffffff;
+}
+
+.btnw{
+  border-radius: 100px;
+   font-weight: 500;
+ width: fit-content;
+}
+
+.btnw:before {
+  background: #f5f5f5;
+  content: "";
+  position: absolute;
+  z-index: -1;
+}
+.btnw:hover {
+  color: #000000;
+  background-color: #f5f5f5;
+}
+.btn:active {
+  transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  -o-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+}
+
+.btnw:focus-visible {
+   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #C8D7FF;
+}
+.btnw:focus {
+   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #C8D7FF;
+}
+.btnw:focus-within {
+   box-shadow: 0 0 0 2px #fff, 0 0 0 4px #F5F5F5;
 }
 
 
 @media (max-width: 455px){
 .btn {
+width: 100%;
+}
+.btnw {
 width: 100%;
 }
 }
