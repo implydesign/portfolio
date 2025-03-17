@@ -83,6 +83,15 @@ padding-top: 20%;
 }
 }
 
+@media (max-width: 745px){
+.footcon {
+   flex-direction: column;
+}
+.gamef {
+width: 100%;
+}
+}
+
 @media (max-width: 1012px){
 .overlay {
 
