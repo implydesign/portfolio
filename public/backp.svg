@@ -1,12 +1,19 @@
-<svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect x="0.5" y="0.5" width="79" height="79" rx="39.5" stroke="black"/>
-<rect width="3" height="3" transform="matrix(-1 0 0 1 47 38.5)" fill="black"/>
-<rect width="3" height="3" transform="matrix(-1 0 0 1 52 38.5)" fill="black"/>
-<rect width="3" height="3" transform="matrix(-1 0 0 1 42 38.5)" fill="black"/>
-<rect width="3" height="3" transform="matrix(-1 0 0 1 37 38.5)" fill="black"/>
-<rect width="3" height="3" transform="matrix(-1 0 0 1 34 35.5)" fill="black"/>
-<rect width="3" height="3" transform="matrix(-1 0 0 1 34 41.5)" fill="black"/>
-<rect width="3" height="3" transform="matrix(-1 0 0 1 31 38.5)" fill="black"/>
-<rect width="3" height="3" transform="matrix(-1 0 0 1 37 32.5)" fill="black"/>
-<rect width="3" height="3" transform="matrix(-1 0 0 1 37 44.5)" fill="black"/>
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_443_1372)">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M32 0.8C49.2313 0.8 63.2 14.7687 63.2 32C63.2 49.2313 49.2313 63.2 32 63.2C14.7687 63.2 0.799999 49.2313 0.799999 32C0.799999 14.7687 14.7687 0.8 32 0.8ZM64 32C64 14.3269 49.6731 0 32 0C14.3269 0 0 14.3269 0 32C0 49.6731 14.3269 64 32 64C49.6731 64 64 49.6731 64 32Z" fill="black"/>
+<path d="M37.25 31.5H35V33.75H37.25V31.5Z" fill="black"/>
+<path d="M41 31.5H38.75V33.75H41V31.5Z" fill="black"/>
+<path d="M33.5 31.5H31.25V33.75H33.5V31.5Z" fill="black"/>
+<path d="M29.75 31.5H27.5V33.75H29.75V31.5Z" fill="black"/>
+<path d="M27.5 29.25H25.25V31.5H27.5V29.25Z" fill="black"/>
+<path d="M27.5 33.75H25.25V36H27.5V33.75Z" fill="black"/>
+<path d="M25.25 31.5H23V33.75H25.25V31.5Z" fill="black"/>
+<path d="M29.75 27H27.5V29.25H29.75V27Z" fill="black"/>
+<path d="M29.75 36H27.5V38.25H29.75V36Z" fill="black"/>
+</g>
+<defs>
+<clipPath id="clip0_443_1372">
+<rect width="64" height="64" fill="white"/>
+</clipPath>
+</defs>
 </svg>
