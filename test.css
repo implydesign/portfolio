@@ -864,6 +864,7 @@ color: #fff;
   align-self: stretch;
   align-items: center;
   justify-content: center;
+gap: 3px;
 }
 .portfolio-text {
  
@@ -920,6 +921,7 @@ color: #fff;
 .portfolio-arrowop {
   width: 1.8rem;
   height: auto;
+    border-radius: 0;
 }
 .portfolio-text03 {
   
@@ -1589,6 +1591,7 @@ padding-top: 1rem;
   border-width: 1px;
   border-radius: 100px;
   justify-content: center;
+  font-weight: 600;
 }
 .portfolio-text49 {
   color: var(--dl-color-default-black);
@@ -2124,6 +2127,7 @@ padding-top: 3rem;
   border-width: 1px;
   border-radius: 100px;
   justify-content: center;
+  font-weight: 600;
 }
 
 .portfolio-arrow3 {
