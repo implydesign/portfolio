@@ -83,14 +83,7 @@ padding-top: 20%;
 }
 }
 
-@media (max-width: 745px){
-.footcon {
-   flex-direction: column;
-}
-.gamef {
-width: 100%;
-}
-}
+
 
 @media (max-width: 1012px){
 .overlay {
@@ -638,6 +631,18 @@ footer p a:hover {
            width:85%;
         }
       }
+
+
+
+@media (max-width: 745px){
+.footcon {
+   flex-direction: column;
+}
+.gamef {
+width: 100%;
+}
+}
+
 
 
 
