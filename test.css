@@ -1705,7 +1705,7 @@ padding-top: 1rem;
   font-stretch: normal;
 }
 .portfolio-introtext {
-  gap: 2vh;
+  gap: 1.2rem;
   width: 35%;
   display: flex;
   align-self: stretch;
@@ -2772,7 +2772,7 @@ display:flex;
     font-size: 1.5rem;
   }
   .portfolio-introtext {
-    gap: 1vh;
+    gap: 1rem;
   }
   .portfolio-text64 {
     color: rgb(0, 0, 0);
