@@ -74,7 +74,7 @@ a:hover::before {
 }
 .ripple {
   background-position: center;
-  background-color: #E4E2CD;
+  background-color: #D9D3CE;
   background-size: 100%;
   transition: background 0s;
 }
@@ -190,7 +190,7 @@ a:hover::before {
   min-height: 100vh;
   align-items: center;
   flex-direction: column;
-  background-color: #E4E2CD;
+  background-color: #D9D3CE;
   margin-top: 10vh;
 }
 .text {
@@ -267,7 +267,7 @@ a:hover::before {
   display: flex;
   align-items: flex-start;
   flex-shrink: 0;
-  border-color: #CCCAB3;
+  border-color: #C7BFB9;
   border-style: solid;
   border-width: 0 0 1px;
   flex-direction: column;
