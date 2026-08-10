@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Spline 3D</title>
+  <title>Spline Test</title>
 
   <style>
-    html,
-    body {
+    html, body {
       margin: 0;
       width: 100%;
       height: 100%;
@@ -16,8 +14,8 @@
     }
 
     #canvas3d {
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       display: block;
     }
   </style>
@@ -25,17 +23,16 @@
 
 <body>
 
-  <canvas id="canvas3d"></canvas>
+<canvas id="canvas3d"></canvas>
 
-  <script src="https://unpkg.com/@splinetool/runtime@1.12.63/build/runtime.js"></script>
+<script type="module">
+  import { Application } from "https://unpkg.com/@splinetool/runtime/build/runtime.js";
 
-  <script>
-    const canvas = document.getElementById('canvas3d');
+  const canvas = document.getElementById("canvas3d");
+  const app = new Application(canvas);
 
-    const app = new Application(canvas);
-
-    app.load('scene.splinecode');
-  </script>
+  app.load("./scene.splinecode");
+</script>
 
 </body>
 </html>
