@@ -546,11 +546,149 @@ font-family: sans-serif;
                   Let's innovate products together!
                 </span>
               </div>
-              <img
-                alt="Olha Polishchuk"
-                src="public/avatar.jpg"
-                class="portfolio-avatarnew21"
-              />
+            <main class="stage" id="stage">
+                <style>/* Lenticular card: all motion is driven by CSS variables set from script.js
+   --u  horizontal angle  (-1 … 1)     --v  vertical angle (-1 … 1)
+   --fade  0 = calm photo, 1 = yawn photo                                  */
+
+* { box-sizing: border-box; }
+
+body { margin: 0; }
+
+.stage {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 28px;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 38%, #2a2019 0%, #15100d 55%, #0b0807 100%);
+}
+
+.perspective {
+  width: 100%;
+  max-width: 440px;       /* card width */
+  perspective: 1200px;
+}
+
+.lenti {
+  --u: 0;
+  --v: 0;
+  --fade: 0;
+  --max-tilt: 16deg;      /* tilt strength */
+  --depth: 1.6;           /* parallax between the two photos (%) */
+
+  position: relative;
+  padding: 5px;           /* thickness of the glossy edge */
+  border-radius: 22px;
+  transform-style: preserve-3d;
+  transform:
+    rotateX(calc(var(--v) * var(--max-tilt) * -0.8))
+    rotateY(calc(var(--u) * var(--max-tilt)))
+    translateZ(calc(14px + var(--u-abs, 0) * 10px));
+  background-color: rgba(255, 255, 255, 0.10);
+  background-image: linear-gradient(
+    calc(135deg + var(--u) * 55deg),
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.22) 24%,
+    rgba(170, 182, 200, 0.55) 50%,
+    rgba(255, 255, 255, 0.22) 76%,
+    rgba(255, 255, 255, 0.95) 100%);
+  box-shadow:
+    calc(var(--u) * -34px) 38px 70px -18px rgba(0, 0, 0, 0.8),
+    0 0 0 1px rgba(255, 255, 255, 0.22);
+
+  cursor: grab;
+  touch-action: none;     /* lets a finger drag the card instead of scrolling */
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.lenti:active { cursor: grabbing; }
+
+.face {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1000 / 1201;
+  border-radius: 17px;
+  overflow: hidden;
+  background: #000;
+  transform: translateZ(0);
+}
+
+.face img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+/* The two "lenses" move in opposite directions = depth */
+.img-a {
+  transform:
+    translate(calc(var(--u) * var(--depth) * 1%), calc(var(--v) * var(--depth) * -0.5%))
+    scale(1.09);
+}
+
+.img-b {
+  opacity: var(--fade);
+  transform:
+    translate(calc(var(--u) * var(--depth) * -1%), calc(var(--v) * var(--depth) * 0.5%))
+    scale(1.09);
+}
+
+/* Fine vertical lens ridges */
+.ridges {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.07) 0, rgba(255, 255, 255, 0.07) 1px,
+    rgba(0, 0, 0, 0.09) 1px, rgba(0, 0, 0, 0.09) 2px,
+    transparent 2px, transparent 3px);
+}
+
+/* Light sweeping over the plastic */
+.shine {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: linear-gradient(
+    112deg, transparent 38%, rgba(255, 255, 255, 0.30) 50%, transparent 62%);
+  background-size: 260% 100%;
+  background-repeat: no-repeat;
+  background-position: calc(50% - var(--u) * 50%) 0;
+  opacity: calc(0.55 + var(--u-abs, 0) * 0.45 + var(--v-abs, 0) * 0.2);
+}
+
+.rim {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: 17px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.18),
+    inset 0 18px 30px -22px rgba(255, 255, 255, 0.45);
+}
+</style>
+    <div class="perspective">
+      <div class="lenti" id="lenti" role="img"
+           aria-label="Lenticular card of a ginger and white cat. It changes from calm to mid-yawn as the card tilts.">
+        <div class="face">
+          <img class="img-a" src="images/cat-calm.jpg" alt="" draggable="false">
+          <img class="img-b" src="images/cat-yawn.jpg" alt="" draggable="false">
+          <div class="ridges"></div>
+          <div class="shine"></div>
+          <div class="rim"></div>
+        </div>
+      </div>
+    </div>
+  </main>
             </div>
 <a href="https://www.linkedin.com/in/implydesign/" class="btn ripple" >
   <div role="button" class="portfolio-buttonicon" tabindex="0" style="gap: 6px; padding: 8px 24px 8px 18px;">
@@ -1154,7 +1292,150 @@ font-family: sans-serif;
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+<script>
+    (function () {
+  'use strict';
 
+  /* ---------- settings ---------- */
+  var MOTION_RANGE = 22;   // degrees of phone tilt that equal a full flip
+  var FLIP_SOFTNESS = 0.55; // bigger = slower, wider cross-fade
+  var IDLE_SWAY = true;    // gentle self-animation until the first interaction
+
+  var stage = document.getElementById('stage');
+  var card = document.getElementById('lenti');
+  if (!stage || !card) return;
+
+  var reduceMotion = window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function clamp(x, a, b) {
+    a = a === undefined ? -1 : a;
+    b = b === undefined ? 1 : b;
+    return Math.max(a, Math.min(b, x));
+  }
+  function smoothstep(a, b, x) {
+    var t = clamp((x - a) / (b - a), 0, 1);
+    return t * t * (3 - 2 * t);
+  }
+
+  /* ---------- state ---------- */
+  var cur = { u: 0, v: 0 };      // what is drawn
+  var mouse = null;              // desktop hover target
+  var gyro = null;               // phone orientation target
+  var gyroOn = false;
+  var base = null;               // neutral phone pose (auto-calibrated)
+  var drag = null;               // touch / pen drag target
+  var acted = false;             // has the person interacted yet?
+  var permAsked = false;
+  var t0 = performance.now();
+
+  /* ---------- desktop: cursor over the page ---------- */
+  stage.addEventListener('pointermove', function (e) {
+    if (e.pointerType === 'mouse') {
+      var r = stage.getBoundingClientRect();
+      mouse = {
+        u: clamp(((e.clientX - r.left) / r.width - 0.5) * 2.3),
+        v: clamp(((e.clientY - r.top) / r.height - 0.5) * 2.3)
+      };
+      acted = true;
+    } else if (drag) {
+      drag.u = clamp(drag.su + (e.clientX - drag.x) / (drag.w * 0.55));
+      drag.v = clamp(drag.sv + (e.clientY - drag.y) / (drag.h * 0.55));
+    }
+  });
+  stage.addEventListener('pointerleave', function (e) {
+    if (e.pointerType === 'mouse') mouse = null;
+  });
+
+  /* ---------- touch / pen: drag the card ---------- */
+  card.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse') return;
+    var r = card.getBoundingClientRect();
+    try { card.setPointerCapture(e.pointerId); } catch (err) {}
+    acted = true;
+    drag = {
+      x: e.clientX, y: e.clientY,
+      su: cur.u, sv: cur.v, u: cur.u, v: cur.v,
+      w: r.width, h: r.height
+    };
+  });
+  function endDrag() { drag = null; }
+  card.addEventListener('pointerup', endDrag);
+  card.addEventListener('pointercancel', endDrag);
+
+  /* ---------- phone: gyroscope ---------- */
+  function onOrientation(e) {
+    if (e.gamma == null || e.beta == null) return; // desktop browsers send nulls
+    var ang = (screen.orientation && screen.orientation.angle) || window.orientation || 0;
+    var x = e.gamma, y = e.beta;
+    if (ang === 90) { x = e.beta; y = -e.gamma; }
+    else if (ang === 270 || ang === -90) { x = -e.beta; y = e.gamma; }
+    else if (ang === 180) { x = -e.gamma; y = -e.beta; }
+
+    if (!base) base = { x: x, y: y };
+    // the neutral pose follows slowly, so any natural holding angle works
+    base.x += (x - base.x) * 0.004;
+    base.y += (y - base.y) * 0.004;
+
+    gyro = {
+      u: clamp((x - base.x) / MOTION_RANGE),
+      v: clamp((y - base.y) / MOTION_RANGE)
+    };
+    gyroOn = true;
+    if (Math.abs(gyro.u) > 0.08 || Math.abs(gyro.v) > 0.08) acted = true;
+  }
+  window.addEventListener('deviceorientation', onOrientation);
+
+  // iOS Safari only releases sensor data after a permission prompt that must
+  // be triggered by a tap. The first tap on the card does it (no UI needed).
+  card.addEventListener('click', function () {
+    var D = window.DeviceOrientationEvent;
+    if (!permAsked && D && typeof D.requestPermission === 'function') {
+      permAsked = true;
+      try { D.requestPermission().catch(function () {}); } catch (err) {}
+    }
+  });
+
+  /* ---------- animation loop ---------- */
+  function setVars(u, v) {
+    var s = card.style;
+    s.setProperty('--u', u.toFixed(4));
+    s.setProperty('--v', v.toFixed(4));
+    s.setProperty('--u-abs', Math.abs(u).toFixed(4));
+    s.setProperty('--v-abs', Math.abs(v).toFixed(4));
+    // this is where the lenticular flip happens
+    s.setProperty('--fade', smoothstep(-FLIP_SOFTNESS, FLIP_SOFTNESS, u).toFixed(4));
+  }
+
+  function tick(now) {
+    var tu = 0, tv = 0, k = 0.07;
+
+    if (drag)                { tu = drag.u;  tv = drag.v;  k = 0.35; }
+    else if (gyroOn && gyro) { tu = gyro.u;  tv = gyro.v;  k = 0.22; }
+    else if (mouse)          { tu = mouse.u; tv = mouse.v; k = 0.14; }
+    else if (!acted && IDLE_SWAY && !reduceMotion) {
+      var s = (now - t0) / 1000;
+      tu = 0.8 * Math.sin(s * 0.9);
+      tv = 0.2 * Math.sin(s * 0.6 + 1);
+      k = 0.1;
+    }
+
+    var du = (tu - cur.u) * k, dv = (tv - cur.v) * k;
+    if (Math.abs(du) > 0.0002 || Math.abs(dv) > 0.0002) {
+      cur.u += du;
+      cur.v += dv;
+      setVars(cur.u, cur.v);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  setVars(0, 0);
+  requestAnimationFrame(tick);
+})();
+
+</script>
+
+                
 <script>
 
 $(document).ready(function(){
