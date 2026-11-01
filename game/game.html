@@ -2,19 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Frogger 2-bit: Jump</title>
   <link rel="stylesheet" href="style.css">
   <link href='https://fonts.googleapis.com/css?family=Micro 5' rel='stylesheet'>
 <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <div class="app" id="app">
+  <div class="game-scaler" id="game-scaler">
   <div class="game-container">
     <div class="game-header">
       <div class="score-container">
         <span>Score: </span>
         <span id="score">0</span>
       </div>
+      <button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="false">Sound: off</button>
       <div class="lives-container">
         <span>Lives: </span>
         <span id="lives">3</span>
@@ -34,8 +37,34 @@
       </div>
       <div id="start-screen">
         <h1>Frogger 2-bit: Jump</h1>
-        <p>Use arrow keys to move and collect all frogs!</p>
+        <p>Use arrow keys or the D-pad to move and collect all frogs!</p>
         <p class="instructions">Press Space or tap to start</p>
+      </div>
+    </div>
+  </div>
+  </div>
+
+    <!-- Game Boy style D-pad (separate from the game frame) (touch devices only, see style.css) -->
+    <div class="controls">
+      <div class="dpad-well">
+        <div class="dpad" role="group" aria-label="Directional controls">
+          <svg class="dpad-svg" viewBox="0 0 138 138" aria-hidden="true" focusable="false"><defs>
+<linearGradient id="dpBody" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a4a50"/><stop offset=".45" stop-color="#27272b"/><stop offset="1" stop-color="#101012"/></linearGradient>
+<linearGradient id="dpEdge" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".4"/><stop offset=".5" stop-color="#fff" stop-opacity=".03"/><stop offset="1" stop-color="#000" stop-opacity=".7"/></linearGradient>
+<linearGradient id="dpSheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".14"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+<radialGradient id="dpDimple" cx=".38" cy=".32" r=".8"><stop offset="0" stop-color="#1e1e21"/><stop offset=".6" stop-color="#222226"/><stop offset="1" stop-color="#2c2c30"/></radialGradient>
+</defs>
+<path d="M54,0 H84 Q92,0 92,8 V39.6 Q92,46 98.4,46 H130 Q138,46 138,54 V84 Q138,92 130,92 H98.4 Q92,92 92,98.4 V130 Q92,138 84,138 H54 Q46,138 46,130 V98.4 Q46,92 39.6,92 H8 Q0,92 0,84 V54 Q0,46 8,46 H39.6 Q46,46 46,39.6 V8 Q46,0 54,0 Z" fill="url(#dpBody)"/>
+<path d="M54,0 H84 Q92,0 92,8 V39.6 Q92,46 98.4,46 H130 Q138,46 138,54 V84 Q138,92 130,92 H98.4 Q92,92 92,98.4 V130 Q92,138 84,138 H54 Q46,138 46,130 V98.4 Q46,92 39.6,92 H8 Q0,92 0,84 V54 Q0,46 8,46 H39.6 Q46,46 46,39.6 V8 Q46,0 54,0 Z" fill="url(#dpSheen)"/>
+<path d="M54,0 H84 Q92,0 92,8 V39.6 Q92,46 98.4,46 H130 Q138,46 138,54 V84 Q138,92 130,92 H98.4 Q92,92 92,98.4 V130 Q92,138 84,138 H54 Q46,138 46,130 V98.4 Q46,92 39.6,92 H8 Q0,92 0,84 V54 Q0,46 8,46 H39.6 Q46,46 46,39.6 V8 Q46,0 54,0 Z" fill="none" stroke="url(#dpEdge)" stroke-width="1.2"/>
+<circle cx="69" cy="69" r="16" fill="#26262a"/>
+<circle cx="69" cy="69" r="16" fill="none" stroke="#fff" stroke-opacity=".06" stroke-width="1"/>
+<polygon class="dpad-arrow a-up" points="0.5,4.5 7.5,4.5 4,0.5" transform="translate(69 21) rotate(0) scale(1.15) translate(-4 -2.5)"/><polygon class="dpad-arrow a-right" points="0.5,4.5 7.5,4.5 4,0.5" transform="translate(117 69) rotate(90) scale(1.15) translate(-4 -2.5)"/><polygon class="dpad-arrow a-down" points="0.5,4.5 7.5,4.5 4,0.5" transform="translate(69 117) rotate(180) scale(1.15) translate(-4 -2.5)"/><polygon class="dpad-arrow a-left" points="0.5,4.5 7.5,4.5 4,0.5" transform="translate(21 69) rotate(270) scale(1.15) translate(-4 -2.5)"/></svg>
+          <button class="dpad-btn up" data-dir="up" aria-label="Up"></button>
+          <button class="dpad-btn left" data-dir="left" aria-label="Left"></button>
+          <button class="dpad-btn right" data-dir="right" aria-label="Right"></button>
+          <button class="dpad-btn down" data-dir="down" aria-label="Down"></button>
+        </div>
       </div>
     </div>
   </div>
