@@ -31,22 +31,48 @@ let touchStartY = 0;
 let levelNumber = 1;
 
 // Game constants
+// The play field is a fixed 500x500 grid of 10x10 rows/columns of 50px.
+// CSS scales it to fit the screen, so these numbers are the same on every device.
+const FIELD_W = 500;
+const FIELD_H = 500;
 const GRID_SIZE = 50;
 const MOVE_SPEED = GRID_SIZE;
-// Drastically reduced car speeds to make the game much easier
-const CAR_SPEEDS = [0.8, 1.0, 0.7, 0.9];
-// Reduced turtle and lily pad speeds significantly
-const TURTLE_SPEEDS = [0.6, 0.7, 0.5, 0.8]; // Reduced from previous values
+
+// Rows (top to bottom): 0 goals, 1-4 river, 5 safe, 6-8 road, 9 start
+const RIVER_FIRST_ROW = 1;
+const ROAD_FIRST_ROW = 6;
+const START_ROW = 9;
+
+// Speeds are in pixels per second so the game runs the same on 60Hz and 120Hz screens
+const CAR_SPEEDS = [48, 60, 42, 54];
+const TURTLE_SPEEDS = [36, 42, 30, 48];
 const GOAL_COUNT = 5;
 const CARS_PER_LANE = [1, 2, 1]; // Number of cars per lane
 const TURTLES_PER_LANE = 1; // One turtle per lane
 const LILY_PADS_PER_LANE = 1; // One lily pad per lane
 
-// Adjusted dimensions for turtles and lily pads
-const TURTLE_WIDTH = 60;
-const TURTLE_HEIGHT = 30;
+// Sprite sizes keep each sprite's aspect ratio (cars come in three sizes)
+const CAR_SIZES = [[45, 27], [49, 30], [60, 36]];
+const TURTLE_WIDTH = 54;
+const TURTLE_HEIGHT = 38;
 const LILY_PAD_WIDTH = 40;
-const LILY_PAD_HEIGHT = 30;
+const LILY_PAD_HEIGHT = 33;
+
+const MIN_GAP = FIELD_W * 0.02; // Smallest gap between neighbours in a lane (2% of the field = 10px)
+const HITBOX_INSET = 4; // The frog's car hit box is 4px smaller on every side (forgiving near misses)
+const RESPAWN_BLINK_S = 0.6; // Blink time after a death, during which cars can't hurt the frog
+const HOP_MS = 90; // Hop animation length
+const MAX_FRAME_SECONDS = 0.05; // Longest time step the game simulates in one frame
+
+// Top y of an object of the given height centered inside a row
+function centerInRow(row, height) {
+  return row * GRID_SIZE + (GRID_SIZE - height) / 2;
+}
+
+let lastFrameTime = 0;
+let gameTime = 0; // Seconds of simulated play
+let invulnerableUntil = 0;
+let drawnFrog = { x: 0, y: 0 };
 
 // Initialize game
 function init() {
@@ -58,6 +84,9 @@ function init() {
   gameArea.addEventListener('touchstart', handleTouchStart);
   gameArea.addEventListener('touchmove', handleTouchMove);
   gameArea.addEventListener('touchend', handleTouchEnd);
+  document.getElementById('sound-toggle').addEventListener('click', toggleSound);
+  initDpad();
+  initFit();
   
   // Show start screen
   startScreen.classList.remove('hidden');
@@ -96,7 +125,7 @@ function createGameZones() {
 
 // Create goal spots
 function createGoals() {
-  const gameWidth = gameArea.offsetWidth;
+  const gameWidth = FIELD_W;
   const goalWidth = 40;
   const spacing = (gameWidth - (GOAL_COUNT * goalWidth)) / (GOAL_COUNT + 1);
   
@@ -127,6 +156,8 @@ function startGame() {
   lives = 3;
   filledGoals = 0;
   levelNumber = 1;
+  gameTime = 0;
+  invulnerableUntil = 0;
   scoreElement.textContent = '0';
   livesElement.textContent = '3';
   
@@ -143,8 +174,7 @@ function startGame() {
   resetFrogPosition();
   
   // Start game loop
-  if (animationFrame) cancelAnimationFrame(animationFrame);
-  gameLoop();
+  startLoop();
   
   // Start generating cars and turtles
   createCarsAndTurtles();
@@ -161,275 +191,219 @@ function clearGameObjects() {
   lilyPads = [];
 }
 
-// Reset frog to starting position
-function resetFrogPosition() {
-  const gameWidth = gameArea.offsetWidth;
-  const gameHeight = gameArea.offsetHeight;
-  
-  frog.x = Math.floor(gameWidth / 2) - (frog.width / 2);
-  frog.y = gameHeight - frog.height - 10;
-  frog.direction = 'up'; // Reset direction to up
-  
-  updateFrogPosition();
+// ----- Sound (off by default; made with the Web Audio API, no audio files) -----
+let audioCtx = null;
+let soundOn = false;
+
+function tone(freq, delay, duration, type, volume, endFreq) {
+  const t = audioCtx.currentTime + delay;
+  const osc = audioCtx.createOscillator();
+  const gain = audioCtx.createGain();
+  osc.type = type;
+  osc.frequency.setValueAtTime(freq, t);
+  if (endFreq) osc.frequency.exponentialRampToValueAtTime(endFreq, t + duration);
+  gain.gain.setValueAtTime(volume, t);
+  gain.gain.exponentialRampToValueAtTime(0.0001, t + duration);
+  osc.connect(gain);
+  gain.connect(audioCtx.destination);
+  osc.start(t);
+  osc.stop(t + duration);
 }
 
-// Update frog position and rotation on screen
-function updateFrogPosition() {
-  frogElement.style.left = `${frog.x}px`;
-  frogElement.style.top = `${frog.y}px`;
-  
-  // Apply rotation based on direction
-  switch (frog.direction) {
-    case 'up':
-      frogElement.style.transform = 'rotate(0deg)';
-      break;
-    case 'right':
-      frogElement.style.transform = 'rotate(90deg)';
-      break;
-    case 'down':
-      frogElement.style.transform = 'rotate(180deg)';
-      break;
-    case 'left':
-      frogElement.style.transform = 'rotate(-90deg)';
-      break;
+function playSound(name) {
+  if (!soundOn || !audioCtx) return;
+  if (name === 'hop') tone(380, 0, 0.07, 'square', 0.04, 620);
+  if (name === 'die') tone(240, 0, 0.3, 'sawtooth', 0.05, 60);
+  if (name === 'goal') [523, 659, 784].forEach((f, i) => tone(f, i * 0.09, 0.12, 'square', 0.04));
+}
+
+function toggleSound() {
+  soundOn = !soundOn;
+  if (soundOn) {
+    // Audio can only start after a tap or key press, which is exactly when this runs
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (!audioCtx && AudioContextClass) audioCtx = new AudioContextClass();
+    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    playSound('hop');
   }
+  const button = document.getElementById('sound-toggle');
+  if (button) {
+    button.textContent = soundOn ? 'Sound: on' : 'Sound: off';
+    button.setAttribute('aria-pressed', String(soundOn));
+    button.blur(); // so the Space bar still starts the game
+  }
+}
+
+// Reset frog to starting position (bottom row, centered)
+function resetFrogPosition() {
+  frog.x = Math.floor(FIELD_W / 2) - (frog.width / 2);
+  frog.y = centerInRow(START_ROW, frog.height);
+  frog.direction = 'up'; // Reset direction to up
+  
+  updateFrogPosition(false);
+}
+
+// Transform that places and rotates the frog
+function frogTransform(x, y, direction, scale) {
+  const rotation = { up: 0, right: 90, down: 180, left: -90 }[direction];
+  return `translate(${Math.round(x)}px, ${Math.round(y)}px) rotate(${rotation}deg) scale(${scale})`;
+}
+
+// Draw the frog. With animate=true it slides to the new cell with a small lift.
+function updateFrogPosition(animate) {
+  const next = frogTransform(frog.x, frog.y, frog.direction, 1);
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  
+  if (animate && frogElement.animate && !reduceMotion) {
+    const from = frogElement.style.transform || next;
+    const mid = frogTransform((drawnFrog.x + frog.x) / 2, (drawnFrog.y + frog.y) / 2, frog.direction, 1.15);
+    frogElement.animate([{ transform: from }, { transform: mid }, { transform: next }],
+                        { duration: HOP_MS, easing: 'ease-out' });
+  }
+  
+  frogElement.style.transform = next;
+  drawnFrog = { x: frog.x, y: frog.y };
+}
+
+// Put one lane's objects on a shared looping track. Every object is spaced evenly
+// around the track and wraps by the track length, so the gaps between neighbours
+// never change and objects can never overlap (the gap is at least MIN_GAP).
+function createLane(row, direction, speed, specs, startMargin) {
+  const count = specs.length;
+  const widest = Math.max(...specs.map(spec => spec.width));
+  const track = Math.max(FIELD_W + widest, count * (widest + MIN_GAP));
+  const step = track / count;
+  
+  specs.forEach((spec, k) => {
+    // Start off-screen: the first object just outside the edge, the others behind it
+    const x = direction === 1
+      ? -spec.width - startMargin - k * step
+      : FIELD_W + startMargin + k * step;
+    spec.create(x, centerInRow(row, spec.height), spec.width, spec.height, speed, track);
+  });
 }
 
 // Create cars and turtles
 function createCarsAndTurtles() {
-  const gameWidth = gameArea.offsetWidth;
-  const gameHeight = gameArea.offsetHeight;
-  
-  // Define the road zone (60% to 90% of game height)
-  const roadZoneTop = gameHeight * 0.6;
-  const roadZoneHeight = gameHeight * 0.3; // 30% of game height
-  
-  // Create cars in the road lanes
+  // Cars: one lane per road row, each car centered in its row
   for (let i = 0; i < CARS_PER_LANE.length; i++) {
-    // Calculate lane position within the road zone
-    const laneY = roadZoneTop + (i * (roadZoneHeight / 4));
     const direction = i % 2 === 0 ? 1 : -1;
-    const speed = CAR_SPEEDS[i] * direction;
-    
-    // Create the specified number of cars for this lane
+    const specs = [];
     for (let j = 0; j < CARS_PER_LANE[i]; j++) {
-      // Space cars evenly across the lane
-      const spacing = gameWidth / CARS_PER_LANE[i];
-      let startX;
-      
-      if (direction === 1) {
-        // For cars moving right, start from left of screen with spacing
-        startX = -100 - (j * spacing);
-      } else {
-        // For cars moving left, start from right of screen with spacing
-        startX = gameWidth + 100 + (j * spacing);
-      }
-      
-      createCar(
-        startX,
-        laneY,
-        40 + Math.floor(Math.random() * 40),
-        30,
-        speed
-      );
+      // Pick one of the car sizes (same art, scaled evenly)
+      const [width, height] = CAR_SIZES[Math.floor(Math.random() * CAR_SIZES.length)];
+      specs.push({ width, height, create: createCar });
     }
+    createLane(ROAD_FIRST_ROW + i, direction, CAR_SPEEDS[i] * direction, specs, 100);
   }
   
-  // Create turtles and lily pads in the river lanes (4 lanes in the river zone - 10% to 50% of game height)
+  // Turtles and lily pads share each river lane
   for (let i = 0; i < 4; i++) {
-    const laneY = gameHeight * 0.1 + (i * GRID_SIZE);
     const direction = i % 2 === 0 ? 1 : -1;
-    const speed = TURTLE_SPEEDS[i] * direction;
-    
-    // Create turtles with even spacing
+    const specs = [];
     for (let j = 0; j < TURTLES_PER_LANE; j++) {
-      const turtleSpacing = gameWidth / TURTLES_PER_LANE;
-      let turtleStartX;
-      
-      if (direction === 1) {
-        turtleStartX = -150 - (j * turtleSpacing);
-      } else {
-        turtleStartX = gameWidth + 150 + (j * turtleSpacing);
-      }
-      
-      createTurtle(
-        turtleStartX,
-        laneY,
-        TURTLE_WIDTH,
-        TURTLE_HEIGHT,
-        speed
-      );
+      specs.push({ width: TURTLE_WIDTH, height: TURTLE_HEIGHT, create: createTurtle });
     }
-    
-    // Create lily pads with even spacing, but offset from turtles to ensure they don't overlap
     for (let j = 0; j < LILY_PADS_PER_LANE; j++) {
-      const lilyPadSpacing = gameWidth / LILY_PADS_PER_LANE;
-      let lilyPadStartX;
-      
-      if (direction === 1) {
-        // Offset lily pads from turtles by half the game width to ensure they're far apart
-        lilyPadStartX = -150 - (j * lilyPadSpacing) - (gameWidth / 2);
-      } else {
-        lilyPadStartX = gameWidth + 150 + (j * lilyPadSpacing) + (gameWidth / 2);
-      }
-      
-      createLilyPad(
-        lilyPadStartX,
-        laneY,
-        LILY_PAD_WIDTH,
-        LILY_PAD_HEIGHT,
-        speed
-      );
+      specs.push({ width: LILY_PAD_WIDTH, height: LILY_PAD_HEIGHT, create: createLilyPad });
     }
+    createLane(RIVER_FIRST_ROW + i, direction, TURTLE_SPEEDS[i] * direction, specs, 150);
   }
 }
 
-// Create a car
-function createCar(x, y, width, height, speed) {
-  const car = document.createElement('div');
-  car.className = 'car';
-  car.style.width = `${width}px`;
-  car.style.height = `${height}px`;
-  car.style.left = `${x}px`;
-  car.style.top = `${y}px`;
-  
-  // Flip the car if it's moving left
-  if (speed < 0) {
-    car.style.transform = 'scaleX(-1)';
-  }
-  
-  gameArea.appendChild(car);
-  
-  cars.push({
-    element: car,
-    x: x,
-    y: y,
-    width: width,
-    height: height,
-    speed: speed
-  });
+// Draw a moving object (cars, turtles and lily pads) with a transform
+function placeObject(obj) {
+  obj.element.style.transform = `translate(${Math.round(obj.x)}px, ${Math.round(obj.y)}px)` +
+    (obj.flip ? ' scaleX(-1)' : '');
 }
 
-// Create a turtle
-function createTurtle(x, y, width, height, speed) {
-  const turtle = document.createElement('div');
-  turtle.className = 'log'; // Keep the class as 'log' for compatibility
-  turtle.style.width = `${width}px`;
-  turtle.style.height = `${height}px`;
-  turtle.style.left = `${x}px`;
-  turtle.style.top = `${y}px`;
+// Create a moving object and add it to the field
+function createObject(className, list, x, y, width, height, speed, flip, track) {
+  const element = document.createElement('div');
+  element.className = className;
+  element.style.width = `${width}px`;
+  element.style.height = `${height}px`;
+  gameArea.appendChild(element);
   
-  // Flip the turtle if it's moving right
-  if (speed > 0) {
-    turtle.style.transform = 'scaleX(-1)';
-  }
-  
-  gameArea.appendChild(turtle);
-  
-  turtles.push({
-    element: turtle,
-    x: x,
-    y: y,
-    width: width,
-    height: height,
-    speed: speed
-  });
+  const obj = { element, x, y, width, height, speed, flip, track };
+  placeObject(obj);
+  list.push(obj);
+}
+
+// Create a car (flipped if it moves left)
+function createCar(x, y, width, height, speed, track) {
+  createObject('car', cars, x, y, width, height, speed, speed < 0, track);
+}
+
+// Create a turtle (class stays 'log' for compatibility; flipped if it moves right)
+function createTurtle(x, y, width, height, speed, track) {
+  createObject('log', turtles, x, y, width, height, speed, speed > 0, track);
 }
 
 // Create a lily pad
-function createLilyPad(x, y, width, height, speed) {
-  const lilyPad = document.createElement('div');
-  lilyPad.className = 'lily-pad';
-  lilyPad.style.width = `${width}px`;
-  lilyPad.style.height = `${height}px`;
-  lilyPad.style.left = `${x}px`;
-  lilyPad.style.top = `${y}px`;
-  
-  gameArea.appendChild(lilyPad);
-  
-  lilyPads.push({
-    element: lilyPad,
-    x: x,
-    y: y,
-    width: width,
-    height: height,
-    speed: speed
-  });
+function createLilyPad(x, y, width, height, speed, track) {
+  createObject('lily-pad', lilyPads, x, y, width, height, speed, false, track);
 }
 
-// Game loop
-function gameLoop() {
-  if (!gameOver && !levelComplete) {
-    updateCars();
-    updateTurtles();
-    updateLilyPads();
-    checkCollisions();
-    checkWin();
-    animationFrame = requestAnimationFrame(gameLoop);
+// Start (or restart) the game loop
+function startLoop() {
+  lastFrameTime = 0;
+  if (animationFrame) cancelAnimationFrame(animationFrame);
+  animationFrame = requestAnimationFrame(gameLoop);
+}
+
+// Game loop: everything moves by speed x elapsed time, so the game plays
+// the same on 60Hz, 120Hz and 144Hz screens
+function gameLoop(now) {
+  if (gameOver || levelComplete) return;
+  
+  const dt = lastFrameTime ? Math.min((now - lastFrameTime) / 1000, MAX_FRAME_SECONDS) : 0;
+  lastFrameTime = now;
+  gameTime += dt;
+  
+  updateCars(dt);
+  updateTurtles(dt);
+  updateLilyPads(dt);
+  checkCollisions();
+  checkWin();
+  animationFrame = requestAnimationFrame(gameLoop);
+}
+
+// Move an object; when it leaves the field it jumps back along its lane's track
+function moveObject(obj, dt) {
+  obj.x += obj.speed * dt;
+  if (obj.speed > 0 && obj.x > FIELD_W) {
+    obj.x -= obj.track;
+  } else if (obj.speed < 0 && obj.x + obj.width < 0) {
+    obj.x += obj.track;
   }
+  placeObject(obj);
 }
 
 // Update car positions
-function updateCars() {
-  const gameWidth = gameArea.offsetWidth;
-  
-  cars.forEach(car => {
-    car.x += car.speed;
-    car.element.style.left = `${car.x}px`;
-    
-    // Loop cars around when they go off-screen
-    if (car.speed > 0 && car.x > gameWidth) {
-      car.x = -car.width;
-    } else if (car.speed < 0 && car.x + car.width < 0) {
-      car.x = gameWidth;
-    }
-  });
+function updateCars(dt) {
+  cars.forEach(car => moveObject(car, dt));
 }
 
 // Update turtle positions
-function updateTurtles() {
-  const gameWidth = gameArea.offsetWidth;
-  
-  turtles.forEach(turtle => {
-    turtle.x += turtle.speed;
-    turtle.element.style.left = `${turtle.x}px`;
-    
-    // Loop turtles around when they go off-screen
-    if (turtle.speed > 0 && turtle.x > gameWidth) {
-      turtle.x = -turtle.width;
-    } else if (turtle.speed < 0 && turtle.x + turtle.width < 0) {
-      turtle.x = gameWidth;
-    }
-  });
+function updateTurtles(dt) {
+  turtles.forEach(turtle => moveObject(turtle, dt));
 }
 
-// Update lily pad positions
-function updateLilyPads() {
-  const gameWidth = gameArea.offsetWidth;
+// Update lily pad positions, then carry the frog if it rides a turtle or lily pad
+function updateLilyPads(dt) {
+  lilyPads.forEach(lilyPad => moveObject(lilyPad, dt));
   
-  lilyPads.forEach(lilyPad => {
-    lilyPad.x += lilyPad.speed;
-    lilyPad.element.style.left = `${lilyPad.x}px`;
-    
-    // Loop lily pads around when they go off-screen
-    if (lilyPad.speed > 0 && lilyPad.x > gameWidth) {
-      lilyPad.x = -lilyPad.width;
-    } else if (lilyPad.speed < 0 && lilyPad.x + lilyPad.width < 0) {
-      lilyPad.x = gameWidth;
-    }
-  });
-  
-  // If frog is in river, check if it's on a turtle or lily pad
   if (isFrogInRiver()) {
     const onTurtle = turtles.find(turtle => isColliding(frog, turtle));
     const onLilyPad = lilyPads.find(lilyPad => isColliding(frog, lilyPad));
     
     if (onTurtle) {
-      frog.x += onTurtle.speed;
-      updateFrogPosition();
+      frog.x += onTurtle.speed * dt;
+      updateFrogPosition(false);
     } else if (onLilyPad) {
-      frog.x += onLilyPad.speed;
-      updateFrogPosition();
+      frog.x += onLilyPad.speed * dt;
+      updateFrogPosition(false);
     } else {
       // Frog is in water but not on a turtle or lily pad
       frogDies();
@@ -439,7 +413,7 @@ function updateLilyPads() {
 
 // Check if frog is in the river zone
 function isFrogInRiver() {
-  const gameHeight = gameArea.offsetHeight;
+  const gameHeight = FIELD_H;
   // Only consider the frog in the river if its center point is in the river zone
   const frogCenterY = frog.y + (frog.height / 2);
   return frogCenterY >= gameHeight * 0.1 && frogCenterY < gameHeight * 0.5;
@@ -447,8 +421,8 @@ function isFrogInRiver() {
 
 // Check collisions
 function checkCollisions() {
-  const gameWidth = gameArea.offsetWidth;
-  const gameHeight = gameArea.offsetHeight;
+  const gameWidth = FIELD_W;
+  const gameHeight = FIELD_H;
   
   // Check if frog is out of bounds
   if (frog.x < 0 || frog.x + frog.width > gameWidth || frog.y < 0 || frog.y + frog.height > gameHeight) {
@@ -456,9 +430,16 @@ function checkCollisions() {
     return;
   }
   
-  // Check car collisions
+  // Check car collisions with a slightly smaller frog hit box (not while blinking after a death)
+  if (gameTime < invulnerableUntil) return;
+  const hitBox = {
+    x: frog.x + HITBOX_INSET,
+    y: frog.y + HITBOX_INSET,
+    width: frog.width - 2 * HITBOX_INSET,
+    height: frog.height - 2 * HITBOX_INSET
+  };
   for (const car of cars) {
-    if (isColliding(frog, car)) {
+    if (isColliding(hitBox, car)) {
       frogDies();
       return;
     }
@@ -467,7 +448,7 @@ function checkCollisions() {
 
 // Check if frog has reached a goal
 function checkWin() {
-  const gameHeight = gameArea.offsetHeight;
+  const gameHeight = FIELD_H;
   
   // Check if frog is in the goal zone - use center point of frog for more accurate detection
   const frogCenterY = frog.y + (frog.height / 2);
@@ -492,6 +473,7 @@ function checkWin() {
         
         // Reset frog position
         resetFrogPosition();
+        playSound('goal');
         
         // Check if all goals are filled
         if (filledGoals === GOAL_COUNT) {
@@ -553,7 +535,7 @@ function continueToNextLevel() {
   createCarsAndTurtles();
   
   // Restart game loop
-  gameLoop();
+  startLoop();
 }
 
 // Frog dies
@@ -565,6 +547,13 @@ function frogDies() {
     endGame();
   } else {
     resetFrogPosition();
+    playSound('die');
+    // Blink, and cars can't hurt the frog for a moment
+    invulnerableUntil = gameTime + RESPAWN_BLINK_S;
+    if (frogElement.animate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      frogElement.animate([{ opacity: 1 }, { opacity: 0.2 }, { opacity: 1 }],
+                          { duration: RESPAWN_BLINK_S * 1000 / 4, iterations: 4 });
+    }
   }
 }
 
@@ -581,7 +570,7 @@ function endGame() {
   gameOverScreen.classList.remove('hidden');
 }
 
-// Move frog
+// Move frog one hop. Hops that would leave the field stop at the edge.
 function moveFrog(direction) {
   if (!gameStarted || gameOver || levelComplete) return;
   
@@ -597,21 +586,23 @@ function moveFrog(direction) {
       frog.y -= MOVE_SPEED;
       break;
     case 'down':
-      frog.y += MOVE_SPEED;
+      frog.y = Math.min(frog.y + MOVE_SPEED, centerInRow(START_ROW, frog.height));
       break;
     case 'left':
-      frog.x -= MOVE_SPEED;
+      frog.x = Math.max(frog.x - MOVE_SPEED, 0);
       break;
     case 'right':
-      frog.x += MOVE_SPEED;
+      frog.x = Math.min(frog.x + MOVE_SPEED, FIELD_W - frog.width);
       break;
   }
   
-  // Update the visual position
-  updateFrogPosition();
+  // Update the visual position (slide only if the frog actually moved)
+  const moved = frog.x !== prevX || frog.y !== prevY;
+  updateFrogPosition(moved);
+  if (moved) playSound('hop');
   
   // Check if the frog is now in the transition area between river and goal
-  const gameHeight = gameArea.offsetHeight;
+  const gameHeight = FIELD_H;
   const frogCenterY = frog.y + (frog.height / 2);
   
   // If the frog is moving from river to goal zone, ensure it's on a turtle or lily pad
@@ -638,7 +629,6 @@ function moveFrog(direction) {
     if (!wasOnTurtle && !wasOnLilyPad) {
       frog.x = prevX;
       frog.y = prevY;
-      updateFrogPosition();
       frogDies();
       return;
     }
@@ -661,6 +651,17 @@ function isColliding(obj1, obj2) {
 
 // Event handlers
 function handleKeyDown(event) {
+  // One key press = one hop: ignore the repeats a held key sends
+  if (event.repeat) {
+    if (event.code.startsWith('Arrow')) event.preventDefault();
+    return;
+  }
+  
+  if (event.code === 'KeyM') {
+    toggleSound();
+    return;
+  }
+  
   if (!gameStarted && !gameOver && !levelComplete && event.code === 'Space') {
     startGame();
     return;
@@ -700,6 +701,10 @@ function handleKeyDown(event) {
 
 // Touch event handlers for mobile
 function handleTouchStart(event) {
+  // A tap that starts, retries or continues the game must not count as a swipe
+  touchStartX = null;
+  touchStartY = null;
+  
   if (!gameStarted && !gameOver && !levelComplete) {
     startGame();
     return;
@@ -724,7 +729,7 @@ function handleTouchMove(event) {
 }
 
 function handleTouchEnd(event) {
-  if (!gameStarted || gameOver || levelComplete) return;
+  if (!gameStarted || gameOver || levelComplete || touchStartX === null) return;
   
   const touchEndX = event.changedTouches[0].clientX;
   const touchEndY = event.changedTouches[0].clientY;
@@ -748,6 +753,66 @@ function handleTouchEnd(event) {
       moveFrog('up');
     }
   }
+}
+
+// Game Boy D-pad buttons (visible on touch devices only)
+function initDpad() {
+  const dpad = document.querySelector('.dpad');
+  if (!dpad) return;
+  const release = () => dpad.removeAttribute('data-pressed');
+  dpad.querySelectorAll('.dpad-btn').forEach(btn => {
+    btn.addEventListener('pointerdown', event => {
+      event.preventDefault();
+      dpad.dataset.pressed = btn.dataset.dir;
+      if (navigator.vibrate) navigator.vibrate(10);
+      moveFrog(btn.dataset.dir);
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(type => btn.addEventListener(type, release));
+  });
+}
+
+// Scale the fixed-size game down so the game (and the D-pad on touch devices)
+// fit the visible screen with no scrolling. The D-pad keeps its normal size.
+function fitToScreen() {
+  const app = document.getElementById('app');
+  const scaler = document.getElementById('game-scaler');
+  const container = scaler.firstElementChild;
+  const controls = app.querySelector('.controls');
+  
+  const gameW = container.offsetWidth;
+  const gameH = container.offsetHeight;
+  const vv = window.visualViewport;
+  // Keep clear of notches and rounded corners (body padding uses the safe-area insets)
+  const body = getComputedStyle(document.body);
+  const padX = parseFloat(body.paddingLeft) + parseFloat(body.paddingRight);
+  const padY = parseFloat(body.paddingTop) + parseFloat(body.paddingBottom);
+  let availW = (vv ? vv.width : window.innerWidth) - padX - 32;
+  let availH = (vv ? vv.height : window.innerHeight) - padY - 32;
+  
+  if (getComputedStyle(controls).display !== 'none') {
+    const gap = parseFloat(getComputedStyle(app).gap) || 0;
+    if (window.matchMedia('(orientation: landscape)').matches) {
+      availW -= controls.offsetWidth + gap; // D-pad sits to the right
+    } else {
+      availH -= controls.offsetHeight + gap; // D-pad sits below
+    }
+  }
+  
+  const scale = Math.min(1, availW / gameW, availH / gameH);
+  scaler.style.width = `${gameW * scale}px`;
+  scaler.style.height = `${gameH * scale}px`;
+  container.style.transform = `scale(${scale})`;
+}
+
+function initFit() {
+  fitToScreen();
+  window.addEventListener('resize', fitToScreen);
+  window.addEventListener('load', fitToScreen);
+  window.addEventListener('orientationchange', () => setTimeout(fitToScreen, 200));
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', fitToScreen);
+  if (document.fonts) document.fonts.ready.then(fitToScreen);
+  // Don't simulate the time the page spent in the background
+  document.addEventListener('visibilitychange', () => { lastFrameTime = 0; });
 }
 
 // Initialize the game when the page loads
