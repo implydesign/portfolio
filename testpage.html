@@ -54,6 +54,27 @@
 
 <link href="./index.css" rel="stylesheet" /> 
 
+<style data-tag="liquid-scroll">
+/* ===== Liquid scroll: progressive blur from the top of the screen, under the nav ===== */
+.liquid-scroll {
+  --liquid-reach: 110px;           /* how far the blur extends below the nav */
+  --liquid-height: 180px;          /* set by JS: nav height + reach */
+  position: fixed;
+  top: 0;                          /* starts at the very top of the screen */
+  left: 0;
+  right: 0;
+  height: var(--liquid-height);
+  z-index: 90;                     /* under the nav (z-index 100), over the page */
+  pointer-events: none;            /* clicks pass through to the page */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.liquid-scroll.is-on { opacity: 1; }
+.liquid-scroll > div { position: absolute; inset: 0; }
+@media (max-width: 530px) { .liquid-scroll { --liquid-reach: 80px; } }
+@media (prefers-reduced-motion: reduce) { .liquid-scroll { transition: none; } }
+</style>
+
 <style data-tag="lenticular-card">
 /* ===== Lenticular cat card (scoped: only .lenti-* classes) =====
    The slot keeps the avatar's own classes, so it inherits the avatar's size
@@ -252,6 +273,11 @@ font-family: sans-serif;
     </nav>
   </div>
 </header>
+
+<!-- Liquid scroll: progressive blur under the nav -->
+<div class="liquid-scroll" id="liquid-scroll" aria-hidden="true"
+     data-layers="8" data-max-blur="14" data-saturation="1.1"></div>
+
 
 
   <main class="portfolio-container">
@@ -1374,7 +1400,80 @@ $(document).ready(function(){
 
 
     
-     <script data-tag="lenticular-card">
+     <script data-tag="liquid-scroll">
+/* ===== Liquid scroll — vanilla JS, independent of jQuery ===== */
+(function () {
+  'use strict';
+  var el = document.getElementById('liquid-scroll');
+  if (!el) return;
+
+  var supported = (window.CSS && CSS.supports) &&
+    (CSS.supports('backdrop-filter', 'blur(1px)') || CSS.supports('-webkit-backdrop-filter', 'blur(1px)'));
+  if (!supported) return;                       // browsers without support just skip it
+
+  var layers  = parseInt(el.dataset.layers || '8', 10);
+  var maxBlur = parseFloat(el.dataset.maxBlur || '14');
+  var sat     = parseFloat(el.dataset.saturation || '1');
+
+  var layerEls = [];
+  for (var i = 0; i < layers; i++) {
+    var layer = document.createElement('div');
+    var blur = maxBlur * Math.pow(2, i - (layers - 1));   // doubles each layer
+    var filter = 'blur(' + blur.toFixed(2) + 'px)' + (sat !== 1 ? ' saturate(' + sat + ')' : '');
+    layer.style.webkitBackdropFilter = filter;
+    layer.style.backdropFilter = filter;
+    el.appendChild(layer);
+    layerEls.push(layer);
+  }
+
+  var desk = document.querySelector('.portfolio-desknav');
+  var mob  = document.querySelector('.portfolio-mobnav');
+  var lastNav = -1, lastReach = -1;
+
+  function visible(n) { return n && getComputedStyle(n).display !== 'none'; }
+
+  // Masks are in px: fully blurred from the screen top to the nav's bottom edge,
+  // then the blur fades out over "reach" px below the nav.
+  function build(navBottom, reach) {
+    var step = reach / layers;
+    el.style.setProperty('--liquid-height', (navBottom + reach) + 'px');
+    layerEls.forEach(function (layer, i) {
+      var end   = navBottom + reach * (layers - i) / layers;   // strong layers fade out sooner
+      var solid = Math.max(end - step, 0);
+      var mask = 'linear-gradient(to bottom, #000 ' + solid.toFixed(1) + 'px, transparent ' + end.toFixed(1) + 'px)';
+      layer.style.webkitMaskImage = mask;
+      layer.style.maskImage = mask;
+    });
+  }
+
+  function update() {
+    var nav = visible(desk) ? desk : (visible(mob) ? mob : null);
+    if (!nav) { el.classList.remove('is-on'); return; }
+
+    var navBottom = Math.round(nav.getBoundingClientRect().bottom);
+    var reach = parseFloat(getComputedStyle(el).getPropertyValue('--liquid-reach')) || 110;
+    if (navBottom !== lastNav || reach !== lastReach) {
+      build(navBottom, reach);
+      lastNav = navBottom; lastReach = reach;
+    }
+
+    // desktop nav is transparent over the hero, so wait until it turns white
+    // (the page's existing script adds the "scroll" class); mobile pill is always white
+    var on = (nav === mob) || desk.classList.contains('scroll');
+    el.classList.toggle('is-on', on);
+  }
+
+  if (desk && 'MutationObserver' in window) {
+    new MutationObserver(update).observe(desk, { attributes: true, attributeFilter: ['class'] });
+  }
+  window.addEventListener('resize', update);
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('load', update);
+  update();
+})();
+</script>
+
+<script data-tag="lenticular-card">
 /* ===== Lenticular cat card — vanilla JS, independent of jQuery ===== */
 (function () {
   'use strict';
