@@ -3,9 +3,13 @@
 <head>
     <meta charset="utf-8">
     <title>Imply Design</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Product Designer. Mobile and web product solutions for Health Tech and much more.">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <!-- colour of the phone's status bar / browser bar; updated by script while scrolling -->
+  <meta name="theme-color" content="#21170E" />
     
     <!-- Open Graph Meta Tags -->
     <meta property="og:title" content="Imply Design">
@@ -73,6 +77,33 @@
 .liquid-scroll > div { position: absolute; inset: 0; }
 @media (max-width: 530px) { .liquid-scroll { --liquid-reach: 80px; } }
 @media (prefers-reduced-motion: reduce) { .liquid-scroll { transition: none; } }
+</style>
+
+<style data-tag="unified-nav">
+/* ===== One navigation for desktop + mobile =====
+   Desktop look comes from index.css + the scroll script.
+   Phones (<= 530px) get the always-white floating pill. */
+header .portfolio-desknav {
+  top: env(safe-area-inset-top, 0px);   /* keeps the nav below the notch / status bar */
+  margin: 2%;
+  width: 96%;
+  border-radius: 10rem;
+  padding: 0.8rem 2rem 0.6rem 1.8rem;
+}
+@media (max-width: 530px) {
+  header .portfolio-desknav {
+    display: flex;                      /* index.css hides the desktop nav on phones */
+    align-items: center;
+    margin: 2.5%;
+    width: 95%;
+    border-radius: 4rem;
+    padding: 1rem 5%;
+    background-color: #fff;             /* white from the first paint, before JS runs */
+    color: #000;
+    box-shadow: 0 2px 4px 0 rgba(167, 167, 167, 0.1);
+  }
+  header .portfolio-desknav .nav-section { display: none; }  /* phones only show "Open CV" */
+}
 </style>
 
 <style data-tag="lenticular-card">
@@ -210,29 +241,26 @@ font-family: sans-serif;
       
       
 <header>
-  <div class="portfolio-desknav" style="margin: 2%; width: 96%; border-radius: 10rem; padding-left: 1.8rem; padding-right: 2rem; padding-top: 0.8rem; padding-bottom:0.6rem;">
-   <div>
-        <a href="https://imply.design/testpage.html"><img
-          alt="Imply Logo"
-          src="public/tww.svg"
-          loading="eager"
-          class="portfolio-m"
-          aria-hidden="true"
+  <div class="portfolio-desknav">
+    <div>
+      <a href="#top" class="logo-link" aria-label="Imply Design, back to top"><img
+        alt="Imply Logo"
+        src="public/tww.svg"
+        loading="eager"
+        class="portfolio-m"
+        aria-hidden="true"
         style="width:6rem;height:auto;border-radius:0;"
-        /></a>
-   </div>
+      /></a>
+    </div>
 
-    <nav>
-
-  <a href="#works" class="portfolio-navitem" tabindex="0">
+    <nav aria-label="Main">
+      <a href="#works" class="nav-section portfolio-navitem" tabindex="0">
         <span class="portfolio-text01">Browse Works</span>
       </a>
 
-      <a href="#know" class="hide portfolio-navitem" tabindex="0">
+      <a href="#know" class="nav-section hide portfolio-navitem" tabindex="0">
         <span class="portfolio-text">Get to Know Me</span>
       </a>
-
-    
 
       <a href="/Olha_CV.pdf" class="portfolio-navitem" tabindex="0" aria-label="Open CV - Opens CV in default PDF viewer">
         <img
@@ -243,32 +271,6 @@ font-family: sans-serif;
           aria-hidden="true"
         />
         <span class="portfolio-text03">Open CV</span>
-      </a>
-    </nav>
-  </div>
-
-  <div class="portfolio-mobnav" style="background-color: rgb(255, 255, 255); color: rgb(0, 0, 0); box-shadow: rgba(167, 167, 167, 0.1) 0px 2px 4px 0px; margin: 2.5%; border-radius: 4rem; width: 95%; padding-top:1rem;padding-bottom:1rem;">
-   <div>
-         <a href="https://imply.design/testpage.html"> <img
-          alt="Imply Logo"
-          src="public/tw.svg"
-          loading="eager"
-          class="portfolio-m1"
-          aria-hidden="true"
-            style="width:6rem;height:auto;border-radius:0;"
-        /></a>
-   </div>
-
-    <nav>
-      <a href="/Olha_CV.pdf" class="portfolio-navitem4" tabindex="0" aria-label="Open CV - Opens CV in default PDF viewer">
-        <img
-          alt="open in new window (arrow symbol)"
-          src="public/arrowop.svg"
-          loading="eager"
-          class="portfolio-arrowop1"
-          aria-hidden="true"
-        />
-        <span class="portfolio-text04">Open CV</span>
       </a>
     </nav>
   </div>
@@ -1306,61 +1308,50 @@ font-family: sans-serif;
 
 
 <script>
+/* ===== Navigation state (one function for desktop + mobile) ===== */
+$(document).ready(function () {
+  var $nav   = $('.portfolio-desknav');
+  var $quote = $('.portfolio-quotedesk');
+  var $hero  = $('.portfolio-hero');
+  var phone  = window.matchMedia('(max-width: 530px)');
+  var themeMeta = document.querySelector('meta[name="theme-color"]');
 
-$(document).ready(function(){
-  $(window).scroll(function(){
-    var position = $(window).scrollTop();
-    var target = $('.portfolio-quotedesk').offset().top; // Top position of the target div
-    
-    // Offset the target position by a fixed amount (e.g., 50 pixels) for the trigger point
-    var offset = 75;
-    
-    if(position > target - offset) {
-      $('.portfolio-desknav').addClass('scroll');
+  function updateNav() {
+    var y = $(window).scrollTop();
+
+    // Nav turns white after the quote section on desktop; on phones it is always white.
+    var target = $quote.length ? $quote.offset().top : 0;
+    var white  = phone.matches || y > target - 75;
+
+    if (white) {
+      $nav.addClass('scroll')
+          .css({ 'background-color': '#ffffff', 'color': '#000', 'box-shadow': '0px 2px 4px 0px rgba(167, 167, 167, 0.1)' });
       $('img[alt="Imply Logo"]').attr('src', 'public/tw.svg');
       $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/arrowop.svg');
-      
-      // Change background color on scroll
-      $('.portfolio-desknav').css('background-color', '#ffffff'); // Change the color to the desired one
-      $('.portfolio-desknav').css('color', '#000'); // Change the color to the desired one
-      $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)'); // Change the box-shadow to the desired one
     } else {
-      $('.portfolio-desknav').removeClass('scroll');
+      $nav.removeClass('scroll')
+          .css({ 'background-color': 'transparent', 'color': '#fff', 'box-shadow': 'none' });
       $('img[alt="Imply Logo"]').attr('src', 'public/tww.svg');
       $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/arrowopw.svg');
-      
-      // Change background color on scroll
-      $('.portfolio-desknav').css('background-color', 'transparent'); // Change the color to the desired one
-      $('.portfolio-desknav').css('color', '#fff'); // Change the color to the desired one
-      $('.portfolio-desknav').css('box-shadow', 'none'); // Change the box-shadow to the desired one
     }
-  });
-  
-  // Immediately check the scroll position when the document is ready
-  var position = $(window).scrollTop();
-  var target = $('.portfolio-quotedesk').offset().top;
-  var offset = 75;
-  
-  if (position > target - offset) {
-    // If position is greater than the target position, set background to white
-    $('.portfolio-desknav').addClass('scroll');
-    $('.portfolio-desknav').css('background-color', '#ffffff');
-    $('.portfolio-desknav').css('color', '#000');
-    $('.portfolio-desknav').css('box-shadow', '0px 2px 4px 0px rgba(167, 167, 167, 0.1)');
-    $('img[alt="Imply Logo"]').attr('src', 'public/tw.svg');
-    $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/arrowop.svg');
-  } else {
-    // If position is less than the target position, set background to transparent
-    $('.portfolio-desknav').removeClass('scroll');
-    $('.portfolio-desknav').css('background-color', 'transparent');
-    $('.portfolio-desknav').css('color', '#fff');
-    $('.portfolio-desknav').css('box-shadow', 'none');
-    $('img[alt="Imply Logo"]').attr('src', 'public/tww.svg');
-    $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/arrowopw.svg');
+
+    // Phone status bar colour: dark while the hero is at the top, white below it.
+    if (themeMeta && $hero.length) {
+      var overHero = y < $hero.offset().top + $hero.outerHeight() - 40;
+      themeMeta.setAttribute('content', overHero ? '#21170E' : '#ffffff');
+    }
   }
+
+  $(window).on('scroll resize', updateNav);
+  updateNav();
+
+  // Logo: smooth scroll to the very top instead of reloading the page
+  $('.logo-link').on('click', function (e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (history.replaceState) history.replaceState(null, '', location.pathname + location.search);
+  });
 });
-
-
 </script>
 
 
@@ -1427,7 +1418,6 @@ $(document).ready(function(){
   }
 
   var desk = document.querySelector('.portfolio-desknav');
-  var mob  = document.querySelector('.portfolio-mobnav');
   var lastNav = -1, lastReach = -1;
 
   function visible(n) { return n && getComputedStyle(n).display !== 'none'; }
@@ -1447,7 +1437,7 @@ $(document).ready(function(){
   }
 
   function update() {
-    var nav = visible(desk) ? desk : (visible(mob) ? mob : null);
+    var nav = visible(desk) ? desk : null;
     if (!nav) { el.classList.remove('is-on'); return; }
 
     var navBottom = Math.round(nav.getBoundingClientRect().bottom);
@@ -1458,8 +1448,8 @@ $(document).ready(function(){
     }
 
     // desktop nav is transparent over the hero, so wait until it turns white
-    // (the page's existing script adds the "scroll" class); mobile pill is always white
-    var on = (nav === mob) || desk.classList.contains('scroll');
+    // (the nav script adds the "scroll" class); on phones it is always white
+    var on = desk.classList.contains('scroll');
     el.classList.toggle('is-on', on);
   }
 
