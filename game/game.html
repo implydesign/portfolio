@@ -17,7 +17,6 @@
         <span>Score: </span>
         <span id="score">0</span>
       </div>
-      <button id="sound-toggle" class="sound-toggle" type="button" aria-pressed="false">Sound: off</button>
       <div class="lives-container">
         <span>Lives: </span>
         <span id="lives">3</span>
@@ -26,6 +25,7 @@
     
     <div id="game-area">
       <div id="frog"></div>
+      <div id="pause-overlay" class="pause-overlay" aria-live="polite"><span>Paused</span></div>
       <div id="game-over" class="hidden">
         <h2>Game Over</h2>
         <p class="instructions">Press Space or tap to retry</p>
@@ -37,8 +37,8 @@
       </div>
       <div id="start-screen">
         <h1>Frogger 2-bit: Jump</h1>
-        <p>Use arrow keys or the D-pad to move and collect all frogs!</p>
-        <p class="instructions">Press Space or tap to start</p>
+        <p><span class="for-desktop">Use arrow keys to move and collect all frogs!</span><span class="for-touch">Use arrow buttons to move and collect all frogs!</span></p>
+        <p class="instructions"><span class="for-desktop">Press Space or click play to start</span><span class="for-touch">Press play or tap here to start</span></p>
       </div>
     </div>
   </div>
@@ -46,6 +46,7 @@
 
     <!-- Game Boy style D-pad (separate from the game frame) (touch devices only, see style.css) -->
     <div class="controls">
+      <div class="controls-inner">
       <div class="dpad-well">
         <div class="dpad" role="group" aria-label="Directional controls">
           <svg class="dpad-svg" viewBox="0 0 138 138" aria-hidden="true" focusable="false"><defs>
@@ -65,6 +66,20 @@
           <button class="dpad-btn right" data-dir="right" aria-label="Right"></button>
           <button class="dpad-btn down" data-dir="down" aria-label="Down"></button>
         </div>
+      </div>
+      <div class="actions" role="group" aria-label="Game buttons">
+        <div class="actions-well" aria-hidden="true"></div>
+        <div class="action-wrap a">
+          <button id="btn-a" class="action-btn" type="button" aria-pressed="true" aria-label="Sound on (tap to mute)">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path class="sp-wave" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path class="sp-off" d="M16.5 9.5l5 5M21.5 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+                  </div>
+        <div class="action-wrap b">
+          <button id="btn-b" class="action-btn" type="button" aria-pressed="false" aria-label="Start game">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><g class="ic-pause"><rect x="6" y="5" width="4.2" height="14" rx="1"/><rect x="13.8" y="5" width="4.2" height="14" rx="1"/></g><polygon class="ic-play" points="0.5,4.5 7.5,4.5 4,0.5" stroke="currentColor" stroke-width="1" stroke-linejoin="round" transform="translate(13.7 12) rotate(90) scale(2) translate(-4 -2.5)"/></svg>
+          </button>
+                  </div>
+      </div>
       </div>
     </div>
   </div>
