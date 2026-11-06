@@ -35,19 +35,6 @@ body {
   font-family: 'Micro 5';
 }
 
-.sound-toggle {
-  font-family: 'Micro 5';
-  font-size: inherit;
-  text-transform: uppercase;
-  color: #fff;
-  background: none;
-  border: 0;
-  padding: 0 8px;
-  opacity: 0.6;
-  cursor: pointer;
-}
-.sound-toggle[aria-pressed="true"] { opacity: 1; }
-
 .game-header {
   display: flex;
   justify-content: space-between;
@@ -243,6 +230,13 @@ body {
   letter-spacing: 1px;
 }
 
+/* Start screen text: one version for desktop, one for touch devices */
+.for-touch { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .for-desktop { display: none; }
+  .for-touch { display: inline; }
+}
+
 .hidden {
   display: none !important;
 }
@@ -270,22 +264,44 @@ body {
   transform-origin: top left;
 }
 
+/* Controls: D-pad (touch devices only) + A/B buttons. fitToScreen() in game.js
+   sets the final size of .controls and scales .controls-inner to fit. */
 .controls {
-  display: none;
-  justify-content: center;
+  position: relative;
   flex: none;
+  width: 164px;
+  height: 126px;
+}
+.controls-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  transform-origin: top left;
 }
 
-/* Touch devices: show the D-pad and lock page scrolling */
+/* Desktop: A/B buttons to the right of the game, which stays centred in the window.
+   (fitToScreen() adds .controls-side only when there is room.) */
+.app { position: relative; }
+.app.controls-side .controls {
+  position: absolute;
+  left: calc(100% + 24px);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Touch devices: lock page scrolling */
 @media (hover: none) and (pointer: coarse) {
   html, body { overflow: hidden; overscroll-behavior: none; }
   body { height: 100vh; height: 100dvh; min-height: 0; }
-  .controls { display: flex; }
 }
 
-/* Landscape: D-pad to the right of the game */
+/* Landscape: controls to the right of the game, D-pad above the buttons */
 @media (hover: none) and (pointer: coarse) and (orientation: landscape) {
   .app { flex-direction: row; gap: 40px; }
+  .controls-inner { flex-direction: column; gap: 12px; }
 }
 
 /* Recessed socket the cross sits in */
@@ -350,3 +366,101 @@ body {
 .dpad-btn.down  { bottom: -14px; left: 46px; height: 60px; }
 .dpad-btn.left  { left: -14px;  top: 46px;  width: 60px; }
 .dpad-btn.right { right: -14px; top: 46px;  width: 60px; }
+
+
+/* The D-pad is for touch devices only */
+@media not all and (hover: none) and (pointer: coarse) {
+  .dpad-well { display: none; }
+}
+
+/* ===== A and B buttons ===== */
+.actions {
+  position: relative;
+  width: 164px;
+  height: 126px;
+  flex: none;
+}
+/* Oval socket under both buttons, shaded like the D-pad socket and tilted along the A/B diagonal */
+.actions-well {
+  position: absolute;
+  left: 9px;
+  top: 26px;
+  width: 146px;
+  height: 74px;
+  border-radius: 999px;
+  transform: rotate(-24.4deg);
+  background: radial-gradient(circle at 50% 30%, #2a2a2e, #141416 75%);
+  box-shadow: inset 0 4px 9px rgba(0, 0, 0, 0.425), inset 0 -1px 0 rgba(255, 255, 255, 0.07),
+              0 0 0 1px #000, 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+.action-wrap {
+  position: absolute;
+  width: 58px;
+}
+.action-wrap.a { left: 86px; top: 19px; }
+.action-wrap.b { left: 20px; top: 49px; }
+
+.action-btn {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  border: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #a4a5ad;
+  background: radial-gradient(circle at 35% 28%, #3B3B40 0, #2a2a2e 48%, #141416 100%);
+  box-shadow: 0 0 0 0px #1b1b1e, 0 0 20px 1px #0a0a0b, 0 4px 4px rgba(0, 0, 0, 0.9), 0 3px 3px rgba(0, 0, 0, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+  transition: transform 0.09s ease-out, box-shadow 0.09s ease-out, color 0.09s;
+}
+.action-btn svg { width: 18.2px; height: 18.2px; fill: currentColor; pointer-events: none; }
+/* Pressed: like the D-pad (same 90ms ease-out, icon lights up) the key is pushed into the shell:
+   it moves down and gets slightly smaller, its shadows pull in tight, the top highlight fades
+   and a soft inner shadow appears at the top edge. */
+.action-btn.pressed {
+  transform: translateY(2px) scale(0.95);
+  background: radial-gradient(circle at 35% 28%, #303035 0, #242428 48%, #111113 100%);
+  box-shadow: 0 0 0 0px #1b1b1e, 0 0 10px 0 #0a0a0b,
+              0 1px 1px rgba(0, 0, 0, 0.95), 0 0 2px rgba(0, 0, 0, 0.9),
+              inset 0 3px 5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+#btn-a.pressed, #btn-b.pressed { color: #eceef6; }
+#btn-a.pressed svg, #btn-b.pressed svg { filter: drop-shadow(0 0 3px rgba(190, 205, 255, 0.9)); }
+
+/* A: sound icon, lit when sound is on, dim with a cross when off */
+#btn-a { color: #55555c; }
+#btn-a .sp-off { display: block; }
+#btn-a .sp-wave { display: none; }
+#btn-a[aria-pressed="true"] { color: #f1f3ff; }
+#btn-a[aria-pressed="true"] svg { filter: drop-shadow(0 0 3px rgba(190, 205, 255, 0.9)); }
+#btn-a[aria-pressed="true"] .sp-wave { display: block; }
+#btn-a[aria-pressed="true"] .sp-off { display: none; }
+
+/* B: pause icon while playing; play icon (lit) while paused or before the game starts */
+#btn-b .ic-play { display: none; }
+#btn-b.show-play { color: #f1f3ff; }
+#btn-b.show-play svg { filter: drop-shadow(0 0 3px rgba(190, 205, 255, 0.9)); }
+#btn-b.show-play .ic-play { display: block; }
+#btn-b.show-play .ic-pause { display: none; }
+
+/* Pause overlay inside the game area */
+.pause-overlay {
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  align-items: center;
+  justify-content: center;
+  background: rgba(16, 16, 16, 0.72);
+  font-family: 'Micro 5', monospace;
+  font-size: 56px;
+  text-transform: uppercase;
+  color: #fff;
+}
+.pause-overlay.show { display: flex; }
