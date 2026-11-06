@@ -72,6 +72,7 @@ function centerInRow(row, height) {
 let lastFrameTime = 0;
 let gameTime = 0; // Seconds of simulated play
 let invulnerableUntil = 0;
+let paused = false;
 let drawnFrog = { x: 0, y: 0 };
 
 // Initialize game
@@ -84,7 +85,7 @@ function init() {
   gameArea.addEventListener('touchstart', handleTouchStart);
   gameArea.addEventListener('touchmove', handleTouchMove);
   gameArea.addEventListener('touchend', handleTouchEnd);
-  document.getElementById('sound-toggle').addEventListener('click', toggleSound);
+  initActionButtons();
   initDpad();
   initFit();
   
@@ -158,6 +159,9 @@ function startGame() {
   levelNumber = 1;
   gameTime = 0;
   invulnerableUntil = 0;
+  paused = false;
+  document.getElementById('pause-overlay').classList.remove('show');
+  updateActionButtons();
   scoreElement.textContent = '0';
   livesElement.textContent = '3';
   
@@ -191,9 +195,16 @@ function clearGameObjects() {
   lilyPads = [];
 }
 
-// ----- Sound (off by default; made with the Web Audio API, no audio files) -----
+// ----- Sound (on by default; made with the Web Audio API, no audio files) -----
 let audioCtx = null;
-let soundOn = false;
+let soundOn = true;
+
+// Browsers only start audio after a tap or key press, so it is created on the first one
+function ensureAudio() {
+  const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+  if (!audioCtx && AudioContextClass) audioCtx = new AudioContextClass();
+  if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+}
 
 function tone(freq, delay, duration, type, volume, endFreq) {
   const t = audioCtx.currentTime + delay;
@@ -217,21 +228,89 @@ function playSound(name) {
   if (name === 'goal') [523, 659, 784].forEach((f, i) => tone(f, i * 0.09, 0.12, 'square', 0.04));
 }
 
+// A button
 function toggleSound() {
   soundOn = !soundOn;
   if (soundOn) {
-    // Audio can only start after a tap or key press, which is exactly when this runs
-    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-    if (!audioCtx && AudioContextClass) audioCtx = new AudioContextClass();
-    if (audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+    ensureAudio();
     playSound('hop');
   }
-  const button = document.getElementById('sound-toggle');
-  if (button) {
-    button.textContent = soundOn ? 'Sound: on' : 'Sound: off';
-    button.setAttribute('aria-pressed', String(soundOn));
-    button.blur(); // so the Space bar still starts the game
+  updateActionButtons();
+}
+
+// ----- Pause (B button) -----
+function pauseGame() {
+  if (!gameStarted || gameOver || levelComplete || paused) return;
+  paused = true;
+  if (animationFrame) cancelAnimationFrame(animationFrame);
+  if (frogElement.getAnimations) frogElement.getAnimations().forEach(a => a.pause());
+  document.getElementById('pause-overlay').classList.add('show');
+  updateActionButtons();
+}
+
+function resumeGame() {
+  if (!paused) return;
+  paused = false;
+  if (frogElement.getAnimations) frogElement.getAnimations().forEach(a => a.play());
+  document.getElementById('pause-overlay').classList.remove('show');
+  updateActionButtons();
+  startLoop();
+}
+
+// B button: starts the game (start screen), plays again (game over) or continues
+// (mission accomplished), otherwise pauses / resumes. Same actions as the Space bar.
+function togglePause() {
+  if (gameOver) {
+    startGame();
+    return;
   }
+  if (levelComplete) {
+    continueToNextLevel();
+    return;
+  }
+  if (!gameStarted) {
+    startGame();
+    return;
+  }
+  if (paused) resumeGame(); else pauseGame();
+}
+
+// Show the current sound / pause state on the A and B buttons
+function updateActionButtons() {
+  const buttonA = document.getElementById('btn-a');
+  const buttonB = document.getElementById('btn-b');
+  buttonA.setAttribute('aria-pressed', String(soundOn));
+  buttonA.setAttribute('aria-label', soundOn ? 'Sound on (tap to mute)' : 'Sound off (tap to turn on)');
+  // B shows play whenever the game is not running: before the first start, when paused,
+  // after game over and after mission accomplished
+  const playing = gameStarted && !gameOver && !levelComplete;
+  buttonB.classList.toggle('show-play', paused || !playing);
+  buttonB.setAttribute('aria-pressed', String(paused));
+  buttonB.setAttribute('aria-label', paused ? 'Resume game'
+    : gameOver ? 'Play again'
+    : levelComplete ? 'Continue'
+    : !gameStarted ? 'Start game' : 'Pause game');
+}
+
+function initActionButtons() {
+  [['btn-a', toggleSound], ['btn-b', togglePause]].forEach(([id, action]) => {
+    const button = document.getElementById(id);
+    button.addEventListener('pointerdown', event => {
+      event.preventDefault(); // no focus, so the Space bar still starts the game
+      button.classList.add('pressed');
+      if (navigator.vibrate) navigator.vibrate(10);
+      action();
+    });
+    ['pointerup', 'pointercancel', 'pointerleave'].forEach(type => {
+      button.addEventListener(type, () => button.classList.remove('pressed'));
+    });
+    // Keyboard activation (Enter on a focused button)
+    button.addEventListener('click', event => { if (event.detail === 0) action(); });
+  });
+  ['pointerdown', 'keydown'].forEach(type => {
+    document.addEventListener(type, () => { if (soundOn) ensureAudio(); }, { passive: true });
+  });
+  updateActionButtons();
 }
 
 // Reset frog to starting position (bottom row, centered)
@@ -497,6 +576,7 @@ function checkWin() {
 function showLevelComplete() {
   // Ensure game state is properly set
   levelComplete = true;
+  updateActionButtons();
   
   // Add bonus points
   score += 1000;
@@ -517,6 +597,7 @@ function showLevelComplete() {
 // Continue to next level
 function continueToNextLevel() {
   levelComplete = false;
+  updateActionButtons();
   levelCompleteScreen.classList.add('hidden');
   levelNumber++;
   
@@ -561,6 +642,7 @@ function frogDies() {
 function endGame() {
   gameOver = true;
   gameStarted = false;
+  updateActionButtons();
   
   if (animationFrame) {
     cancelAnimationFrame(animationFrame);
@@ -572,7 +654,7 @@ function endGame() {
 
 // Move frog one hop. Hops that would leave the field stop at the edge.
 function moveFrog(direction) {
-  if (!gameStarted || gameOver || levelComplete) return;
+  if (!gameStarted || gameOver || levelComplete || paused) return;
   
   // Store previous position in case we need to revert
   const prevX = frog.x;
@@ -659,6 +741,11 @@ function handleKeyDown(event) {
   
   if (event.code === 'KeyM') {
     toggleSound();
+    return;
+  }
+  
+  if (event.code === 'KeyP' || event.code === 'Escape') {
+    togglePause();
     return;
   }
   
@@ -771,37 +858,60 @@ function initDpad() {
   });
 }
 
-// Scale the fixed-size game down so the game (and the D-pad on touch devices)
-// fit the visible screen with no scrolling. The D-pad keeps its normal size.
+// Scale the fixed-size game and the controls (D-pad + A/B buttons) so everything
+// fits the visible screen with no scrolling. The game scales first; the controls
+// keep their normal size and only shrink if there is really no room.
 function fitToScreen() {
   const app = document.getElementById('app');
   const scaler = document.getElementById('game-scaler');
   const container = scaler.firstElementChild;
   const controls = app.querySelector('.controls');
+  const inner = controls.firstElementChild;
   
   const gameW = container.offsetWidth;
   const gameH = container.offsetHeight;
-  const vv = window.visualViewport;
+  const ctrlW = inner.offsetWidth;
+  const ctrlH = inner.offsetHeight;
+  
   // Keep clear of notches and rounded corners (body padding uses the safe-area insets)
+  const vv = window.visualViewport;
   const body = getComputedStyle(document.body);
   const padX = parseFloat(body.paddingLeft) + parseFloat(body.paddingRight);
   const padY = parseFloat(body.paddingTop) + parseFloat(body.paddingBottom);
-  let availW = (vv ? vv.width : window.innerWidth) - padX - 32;
-  let availH = (vv ? vv.height : window.innerHeight) - padY - 32;
+  const availW = (vv ? vv.width : window.innerWidth) - padX - 32;
+  const availH = (vv ? vv.height : window.innerHeight) - padY - 32;
+  const gap = parseFloat(getComputedStyle(app).gap) || 0;
   
-  if (getComputedStyle(controls).display !== 'none') {
-    const gap = parseFloat(getComputedStyle(app).gap) || 0;
-    if (window.matchMedia('(orientation: landscape)').matches) {
-      availW -= controls.offsetWidth + gap; // D-pad sits to the right
-    } else {
-      availH -= controls.offsetHeight + gap; // D-pad sits below
+  let ctrlScale, gameScale, side = false;
+  if (getComputedStyle(app).flexDirection === 'row') {
+    // Landscape on touch devices: controls to the right of the game
+    ctrlScale = Math.min(1, availH / ctrlH);
+    gameScale = Math.min(1, availH / gameH, (availW - gap - ctrlW * ctrlScale) / gameW);
+  } else {
+    ctrlScale = Math.min(1, availW / ctrlW);
+    // Controls below the game
+    gameScale = Math.min(1, availW / gameW, (availH - gap - ctrlH * ctrlScale) / gameH);
+    // Desktop: controls to the right of the game while the game stays centred in the window
+    // (room is kept on both sides). Used whenever it gives the game at least as much size.
+    if (!window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+      const sideGap = 24;
+      const sideScale = Math.min(1, availH / gameH, (availW - 2 * (sideGap + ctrlW)) / gameW);
+      if (sideScale >= gameScale - 0.001) {
+        side = true;
+        gameScale = sideScale;
+        ctrlScale = 1;
+      }
     }
   }
+  app.classList.toggle('controls-side', side);
+  gameScale = Math.max(gameScale, 0.1);
   
-  const scale = Math.min(1, availW / gameW, availH / gameH);
-  scaler.style.width = `${gameW * scale}px`;
-  scaler.style.height = `${gameH * scale}px`;
-  container.style.transform = `scale(${scale})`;
+  scaler.style.width = `${gameW * gameScale}px`;
+  scaler.style.height = `${gameH * gameScale}px`;
+  container.style.transform = `scale(${gameScale})`;
+  controls.style.width = `${ctrlW * ctrlScale}px`;
+  controls.style.height = `${ctrlH * ctrlScale}px`;
+  inner.style.transform = `scale(${ctrlScale})`;
 }
 
 function initFit() {
@@ -812,7 +922,10 @@ function initFit() {
   if (window.visualViewport) window.visualViewport.addEventListener('resize', fitToScreen);
   if (document.fonts) document.fonts.ready.then(fitToScreen);
   // Don't simulate the time the page spent in the background
-  document.addEventListener('visibilitychange', () => { lastFrameTime = 0; });
+  document.addEventListener('visibilitychange', () => {
+    lastFrameTime = 0;
+    if (document.hidden) pauseGame(); // don't come back to a dead frog
+  });
 }
 
 // Initialize the game when the page loads
