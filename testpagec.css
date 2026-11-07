@@ -461,7 +461,6 @@ nav a {
   position: relative;
   text-decoration: none;
   color: inherit;
-  transition: color 0.3s ease;
 }
 
 nav a:hover {
@@ -640,7 +639,7 @@ width: 100%;
   background-color: transparent;        /* turns white on scroll (see .scroll + nav script) */
   color: #fff;
   box-shadow: none;
-  transition: background-color 0.3s, box-shadow 0.3s;
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, color 0.35s ease;
 }
 
 
@@ -649,6 +648,17 @@ width: 100%;
   color: #000; /* Black text color */
  box-shadow: 0px 2px 4px 0px rgba(167, 167, 167, 0.1); /* Add box shadow */
 
+}
+
+/* Logo + CV icon: white over the hero, dark on the white nav.
+   They fade together with the background and text instead of swapping files. */
+.portfolio-desknav .portfolio-m,
+.portfolio-desknav .portfolio-arrowop {
+  transition: filter 0.35s ease;
+}
+.portfolio-desknav.scroll .portfolio-m,
+.portfolio-desknav.scroll .portfolio-arrowop {
+  filter: brightness(0) invert(0.12);
 }
 
 /* phones: the same nav becomes an always-white floating pill with only the CV link */
@@ -663,6 +673,8 @@ width: 100%;
     box-shadow: 0 2px 4px 0 rgba(167, 167, 167, 0.1);
   }
   .portfolio-desknav .nav-section { display: none; }
+  .portfolio-desknav .portfolio-m,
+  .portfolio-desknav .portfolio-arrowop { filter: brightness(0) invert(0.12); }   /* dark from the first paint */
 }
 
 
