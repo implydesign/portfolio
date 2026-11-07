@@ -1143,17 +1143,8 @@ $(document).ready(function () {
     var target = $quote.length ? $quote.offset().top : 0;
     var white  = phone.matches || y > target - 75;
 
-    if (white) {
-      $nav.addClass('scroll')
-          .css({ 'background-color': '#ffffff', 'color': '#000', 'box-shadow': '0px 2px 4px 0px rgba(167, 167, 167, 0.1)' });
-      $('img[alt="Imply Logo"]').attr('src', 'public/tw.svg');
-      $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/arrowop.svg');
-    } else {
-      $nav.removeClass('scroll')
-          .css({ 'background-color': 'transparent', 'color': '#fff', 'box-shadow': 'none' });
-      $('img[alt="Imply Logo"]').attr('src', 'public/tww.svg');
-      $('img[alt="open in new window (arrow symbol)"]').attr('src', 'public/arrowopw.svg');
-    }
+    // Only the class changes; index.css fades background, text, logo and icon together.
+    if (white !== $nav.hasClass('scroll')) $nav.toggleClass('scroll', white);
 
     // Phone status bar colour: dark while the hero is at the top, white below it.
     if (themeMeta && $hero.length) {
@@ -1267,10 +1258,8 @@ $(document).ready(function () {
       lastNav = navBottom; lastReach = reach;
     }
 
-    // desktop nav is transparent over the hero, so wait until it turns white
-    // (the nav script adds the "scroll" class); on phones it is always white
-    var on = desk.classList.contains('scroll');
-    el.classList.toggle('is-on', on);
+    // blur is on from the start, on desktop and phones
+    el.classList.add('is-on');
   }
 
   if (desk && 'MutationObserver' in window) {
