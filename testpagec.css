@@ -666,7 +666,7 @@ width: 100%;
   .portfolio-desknav {
     margin: 2.5%;
     width: 95%;
-    padding: 1rem 5%;
+    padding: 0.4rem 5%;
     border-radius: 4rem;
     background-color: #fff;
     color: #000;
@@ -803,205 +803,8 @@ gap: 3px;
 background-color: #21170E;
 background-image: radial-gradient(at 30% 45%, hsla(168, 100%, 42%, 0.5) 0px, transparent 38%), radial-gradient(at 58% 50%, hsla(183, 96%, 24%, 0.5) 0px, transparent 70%), radial-gradient(at 48% 45%, hsla(253, 100%, 55%, 0.9) 0px, transparent 55%),radial-gradient(at 25% 55%, hsla(222,100%,35%,0.7) 0px, transparent 45%);
   }
-.portfolio-quotedesk {
-  width: 100%;
-  height: auto;
-  align-items: flex-start;
-  font-weight: 600;
-  flex-direction: column;
-}
-.portfolio-quotetab {
-  width: 100%;
-  height: auto;
-  align-items: flex-start;
-  font-weight: 600;
-  flex-direction: column;
-}
-.portfolio-row {
-  width: 100%;
-  display: flex;
-  font-size: 4rem;
-  align-items: center;
-  justify-content: flex-start;
-}
-.portfolio-a {
-  width: 100%;
-  height: auto;
-}
-.portfolio-text05 {
-  color: var(--dl-color-gray-white);
-  height: auto;
-  font-style: normal;
-  text-align: left;
-  font-family: 'Bai Jamjuree';
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.portfolio-e {
-  width: 4.5rem;
-  height: auto;
-}
-.portfolio-text07 {
-  color: var(--dl-color-gray-white);
-  height: auto;
-  font-style: normal;
-  text-align: left;
-  font-family: 'Bai Jamjuree';
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.portfolio-arr {
-  width: 4.5rem;
-  height: auto;
-}
-.portfolio-text09 {
-  color: var(--dl-color-gray-white);
-  height: auto;
-  font-style: normal;
-  text-align: left;
-  font-family: 'Bai Jamjuree';
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.portfolio-row1 {
-  width: 100%;
-  display: flex;
-  font-size: 4rem;
-  align-items: center;
-  justify-content: flex-start;
-}
-.portfolio-tr {
-  width: 4.5rem;
-  height: auto;
-}
-.portfolio-text11 {
-  color: var(--dl-color-gray-white);
-  height: auto;
-  font-style: normal;
-  text-align: left;
-  font-family: 'Bai Jamjuree';
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.portfolio-impl {
-  width: 4.5rem;
-  height: auto;
-}
-.portfolio-text13 {
-  color: var(--dl-color-gray-white);
-  height: auto;
-  font-style: normal;
-  text-align: left;
-  font-family: 'Bai Jamjuree';
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.portfolio-quotemob {
-  gap: 0.5vh;
-  width: 100%;
-  height: auto;
-  display: none;
-  align-items: flex-start;
-  font-weight: 600;
-  flex-direction: column;
-   padding-top:25%;
-}
-.portfolio-row2 {
-  width: 100%;
-  display: flex;
-  font-size: 2rem;
-  align-items: center;
-  justify-content: flex-start;
-}
-.portfolio-a1 {
-  width: 100%;
-  height: auto;
-}
-.portfolio-text15 {
-  color: var(--dl-color-gray-white);
-  height: auto;
-  font-style: normal;
-  text-align: left;
-  font-family: 'Bai Jamjuree';
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.portfolio-e1 {
-  width: 2.5rem;
-  height: auto;
-}
-.portfolio-text17 {
-  color: var(--dl-color-gray-white);
-  height: auto;
-  font-style: normal;
-  text-align: left;
-  font-family: 'Bai Jamjuree';
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.portfolio-row3 {
-  width: 100%;
-  display: flex;
-  font-size: 3rem;
-  align-items: center;
-  justify-content: flex-start;
-}
-.portfolio-arr1 {
-  width: 2.5rem;
-  height: auto;
-}
-.portfolio-text19 {
-  color: var(--dl-color-gray-white);
-  height: auto;
-  font-style: normal;
-  text-align: left;
-  font-family: 'Bai Jamjuree';
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.portfolio-row4 {
-  width: 100%;
-  display: flex;
-  font-size: 2rem;
-  align-items: center;
-  justify-content: flex-start;
-}
-.portfolio-tr1 {
-  width: 2.5rem;
-  height: auto;
-}
-.portfolio-text21 {
-  color: var(--dl-color-gray-white);
-  height: auto;
-  font-style: normal;
-  text-align: left;
-  font-family: 'Bai Jamjuree';
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
-.portfolio-impl1 {
-  width: 2.5rem;
-  height: auto;
-}
-.portfolio-text23 {
-  color: var(--dl-color-gray-white);
-  height: auto;
-  font-style: normal;
-  text-align: left;
-  font-family: 'Bai Jamjuree';
-  line-height: normal;
-  font-stretch: normal;
-  text-decoration: none;
-}
+
+
 .portfolio-textcont {
   gap: 1.5vh;
   width: 60%;
@@ -1775,9 +1578,7 @@ padding-top: 3rem;
   .portfolio-logo {
     height: 2.5rem;
   }
-  .portfolio-quotemob {
-    display: none;
-  }
+  
   .portfolio-textcont {
     width: 65%;
   }
@@ -1790,9 +1591,7 @@ padding-top: 3rem;
   .portfolio-logo {
     height: 5vh;
   }
-  .portfolio-quotemob {
-    display: none;
-  }
+  
   .portfolio-textcont {
     width: 75%;
   }
@@ -1888,30 +1687,14 @@ padding-top: 3rem;
     margin: auto;
   
   }
-  .portfolio-row {
-    font-size: 2.2rem;
-  }
-  .portfolio-a {
-    width: 100%;
-  }
-  .portfolio-e {
-    width: 3rem;
-  }
-  .portfolio-arr {
-    width: 3rem;
-  }
-  .portfolio-row1 {
-    font-size: 2.2rem;
-  }
-  .portfolio-tr {
-    width: 3rem;
-  }
-  .portfolio-impl {
-    width: 3rem;
-  }
-  .portfolio-quotemob {
-    display: none;
-  }
+  
+  
+  
+  
+  
+  
+  
+  
   .portfolio-textcont {
     width: 100%;
 padding-bottom: 16%;
@@ -1964,58 +1747,13 @@ padding-bottom: 16%;
 }
 
 
-@media(max-width: 540px) {
-       .portfolio-quotemob{
-         display: flex;}
-   .portfolio-quotedesk{
-      display:none;
-   }
-.portfolio-quotetab{
-      display:none;
-   }
-      }
-
 /* Mobile: Show only mobile image */
-@media (max-width: 540px) {
-   .portfolio-quotemob {
-      display: flex;
-   }
-   .portfolio-quotetab, 
-   .portfolio-quotedesk {
-      display: none;
-   }
-}
+
 
 /* Tablet: Show only tablet image */
-@media (min-width: 541px) and (max-width: 1024px) {
-   .portfolio-quotetab {
-      display: flex;
-   }
-   .portfolio-quotemob, 
-   .portfolio-quotedesk {
-      display: none;
-   }
-}
+
 
 /* Desktop: Show only desktop image */
-@media (min-width: 1025px) {
-   .portfolio-quotedesk {
-      display: flex;
-   }
-   .portfolio-quotemob, 
-   .portfolio-quotetab {
-      display: none;
-   }
-}
-
-
-@media(min-width: 1024px) {
-       .portfolio-quotedesk{
-         display: flex;}
-   .portfolio-quotetab{
-      display:none;
-   }
-      }
 
 
 @media(max-width: 530px) {
@@ -2035,12 +1773,8 @@ padding-bottom: 16%;
    height: 100%;
 
   }
-  .portfolio-quotedesk {
-    display: none;
-  }
-  .portfolio-quotemob {
-    display: flex;
-  }
+  
+  
   .portfolio-text25 {
     font-size: 1.2rem;
   }
@@ -2169,87 +1903,33 @@ padding-bottom: 16%;
     margin: auto;
 
   }
-  .portfolio-quotedesk {
-    display: none;
-  }
-  .portfolio-row {
-    font-size: 1.5rem;
-  }
-  .portfolio-a {
-    width: 2rem;
-  }
-  .portfolio-text05 {
-    color: #ffffff;
-  }
-  .portfolio-e {
-    width: 2rem;
-  }
-  .portfolio-text07 {
-    color: #ffffff;
-  }
-  .portfolio-arr {
-    width: 2rem;
-  }
-  .portfolio-text09 {
-    color: #ffffff;
-  }
-  .portfolio-row1 {
-    font-size: 1.5rem;
-  }
-  .portfolio-tr {
-    width: 2rem;
-  }
-  .portfolio-text11 {
-    color: #ffffff;
-  }
-  .portfolio-impl {
-    width: 2rem;
-  }
-  .portfolio-text13 {
-    color: #ffffff;
-  }
-  .portfolio-quotemob {
-    display: flex;
-  }
-  .portfolio-row2 {
-    font-size: 1.5rem;
-  }
-  .portfolio-a1 {
-    width: 100%;
-  }
-  .portfolio-text15 {
-    color: #ffffff;
-  }
-  .portfolio-e1 {
-    width: 1.8rem;
-  }
-  .portfolio-text17 {
-    color: #ffffff;
-  }
-  .portfolio-row3 {
-    font-size: 2.5rem;
-  }
-  .portfolio-arr1 {
-    width: 1.8rem;
-  }
-  .portfolio-text19 {
-    color: #ffffff;
-  }
-  .portfolio-row4 {
-    font-size: 1.5rem;
-  }
-  .portfolio-tr1 {
-    width: 1.8rem;
-  }
-  .portfolio-text21 {
-    color: #ffffff;
-  }
-  .portfolio-impl1 {
-    width: 1.8rem;
-  }
-  .portfolio-text23 {
-    color: #ffffff;
-  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
@@ -2388,3 +2068,146 @@ padding-bottom: 16%;
   animation: inherit;
 }
 @media (prefers-reduced-motion: reduce) { .work-img { animation: none; } }
+
+/* =========================================================================
+   Hero formula in keycaps: ∀ dsgn ∃ / true ⟺ value ∩ / (fnctn ⇒ frm)
+   Every letter and symbol is a CSS keycap (a stack of rounded slices).
+   1em = one key. Desktop + tablet: three lines. Phones: five lines.
+   The script at the bottom of testpage.html adds the lean / press / touch.
+   ========================================================================= */
+.formula {
+  --kc-display: 'Chakra Petch', 'Bai Jamjuree', sans-serif;
+  font-family: var(--kc-display);
+  font-weight: 600;
+  letter-spacing: 0;
+  color: #fff;
+  align-self: flex-start;
+}
+.kc-sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+/* 1em = one key. Desktop: three lines; the widest, "true ⟺ value ∩", is about 13 keys wide. */
+.formula {
+  margin: 0;
+  display: flex; flex-wrap: wrap; align-items: center;
+  column-gap: 0.34em; row-gap: 0.26em;
+  font-size: clamp(32px, 6.4vw, 120px);
+  line-height: 1;
+}
+.kc-word { display: inline-flex; gap: 0.06em; }
+.kc-br { flex-basis: 100%; height: 0; }
+.kc-br-phone { display: none; }
+/* phones: five short lines, like quotemob.svg; "∀ dsgn ∃" is the widest at about 6.8 keys */
+@media (max-width: 600px) {
+  .kc-br-phone { display: block; }
+  .formula { font-size: 12.6vw; column-gap: 0.28em; row-gap: 0.22em; }
+}
+
+/* =====================================================================
+   The keycap. 1em = the key's size, so it scales with the text it sits in.
+   Moving parts (body, shadow, shine, dim) only ever change transform/opacity.
+   ===================================================================== */
+.key {
+  --tilt-face: 0;
+  position: relative;
+  display: inline-block;
+  flex: none;
+  width: calc(var(--u, 1) * 1em); height: 1em;
+  font-size: 1em;
+  perspective: 3.2em;
+  cursor: pointer;
+  touch-action: pan-y;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none; -webkit-user-select: none; -webkit-touch-callout: none;
+  border-radius: 0.13em;
+}
+/* contact shadow on the surface below (its own layer, so it never repaints the key) */
+.key-shadow {
+  position: absolute;
+  left: 4%; right: 10%; top: 18%; bottom: -10%;
+  border-radius: 0.18em;
+  background: rgba(10, 10, 11, 0.9);
+  filter: blur(0.09em);
+  will-change: transform, opacity;
+}
+/* The cap is real 3D, drawn by the browser in perspective, so leaning reveals the sides like a real cap. */
+.key-body {
+  --H: 0.38em;            /* height of the cap */
+  --d: 0.17em;            /* how much the top is inset from the base: strong taper, vintage profile */
+  position: absolute; inset: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+/* The cap is a stack of thin rounded slices, each a bit smaller than the one below:
+   rounded corners all the way up and a smooth sloped side. Each slice is shaded by
+   direction (conic gradient), so the sides catch light like the Spline render. */
+.cap-slice {
+  position: absolute;
+  display: block;
+  inset: calc(var(--k) * var(--d));          /* --k grows fast near the base: a flared skirt */
+  border-radius: calc(0.19em - var(--t) * 0.08em);
+  transform: translateZ(calc(var(--t) * var(--H)));
+}
+/* the top face: near-black, matte, fine grain, glossy rounded edge */
+.key-top {
+  position: absolute; left: calc(var(--d) + 0.014em); top: calc(var(--d) + 0.014em);
+  right: calc(var(--d) + 0.014em); bottom: calc(var(--d) + 0.014em);
+  border-radius: 0.1em;
+  overflow: hidden;
+  transform: translateZ(calc(var(--H) + 0.002em));
+  background: radial-gradient(circle at 35% 28%, #3B3B40 0, #2a2a2e 48%, #141416 100%);
+  box-shadow:
+    inset 0 0.009em 0 rgba(255, 255, 255, 0.2),
+    inset 0 -0.02em 0.03em rgba(0, 0, 0, 0.45);
+}
+.key-top::before {
+  content: ""; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 0.5em 0.5em;
+  opacity: 0.035;
+  mix-blend-mode: screen;
+}
+.key-rim {
+  display: none;
+  position: absolute;
+  left: 6%; right: 6%; top: 0;
+  height: 0.024em;
+  border-radius: 0 0 50% 50%;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 25%, rgba(255,255,255,0.65) 60%, rgba(255,255,255,0.35) 88%, rgba(255,255,255,0) 100%);
+  pointer-events: none;
+}
+.key-glyph {
+  position: absolute;
+  left: 50%; top: 52%;
+  height: 48%; width: auto; max-width: 78%;
+  transform: translate(-50%, -50%);
+  color: #a4a5ad;
+  shape-rendering: crispEdges;
+  transition: color 0.09s ease-out, filter 0.09s ease-out;
+}
+/* letter legends: the formula's own type, set small on the cap */
+.key-legend {
+  position: absolute; inset: 0;
+  display: grid; place-items: center;
+  padding-bottom: 0.04em;
+  font: 600 0.46em/1 var(--kc-display);
+  color: #a4a5ad;
+  transition: color 0.09s ease-out, text-shadow 0.09s ease-out;
+}
+.key.is-pressed .key-glyph { color: #eceef6; filter: drop-shadow(0 0 0.03em rgba(190, 205, 255, 0.9)); }
+.key.is-pressed .key-legend { color: #eceef6; text-shadow: 0 0 0.12em rgba(190, 205, 255, 0.9); }
+.key-shine {
+  display: none;
+  position: absolute; inset: -60%;
+  background: linear-gradient(118deg, rgba(255,255,255,0) 40%, rgba(255,255,255,0.04) 48%, rgba(255,255,255,0.012) 56%, rgba(255,255,255,0) 62%);
+  will-change: transform;
+  pointer-events: none;
+}
+.key-dim {
+  position: absolute; inset: 0;
+  background: #000;
+  opacity: 0;
+  will-change: opacity;
+  pointer-events: none;
+}
