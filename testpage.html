@@ -57,6 +57,8 @@
 
 
 <link href="./testpagec.css" rel="stylesheet" />
+<!-- Liquid logo: defines <liquid-logo> (nav + footer). Colour comes from CSS, see testpagec.css -->
+<script src="./liquid-logo.js" defer></script>
 
 <style data-tag="liquid-scroll">
 /* ===== Liquid scroll: progressive blur from the top of the screen, under the nav ===== */
@@ -243,14 +245,11 @@ font-family: sans-serif;
 <header>
   <div class="portfolio-desknav">
     <div>
-      <a href="#top" class="logo-link" aria-label="Imply Design, back to top"><img
-        alt="Imply Logo"
-        src="public/tww.svg"
-        loading="eager"
-        class="portfolio-m"
+      <a href="#top" class="logo-link" aria-label="Imply Design, back to top"><liquid-logo
+        class="nav-logo"
+        label="Imply Design"
         aria-hidden="true"
-        style="width:6rem;height:auto;border-radius:0;"
-      /></a>
+      ></liquid-logo></a>
     </div>
 
     <nav aria-label="Main">
@@ -1117,12 +1116,7 @@ font-family: sans-serif;
 <footer>
 <div class="footcon">
 <div class="manif">
-    <img
-                alt="Imply Logo icon"
-                src="https://imply.design/public/tww.svg"
-                loading="eager"
-                style="width:6rem;height:auto;border-radius:0;"
-              />
+    <liquid-logo class="footer-logo" label="Imply Design"></liquid-logo>
       
        <p style="font-family: 'Chakra Petch';font-weight: 500;font-size: large;">Every design is complete if and only if it has value and its form follows the function..</p>
         
