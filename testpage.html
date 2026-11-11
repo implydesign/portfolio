@@ -399,8 +399,8 @@ font-family: sans-serif;
               <img
                 alt="Physio mobile app"
                 src="public/livenmob.png"
-                class="portfolio-vego2"
-                loading="eager"
+                class="portfolio-vego2 work-img"
+                loading="lazy" decoding="async"
                   style="border-radius:0;"
               />
   
@@ -435,8 +435,8 @@ font-family: sans-serif;
               <img
                 alt="Physio mobile app"
                 src="public/reliefmob.png"
-                class="portfolio-vego2"
-                loading="eager"
+                class="portfolio-vego2 work-img"
+                loading="lazy" decoding="async"
                   style="border-radius:0;"
               />
   
@@ -476,8 +476,8 @@ font-family: sans-serif;
               <img
                 alt="Subscription Video on Demand platform payment and plans UX/UI design"
                 src="public/svodmobnw.png"
-                class="portfolio-vego2"
-                loading="eager"
+                class="portfolio-vego2 work-img"
+                loading="lazy" decoding="async"
                   style="border-radius:0;"
               />
   
@@ -519,8 +519,8 @@ font-family: sans-serif;
               <img
                 alt="Subscription Video on Demand platform payment and plans UX/UI design"
                 src="public/mobbioagenw.png"
-                class="portfolio-vego2"
-                loading="eager"
+                class="portfolio-vego2 work-img"
+                loading="lazy" decoding="async"
                   style="border-radius:0;"
               />
   
@@ -558,8 +558,8 @@ font-family: sans-serif;
              <img
                 alt="pet project"
                 src="public/graphmob.png"
-                class="portfolio-vego21"
-                loading="eager"
+                class="portfolio-vego21 work-img"
+                loading="lazy" decoding="async"
                    style="border-radius:0;"
               />
             </article>
@@ -594,8 +594,8 @@ font-family: sans-serif;
               <img
                 alt="Social network mobile app with personalised feed"
                 src="public/moblocatournw.png"
-                class="portfolio-vego2"
-                loading="eager"
+                class="portfolio-vego2 work-img"
+                loading="lazy" decoding="async"
                     style="border-radius:0;"
               />
 
@@ -765,8 +765,8 @@ font-family: sans-serif;
                <img
                 alt="Routine for the Liven mobile app"
                 src="public/livenmob.png"
-                class="portfolio-vego22"
-                 loading="eager"
+                class="portfolio-vego22 work-img"
+                 loading="lazy" decoding="async"
               />
               <span class="portfolio-text80 TextSecondary">
            Activation loop built on the onboarding mechanics shifting active retention of the mental wellbeing mobile app users. Value proposition role in the aha moment and core features' engagement uplift.
@@ -798,8 +798,8 @@ font-family: sans-serif;
                <img
                 alt="Physio mobile app"
                 src="public/reliefmob.png"
-                class="portfolio-vego22"
-                 loading="eager"
+                class="portfolio-vego22 work-img"
+                 loading="lazy" decoding="async"
               />
               <span class="portfolio-text80 TextSecondary">
           In a wellbeing product, behavior can tell you what users do, but not always whether they are getting enough value to stay or who is at risk of leaving. My team captured that missing layer and turned it into a reliable product signal so we could act on the insights that it revealed.  </span>
@@ -836,8 +836,8 @@ font-family: sans-serif;
                <img
                 alt="Subscription Video on Demand platform payment and plans UX/UI design"
                 src="public/svodmobnw.png"
-                class="portfolio-vego22"
-                 loading="eager"
+                class="portfolio-vego22 work-img"
+                 loading="lazy" decoding="async"
               />
               <span class="portfolio-text80 TextSecondary">
          Hypotheses for the subscription video on demand platform based on secondary quantitative data in the Polish market. User experience redesign of the payment page, subscription plans, and registration form.
@@ -874,8 +874,8 @@ font-family: sans-serif;
                <img
                 alt="Subscription Video on Demand platform payment and plans UX/UI design"
                 src="public/mobbioagenw.png"
-                class="portfolio-vego22"
-                 loading="eager"
+                class="portfolio-vego22 work-img"
+                 loading="lazy" decoding="async"
               />
               <span class="portfolio-text80 TextSecondary">
           Redesign of BioAge feature, an indicator made to communicate wellness status at scale. Transformation of a wide range of user measurements into dynamic charts with clear insights indicating the impact of exercise on their health.
@@ -916,8 +916,8 @@ font-family: sans-serif;
                  <img
                 alt="pet project"
                 src="public/graphmob.png"
-                class="portfolio-vego21"
-                loading="eager"
+                class="portfolio-vego21 work-img"
+                loading="lazy" decoding="async"
               />
               <span class="portfolio-text80 TextSecondary">
                Exploration of encouraging intrinsic user motivation by applying data-informed strategies in designing an educational web project.
@@ -952,8 +952,8 @@ font-family: sans-serif;
                <img
                 alt="Vego22064"
                 src="public/moblocatournw.png"
-                class="portfolio-vego22"
-                 loading="eager"
+                class="portfolio-vego22 work-img"
+                 loading="lazy" decoding="async"
               />
               <span class="portfolio-text80 TextSecondary">
                  Locatour is a mobile application that provides personalised traveling recommendations in the form of user-generated "fast content". This social network enables travelers to join communities and exchange useful information. 
@@ -1724,6 +1724,20 @@ $(document).ready(function () {
 })();
 </script>
 
+<script data-tag="work-img-skeleton">
+/* Project images: keep the skeleton until each picture has fully downloaded and decoded,
+   then fade it in, so it never paints from the top down. A broken file keeps the skeleton. */
+(function () {
+  function ready(img) { img.classList.add('is-loaded'); }
+  document.querySelectorAll('img.work-img').forEach(function (img) {
+    if (img.complete && img.naturalWidth) { ready(img); return; }
+    img.addEventListener('load', function () {
+      (img.decode ? img.decode() : Promise.resolve()).then(function () { ready(img); }, function () { ready(img); });
+    }, { once: true });
+  });
+})();
+</script>
+
 <script data-tag="keycap-hero">
 /* ===== Hero formula keycaps — vanilla JS, independent of jQuery =====
    Keys lean toward a nearby cursor, press and light up under a click or finger,
@@ -1880,64 +1894,69 @@ $(document).ready(function () {
   measure();
   keys.forEach(function (st) { render(st); st.idle = true; });
 
-  /* ----- Scroll fall: once the formula reaches the nav, the keys come loose and
-     drop out of the hero, each its own way, exactly as far as you have scrolled.
-     Kept gentle on purpose: no full spins, small sideways drift, no zoom, no blur,
-     no bounce. Scrolling back up puts every key back. Reduced motion: a plain fade. */
+  /* ----- Scroll fall: from the first scroll the keys hold still on the screen while the
+     white panel rises over the hero; one by one they come loose and fall down the screen
+     toward the panel's edge and slip under it. Keys nearest the panel go first, the top
+     row last, and every key is gone before the panel reaches it. It follows the scroll
+     exactly: scrolling back up rebuilds the formula. Kept gentle on purpose: no full
+     spins, small sideways drift, no zoom, no blur. Reduced motion: a plain fade. */
   var formula = document.querySelector('.formula');
   var hero = document.querySelector('.portfolio-hero');
-  var NAV_LINE = 75;                   // the same line where the nav turns white
+  var PANEL_OVERLAP = 30;              // the white panel's rounded top rides this far over the hero
   function rnd(n) { var x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
+  function docTop(el) { var y = 0; while (el) { y += el.offsetTop; el = el.offsetParent; } return y; }  // ignores transforms
   var fall = keys.map(function (st, i) {
     var dir = rnd(i * 3 + 1) < 0.5 ? -1 : 1;
     return {
       st: st,
-      delay: rnd(i * 3 + 2) * 0.3,                 // keys come loose one after another
-      drift: dir * (0.04 + rnd(i * 3 + 3) * 0.2),  // sideways, as a share of the screen width
-      spin: dir * (40 + rnd(i * 3 + 4) * 70),      // 40–110°, never a full turn
-      dist: 0
+      when: 0.45 + rnd(i * 3 + 2) * 0.35,          // finishes at 45–80% of the way to being covered
+      loose: 0.1 + rnd(i * 5 + 7) * 0.3,           // comes loose after 10–40% of that
+      drift: dir * (0.03 + rnd(i * 3 + 3) * 0.16), // sideways, as a share of the screen width
+      spin: dir * (35 + rnd(i * 3 + 4) * 70),      // 35–105°, never a full turn
+      y0: 0, h: 0, start: 0, end: 1, drop: 0
     };
   });
-  var fStart = 0, fSpan = 1, fP = -1, fQueued = false;
+  var fEnd = 1, fLast = -1, fQueued = false;
 
-  function layoutFall() {              // read untransformed positions (resize / fonts / load only)
-    fall.forEach(function (f) { f.st.el.style.transform = ''; });
-    var sy = window.scrollY;
-    var fr = formula.getBoundingClientRect(), hr = hero.getBoundingClientRect();
-    fStart = Math.max(0, fr.top + sy - NAV_LINE);   // small phones: the formula starts at the nav
-    fSpan = Math.max(240, window.innerHeight * 0.7);
-    var heroBottom = hr.bottom + sy;
+  function layoutFall() {              // positions without any transform (resize / fonts / load only)
+    var panelTop = docTop(hero) + hero.offsetHeight - PANEL_OVERLAP;
+    fEnd = 1;
     fall.forEach(function (f) {
-      var r = f.st.el.getBoundingClientRect();
-      f.dist = heroBottom - (r.top + sy) + r.height * 1.6;   // far enough to leave the hero
+      f.y0 = docTop(f.st.el); f.h = f.st.el.offsetHeight;
+      var cover = Math.max(f.h, panelTop - f.y0);  // scroll at which the panel would reach this key
+      f.end = cover * f.when;
+      f.start = f.end * f.loose;
+      f.drop = (panelTop - f.end) - f.y0 + f.h * 1.3;   // where the panel edge is by then, and past it
+      fEnd = Math.max(fEnd, f.end);
     });
-    fP = -1; applyFall();
+    fLast = -1; applyFall();
   }
 
   function applyFall() {
     fQueued = false;
-    var p = Math.max(0, Math.min(1, (window.scrollY - fStart) / fSpan));
-    if (p === fP) return;
-    var wasResting = fP <= 0; fP = p;
-    formula.classList.toggle('is-falling', p > 0);
-    if (p > 0 && wasResting) {          // let go of anything pressed or hovered
+    var s = Math.max(0, window.scrollY);
+    if (s > fEnd && fLast > fEnd) return;           // all gone, nothing to update
+    if (s === fLast) return;
+    var wasResting = fLast <= 0; fLast = s;
+    formula.classList.toggle('is-falling', s > 0);
+    if (s > 0 && wasResting) {          // let go of anything pressed or hovered
       if (finger) { release(finger.st); finger = null; }
       keys.forEach(function (st) { st.hover = false; release(st); });
       wake();
     }
     if (reduceMQ.matches) {
-      formula.style.opacity = p > 0 ? (1 - p).toFixed(3) : '';
+      formula.style.opacity = s > 0 ? Math.max(0, 1 - s / fEnd).toFixed(3) : '';
       fall.forEach(function (f) { f.st.el.style.transform = ''; f.st.el.style.visibility = ''; });
       return;
     }
     formula.style.opacity = '';
     var vw = window.innerWidth;
     fall.forEach(function (f) {
-      var e = Math.max(0, Math.min(1, (p - f.delay) / 0.7));
       var el = f.st.el;
-      if (e === 0) { el.style.transform = ''; el.style.visibility = ''; return; }
+      if (s === 0) { el.style.transform = ''; el.style.visibility = ''; return; }
+      var e = Math.max(0, Math.min(1, (s - f.start) / Math.max(1, f.end - f.start)));
       var x = f.drift * vw * (1 - (1 - e) * (1 - e));   // drift settles in early
-      var y = f.dist * e * e;                            // gravity: slow start, then faster
+      var y = s + f.drop * e * e;                        // holds still on screen, then falls faster and faster
       el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0) rotate(' + (f.spin * e).toFixed(1) + 'deg)';
       el.style.visibility = e >= 1 ? 'hidden' : '';
     });
@@ -1948,7 +1967,7 @@ $(document).ready(function () {
     window.addEventListener('resize', function () { requestAnimationFrame(layoutFall); });
     window.addEventListener('load', layoutFall);
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutFall);
-    if (reduceMQ.addEventListener) reduceMQ.addEventListener('change', function () { fP = -1; applyFall(); });
+    if (reduceMQ.addEventListener) reduceMQ.addEventListener('change', function () { fLast = -1; applyFall(); });
     layoutFall();
   }
 })();
