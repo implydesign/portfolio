@@ -1729,6 +1729,109 @@ $(document).ready(function () {
 })();
 </script>
 
+<script data-tag="nav-goo">
+/* ===== Nav hover: a gooey blob, like the buttons =====
+   One liquid blob lives behind each nav. It bloops in under the item you hover, leans a little
+   toward the cursor, flows to the next item with a stretchy tail when you move along the nav,
+   and slips away when you leave. Uses the buttons' goo filter (#vp-goo). Mouse only;
+   reduced motion keeps the plain circle. */
+(function () {
+  var reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+  if (reduceMQ.matches || !document.getElementById('vp-goo')) return;
+  var PAD = 24;                                    // matches .nav-goo { inset: -24px }
+  var DROP = [1, 0.78, 0.6, 0.44];                 // tail drops, relative to the main blob
+  var FOLLOW = [[260, 24], [190, 20], [140, 17], [105, 14]];
+  function spring(s, key, target, k, c, dt) {
+    var v = s['v' + key] + (k * (target - s[key]) - c * s['v' + key]) * dt;
+    s['v' + key] = v; s[key] += v * dt;
+  }
+
+  [].forEach.call(document.querySelectorAll('nav'), function (nav) {
+    var links = [].slice.call(nav.querySelectorAll('a'));
+    if (!links.length) return;
+    var goo = document.createElement('span'); goo.className = 'nav-goo'; goo.setAttribute('aria-hidden', 'true');
+    var els = DROP.map(function () { var b = document.createElement('span'); b.className = 'nav-goo-blob'; goo.appendChild(b); return b; });
+    nav.insertBefore(goo, nav.firstChild);
+    nav.classList.add('nav-goo-on');
+
+    var blobs = DROP.map(function () { return { x: 0, y: 0, vx: 0, vy: 0 }; });
+    var size = { r: 0, vr: 0 }, target = { x: 0, y: 0, r: 0 };
+    var current = null, cursorX = 0, running = false, last = 0, t = 0;
+
+    function spot(a) {                             // where the old circle sat for this item
+      var nr = nav.getBoundingClientRect(), r = a.getBoundingClientRect();
+      var R = parseFloat(getComputedStyle(a).fontSize) * 1.5;
+      return { cx: r.left - nr.left + r.width / 2, cy: r.top - nr.top - r.height * 0.2 + R, w: r.width, R: R, left: r.left - nr.left };
+    }
+    function aim() {
+      if (!current) return;
+      var s = spot(current);
+      var lean = Math.max(-1, Math.min(1, (cursorX - s.cx) / (s.w / 2 || 1)));
+      target.x = s.cx + lean * Math.min(s.w * 0.22, s.R * 0.6);   // leans toward the cursor
+      target.y = s.cy;
+      target.r = s.R;
+    }
+    function render() {
+      var m = blobs[0];
+      var speed = Math.hypot(m.vx, m.vy), stretch = Math.min(speed / 1500, 0.32), ang = Math.atan2(m.vy, m.vx);
+      els.forEach(function (el, i) {
+        var b = blobs[i], r = Math.max(0, size.r * DROP[i]), sx = r / 50, sy = r / 50;
+        if (i === 0) { sx *= 1 + stretch; sy *= 1 - stretch * 0.5; }
+        el.style.transform = 'translate(' + (b.x - 50 + PAD).toFixed(2) + 'px,' + (b.y - 50 + PAD).toFixed(2) + 'px) rotate(' + ang.toFixed(3) + 'rad) scale(' + sx.toFixed(4) + ',' + sy.toFixed(4) + ')';
+      });
+    }
+    function frame(now) {
+      var dt = Math.min((now - last) / 1000, 1 / 30); last = now; t += dt;
+      var breathe = current ? Math.sin(t * 2.6) * 0.9 + Math.sin(t * 4.1) * 0.4 : 0;
+      for (var i = 0; i < blobs.length; i++) {
+        var lead = i === 0 ? target : blobs[i - 1];
+        spring(blobs[i], 'x', lead.x, FOLLOW[i][0], FOLLOW[i][1], dt);
+        spring(blobs[i], 'y', lead.y, FOLLOW[i][0], FOLLOW[i][1], dt);
+      }
+      for (var j = 1; j < blobs.length; j++) {     // keep the tail joined: it stretches into a neck
+        var a = blobs[j - 1], d = blobs[j], gx = d.x - a.x, gy = d.y - a.y, gap = Math.hypot(gx, gy);
+        var reach = size.r * (DROP[j - 1] + DROP[j]) * 0.62;
+        if (gap > reach && gap > 0) { var k = reach / gap; d.x = a.x + gx * k; d.y = a.y + gy * k; d.vx = d.vx * 0.6 + a.vx * 0.4; d.vy = d.vy * 0.6 + a.vy * 0.4; }
+      }
+      spring(size, 'r', target.r + breathe, 240, 14, dt);   // overshoots a little and wobbles into place
+      if (size.r < 0) { size.r = 0; size.vr = Math.max(0, size.vr); }
+      render();
+      if (!current && size.r < 0.4 && Math.abs(size.vr) < 5) { size.r = 0; render(); running = false; return; }
+      requestAnimationFrame(frame);
+    }
+    function run() { if (running) return; running = true; last = performance.now(); requestAnimationFrame(frame); }
+    function place(x, y) { blobs.forEach(function (b) { b.x = x; b.y = y; b.vx = 0; b.vy = 0; }); size.r = 0; size.vr = 0; }
+
+    links.forEach(function (a) {
+      a.addEventListener('pointerenter', function (e) {
+        if (e.pointerType !== 'mouse') return;
+        var nr = nav.getBoundingClientRect(); cursorX = e.clientX - nr.left;
+        var wasIdle = !current && size.r < 1;
+        current = a; aim();
+        if (wasIdle) place(cursorX, target.y);    // bloop in where the cursor came in
+        run();
+      });
+      a.addEventListener('pointermove', function (e) {
+        if (e.pointerType !== 'mouse' || current !== a) return;
+        cursorX = e.clientX - nav.getBoundingClientRect().left; aim();
+      });
+      a.addEventListener('pointerleave', function (e) {
+        if (e.pointerType !== 'mouse' || current !== a) return;
+        // leaving one item: wait a moment; if the cursor reaches another item the blob flows there
+        var nr = nav.getBoundingClientRect(), x = e.clientX - nr.left, y = e.clientY - nr.top;
+        setTimeout(function () {
+          if (current !== a) return;
+          current = null;
+          var s = spot(a), dx = x - s.cx, dy = y - s.cy, len = Math.hypot(dx, dy) || 1;
+          target.x = s.cx + dx / len * s.R * 1.4; target.y = s.cy + dy / len * s.R * 1.4;   // slips away the way you left
+          target.r = 0; run();
+        }, 140);
+      });
+    });
+  });
+})();
+</script>
+
 <script data-tag="work-img-skeleton">
 /* Project images: keep the skeleton until each picture has fully downloaded and decoded,
    then fade it in, so it never paints from the top down. A broken file keeps the skeleton. */
