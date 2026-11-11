@@ -1154,11 +1154,17 @@ $(document).ready(function () {
   var phone  = window.matchMedia('(max-width: 530px)');
   var themeMeta = document.querySelector('meta[name="theme-color"]');
 
+  // Positions are read on load / resize only, never while scrolling.
+  var target = 0, heroEnd = 0, lastTheme = '';
+  function measureNav() {
+    target = $quote.length ? $quote.offset().top : 0;
+    heroEnd = $hero.length ? $hero.offset().top + $hero.outerHeight() : 0;
+  }
+
   function updateNav() {
-    var y = $(window).scrollTop();
+    var y = window.scrollY;
 
     // Nav turns white once the formula reaches it on desktop; on phones it is always white.
-    var target = $quote.length ? $quote.offset().top : 0;
     var white  = phone.matches || y > target - 75;
 
     // Only the class changes; index.css fades background, text, logo and icon together.
@@ -1166,12 +1172,17 @@ $(document).ready(function () {
 
     // Phone status bar colour: dark while the hero is at the top, white below it.
     if (themeMeta && $hero.length) {
-      var overHero = y < $hero.offset().top + $hero.outerHeight() - 40;
-      themeMeta.setAttribute('content', overHero ? '#1d1d20' : '#ffffff');
+      var theme = y < heroEnd - 40 ? '#1d1d20' : '#ffffff';
+      if (theme !== lastTheme) { themeMeta.setAttribute('content', theme); lastTheme = theme; }
     }
   }
 
-  $(window).on('scroll resize', updateNav);
+  // once per frame at most, however many scroll events arrive
+  var navQueued = false;
+  function queueNav() { if (!navQueued) { navQueued = true; requestAnimationFrame(function () { navQueued = false; updateNav(); }); } }
+  $(window).on('resize load', function () { measureNav(); queueNav(); });
+  window.addEventListener('scroll', queueNav, { passive: true });
+  measureNav();
   updateNav();
 
   // Logo: smooth scroll to the very top instead of reloading the page
@@ -1184,37 +1195,31 @@ $(document).ready(function () {
 </script>
 
 
-<!-- Include jQuery library (if not already included) -->
-<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
 
 <script>
   $(document).ready(function() {
-    // Function to update active state based on current section in viewport
-    function updateActiveState() {
-      // Get the current scroll position
-      var scrollPosition = $(window).scrollTop();
-
-      // Check each section to see if it is in the viewport
-      $('main section').each(function() {
-        var sectionId = $(this).attr('id');
-        var sectionTop = $(this).offset().top - 50; // Adjusted for better visibility, you may need to fine-tune this value
-        var sectionBottom = sectionTop + $(this).outerHeight();
-
-        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-          // Update the active state in the navigation
-          $('.portfolio-navitem').removeClass('active');
-          $('[href="#' + sectionId + '"]').addClass('active');
-        }
-      });
+    // Highlights the nav item of the section in view. Section positions are read on load / resize
+    // only; on scroll it compares numbers once per frame and touches classes only when the section changes.
+    var sections = [], current = null, actQueued = false;
+    function measureSections() {
+      sections = $('main section').map(function () {
+        var top = $(this).offset().top - 50;
+        return { id: $(this).attr('id'), top: top, bottom: top + $(this).outerHeight() };
+      }).get();
     }
-
-    // Update the active state on page load
+    function updateActiveState() {
+      actQueued = false;
+      var y = window.scrollY, found = null;
+      for (var i = 0; i < sections.length; i++) if (y >= sections[i].top && y <= sections[i].bottom) found = sections[i].id;
+      if (found === null || found === current) return;
+      current = found;
+      $('.portfolio-navitem').removeClass('active');
+      $('[href="#' + found + '"]').addClass('active');
+    }
+    measureSections();
     updateActiveState();
-
-    // Update the active state on scroll
-    $(window).scroll(function() {
-      updateActiveState();
-    });
+    $(window).on('resize load', function () { measureSections(); updateActiveState(); });
+    window.addEventListener('scroll', function () { if (!actQueued) { actQueued = true; requestAnimationFrame(updateActiveState); } }, { passive: true });
   });
 </script>
 
@@ -1284,7 +1289,7 @@ $(document).ready(function () {
     new MutationObserver(update).observe(desk, { attributes: true, attributeFilter: ['class'] });
   }
   window.addEventListener('resize', update);
-  window.addEventListener('scroll', update, { passive: true });
+  if (desk) desk.addEventListener('transitionend', update);   // the nav changes size by transition, not on scroll
   window.addEventListener('load', update);
   update();
 })();
@@ -1775,6 +1780,7 @@ $(document).ready(function () {
     el.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { st.hover = true; wake(); } });
     el.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { st.hover = false; release(st); } });
     el.addEventListener('pointerdown', function (e) {
+      if (stale) measure();
       if (e.pointerType === 'mouse') { if (e.button === 0) press(st, e.clientX, e.clientY); return; }
       try { el.releasePointerCapture(e.pointerId); } catch (err) {}     // let the finger slide from key to key
       finger = { id: e.pointerId, st: st };
@@ -1787,8 +1793,10 @@ $(document).ready(function () {
     el.addEventListener('contextmenu', function (e) { if (st.down) e.preventDefault(); });
   });
 
-  // Key positions are read once and refreshed only on scroll / resize, never every frame.
+  var stale = true;                  // scrolling only marks positions stale; they are re-read at the next pointer move
+  // Key positions are read once, and again only after a scroll or resize, when the pointer next moves; never every frame.
   function measure() {
+    stale = false;
     keys.forEach(function (st) {
       var r = st.el.getBoundingClientRect();
       st.cx = r.left + r.width / 2; st.cy = r.top + r.height / 2; st.w = r.width; st.h = r.height;
@@ -1799,12 +1807,16 @@ $(document).ready(function () {
     if (measureQueued) return; measureQueued = true;
     requestAnimationFrame(function () { measureQueued = false; measure(); wake(); });
   }
-  window.addEventListener('scroll', queueMeasure, { passive: true });
+  window.addEventListener('scroll', function () { stale = true; }, { passive: true });
   window.addEventListener('resize', queueMeasure);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(queueMeasure);
 
   window.addEventListener('pointermove', function (e) {
-    if (e.pointerType === 'mouse') { pointer = { x: e.clientX, y: e.clientY }; wake(); return; }
+    if (e.pointerType === 'mouse') {
+      if (formula && formula.classList.contains('is-falling')) { pointer = null; return; }   // keys are falling: nothing to lean
+      if (stale) measure();
+      pointer = { x: e.clientX, y: e.clientY }; wake(); return;
+    }
     if (!finger || e.pointerId !== finger.id) return;
     var under = document.elementFromPoint(e.clientX, e.clientY);
     var k = under && under.closest ? under.closest('.key') : null;
@@ -1894,82 +1906,13 @@ $(document).ready(function () {
   measure();
   keys.forEach(function (st) { render(st); st.idle = true; });
 
-  /* ----- Scroll fall: from the first scroll the keys hold still on the screen while the
-     white panel rises over the hero; one by one they come loose and fall down the screen
-     toward the panel's edge and slip under it. Keys nearest the panel go first, the top
-     row last, and every key is gone before the panel reaches it. It follows the scroll
-     exactly: scrolling back up rebuilds the formula. Kept gentle on purpose: no full
-     spins, small sideways drift, no zoom, no blur. Reduced motion: a plain fade. */
+  // The scroll drop lives in the keycap-intro script; it calls this to let go of any pressed or hovered key.
   var formula = document.querySelector('.formula');
-  var hero = document.querySelector('.portfolio-hero');
-  var PANEL_OVERLAP = 30;              // the white panel's rounded top rides this far over the hero
-  function rnd(n) { var x = Math.sin(n * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
-  function docTop(el) { var y = 0; while (el) { y += el.offsetTop; el = el.offsetParent; } return y; }  // ignores transforms
-  var fall = keys.map(function (st, i) {
-    var dir = rnd(i * 3 + 1) < 0.5 ? -1 : 1;
-    return {
-      st: st,
-      when: 0.45 + rnd(i * 3 + 2) * 0.35,          // finishes at 45–80% of the way to being covered
-      loose: 0.1 + rnd(i * 5 + 7) * 0.3,           // comes loose after 10–40% of that
-      drift: dir * (0.03 + rnd(i * 3 + 3) * 0.16), // sideways, as a share of the screen width
-      spin: dir * (35 + rnd(i * 3 + 4) * 70),      // 35–105°, never a full turn
-      y0: 0, h: 0, start: 0, end: 1, drop: 0
-    };
-  });
-  var fEnd = 1, fLast = -1, fQueued = false;
-
-  function layoutFall() {              // positions without any transform (resize / fonts / load only)
-    var panelTop = docTop(hero) + hero.offsetHeight - PANEL_OVERLAP;
-    fEnd = 1;
-    fall.forEach(function (f) {
-      f.y0 = docTop(f.st.el); f.h = f.st.el.offsetHeight;
-      var cover = Math.max(f.h, panelTop - f.y0);  // scroll at which the panel would reach this key
-      f.end = cover * f.when;
-      f.start = f.end * f.loose;
-      f.drop = (panelTop - f.end) - f.y0 + f.h * 1.3;   // where the panel edge is by then, and past it
-      fEnd = Math.max(fEnd, f.end);
-    });
-    fLast = -1; applyFall();
-  }
-
-  function applyFall() {
-    fQueued = false;
-    var s = Math.max(0, window.scrollY);
-    if (s > fEnd && fLast > fEnd) return;           // all gone, nothing to update
-    if (s === fLast) return;
-    var wasResting = fLast <= 0; fLast = s;
-    formula.classList.toggle('is-falling', s > 0);
-    if (s > 0 && wasResting) {          // let go of anything pressed or hovered
-      if (finger) { release(finger.st); finger = null; }
-      keys.forEach(function (st) { st.hover = false; release(st); });
-      wake();
-    }
-    if (reduceMQ.matches) {
-      formula.style.opacity = s > 0 ? Math.max(0, 1 - s / fEnd).toFixed(3) : '';
-      fall.forEach(function (f) { f.st.el.style.transform = ''; f.st.el.style.visibility = ''; });
-      return;
-    }
-    formula.style.opacity = '';
-    var vw = window.innerWidth;
-    fall.forEach(function (f) {
-      var el = f.st.el;
-      if (s === 0) { el.style.transform = ''; el.style.visibility = ''; return; }
-      var e = Math.max(0, Math.min(1, (s - f.start) / Math.max(1, f.end - f.start)));
-      var x = f.drift * vw * (1 - (1 - e) * (1 - e));   // drift settles in early
-      var y = s + f.drop * e * e;                        // holds still on screen, then falls faster and faster
-      el.style.transform = 'translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0) rotate(' + (f.spin * e).toFixed(1) + 'deg)';
-      el.style.visibility = e >= 1 ? 'hidden' : '';
-    });
-  }
-  function queueFall() { if (!fQueued) { fQueued = true; requestAnimationFrame(applyFall); } }
-  if (formula && hero) {
-    window.addEventListener('scroll', queueFall, { passive: true });
-    window.addEventListener('resize', function () { requestAnimationFrame(layoutFall); });
-    window.addEventListener('load', layoutFall);
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutFall);
-    if (reduceMQ.addEventListener) reduceMQ.addEventListener('change', function () { fLast = -1; applyFall(); });
-    layoutFall();
-  }
+  window.kcLetGo = function () {
+    if (finger) { release(finger.st); finger = null; }
+    keys.forEach(function (st) { st.hover = false; release(st); });
+    wake();
+  };
 })();
 </script>
 
@@ -2057,15 +2000,64 @@ $(document).ready(function () {
     later(end, finish);
   };
 
-  function skip(e) {
-    if (!playing) return;
-    finish();
+  // The intro can be cut short: scrolling down, a wheel turn down, or a key press shows the finished formula.
+  function skip() { if (playing) finish(); }
+  window.addEventListener('wheel', function (e) { if (e.deltaY > 0) skip(); }, { passive: true });
+  window.addEventListener('keydown', skip);
+
+  /* ----- Scroll drop: once you scroll past DROP_AT, the keys come loose with a tiny hop and
+     drop down the screen with real gravity (about 0.8 s), each its own way, and slip under the
+     white panel. It plays on its own, however fast you scroll. Back at the top, the drop-in
+     intro rebuilds the formula. Gentle on purpose: no full spins, small sideways drift.
+     Reduced motion: a plain fade. */
+  var DROP_AT = 40, REBUILD_AT = 2;
+  var fallen = false, dropAnims = [];
+  function clearDrop() {
+    dropAnims.forEach(function (a) { try { a.cancel(); } catch (e) {} }); dropAnims = [];
+    keys.forEach(function (k) { k.style.visibility = ''; });
+    formula.style.transition = ''; formula.style.opacity = '';
+    formula.classList.remove('is-falling');
   }
-  ['wheel', 'touchstart', 'keydown'].forEach(function (ev) { window.addEventListener(ev, skip, { passive: true }); });
-  window.addEventListener('scroll', function () { if (window.scrollY > 4) skip(); }, { passive: true });
+  function drop(instant) {
+    fallen = true;
+    if (playing) finish();
+    if (window.kcLetGo) window.kcLetGo();
+    formula.classList.add('is-falling');
+    if (instant) { keys.forEach(function (k) { k.style.visibility = 'hidden'; }); return; }
+    if (reduceMQ.matches || !keys[0].animate) {
+      formula.style.transition = 'opacity .3s ease-out'; formula.style.opacity = '0';
+      return;
+    }
+    var vw = window.innerWidth, vh = window.innerHeight;
+    keys.forEach(function (k, i) {
+      var b = k.getBoundingClientRect(), s = b.height, u = b.width / s;
+      var n = 671 + i * 7;
+      var dir = rnd(n) < 0.5 ? -1 : 1;
+      var dx = dir * (0.03 + rnd(n + 1) * 0.14) * vw;             // small sideways drift
+      var dy = Math.max(vh - b.top, s) + s * 2;                   // down past the bottom of the screen
+      var spin = u > 1.1 ? dir * (10 + rnd(n + 3) * 25)          // wide arrow keys: a calmer turn
+                         : dir * (40 + rnd(n + 3) * 70);         // 40–110°, never a full turn
+      var hop = s * (0.12 + rnd(n + 2) * 0.12);                  // comes loose with a tiny hop
+      var a = k.animate([
+        { offset: 0,    transform: 'none', easing: 'cubic-bezier(.2,.6,.4,1)' },
+        { offset: 0.16, transform: 'translate3d(' + (dx * 0.06).toFixed(1) + 'px,' + (-hop).toFixed(1) + 'px,0) rotate(' + (spin * 0.08).toFixed(1) + 'deg)', easing: 'cubic-bezier(.5,0,.95,.5)' },
+        { offset: 1,    transform: 'translate3d(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px,0) rotate(' + spin.toFixed(1) + 'deg)' }
+      ], { duration: 700 + rnd(n + 5) * 200, delay: rnd(n + 4) * 200, fill: 'forwards' });
+      a.onfinish = function () { k.style.visibility = 'hidden'; };
+      dropAnims.push(a);
+    });
+  }
+  function rebuild() { fallen = false; clearDrop(); window.kcIntroDrop(171); }
+  window.addEventListener('scroll', function () {
+    var y = window.scrollY;
+    if (!fallen && y > DROP_AT) drop(false);
+    else if (fallen && y <= REBUILD_AT) rebuild();
+  }, { passive: true });
+
   // Play once when the page opens; if it opens scrolled down (a reload mid-page), just show the keys.
   function start() {
-    if (window.scrollY > 4) { finish(); return; }
+    if (window.scrollY > DROP_AT) { finish(); drop(true); return; }   // opened scrolled down: keys already gone
+    if (window.scrollY > REBUILD_AT) { finish(); return; }
     requestAnimationFrame(function () { window.kcIntroDrop(171); });
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start); else start();
