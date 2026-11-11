@@ -484,6 +484,8 @@ nav a:hover::before {
   transform: scale(1);
   transition: transform 0.3s ease;
 }
+/* With the gooey hover running (nav.nav-goo-on, set by the nav-goo script) the plain circle is off. */
+nav.nav-goo-on a::before { display: none; }
 
 
 nav a:target{
@@ -2002,10 +2004,11 @@ padding-top: 3rem;
   color: transparent;                       /* hides alt text while loading */
   font-size: 0;
   position: relative;
-  background: linear-gradient(100deg, #e3e7ef 40%, #f5f7fb 50%, #e3e7ef 60%) 100% 0 / 250% 100%;
-  animation: work-shimmer 1.5s ease-in-out infinite;
+  /* a bright sheen sweeps across a cool grey, one pass every 1.3 s, always partly on screen */
+  background: linear-gradient(100deg, #dfe3ea 0%, #dfe3ea 35%, #fbfcfe 50%, #dfe3ea 65%, #dfe3ea 100%) 0 0 / 300% 100%;
+  animation: work-shimmer 1.3s linear infinite;
 }
-@keyframes work-shimmer { to { background-position: 0 0; } }
+@keyframes work-shimmer { from { background-position: 100% 0; } to { background-position: 0 0; } }
 
 /* Browsers only draw this when the file is missing/broken: it covers the little broken-image icon
    with the same moving skeleton, so a missing picture still looks like it is loading. */
@@ -2201,3 +2204,25 @@ padding-top: 3rem;
 
 /* The phone projects panel sits above the hero, so dropping keys slip under its edge. */
 .portfolio-introcontentsmob { z-index: 1; }
+
+/* ----- Phones: the hero fills the whole first screen, formula centred in it ----- */
+@media (max-width: 530px) {
+  .portfolio-hero { min-height: 100vh; min-height: 100svh; justify-content: center; }
+}
+
+/* ----- Nav hover: one gooey blob that follows you between the nav items (script: nav-goo) ----- */
+nav.nav-goo-on { position: relative; }
+.nav-goo {
+  position: absolute; inset: -24px;
+  z-index: -1; pointer-events: none;
+  filter: url(#vp-goo);              /* the same goo as the buttons */
+  opacity: 0.4;                      /* the old circle's see-through blue */
+}
+.nav-goo-blob {
+  position: absolute; left: 0; top: 0;
+  width: 100px; height: 100px; border-radius: 50%;
+  background: rgb(118, 154, 255);
+  transform: scale(0);
+  will-change: transform;
+}
+@media (prefers-reduced-motion: reduce) { .nav-goo { display: none; } }
