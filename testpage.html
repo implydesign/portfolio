@@ -106,6 +106,38 @@ header .portfolio-desknav {
   }
   header .portfolio-desknav .nav-section { display: none; }  /* phones only show "Open CV" */
 }
+
+/* ===== Wider than 800px: two separate pills instead of one white bar =====
+   The bar itself stays transparent and only lays things out. On .scroll (set by the nav script)
+   the white + shadow fade in on two pills: one behind the logo, one behind the nav items.
+   Same padding, colours and timing as the old single bar. 800px and below: unchanged. */
+@media (min-width: 801px) {
+  header .portfolio-desknav,
+  header .portfolio-desknav.scroll {
+    padding: 0;
+    align-items: stretch;               /* both pills get the same height */
+    background-color: transparent;
+    box-shadow: none;
+  }
+  header .nav-pill {
+    display: flex;
+    align-items: center;
+    border-radius: 10rem;
+    background-color: rgba(255, 255, 255, 0);
+    box-shadow: 0 2px 4px 0 rgba(167, 167, 167, 0);
+    transition: background-color 0.35s ease, box-shadow 0.35s ease;
+  }
+  header .nav-pill--logo  { padding: 0.8rem 2rem 0.6rem 1.8rem; }   /* right padding leaves room for the logo's stretch */
+  header .nav-pill--links {
+    padding: 0.8rem 2rem 0.6rem 2rem;
+    isolation: isolate;                 /* the gooey hover blob sits on the white, under the text */
+    overflow: hidden;                   /* ...and is clipped to the pill */
+  }
+  header .portfolio-desknav.scroll .nav-pill {
+    background-color: #fff;
+    box-shadow: 0 2px 4px 0 rgba(167, 167, 167, 0.1);
+  }
+}
 </style>
 
 <style data-tag="lenticular-card">
@@ -244,7 +276,7 @@ font-family: sans-serif;
       
 <header>
   <div class="portfolio-desknav">
-    <div>
+    <div class="nav-pill nav-pill--logo">
       <a href="#top" class="logo-link" aria-label="Imply Design, back to top"><liquid-logo
         class="nav-logo"
         label="Imply Design"
@@ -252,7 +284,7 @@ font-family: sans-serif;
       ></liquid-logo></a>
     </div>
 
-    <nav aria-label="Main">
+    <nav aria-label="Main" class="nav-pill nav-pill--links">
       <a href="#works" class="nav-section portfolio-navitem" tabindex="0">
         <span class="portfolio-text01">Browse Works</span>
       </a>
