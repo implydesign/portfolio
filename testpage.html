@@ -108,7 +108,7 @@ header .portfolio-desknav {
 }
 
 /* ===== Wider than 800px: two separate pills instead of one white bar =====
-   The bar itself stays transparent and only lays things out. On .scroll (set by the nav script)
+   The bar itself stays transparent and only centres the two pills at the top, 0.5rem apart. On .scroll (set by the nav script)
    the white + shadow fade in on two pills: one behind the logo, one behind the nav items.
    Same padding, colours and timing as the old single bar. 800px and below: unchanged. */
 @media (min-width: 801px) {
@@ -116,6 +116,8 @@ header .portfolio-desknav {
   header .portfolio-desknav.scroll {
     padding: 0;
     align-items: stretch;               /* both pills get the same height */
+    justify-content: center;            /* both pills sit together at the top centre */
+    gap: 0.5rem;                        /* small distance between them */
     background-color: transparent;
     box-shadow: none;
   }
@@ -134,7 +136,7 @@ header .portfolio-desknav {
     overflow: hidden;                   /* ...and is clipped to the pill */
   }
   header .portfolio-desknav.scroll .nav-pill {
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 2px 4px 0 rgba(167, 167, 167, 0.1);
   }
 }
