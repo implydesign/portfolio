@@ -2017,7 +2017,12 @@ padding-top: 3rem;
   background: inherit;
   animation: inherit;
 }
-@media (prefers-reduced-motion: reduce) { .work-img { animation: none; } }
+/* Until it has fully loaded, the picture is moved out of its box so only the skeleton shows
+   (no top-to-bottom painting); the script at the bottom of testpage.html adds .is-loaded. */
+.work-img:not(.is-loaded) { object-position: -99999px -99999px; }
+.work-img.is-loaded { background: none; animation: work-in .45s ease-out both; }
+@keyframes work-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .work-img { animation: none; } .work-img.is-loaded { animation: none; } }
 
 /* =========================================================================
    Hero formula in keycaps: ∀ dsgn ∃ / true ⟺ value ∩ / (fnctn ⇒ frm)
@@ -2193,3 +2198,6 @@ padding-top: 3rem;
 /* on landing the legend lights up for a moment, like a pressed key */
 .formula.kc-booting .key.kc-glow .key-glyph { color: #eceef6; filter: drop-shadow(0 0 0.03em rgba(190, 205, 255, 0.8)); transition-duration: .18s; }
 .formula.kc-booting .key.kc-glow .key-legend { color: #eceef6; text-shadow: 0 0 0.12em rgba(190, 205, 255, 0.8); transition-duration: .18s; }
+
+/* The phone projects panel sits above the hero, so dropping keys slip under its edge. */
+.portfolio-introcontentsmob { z-index: 1; }
