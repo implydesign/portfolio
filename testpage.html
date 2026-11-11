@@ -107,11 +107,11 @@ header .portfolio-desknav {
   header .portfolio-desknav .nav-section { display: none; }  /* phones only show "Open CV" */
 }
 
-/* ===== Wider than 800px: two separate pills instead of one white bar =====
+/* ===== Wider than 600px: two separate pills instead of one white bar =====
    The bar itself stays transparent and only centres the two pills at the top, 0.5rem apart. On .scroll (set by the nav script)
    the white + shadow fade in on two pills: one behind the logo, one behind the nav items.
-   Same padding, colours and timing as the old single bar. 800px and below: unchanged. */
-@media (min-width: 801px) {
+   Same padding, colours and timing as the old single bar. 600px and below: unchanged. */
+@media (min-width: 601px) {
   header .portfolio-desknav,
   header .portfolio-desknav.scroll {
     padding: 0;
@@ -1280,77 +1280,44 @@ $(document).ready(function () {
   }
 
   var desk = document.querySelector('.portfolio-desknav');
-  var pills = [].slice.call(document.querySelectorAll('.nav-pill'));
-  var wideMQ = window.matchMedia('(min-width: 801px)');   // the two-pill nav
   var lastKey = '';
 
-  // Wider than 800px the blur is softer in two places:
-  //  - the gap between the pills keeps only the light layers (about 3-4 px of blur in total),
-  //    full blur stays behind each pill and EDGE px past its ends, then eases down over RAMP px;
-  //  - below the nav the strong layers stop at the nav's edge and only the light ones fade out.
-  var LIGHT = 3.6;            // px: layers up to this blur are the "light" blur
-  var EDGE = 20, RAMP = 80;
+  // Top to bottom the blur thins out gradually: every layer starts at the top of the screen and
+  // they leave one after another, strongest first, each over a long eased fade that overlaps the
+  // next one. No layer ends at the nav's edge, so there is no seam that reads as a panel.
+  // The blur covers the full width, the gap between the nav pills included.
+  //  - HOLD px above the nav's bottom edge the full blur begins to ease off;
+  //  - it reaches nothing "reach" px below the nav (--liquid-reach).
+  var HOLD = 22;              // px above the nav's bottom edge where the strongest blur starts to fade
+  var OVERLAP = 2;            // each layer fades over this many steps, so neighbouring fades blend
 
   function visible(n) { return n && getComputedStyle(n).display !== 'none'; }
   function smooth(t) { return t * t * (3 - 2 * t); }
-  function blurOf(i) { return maxBlur * Math.pow(2, i - (layers - 1)); }
 
-  // Gradient that is opaque up to `a` and eases to transparent at `b` (px). `back` mirrors it.
-  function ease(dir, a, b) {
+  // Gradient that is opaque down to `a` and eases to transparent at `b` (px).
+  function ease(a, b) {
     var s = [];
     for (var k = 0; k <= 4; k++) {
       var t = k / 4;
       s.push('rgba(0,0,0,' + (1 - smooth(t)).toFixed(3) + ') ' + (a + (b - a) * t).toFixed(1) + 'px');
     }
-    return 'linear-gradient(' + dir + ', ' + s.join(', ') + ')';
+    return 'linear-gradient(to bottom, ' + s.join(', ') + ')';
   }
 
-  function setMask(layer, mask, two) {
-    layer.style.webkitMaskImage = mask;
-    layer.style.maskImage = mask;
-    layer.style.webkitMaskComposite = two ? 'source-in' : '';   // older Safari
-    layer.style.maskComposite = two ? 'intersect' : '';          // both masks must allow the blur
-  }
-
-  // Masks are in px: fully blurred from the screen top to the nav's bottom edge,
-  // then the blur fades out over "reach" px below the nav.
-  function build(navBottom, reach, gap) {
-    var step = reach / layers;
-    el.style.setProperty('--liquid-height', (navBottom + reach) + 'px');
-    var light = 0;
-    for (var j = 0; j < layers; j++) if (blurOf(j) <= LIGHT) light++;
-
-    // sideways mask for the strong layers: blur behind the pills, soft in the gap between them
-    var side = '';
-    if (gap) {
-      var room = (gap.right - gap.left) / 2;
-      var edge = Math.min(EDGE, room * 0.25), ramp = Math.min(RAMP, room - edge);
-      if (ramp > 4) {
-        var a = gap.left + edge, b = a + ramp, d = gap.right - edge, c = d - ramp;
-        side = 'linear-gradient(to right, #000 ' + a.toFixed(1) + 'px, ' +
-          [0.25, 0.5, 0.75].map(function (t) { return 'rgba(0,0,0,' + (1 - smooth(t)).toFixed(3) + ') ' + (a + ramp * t).toFixed(1) + 'px'; }).join(', ') +
-          ', transparent ' + b.toFixed(1) + 'px, transparent ' + c.toFixed(1) + 'px, ' +
-          [0.25, 0.5, 0.75].map(function (t) { return 'rgba(0,0,0,' + smooth(t).toFixed(3) + ') ' + (c + ramp * t).toFixed(1) + 'px'; }).join(', ') +
-          ', #000 ' + d.toFixed(1) + 'px)';
-      }
-    }
+  // Masks are in px. Layer k (0 = strongest) is opaque from the screen top to P[k+1],
+  // then eases to transparent at P[k+1+OVERLAP]. P runs from the fade start down to the bottom.
+  function build(navBottom, reach) {
+    var H = navBottom + reach;
+    el.style.setProperty('--liquid-height', H + 'px');
+    var top = Math.max(navBottom - HOLD, navBottom * 0.5);
+    var P = [0];
+    for (var p = 1; p <= layers + 1; p++) P.push(top + (H - top) * (p - 1) / layers);
 
     layerEls.forEach(function (layer, i) {
-      if (!gap) {                                            // 800px and below: as before
-        var end   = navBottom + reach * (layers - i) / layers;   // strong layers fade out sooner
-        var solid = Math.max(end - step, 0);
-        setMask(layer, 'linear-gradient(to bottom, #000 ' + solid.toFixed(1) + 'px, transparent ' + end.toFixed(1) + 'px)', false);
-        return;
-      }
-      if (i < light) {
-        // light layers: full width, a long eased fade below the nav (the strongest light layer ends soonest)
-        var f = light > 1 ? (light - 1 - i) / (light - 1) : 1;
-        setMask(layer, ease('to bottom', navBottom - 4, navBottom + reach * (0.35 + 0.65 * f)), false);
-      } else {
-        // strong layers: end at the nav's edge, and only behind the pills
-        var v = ease('to bottom', navBottom - 12, navBottom + 6);
-        setMask(layer, side ? v + ', ' + side : v, !!side);
-      }
+      var k = layers - 1 - i;                                // 0 = strongest blur
+      var mask = ease(P[k + 1], P[Math.min(k + 1 + OVERLAP, layers + 1)]);
+      layer.style.webkitMaskImage = mask;
+      layer.style.maskImage = mask;
     });
   }
 
@@ -1360,19 +1327,13 @@ $(document).ready(function () {
 
     var navBottom = Math.round(nav.getBoundingClientRect().bottom);
     var reach = parseFloat(getComputedStyle(el).getPropertyValue('--liquid-reach')) || 110;
-    var gap = null;
-    if (wideMQ.matches && pills.length === 2) {
-      var l = pills[0].getBoundingClientRect(), r = pills[1].getBoundingClientRect();
-      if (r.left > l.right) gap = { left: Math.round(l.right), right: Math.round(r.left) };
-    }
-    var key = navBottom + '|' + reach + '|' + (gap ? gap.left + '-' + gap.right : '');
-    if (key !== lastKey) { build(navBottom, reach, gap); lastKey = key; }
+    var key = navBottom + '|' + reach;
+    if (key !== lastKey) { build(navBottom, reach); lastKey = key; }
 
     // blur is on from the start, on desktop and phones
     el.classList.add('is-on');
   }
 
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(update);   // pill widths change once the font loads
   if (desk && 'MutationObserver' in window) {
     new MutationObserver(update).observe(desk, { attributes: true, attributeFilter: ['class'] });
   }
