@@ -652,15 +652,45 @@ width: 100%;
 
 }
 
-/* Logo + CV icon: white over the hero, dark on the white nav.
-   They fade together with the background and text instead of swapping files. */
-.portfolio-desknav .portfolio-m,
+/* CV icon: white over the hero, dark on the white nav.
+   It fades together with the background and text instead of swapping files. */
 .portfolio-desknav .portfolio-arrowop {
   transition: filter 0.35s ease;
 }
-.portfolio-desknav.scroll .portfolio-m,
 .portfolio-desknav.scroll .portfolio-arrowop {
   filter: brightness(0) invert(0.12);
+}
+
+/* =========================================================================
+   Liquid logo (<liquid-logo>, script: liquid-logo.js)
+   The logo is drawn in the CSS `color` of the element, so the nav simply
+   fades its colour: white over the dark hero, #1F1F1F (same tone as the
+   CV icon) on the white nav. Width sets the size; height follows.
+   ========================================================================= */
+liquid-logo {
+  display: block;
+  aspect-ratio: 1091 / 219;          /* reserves the space before the script draws it */
+  line-height: 0;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: pan-y;               /* vertical swipes still scroll the page */
+}
+liquid-logo > svg { width: 100%; height: auto; overflow: visible; display: block; }
+
+.logo-link { display: block; }
+.logo-link:focus-visible { outline: 2px solid #5628F5; outline-offset: 6px; border-radius: 4px; }
+
+.nav-logo {
+  width: 6rem;
+  color: #FFFFFF;                    /* over the hero */
+  transition: color 0.35s ease;      /* same timing as the nav background */
+}
+.portfolio-desknav.scroll .nav-logo { color: #1F1F1F; }   /* on the white nav */
+
+.footer-logo {
+  width: 6rem;
+  align-self: flex-start;
+  color: var(--footertext);          /* white on the dark footer */
 }
 
 /* phones: the same nav becomes an always-white floating pill with only the CV link */
@@ -675,8 +705,8 @@ width: 100%;
     box-shadow: 0 2px 4px 0 rgba(167, 167, 167, 0.1);
   }
   .portfolio-desknav .nav-section { display: none; }
-  .portfolio-desknav .portfolio-m,
   .portfolio-desknav .portfolio-arrowop { filter: brightness(0) invert(0.12); }   /* dark from the first paint */
+  .portfolio-desknav .nav-logo { color: #1F1F1F; }                                /* dark from the first paint */
 }
 
 
