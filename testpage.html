@@ -1272,11 +1272,14 @@ $(document).ready(function () {
   // Built like the Framer "Fluid Blur" reference (flipped: strongest blur at the top of the screen).
   // Layer n (1 = weakest) has blur max * (n / layers)^2 and its own saturate(), so where layers
   // stack the saturation multiplies (8 x 1.25 = about 6x at the top edge): the vivid, liquid look.
-  // Each layer fades in over one short linear step and then stays on all the way to the top edge.
-  // The steps are spread over the bottom `rampLen` of the height; the top part has every layer on.
-  // As in the reference, the 7th layer copies the 8th (same blur, same band): the two strongest
-  // layers stack, which gives the top its extra-thick blur.
-  function layerIndex(n) { return n === layers - 1 ? layers : n; }   // reference: 7th = 8th
+  // Each layer fades in and then stays on all the way to the top edge. The fade-ins start one
+  // step apart, spread over the bottom `rampLen` of the height; the top part has every layer on.
+  // Two changes from the reference remove the seam that showed where the strongest blur ended:
+  //  - a real 7th layer (the reference repeats the 8th, so blur jumped from ~12 to ~44 px in one step);
+  //  - each fade-in is eased (smoothstep) and spans FADE steps, overlapping the next one, so the
+  //    blur has no corner where a fade starts or ends.
+  var FADE = 2;
+  function layerIndex(n) { return n; }
 
   var layerEls = [];
   for (var n = 1; n <= layers; n++) {
@@ -1294,8 +1297,8 @@ $(document).ready(function () {
 
   function visible(n) { return n && getComputedStyle(n).display !== 'none'; }
 
-  // Masks in % of the blur's height, measured from its bottom edge ("to top"), exactly like the
-  // reference's percentages: layer n is transparent at (n-1)*step and fully on from n*step to 100%.
+  // Masks in % of the blur's height, measured from its bottom edge ("to top"): layer n is
+  // transparent at (n-1)*step, eases in over FADE steps and is fully on from there to 100%.
   // The height is the nav plus "reach" px below it (--liquid-reach). The blur covers the full
   // width, the gap between the nav pills included.
   function build(navBottom, reach) {
@@ -1304,8 +1307,12 @@ $(document).ready(function () {
     var step = rampLen * 100 / layers;
     layerEls.forEach(function (layer, i) {
       var n = layerIndex(i + 1);
-      var mask = 'linear-gradient(to top, transparent ' + ((n - 1) * step).toFixed(3) + '%, #000 ' +
-        (n * step).toFixed(3) + '%, #000 100%)';
+      var a = (n - 1) * step, w = step * FADE, st = [];
+      for (var q = 0; q <= 6; q++) {
+        var t = q / 6;
+        st.push('rgba(0,0,0,' + (t * t * (3 - 2 * t)).toFixed(3) + ') ' + Math.min(100, a + w * t).toFixed(3) + '%');
+      }
+      var mask = 'linear-gradient(to top, ' + st.join(', ') + ', #000 100%)';
       layer.style.webkitMaskImage = mask;
       layer.style.maskImage = mask;
     });
