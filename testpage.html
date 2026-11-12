@@ -311,7 +311,7 @@ font-family: sans-serif;
 
 <!-- Liquid scroll: progressive blur under the nav -->
 <div class="liquid-scroll" id="liquid-scroll" aria-hidden="true"
-     data-layers="8" data-max-blur="14" data-saturation="1.1"></div>
+     data-layers="8" data-max-blur="22" data-saturation="1.25" data-ramp="0.71"></div>
 
 
 
@@ -1265,13 +1265,23 @@ $(document).ready(function () {
   if (!supported) return;                       // browsers without support just skip it
 
   var layers  = parseInt(el.dataset.layers || '8', 10);
-  var maxBlur = parseFloat(el.dataset.maxBlur || '14');
-  var sat     = parseFloat(el.dataset.saturation || '1');
+  var maxBlur = parseFloat(el.dataset.maxBlur || '22');
+  var sat     = parseFloat(el.dataset.saturation || '1.25');
+  var rampLen = parseFloat(el.dataset.ramp || '0.71');   // share of the height the layers hand over in
+
+  // Built like the Framer "Fluid Blur" reference (flipped: strongest blur at the top of the screen).
+  // Layer n (1 = weakest) has blur max * (n / layers)^2 and its own saturate(), so where layers
+  // stack the saturation multiplies (8 x 1.25 = about 6x at the top edge): the vivid, liquid look.
+  // Each layer fades in over one short linear step and then stays on all the way to the top edge.
+  // The steps are spread over the bottom `rampLen` of the height; the top part has every layer on.
+  // As in the reference, the 7th layer copies the 8th (same blur, same band): the two strongest
+  // layers stack, which gives the top its extra-thick blur.
+  function layerIndex(n) { return n === layers - 1 ? layers : n; }   // reference: 7th = 8th
 
   var layerEls = [];
-  for (var i = 0; i < layers; i++) {
+  for (var n = 1; n <= layers; n++) {
     var layer = document.createElement('div');
-    var blur = maxBlur * Math.pow(2, i - (layers - 1));   // doubles each layer
+    var blur = maxBlur * Math.pow(layerIndex(n) / layers, 2);
     var filter = 'blur(' + blur.toFixed(2) + 'px)' + (sat !== 1 ? ' saturate(' + sat + ')' : '');
     layer.style.webkitBackdropFilter = filter;
     layer.style.backdropFilter = filter;
@@ -1282,42 +1292,20 @@ $(document).ready(function () {
   var desk = document.querySelector('.portfolio-desknav');
   var lastKey = '';
 
-  // Progressive blur in bands (like the classic progressive blur / Framer "Fluid Blur"):
-  // each layer is visible only in its own band, with a soft start and a soft end, and
-  // neighbouring bands overlap. From the screen top down, the strongest layer hands over to the
-  // next weaker one, and so on, so the blur keeps getting stronger all the way up to the top
-  // edge (no flat strip of uniform blur) and the smear of the handovers runs through the
-  // whole area. The weakest band ends "reach" px below the nav (--liquid-reach).
-  // The blur covers the full width, the gap between the nav pills included.
-
   function visible(n) { return n && getComputedStyle(n).display !== 'none'; }
-  function smooth(t) { return t * t * (3 - 2 * t); }
 
-  // Eased gradient stops from alpha `from` at `a` to alpha `to` at `b` (px).
-  function ramp(from, to, a, b) {
-    var s = [];
-    for (var q = 0; q <= 4; q++) {
-      var t = q / 4, v = from + (to - from) * smooth(t);
-      s.push('rgba(0,0,0,' + v.toFixed(3) + ') ' + (a + (b - a) * t).toFixed(1) + 'px');
-    }
-    return s;
-  }
-
-  // Masks are in px. The height is split into layers + 1 equal steps, P[0] = top of the screen,
-  // P[layers + 1] = bottom. Layer k (0 = strongest) fades in over P[k-1]..P[k], is fully on
-  // over P[k]..P[k+1] and fades out over P[k+1]..P[k+2]. The strongest layer is already
-  // fully on at the top edge.
+  // Masks in % of the blur's height, measured from its bottom edge ("to top"), exactly like the
+  // reference's percentages: layer n is transparent at (n-1)*step and fully on from n*step to 100%.
+  // The height is the nav plus "reach" px below it (--liquid-reach). The blur covers the full
+  // width, the gap between the nav pills included.
   function build(navBottom, reach) {
     var H = navBottom + reach;
     el.style.setProperty('--liquid-height', H + 'px');
-    var P = [];
-    for (var p = 0; p <= layers + 1; p++) P.push(H * p / (layers + 1));
-
+    var step = rampLen * 100 / layers;
     layerEls.forEach(function (layer, i) {
-      var k = layers - 1 - i;                                // 0 = strongest blur
-      var stops = k === 0 ? ['#000 0px'] : ramp(0, 1, P[k - 1], P[k]);
-      stops = stops.concat(ramp(1, 0, P[k + 1], P[k + 2]));
-      var mask = 'linear-gradient(to bottom, ' + stops.join(', ') + ')';
+      var n = layerIndex(i + 1);
+      var mask = 'linear-gradient(to top, transparent ' + ((n - 1) * step).toFixed(3) + '%, #000 ' +
+        (n * step).toFixed(3) + '%, #000 100%)';
       layer.style.webkitMaskImage = mask;
       layer.style.maskImage = mask;
     });
