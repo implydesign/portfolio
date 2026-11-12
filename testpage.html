@@ -1282,40 +1282,42 @@ $(document).ready(function () {
   var desk = document.querySelector('.portfolio-desknav');
   var lastKey = '';
 
-  // Top to bottom the blur thins out gradually: every layer starts at the top of the screen and
-  // they leave one after another, strongest first, each over a long eased fade that overlaps the
-  // next one. No layer ends at the nav's edge, so there is no seam that reads as a panel.
+  // Progressive blur in bands (like the classic progressive blur / Framer "Fluid Blur"):
+  // each layer is visible only in its own band, with a soft start and a soft end, and
+  // neighbouring bands overlap. From the screen top down, the strongest layer hands over to the
+  // next weaker one, and so on, so the blur keeps getting stronger all the way up to the top
+  // edge (no flat strip of uniform blur) and the smear of the handovers runs through the
+  // whole area. The weakest band ends "reach" px below the nav (--liquid-reach).
   // The blur covers the full width, the gap between the nav pills included.
-  //  - HOLD px above the nav's bottom edge the full blur begins to ease off;
-  //  - it reaches nothing "reach" px below the nav (--liquid-reach).
-  var HOLD = 22;              // px above the nav's bottom edge where the strongest blur starts to fade
-  var OVERLAP = 2;            // each layer fades over this many steps, so neighbouring fades blend
 
   function visible(n) { return n && getComputedStyle(n).display !== 'none'; }
   function smooth(t) { return t * t * (3 - 2 * t); }
 
-  // Gradient that is opaque down to `a` and eases to transparent at `b` (px).
-  function ease(a, b) {
+  // Eased gradient stops from alpha `from` at `a` to alpha `to` at `b` (px).
+  function ramp(from, to, a, b) {
     var s = [];
-    for (var k = 0; k <= 4; k++) {
-      var t = k / 4;
-      s.push('rgba(0,0,0,' + (1 - smooth(t)).toFixed(3) + ') ' + (a + (b - a) * t).toFixed(1) + 'px');
+    for (var q = 0; q <= 4; q++) {
+      var t = q / 4, v = from + (to - from) * smooth(t);
+      s.push('rgba(0,0,0,' + v.toFixed(3) + ') ' + (a + (b - a) * t).toFixed(1) + 'px');
     }
-    return 'linear-gradient(to bottom, ' + s.join(', ') + ')';
+    return s;
   }
 
-  // Masks are in px. Layer k (0 = strongest) is opaque from the screen top to P[k+1],
-  // then eases to transparent at P[k+1+OVERLAP]. P runs from the fade start down to the bottom.
+  // Masks are in px. The height is split into layers + 1 equal steps, P[0] = top of the screen,
+  // P[layers + 1] = bottom. Layer k (0 = strongest) fades in over P[k-1]..P[k], is fully on
+  // over P[k]..P[k+1] and fades out over P[k+1]..P[k+2]. The strongest layer is already
+  // fully on at the top edge.
   function build(navBottom, reach) {
     var H = navBottom + reach;
     el.style.setProperty('--liquid-height', H + 'px');
-    var top = Math.max(navBottom - HOLD, navBottom * 0.5);
-    var P = [0];
-    for (var p = 1; p <= layers + 1; p++) P.push(top + (H - top) * (p - 1) / layers);
+    var P = [];
+    for (var p = 0; p <= layers + 1; p++) P.push(H * p / (layers + 1));
 
     layerEls.forEach(function (layer, i) {
       var k = layers - 1 - i;                                // 0 = strongest blur
-      var mask = ease(P[k + 1], P[Math.min(k + 1 + OVERLAP, layers + 1)]);
+      var stops = k === 0 ? ['#000 0px'] : ramp(0, 1, P[k - 1], P[k]);
+      stops = stops.concat(ramp(1, 0, P[k + 1], P[k + 2]));
+      var mask = 'linear-gradient(to bottom, ' + stops.join(', ') + ')';
       layer.style.webkitMaskImage = mask;
       layer.style.maskImage = mask;
     });
