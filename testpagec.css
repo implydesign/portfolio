@@ -2243,6 +2243,33 @@ padding-top: 3rem;
   .portfolio-hero { min-height: 100vh; min-height: 100svh; justify-content: center; }
 }
 
+/* ----- Phones: a close-up of the keycap scene -----
+   The hero is exactly one screen tall. The formula keeps its five rows, centred, but is zoomed in
+   (1em = one key = 30% of the screen width), so about 3-4 keys of each row show and the outer keys
+   and the top and bottom rows are cut by the screen edges. Sliding a finger across it presses each
+   key it passes (keycap-hero script); a drag that starts sideways also moves the scene at half
+   speed, so the cropped parts can be seen (keycap-pan script). Vertical swipes still scroll the page. */
+@media (max-width: 530px) {
+  .portfolio-hero {
+    height: 100vh; height: 100svh;
+    min-height: 0;
+    touch-action: pan-y;
+  }
+  .portfolio-hero .overlay {
+    position: absolute; inset: 0;
+    padding: 0; margin: 0;
+    width: auto;
+  }
+  .portfolio-hero .formula {
+    position: absolute; left: 50%; top: 50%;
+    width: 7.2em;                          /* the widest row, "∀ dsgn ∃", is about 7 keys */
+    font-size: 30vw;
+    justify-content: center;               /* each row centred */
+    row-gap: 0.32em;
+    transform: translate(-50%, -50%);
+  }
+}
+
 /* ----- Nav hover: one gooey blob that follows you between the nav items (script: nav-goo) ----- */
 nav.nav-goo-on { position: relative; }
 .nav-goo {
