@@ -688,9 +688,12 @@ liquid-logo > svg { width: 100%; height: auto; overflow: visible; display: block
 .portfolio-desknav.scroll .nav-logo { color: #1F1F1F; }   /* on the white nav */
 
 .footer-logo {
-  width: 6rem;
+  width: 16rem;
   align-self: flex-start;
   color: var(--footertext);          /* white on the dark footer */
+}
+@media (max-width: 530px) {
+  .footer-logo { width: 100%; }      /* phones: full width of the footer column */
 }
 
 /* phones: the same nav becomes an always-white floating pill with only the CV link */
