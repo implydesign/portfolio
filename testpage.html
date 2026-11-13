@@ -2213,5 +2213,90 @@ $(document).ready(function () {
 })();
 </script>
 
+
+<script data-tag="keycap-pan">
+/* ===== Phones: drag the zoomed keycap scene to see the cropped parts =====
+   On phones (max-width 530px) the formula is a close-up that the screen edges crop.
+   - A drag that starts sideways moves the scene in any direction, at half the finger's speed,
+     so the finger still slides across keys and presses them (keycap-hero script, unchanged).
+   - A drag that starts up/down scrolls the page as usual (touch-action: pan-y).
+   - No extra motion: the scene stops dead at its edges and stays where it is left.
+   - When the hero leaves the screen the scene is put back to the centre, without animation. */
+(function () {
+  var hero = document.querySelector('.portfolio-hero');
+  var formula = document.querySelector('.formula');
+  if (!hero || !formula) return;
+  var phoneMQ = window.matchMedia('(max-width: 530px)');
+  var keys = [].slice.call(formula.querySelectorAll('.key'));
+
+  var SPEED = 0.5;        // scene moves at half the finger's speed
+  var START = 8;          // px the finger travels before the direction is decided
+  var MARGIN = 16;        // px left between the scene's outermost keys and the screen edge (or the nav)
+
+  var x = 0, y = 0;
+  var lim = { x0: 0, x1: 0, y0: 0, y1: 0 };
+  var drag = null, queued = false;
+
+  function on() { return phoneMQ.matches; }
+  function busy() {
+    var c = formula.classList;
+    return c.contains('is-falling') || c.contains('kc-pre') || c.contains('kc-booting');
+  }
+
+  // How far the scene may move: until its outermost keys are fully on screen (below the nav).
+  function measure() {
+    var hr = hero.getBoundingClientRect();
+    var nav = document.querySelector('.portfolio-desknav');
+    var top = Math.max(0, (nav ? nav.getBoundingClientRect().bottom : 0) - hr.top) + MARGIN;
+    var l = Infinity, r = -Infinity, t = Infinity, b = -Infinity;
+    keys.forEach(function (k) {
+      var kr = k.getBoundingClientRect();
+      l = Math.min(l, kr.left); r = Math.max(r, kr.right);
+      t = Math.min(t, kr.top);  b = Math.max(b, kr.bottom);
+    });
+    // positions with the scene centred (take away the current offset)
+    l -= hr.left + x; r -= hr.left + x; t -= hr.top + y; b -= hr.top + y;
+    lim.x0 = Math.min(0, hr.width - MARGIN - r);  lim.x1 = Math.max(0, MARGIN - l);
+    lim.y0 = Math.min(0, hr.height - MARGIN - b); lim.y1 = Math.max(0, top - t);
+  }
+  function clamp(v, a, b) { return Math.max(a, Math.min(b, v)); }
+  function apply() {
+    formula.style.transform = (x || y) ? 'translate(-50%, -50%) translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0)' : '';
+    if (window.kcRemeasure) window.kcRemeasure();   // key tilt reads the keys' new positions
+  }
+  function reset() { x = y = 0; drag = null; formula.style.transform = ''; }
+
+  hero.addEventListener('pointerdown', function (e) {
+    if (!on() || e.pointerType === 'mouse' || busy()) return;
+    measure();
+    drag = { id: e.pointerId, sx: e.clientX, sy: e.clientY, ox: x, oy: y, panning: false };
+  });
+  window.addEventListener('pointermove', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var dx = e.clientX - drag.sx, dy = e.clientY - drag.sy;
+    if (!drag.panning) {
+      if (Math.hypot(dx, dy) < START) return;
+      if (Math.abs(dy) > Math.abs(dx)) { drag = null; return; }   // up/down: the page scrolls
+      drag.panning = true;
+    }
+    x = clamp(drag.ox + dx * SPEED, lim.x0, lim.x1);
+    y = clamp(drag.oy + dy * SPEED, lim.y0, lim.y1);
+    if (!queued) { queued = true; requestAnimationFrame(function () { queued = false; apply(); }); }
+  }, { passive: true });
+  function end(e) { if (drag && e.pointerId === drag.id) drag = null; }
+  window.addEventListener('pointerup', end);
+  window.addEventListener('pointercancel', end);
+
+  // back to the centre once the hero is off screen
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) {
+      es.forEach(function (en) { if (!en.isIntersecting && (x || y)) { reset(); if (window.kcRemeasure) window.kcRemeasure(); } });
+    }).observe(hero);
+  }
+  window.addEventListener('resize', function () { if (x || y) { reset(); if (window.kcRemeasure) window.kcRemeasure(); } });
+  if (phoneMQ.addEventListener) phoneMQ.addEventListener('change', reset);
+})();
+</script>
+
 </body>
 </html>
